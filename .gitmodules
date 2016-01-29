@@ -1,0 +1,6 @@
+[submodule "TLYShyNavBar"]
+	path = TLYShyNavBar
+	url = git@github.com:telly/TLYShyNavBar.git
+[submodule "DateTools"]
+	path = DateTools
+	url = git@github.com:MatthewYork/DateTools.git
