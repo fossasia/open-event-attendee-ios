@@ -23,7 +23,7 @@ struct Event {
     let trackCode: Track
     let title: String
     let shortDescription: String
-    let speaker: Speaker
+    let speaker: Speaker?
     let location: String
     let dateTime: NSDate
 }

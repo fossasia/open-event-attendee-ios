@@ -8,11 +8,22 @@
 
 import Foundation
 
-struct EventViewModel {
+typealias EventCellWithTypePresentable = protocol<TypePresentable, EventPresentable>
+
+protocol TypePresentable {
+    var typeColor: UIColor {get}
+}
+
+protocol EventPresentable {
+    var eventName: String {get}
+    var timing: String {get}
+}
+
+struct EventViewModel: EventCellWithTypePresentable {
     let track: Observable<String>
     let title: Observable<String>
     let shortDescription: Observable<String>
-    let speaker: Observable<Speaker>
+    let speaker: Observable<Speaker?>
     let location: Observable<String>
     let dateTime: Observable<NSDate>
     
@@ -24,4 +35,16 @@ struct EventViewModel {
         location = Observable(event.location)
         dateTime = Observable(event.dateTime)
     }
+}
+
+
+// MARK: - TypePresentable Conformance
+extension EventViewModel {
+    var typeColor: UIColor { return UIColor(hexString: self.track.value)! }
+}
+
+// MARK: - EventPresentable Conformance
+extension EventViewModel {
+    var eventName: String { return self.title.value }
+    var timing: String { return "09:00AM - 10:00AM - Biopolis Hub" }
 }

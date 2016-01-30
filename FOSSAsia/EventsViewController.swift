@@ -10,16 +10,21 @@ import UIKit
 
 class EventsViewController: UIViewController {
     private let kEventCellReuseIdentifier = "EventCell"
+    private var eventsArray: [Event] = []
     private let tempEventsArray = ["Opening", "Welcome", "Open Technologies in Singapore", "Novena and Open Hardware Development"]
 
     @IBOutlet weak var tableView: UITableView!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         tableView.dataSource = self
         tableView.delegate = self
-        tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: kEventCellReuseIdentifier)
         self.shyNavBarManager.scrollView = tableView;
+        
+        let event1 = Event(trackCode: .General, title:"Opening", shortDescription: "Just saying hi", speaker: nil, location: "Biopolis Matrix", dateTime: NSDate(year: 2015, month: 03, day: 13, hour: 09, minute: 00, second: 00))
+        eventsArray.append(event1)
     }
 
     override func didReceiveMemoryWarning() {
@@ -36,14 +41,16 @@ extension EventsViewController: UITableViewDelegate {
 
 extension EventsViewController: UITableViewDataSource {
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let eventName = tempEventsArray[indexPath.row]
-        let cell = tableView.dequeueReusableCellWithIdentifier(kEventCellReuseIdentifier, forIndexPath: indexPath)
-        cell.textLabel?.text = eventName
+//        let cell = tableView.cellForRowAtIndexPath(indexPath) as! EventCell
+        let cell = tableView.dequeueReusableCellWithIdentifier(kEventCellReuseIdentifier, forIndexPath: indexPath) as! EventCell
+        
+        let viewModel = EventViewModel(eventsArray[indexPath.row])
+        cell.configure(withPresenter: viewModel)
         
         return cell
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return tempEventsArray.count
+        return eventsArray.count
     }
 }

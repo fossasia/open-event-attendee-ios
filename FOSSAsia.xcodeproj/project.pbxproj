@@ -27,7 +27,9 @@
 		285F1BAD1C5B08FC00A7E0DD /* DTTimePeriodGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 285F1BA41C5B08FC00A7E0DD /* DTTimePeriodGroup.m */; };
 		285F1BAE1C5B08FC00A7E0DD /* NSDate+DateTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 285F1BA61C5B08FC00A7E0DD /* NSDate+DateTools.m */; };
 		285F1BB01C5B094F00A7E0DD /* Speaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285F1BAF1C5B094F00A7E0DD /* Speaker.swift */; };
-		285F1BB21C5B09F400A7E0DD /* EventViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285F1BB11C5B09F400A7E0DD /* EventViewModel.swift */; };
+		285F1BB41C5B0FDC00A7E0DD /* SpeakerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285F1BB31C5B0FDC00A7E0DD /* SpeakerViewModel.swift */; };
+		285F1BB81C5B16C700A7E0DD /* EventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285F1BB71C5B16C700A7E0DD /* EventCell.swift */; };
+		285F1BBC1C5B2B2B00A7E0DD /* EventViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285F1BBB1C5B2B2B00A7E0DD /* EventViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -92,7 +94,9 @@
 		285F1BA51C5B08FC00A7E0DD /* NSDate+DateTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+DateTools.h"; sourceTree = "<group>"; };
 		285F1BA61C5B08FC00A7E0DD /* NSDate+DateTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+DateTools.m"; sourceTree = "<group>"; };
 		285F1BAF1C5B094F00A7E0DD /* Speaker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Speaker.swift; sourceTree = "<group>"; };
-		285F1BB11C5B09F400A7E0DD /* EventViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventViewModel.swift; sourceTree = "<group>"; };
+		285F1BB31C5B0FDC00A7E0DD /* SpeakerViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpeakerViewModel.swift; sourceTree = "<group>"; };
+		285F1BB71C5B16C700A7E0DD /* EventCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventCell.swift; sourceTree = "<group>"; };
+		285F1BBB1C5B2B2B00A7E0DD /* EventViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,10 +133,12 @@
 			children = (
 				285F1B961C5B08FC00A7E0DD /* DateTools */,
 				285F1B911C5B06CC00A7E0DD /* Event.swift */,
-				285F1BB11C5B09F400A7E0DD /* EventViewModel.swift */,
+				285F1BBB1C5B2B2B00A7E0DD /* EventViewModel.swift */,
 				285F1BAF1C5B094F00A7E0DD /* Speaker.swift */,
+				285F1BB31C5B0FDC00A7E0DD /* SpeakerViewModel.swift */,
 				285F1B901C5B06A600A7E0DD /* Helpers */,
 				285F1B641C5AF7B100A7E0DD /* AppDelegate.swift */,
+				285F1BB71C5B16C700A7E0DD /* EventCell.swift */,
 				285F1B661C5AF7B100A7E0DD /* EventsViewController.swift */,
 				285F1B681C5AF7B100A7E0DD /* SecondViewController.swift */,
 				285F1B6A1C5AF7B100A7E0DD /* Main.storyboard */,
@@ -278,17 +284,19 @@
 				285F1B691C5AF7B100A7E0DD /* SecondViewController.swift in Sources */,
 				285F1BAD1C5B08FC00A7E0DD /* DTTimePeriodGroup.m in Sources */,
 				285F1B8F1C5B069D00A7E0DD /* Observable.swift in Sources */,
+				285F1BBC1C5B2B2B00A7E0DD /* EventViewModel.swift in Sources */,
 				285F1B651C5AF7B100A7E0DD /* AppDelegate.swift in Sources */,
 				285F1BAB1C5B08FC00A7E0DD /* DTTimePeriodChain.m in Sources */,
+				285F1BB81C5B16C700A7E0DD /* EventCell.swift in Sources */,
 				285F1BA81C5B08FC00A7E0DD /* DTConstants.m in Sources */,
 				285F1B671C5AF7B100A7E0DD /* EventsViewController.swift in Sources */,
 				285F1B921C5B06CC00A7E0DD /* Event.swift in Sources */,
+				285F1BB41C5B0FDC00A7E0DD /* SpeakerViewModel.swift in Sources */,
 				285F1BAA1C5B08FC00A7E0DD /* DTTimePeriod.m in Sources */,
 				285F1BAE1C5B08FC00A7E0DD /* NSDate+DateTools.m in Sources */,
 				285F1BAC1C5B08FC00A7E0DD /* DTTimePeriodCollection.m in Sources */,
 				285F1BB01C5B094F00A7E0DD /* Speaker.swift in Sources */,
 				285F1BA91C5B08FC00A7E0DD /* DTError.m in Sources */,
-				285F1BB21C5B09F400A7E0DD /* EventViewModel.swift in Sources */,
 				285F1B791C5AFBBB00A7E0DD /* SwiftHEXColors.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -451,6 +459,7 @@
 				285F1B771C5AF7B100A7E0DD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
