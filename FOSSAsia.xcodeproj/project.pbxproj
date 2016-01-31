@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2859B0FA1C5C6507009656FC /* Reveal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2859B0F91C5C6507009656FC /* Reveal.framework */; };
+		2859B0FE1C5DF8D7009656FC /* EventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2859B0FD1C5DF8D7009656FC /* EventViewController.swift */; };
+		2859B1001C5DFD09009656FC /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2859B0FF1C5DFD09009656FC /* Colors.swift */; };
+		2859B1021C5E29DC009656FC /* EventInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2859B1011C5E29DC009656FC /* EventInfoView.swift */; };
 		285F1B651C5AF7B100A7E0DD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285F1B641C5AF7B100A7E0DD /* AppDelegate.swift */; };
 		285F1B671C5AF7B100A7E0DD /* EventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285F1B661C5AF7B100A7E0DD /* EventsViewController.swift */; };
 		285F1B691C5AF7B100A7E0DD /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285F1B681C5AF7B100A7E0DD /* SecondViewController.swift */; };
@@ -64,6 +68,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		2859B0F91C5C6507009656FC /* Reveal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Reveal.framework; sourceTree = "<group>"; };
+		2859B0FD1C5DF8D7009656FC /* EventViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventViewController.swift; sourceTree = "<group>"; };
+		2859B0FF1C5DFD09009656FC /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		2859B1011C5E29DC009656FC /* EventInfoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventInfoView.swift; sourceTree = "<group>"; };
 		285F1B611C5AF7B100A7E0DD /* FOSSAsia.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FOSSAsia.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		285F1B641C5AF7B100A7E0DD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		285F1B661C5AF7B100A7E0DD /* EventsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsViewController.swift; sourceTree = "<group>"; };
@@ -105,15 +113,26 @@
 			buildActionMask = 2147483647;
 			files = (
 				285F1B821C5B014600A7E0DD /* TLYShyNavBar.framework in Frameworks */,
+				2859B0FA1C5C6507009656FC /* Reveal.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2859B1031C5E2F0A009656FC /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				285F1BB71C5B16C700A7E0DD /* EventCell.swift */,
+				2859B1011C5E29DC009656FC /* EventInfoView.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
 		285F1B581C5AF7B100A7E0DD = {
 			isa = PBXGroup;
 			children = (
+				2859B0F91C5C6507009656FC /* Reveal.framework */,
 				285F1B7A1C5AFDE100A7E0DD /* TLYShyNavBar.xcodeproj */,
 				285F1B631C5AF7B100A7E0DD /* FOSSAsia */,
 				285F1B621C5AF7B100A7E0DD /* Products */,
@@ -131,15 +150,15 @@
 		285F1B631C5AF7B100A7E0DD /* FOSSAsia */ = {
 			isa = PBXGroup;
 			children = (
-				285F1B961C5B08FC00A7E0DD /* DateTools */,
+				285F1B641C5AF7B100A7E0DD /* AppDelegate.swift */,
 				285F1B911C5B06CC00A7E0DD /* Event.swift */,
 				285F1BBB1C5B2B2B00A7E0DD /* EventViewModel.swift */,
 				285F1BAF1C5B094F00A7E0DD /* Speaker.swift */,
 				285F1BB31C5B0FDC00A7E0DD /* SpeakerViewModel.swift */,
 				285F1B901C5B06A600A7E0DD /* Helpers */,
-				285F1B641C5AF7B100A7E0DD /* AppDelegate.swift */,
-				285F1BB71C5B16C700A7E0DD /* EventCell.swift */,
+				2859B1031C5E2F0A009656FC /* Views */,
 				285F1B661C5AF7B100A7E0DD /* EventsViewController.swift */,
+				2859B0FD1C5DF8D7009656FC /* EventViewController.swift */,
 				285F1B681C5AF7B100A7E0DD /* SecondViewController.swift */,
 				285F1B6A1C5AF7B100A7E0DD /* Main.storyboard */,
 				285F1B6D1C5AF7B100A7E0DD /* Assets.xcassets */,
@@ -161,6 +180,8 @@
 		285F1B901C5B06A600A7E0DD /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				285F1B961C5B08FC00A7E0DD /* DateTools */,
+				2859B0FF1C5DFD09009656FC /* Colors.swift */,
 				285F1B8E1C5B069D00A7E0DD /* Observable.swift */,
 				285F1B781C5AFBBB00A7E0DD /* SwiftHEXColors.swift */,
 			);
@@ -282,10 +303,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				285F1B691C5AF7B100A7E0DD /* SecondViewController.swift in Sources */,
+				2859B1001C5DFD09009656FC /* Colors.swift in Sources */,
 				285F1BAD1C5B08FC00A7E0DD /* DTTimePeriodGroup.m in Sources */,
 				285F1B8F1C5B069D00A7E0DD /* Observable.swift in Sources */,
 				285F1BBC1C5B2B2B00A7E0DD /* EventViewModel.swift in Sources */,
 				285F1B651C5AF7B100A7E0DD /* AppDelegate.swift in Sources */,
+				2859B0FE1C5DF8D7009656FC /* EventViewController.swift in Sources */,
+				2859B1021C5E29DC009656FC /* EventInfoView.swift in Sources */,
 				285F1BAB1C5B08FC00A7E0DD /* DTTimePeriodChain.m in Sources */,
 				285F1BB81C5B16C700A7E0DD /* EventCell.swift in Sources */,
 				285F1BA81C5B08FC00A7E0DD /* DTConstants.m in Sources */,
@@ -418,8 +442,20 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+					"$(inherited)",
+					"\"$(SYSTEM_APPS_DIR)/Reveal.app/Contents/SharedSupport/iOS-Libraries\"",
+				);
 				INFOPLIST_FILE = FOSSAsia/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-lz",
+					"-framework",
+					Reveal,
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.fossasia.FOSSAsia;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "FOSSAsia/Fossasia-Bridging-Header.h";
@@ -431,8 +467,20 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+					"$(inherited)",
+					"\"$(SYSTEM_APPS_DIR)/Reveal.app/Contents/SharedSupport/iOS-Libraries\"",
+				);
 				INFOPLIST_FILE = FOSSAsia/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-lz",
+					"-framework",
+					Reveal,
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.fossasia.FOSSAsia;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "FOSSAsia/Fossasia-Bridging-Header.h";

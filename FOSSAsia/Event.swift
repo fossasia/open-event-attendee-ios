@@ -25,5 +25,7 @@ struct Event {
     let shortDescription: String
     let speaker: Speaker?
     let location: String
-    let dateTime: NSDate
+    let startDateTime: NSDate
+    let endDateTime: NSDate
+    let favorite: Bool = false
 }

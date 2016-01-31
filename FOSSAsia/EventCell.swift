@@ -8,6 +8,8 @@
 
 import UIKit
 
+typealias EventCellWithTypePresentable = protocol<EventTypePresentable, EventDetailsPresentable>
+
 class EventCell: UITableViewCell {
     @IBOutlet weak var typeView: UIView!
     @IBOutlet weak var titleLabel: UILabel!

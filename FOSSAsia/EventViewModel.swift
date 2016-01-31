@@ -8,24 +8,30 @@
 
 import Foundation
 
-typealias EventCellWithTypePresentable = protocol<TypePresentable, EventPresentable>
 
-protocol TypePresentable {
+protocol EventTypePresentable {
     var typeColor: UIColor {get}
 }
 
-protocol EventPresentable {
+protocol EventDetailsPresentable {
     var eventName: String {get}
+    var speakerName: String {get}
     var timing: String {get}
 }
 
-struct EventViewModel: EventCellWithTypePresentable {
+protocol EventDescriptionPresentable {
+    var eventDescription: String {get }
+}
+
+struct EventViewModel: EventTypePresentable, EventDetailsPresentable, EventDescriptionPresentable {
     let track: Observable<String>
     let title: Observable<String>
     let shortDescription: Observable<String>
     let speaker: Observable<Speaker?>
     let location: Observable<String>
-    let dateTime: Observable<NSDate>
+    let startDateTime: Observable<NSDate>
+    let endDateTime: Observable<NSDate>
+    let favorite: Observable<Bool>
     
     init (_ event: Event) {
         track = Observable(event.trackCode.rawValue)
@@ -33,10 +39,16 @@ struct EventViewModel: EventCellWithTypePresentable {
         shortDescription = Observable(event.shortDescription)
         speaker = Observable(event.speaker)
         location = Observable(event.location)
-        dateTime = Observable(event.dateTime)
+        startDateTime = Observable(event.startDateTime)
+        endDateTime = Observable(event.endDateTime)
+        favorite = Observable(event.favorite)
     }
 }
 
+// MARK: - EventDescriptionPresentable Conformance
+extension EventViewModel {
+    var eventDescription: String { return shortDescription.value }
+}
 
 // MARK: - TypePresentable Conformance
 extension EventViewModel {
@@ -46,5 +58,6 @@ extension EventViewModel {
 // MARK: - EventPresentable Conformance
 extension EventViewModel {
     var eventName: String { return self.title.value }
+    var speakerName: String { return (self.speaker.value?.name)! }
     var timing: String { return "09:00AM - 10:00AM - Biopolis Hub" }
 }
