@@ -24,7 +24,7 @@ protocol EventDescriptionPresentable {
 }
 
 struct EventViewModel: EventTypePresentable, EventDetailsPresentable, EventDescriptionPresentable {
-    let track: Observable<String>
+    let track: Observable<UIColor>
     let title: Observable<String>
     let shortDescription: Observable<String>
     let speaker: Observable<Speaker?>
@@ -34,7 +34,7 @@ struct EventViewModel: EventTypePresentable, EventDetailsPresentable, EventDescr
     let favorite: Observable<Bool>
     
     init (_ event: Event) {
-        track = Observable(event.trackCode.rawValue)
+        track = Observable(event.trackCode.getTrackColor())
         title = Observable(event.title)
         shortDescription = Observable(event.shortDescription)
         speaker = Observable(event.speaker)
@@ -52,7 +52,7 @@ extension EventViewModel {
 
 // MARK: - TypePresentable Conformance
 extension EventViewModel {
-    var typeColor: UIColor { return UIColor(hexString: self.track.value)! }
+    var typeColor: UIColor { return self.track.value }
 }
 
 // MARK: - EventPresentable Conformance

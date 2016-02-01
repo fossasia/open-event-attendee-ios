@@ -4,3 +4,6 @@
 [submodule "DateTools"]
 	path = DateTools
 	url = git@github.com:MatthewYork/DateTools.git
+[submodule "SwiftyJSON"]
+	path = SwiftyJSON
+	url = git@github.com:SwiftyJSON/SwiftyJSON.git

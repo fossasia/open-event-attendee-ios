@@ -10,14 +10,28 @@ import Foundation
 
 struct Event {
     enum Track: String {
-        case General = "8E8E93"
-        case OpenTech = "FF4D55"
-        case DevOps = "FF8C2F"
-        case Web = "FFD233"
-        case Python = "6CBD7A"
-        case Mozilla = "3DC8C3"
-        case Exhibition = "39A8FA"
-        case Workshops = "B26DE0"
+        case General, OpenTech, DevOps, Web, Python, Mozilla, Exhibition, Workshops
+        
+        func getTrackColor() -> UIColor {
+            switch self {
+            case .General:
+                return UIColor(hexString: "8E8E93")!
+            case .OpenTech:
+                return UIColor(hexString: "FF4D55")!
+            case .DevOps:
+                return UIColor(hexString: "FF8C2F")!
+            case .Web:
+                return UIColor(hexString: "FFD233")!
+            case .Python:
+                return UIColor(hexString: "6CBD7A")!
+            case .Mozilla:
+                return UIColor(hexString: "3DC8C3")!
+            case .Exhibition:
+                return UIColor(hexString: "39A8FA")!
+            case .Workshops:
+                return UIColor(hexString: "B26DE0")!
+            }
+        }
     }
     
     let trackCode: Track
@@ -28,4 +42,6 @@ struct Event {
     let startDateTime: NSDate
     let endDateTime: NSDate
     let favorite: Bool = false
+    
+
 }
