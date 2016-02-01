@@ -29,6 +29,13 @@ struct ScheduleViewModel {
         
         // Dependency Injections
         eventsService = FossAsiaEventsService()
+        eventsService.retrieveEventsInfo { (events, error) -> Void in
+            if error == nil {
+                if let eventsArray = events {
+                    self.update(Schedule(date: NSDate(year: 2015, month: 03, day: 14), events: eventsArray))
+                }
+            }
+        }
     }
     
     private func update(schedule: Schedule) {
@@ -60,7 +67,7 @@ struct ScheduleViewModel {
     func returnMockData() {
         var eventsArray: [Event] = []
         
-        let event1 = Event(trackCode: .General, title:"Snacks", shortDescription: "Just saying hi", speaker: nil, location: "Biopolis Matrix", startDateTime: NSDate(year: 2015, month: 03, day: 14, hour: 09, minute: 00, second: 00), endDateTime: NSDate(year: 2015, month: 03, day: 14, hour: 09, minute: 30, second: 00))
+        let event1 = Event(trackCode: Event.Track(rawValue: 1)!, title:"Snacks", shortDescription: "Just saying hi", speaker: nil, location: "Biopolis Matrix", startDateTime: NSDate(year: 2015, month: 03, day: 14, hour: 09, minute: 00, second: 00), endDateTime: NSDate(year: 2015, month: 03, day: 14, hour: 09, minute: 30, second: 00))
         let event2 = Event(trackCode: .Mozilla, title: "Collaborative Webmaking using TogetherJS", shortDescription: "", speaker: nil, location: "JFDI Blk 71", startDateTime: NSDate(year: 2015, month: 03, day: 14, hour: 09, minute: 00, second: 00), endDateTime: NSDate(year: 2015, month: 03, day: 14, hour: 09, minute: 30, second: 00))
         let event3 = Event(trackCode: .DevOps, title: "oVirt Workshop", shortDescription: "", speaker: nil, location: "JFDI Blk 71", startDateTime: NSDate(year: 2015, month: 03, day: 14, hour: 09, minute: 00, second: 00), endDateTime: NSDate(year: 2015, month: 03, day: 14, hour: 09, minute: 30, second: 00))
         let event4 = Event(trackCode: .OpenTech, title: "Free/Libre Open Source Software Licenses", shortDescription: "", speaker: nil, location: "NUS Plug-In Blk 71", startDateTime: NSDate(year: 2015, month: 03, day: 14, hour: 09, minute: 30, second: 00), endDateTime: NSDate(year: 2015, month: 03, day: 14, hour: 09, minute: 50, second: 00))

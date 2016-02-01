@@ -14,10 +14,11 @@ typealias EventsRetrievalCompletionHandler = (Error?) -> Void
 struct FossAsiaEventsService: EventsServiceProtocol {
     private let urlPath = "https://raw.githubusercontent.com/fossasia/open-event/master/testapi/"
     private let localEventsPath = "events.json"
+    private let dateFormatString = "yyyy-MM-dd'T'HH:mm:ss"
 
     
     func retrieveEventsInfo(completionHandler: EventCompletionHandler) {
-        if (NSUserDefaults.standardUserDefaults().boolForKey("HasInitialLoad")) {
+        if (!NSUserDefaults.standardUserDefaults().boolForKey("HasInitialLoad")) {
             self.getEventsFromNetwork { (error) -> Void in
                 if error != nil {
                     completionHandler(nil, error)
@@ -29,18 +30,38 @@ struct FossAsiaEventsService: EventsServiceProtocol {
         }
         
         if let dir : NSString = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomainMask.AllDomainsMask, true).first {
-        
             do {
-                let filePath = NSURL(string: dir.stringByAppendingString(self.localEventsPath))
-                let eventsData = try NSData(contentsOfURL: filePath!, options: .DataReadingMappedIfSafe)
+                let filePath = dir.stringByAppendingPathComponent(self.localEventsPath)
+                let eventsData = try NSData(contentsOfFile: filePath, options: .DataReadingMappedIfSafe)
                 
                 let jsonObj = JSON(data: eventsData)
-                print(jsonObj)
+                guard let sessionsArray = jsonObj["sessions"].array else {
+                    let error = Error(errorCode: .JSONParsingFailed)
+                    completionHandler(nil, error)
+                    return
+                }
                 
+                var sessions: [Event] = []
+                
+                for session in sessionsArray {
+                    guard let trackId = session["track"].int,
+                        sessionTitle = session["title"].string,
+                        sessionDescription = session["description"].string,
+                        sessionSpeakerName = session["speakers"][0]["name"].string,
+                        sessionStartDateTime = session["begin"].string,
+                        sessionEndDateTime = session["end"].string else {
+                        continue
+                    }
+                    
+                    
+                    let tempSession = Event(trackCode: Event.Track(rawValue: trackId)!, title:sessionTitle, shortDescription: sessionDescription, speaker: Speaker(name: sessionSpeakerName), location: "Biopolis Matrix", startDateTime: NSDate(string: sessionStartDateTime, formatString: dateFormatString), endDateTime: NSDate(string: sessionEndDateTime, formatString: dateFormatString))
+                    sessions.append(tempSession)
+                }
+                
+                completionHandler(sessions, nil)
             } catch {
                 completionHandler(nil, Error(errorCode: .JSONSystemReadingFailed))
             }
-            
         }
 
     }

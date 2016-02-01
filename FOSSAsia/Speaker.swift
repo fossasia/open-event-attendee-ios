@@ -10,6 +10,5 @@ import Foundation
 
 struct Speaker {
     let name: String
-    let organisation: String
     
 }

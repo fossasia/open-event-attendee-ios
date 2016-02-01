@@ -33,7 +33,7 @@ class EventsViewController: UIViewController {
         self.shyNavBarManager.scrollView = tableView;
         
         viewModel = ScheduleViewModel(NSDate(year: 2015, month: 03, day: 14))
-        viewModel?.returnMockData()
+//        viewModel?.returnMockData()
         
 //        filterButton.addTarget(self, action: "handleFilterButtonPressed:", forControlEvents: .TouchUpInside)
     }

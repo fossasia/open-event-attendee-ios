@@ -9,8 +9,9 @@
 import Foundation
 
 struct Event {
-    enum Track: String {
-        case General, OpenTech, DevOps, Web, Python, Mozilla, Exhibition, Workshops
+    enum Track: Int {
+        case General = 1
+        case OpenTech, DevOps, Web, Python, Mozilla, Exhibition, Workshops
         
         func getTrackColor() -> UIColor {
             switch self {
