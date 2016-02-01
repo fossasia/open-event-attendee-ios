@@ -9,12 +9,26 @@
 import Foundation
 
 struct ScheduleViewModel {
+    // MARK: - Properties
     let date: Observable<NSDate>
     let events: Observable<[EventViewModel]>
     
+    // MARK: - Properties
+    let hasError: Observable<Bool>
+    let errorMessage: Observable<String?>
+    
+    // MARK: - Services
+    private var eventsService: EventsServiceProtocol
+    
     init (_ date: NSDate) {
+        hasError = Observable(false)
+        errorMessage = Observable(nil)
+        
         self.date = Observable(date)
         self.events = Observable([])
+        
+        // Dependency Injections
+        eventsService = FossAsiaEventsService()
     }
     
     private func update(schedule: Schedule) {
@@ -22,6 +36,25 @@ struct ScheduleViewModel {
             return EventViewModel(event)
         }
         events.value = tempEvents
+    }
+    
+    private func update(error: Error) {
+        hasError.value = true
+        
+        switch error.errorCode {
+        case .URLError:
+            errorMessage.value = "The events service is not working."
+        case .NetworkRequestFailed:
+            errorMessage.value = "The network appears to be down."
+        case .JSONSerializationFailed:
+            errorMessage.value = "We're having trouble processing events data."
+        case .JSONParsingFailed:
+            errorMessage.value = "We're having trouble parsing events data."
+        case .JSONSystemReadingFailed:
+            errorMessage.value = "There seems to be a problem with reading data from disk."
+        }
+        
+        self.events.value = []
     }
     
     func returnMockData() {

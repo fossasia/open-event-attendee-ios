@@ -16,6 +16,4 @@ struct SpeakerViewModel {
         name = Observable(speaker.name)
         organisation = Observable(speaker.organisation)
     }
-    
-
 }

@@ -15,6 +15,15 @@ class EventsViewController: UIViewController {
     @IBOutlet weak var filterButton: UIButton!
     @IBOutlet weak var tableView: UITableView!
     
+    var viewModel: ScheduleViewModel? {
+        didSet {
+            viewModel?.events.observe {
+                [unowned self] in
+                self.eventsArray = $0
+                self.tableView.reloadData()
+            }
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,16 +36,6 @@ class EventsViewController: UIViewController {
         viewModel?.returnMockData()
         
 //        filterButton.addTarget(self, action: "handleFilterButtonPressed:", forControlEvents: .TouchUpInside)
-    }
-    
-    var viewModel: ScheduleViewModel? {
-        didSet {
-            viewModel?.events.observe {
-                [unowned self] in
-                self.eventsArray = $0
-                self.tableView.reloadData()
-            }
-        }
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
