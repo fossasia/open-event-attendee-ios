@@ -43,6 +43,4 @@ struct Event {
     let startDateTime: NSDate
     let endDateTime: NSDate
     let favorite: Bool = false
-    
-
 }

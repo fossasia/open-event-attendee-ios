@@ -12,14 +12,17 @@ typealias IndividualEventPresentable = protocol<EventDetailsPresentable, EventDe
 
 class EventViewController: UIViewController {
     var eventViewModel: EventViewModel?
+    @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var eventDescriptionTextView: UITextView!
     @IBOutlet weak var eventInfoView: EventInfoView!
     
     override func viewDidLoad() {
+        eventDescriptionTextView.scrollEnabled = false
         if let viewModel = eventViewModel {
             self.configure(viewModel)
         }
     }
+
     
     func configure(presenter: IndividualEventPresentable) {
         eventDescriptionTextView.text = presenter.eventDescription
