@@ -33,6 +33,7 @@
 		285F1BB41C5B0FDC00A7E0DD /* SpeakerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285F1BB31C5B0FDC00A7E0DD /* SpeakerViewModel.swift */; };
 		285F1BB81C5B16C700A7E0DD /* EventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285F1BB71C5B16C700A7E0DD /* EventCell.swift */; };
 		285F1BBC1C5B2B2B00A7E0DD /* EventViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285F1BBB1C5B2B2B00A7E0DD /* EventViewModel.swift */; };
+		289ADCF61C6086CF00E1DA09 /* Sessions.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 289ADCF51C6086CF00E1DA09 /* Sessions.storyboard */; };
 		28A0BC6D1C5F4082001625FB /* FossAsiaEventsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A0BC6C1C5F4082001625FB /* FossAsiaEventsService.swift */; };
 		28A0BC6F1C5F42D6001625FB /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A0BC6E1C5F42D6001625FB /* Error.swift */; };
 		28A0BC711C5F4373001625FB /* EventsServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A0BC701C5F4373001625FB /* EventsServiceProtocol.swift */; };
@@ -167,6 +168,7 @@
 		285F1BB31C5B0FDC00A7E0DD /* SpeakerViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpeakerViewModel.swift; sourceTree = "<group>"; };
 		285F1BB71C5B16C700A7E0DD /* EventCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventCell.swift; sourceTree = "<group>"; };
 		285F1BBB1C5B2B2B00A7E0DD /* EventViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventViewModel.swift; sourceTree = "<group>"; };
+		289ADCF51C6086CF00E1DA09 /* Sessions.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Sessions.storyboard; sourceTree = "<group>"; };
 		28A0BC6C1C5F4082001625FB /* FossAsiaEventsService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FossAsiaEventsService.swift; sourceTree = "<group>"; };
 		28A0BC6E1C5F42D6001625FB /* Error.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
 		28A0BC701C5F4373001625FB /* EventsServiceProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsServiceProtocol.swift; sourceTree = "<group>"; };
@@ -233,6 +235,7 @@
 				28A0BC701C5F4373001625FB /* EventsServiceProtocol.swift */,
 				28A0BC6C1C5F4082001625FB /* FossAsiaEventsService.swift */,
 				285F1B6A1C5AF7B100A7E0DD /* Main.storyboard */,
+				289ADCF51C6086CF00E1DA09 /* Sessions.storyboard */,
 				285F1B6D1C5AF7B100A7E0DD /* Assets.xcassets */,
 				285F1B6F1C5AF7B100A7E0DD /* LaunchScreen.storyboard */,
 				285F1B721C5AF7B100A7E0DD /* Info.plist */,
@@ -433,6 +436,7 @@
 				285F1B6E1C5AF7B100A7E0DD /* Assets.xcassets in Resources */,
 				285F1B6C1C5AF7B100A7E0DD /* Main.storyboard in Resources */,
 				285F1BA71C5B08FC00A7E0DD /* DateTools.bundle in Resources */,
+				289ADCF61C6086CF00E1DA09 /* Sessions.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
