@@ -190,6 +190,62 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2818A9311C62300300ECB57F /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				285F1B661C5AF7B100A7E0DD /* EventsViewController.swift */,
+				2859B0FD1C5DF8D7009656FC /* EventViewController.swift */,
+				285F1B681C5AF7B100A7E0DD /* SecondViewController.swift */,
+			);
+			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		2818A9381C62301A00ECB57F /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				285F1B911C5B06CC00A7E0DD /* Event.swift */,
+				28A0BC931C5F50A2001625FB /* Schedule.swift */,
+				285F1BAF1C5B094F00A7E0DD /* Speaker.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		2818A9391C62305100ECB57F /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				285F1BBB1C5B2B2B00A7E0DD /* EventViewModel.swift */,
+				28A0BC911C5F4FEC001625FB /* ScheduleViewModel.swift */,
+				285F1BB31C5B0FDC00A7E0DD /* SpeakerViewModel.swift */,
+			);
+			name = ViewModels;
+			sourceTree = "<group>";
+		};
+		2818A93A1C62347300ECB57F /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				28A0BC6C1C5F4082001625FB /* FossAsiaEventsService.swift */,
+			);
+			name = Services;
+			sourceTree = "<group>";
+		};
+		2818A93B1C62347A00ECB57F /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				28A0BC701C5F4373001625FB /* EventsServiceProtocol.swift */,
+			);
+			name = Protocols;
+			sourceTree = "<group>";
+		};
+		2818A93C1C62348300ECB57F /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				285F1B6A1C5AF7B100A7E0DD /* Main.storyboard */,
+				289ADCF51C6086CF00E1DA09 /* Sessions.storyboard */,
+				285F1B6F1C5AF7B100A7E0DD /* LaunchScreen.storyboard */,
+			);
+			name = Storyboards;
+			sourceTree = "<group>";
+		};
 		2859B1031C5E2F0A009656FC /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -221,23 +277,15 @@
 			isa = PBXGroup;
 			children = (
 				285F1B641C5AF7B100A7E0DD /* AppDelegate.swift */,
-				285F1B911C5B06CC00A7E0DD /* Event.swift */,
-				285F1BBB1C5B2B2B00A7E0DD /* EventViewModel.swift */,
-				28A0BC931C5F50A2001625FB /* Schedule.swift */,
-				28A0BC911C5F4FEC001625FB /* ScheduleViewModel.swift */,
-				285F1BAF1C5B094F00A7E0DD /* Speaker.swift */,
-				285F1BB31C5B0FDC00A7E0DD /* SpeakerViewModel.swift */,
+				2818A9381C62301A00ECB57F /* Models */,
+				2818A9391C62305100ECB57F /* ViewModels */,
 				285F1B901C5B06A600A7E0DD /* Helpers */,
 				2859B1031C5E2F0A009656FC /* Views */,
-				285F1B661C5AF7B100A7E0DD /* EventsViewController.swift */,
-				2859B0FD1C5DF8D7009656FC /* EventViewController.swift */,
-				285F1B681C5AF7B100A7E0DD /* SecondViewController.swift */,
-				28A0BC701C5F4373001625FB /* EventsServiceProtocol.swift */,
-				28A0BC6C1C5F4082001625FB /* FossAsiaEventsService.swift */,
-				285F1B6A1C5AF7B100A7E0DD /* Main.storyboard */,
-				289ADCF51C6086CF00E1DA09 /* Sessions.storyboard */,
+				2818A9311C62300300ECB57F /* View Controllers */,
+				2818A93B1C62347A00ECB57F /* Protocols */,
+				2818A93A1C62347300ECB57F /* Services */,
+				2818A93C1C62348300ECB57F /* Storyboards */,
 				285F1B6D1C5AF7B100A7E0DD /* Assets.xcassets */,
-				285F1B6F1C5AF7B100A7E0DD /* LaunchScreen.storyboard */,
 				285F1B721C5AF7B100A7E0DD /* Info.plist */,
 				285F1B801C5AFE3200A7E0DD /* Fossasia-Bridging-Header.h */,
 			);

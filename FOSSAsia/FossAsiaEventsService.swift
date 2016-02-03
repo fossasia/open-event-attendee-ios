@@ -26,9 +26,27 @@ struct FossAsiaEventsService: EventsServiceProtocol {
                 
                 let defaults = NSUserDefaults.standardUserDefaults()
                 defaults.setBool(true, forKey: "HasInitialLoad")
+                self.getEventsFromDisk { (events, error) -> Void in
+                    if let eventsFromDisk = events {
+                        completionHandler(eventsFromDisk, nil)
+                    } else {
+                        completionHandler(nil, error)
+                    }
+                }
             }
         }
         
+        self.getEventsFromDisk { (events, error) -> Void in
+            if let eventsFromDisk = events {
+                completionHandler(eventsFromDisk, nil)
+            } else {
+                completionHandler(nil, error)
+            }
+        }
+
+    }
+    
+    private func getEventsFromDisk(completionHandler: EventCompletionHandler) {
         if let dir : NSString = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomainMask.AllDomainsMask, true).first {
             do {
                 let filePath = dir.stringByAppendingPathComponent(self.localEventsPath)
@@ -50,7 +68,7 @@ struct FossAsiaEventsService: EventsServiceProtocol {
                         sessionSpeakerName = session["speakers"][0]["name"].string,
                         sessionStartDateTime = session["begin"].string,
                         sessionEndDateTime = session["end"].string else {
-                        continue
+                            continue
                     }
                     
                     
@@ -63,7 +81,6 @@ struct FossAsiaEventsService: EventsServiceProtocol {
                 completionHandler(nil, Error(errorCode: .JSONSystemReadingFailed))
             }
         }
-
     }
     
     private func getEventsFromNetwork(completionHandler: EventsRetrievalCompletionHandler) {
@@ -88,8 +105,9 @@ struct FossAsiaEventsService: EventsServiceProtocol {
                 let path = dir.stringByAppendingPathComponent(self.localEventsPath);
                 
                 unwrappedData.writeToFile(path, atomically: false)
-                
             }
+            
+            completionHandler(nil)
         }
         
         task.resume()
