@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		280DE5291C62FCB200E64020 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 280DE5281C62FCB200E64020 /* Podfile */; };
 		2859B0FE1C5DF8D7009656FC /* EventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2859B0FD1C5DF8D7009656FC /* EventViewController.swift */; };
 		2859B1001C5DFD09009656FC /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2859B0FF1C5DFD09009656FC /* Colors.swift */; };
 		2859B1021C5E29DC009656FC /* EventInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2859B1011C5E29DC009656FC /* EventInfoView.swift */; };
@@ -19,14 +20,6 @@
 		285F1B791C5AFBBB00A7E0DD /* SwiftHEXColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285F1B781C5AFBBB00A7E0DD /* SwiftHEXColors.swift */; };
 		285F1B8F1C5B069D00A7E0DD /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285F1B8E1C5B069D00A7E0DD /* Observable.swift */; };
 		285F1B921C5B06CC00A7E0DD /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285F1B911C5B06CC00A7E0DD /* Event.swift */; };
-		285F1BA71C5B08FC00A7E0DD /* DateTools.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 285F1B971C5B08FC00A7E0DD /* DateTools.bundle */; };
-		285F1BA81C5B08FC00A7E0DD /* DTConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 285F1B9A1C5B08FC00A7E0DD /* DTConstants.m */; };
-		285F1BA91C5B08FC00A7E0DD /* DTError.m in Sources */ = {isa = PBXBuildFile; fileRef = 285F1B9C1C5B08FC00A7E0DD /* DTError.m */; };
-		285F1BAA1C5B08FC00A7E0DD /* DTTimePeriod.m in Sources */ = {isa = PBXBuildFile; fileRef = 285F1B9E1C5B08FC00A7E0DD /* DTTimePeriod.m */; };
-		285F1BAB1C5B08FC00A7E0DD /* DTTimePeriodChain.m in Sources */ = {isa = PBXBuildFile; fileRef = 285F1BA01C5B08FC00A7E0DD /* DTTimePeriodChain.m */; };
-		285F1BAC1C5B08FC00A7E0DD /* DTTimePeriodCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = 285F1BA21C5B08FC00A7E0DD /* DTTimePeriodCollection.m */; };
-		285F1BAD1C5B08FC00A7E0DD /* DTTimePeriodGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 285F1BA41C5B08FC00A7E0DD /* DTTimePeriodGroup.m */; };
-		285F1BAE1C5B08FC00A7E0DD /* NSDate+DateTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 285F1BA61C5B08FC00A7E0DD /* NSDate+DateTools.m */; };
 		285F1BB01C5B094F00A7E0DD /* Speaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285F1BAF1C5B094F00A7E0DD /* Speaker.swift */; };
 		285F1BB41C5B0FDC00A7E0DD /* SpeakerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285F1BB31C5B0FDC00A7E0DD /* SpeakerViewModel.swift */; };
 		285F1BB81C5B16C700A7E0DD /* EventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285F1BB71C5B16C700A7E0DD /* EventCell.swift */; };
@@ -37,6 +30,7 @@
 		28A0BC711C5F4373001625FB /* EventsServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A0BC701C5F4373001625FB /* EventsServiceProtocol.swift */; };
 		28A0BC921C5F4FEC001625FB /* ScheduleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A0BC911C5F4FEC001625FB /* ScheduleViewModel.swift */; };
 		28A0BC941C5F50A2001625FB /* Schedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A0BC931C5F50A2001625FB /* Schedule.swift */; };
+		DA4CC3D451E57B3D3B6780CD /* Pods_FOSSAsia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 193D6EE00801D10F0049F1C3 /* Pods_FOSSAsia.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -53,6 +47,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		193D6EE00801D10F0049F1C3 /* Pods_FOSSAsia.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FOSSAsia.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		280DE5281C62FCB200E64020 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
 		2859B0FD1C5DF8D7009656FC /* EventViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventViewController.swift; sourceTree = "<group>"; };
 		2859B0FF1C5DFD09009656FC /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		2859B1011C5E29DC009656FC /* EventInfoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventInfoView.swift; sourceTree = "<group>"; };
@@ -94,6 +90,8 @@
 		28A0BC701C5F4373001625FB /* EventsServiceProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsServiceProtocol.swift; sourceTree = "<group>"; };
 		28A0BC911C5F4FEC001625FB /* ScheduleViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleViewModel.swift; sourceTree = "<group>"; };
 		28A0BC931C5F50A2001625FB /* Schedule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Schedule.swift; sourceTree = "<group>"; };
+		79D22ECB7ECA2ECF5403D3D1 /* Pods-FOSSAsia.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FOSSAsia.release.xcconfig"; path = "Pods/Target Support Files/Pods-FOSSAsia/Pods-FOSSAsia.release.xcconfig"; sourceTree = "<group>"; };
+		E0CFBD2E35D709E001678331 /* Pods-FOSSAsia.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FOSSAsia.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FOSSAsia/Pods-FOSSAsia.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +99,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DA4CC3D451E57B3D3B6780CD /* Pods_FOSSAsia.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -175,8 +174,11 @@
 		285F1B581C5AF7B100A7E0DD = {
 			isa = PBXGroup;
 			children = (
+				280DE5281C62FCB200E64020 /* Podfile */,
 				285F1B631C5AF7B100A7E0DD /* FOSSAsia */,
 				285F1B621C5AF7B100A7E0DD /* Products */,
+				68CECE78A9679E26EB9537C1 /* Pods */,
+				DAE269688DB363D2864C25C6 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -243,6 +245,23 @@
 			path = ../DateTools/DateTools;
 			sourceTree = "<group>";
 		};
+		68CECE78A9679E26EB9537C1 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E0CFBD2E35D709E001678331 /* Pods-FOSSAsia.debug.xcconfig */,
+				79D22ECB7ECA2ECF5403D3D1 /* Pods-FOSSAsia.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		DAE269688DB363D2864C25C6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				193D6EE00801D10F0049F1C3 /* Pods_FOSSAsia.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -250,10 +269,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 285F1B751C5AF7B100A7E0DD /* Build configuration list for PBXNativeTarget "FOSSAsia" */;
 			buildPhases = (
+				D9055AB47736DDBB3643C9C7 /* Check Pods Manifest.lock */,
 				285F1B5D1C5AF7B100A7E0DD /* Sources */,
 				285F1B5E1C5AF7B100A7E0DD /* Frameworks */,
 				285F1B5F1C5AF7B100A7E0DD /* Resources */,
 				285F1B861C5B014600A7E0DD /* Embed Frameworks */,
+				F341A837660F909CADBE6D88 /* Embed Pods Frameworks */,
+				12C23861AD2EA3CA68A3840B /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -302,15 +324,63 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				280DE5291C62FCB200E64020 /* Podfile in Resources */,
 				285F1B711C5AF7B100A7E0DD /* LaunchScreen.storyboard in Resources */,
 				285F1B6E1C5AF7B100A7E0DD /* Assets.xcassets in Resources */,
 				285F1B6C1C5AF7B100A7E0DD /* Main.storyboard in Resources */,
-				285F1BA71C5B08FC00A7E0DD /* DateTools.bundle in Resources */,
 				289ADCF61C6086CF00E1DA09 /* Sessions.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		12C23861AD2EA3CA68A3840B /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FOSSAsia/Pods-FOSSAsia-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D9055AB47736DDBB3643C9C7 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		F341A837660F909CADBE6D88 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FOSSAsia/Pods-FOSSAsia-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		285F1B5D1C5AF7B100A7E0DD /* Sources */ = {
@@ -319,28 +389,21 @@
 			files = (
 				285F1B691C5AF7B100A7E0DD /* SecondViewController.swift in Sources */,
 				2859B1001C5DFD09009656FC /* Colors.swift in Sources */,
-				285F1BAD1C5B08FC00A7E0DD /* DTTimePeriodGroup.m in Sources */,
 				285F1B8F1C5B069D00A7E0DD /* Observable.swift in Sources */,
 				285F1BBC1C5B2B2B00A7E0DD /* EventViewModel.swift in Sources */,
 				285F1B651C5AF7B100A7E0DD /* AppDelegate.swift in Sources */,
 				2859B0FE1C5DF8D7009656FC /* EventViewController.swift in Sources */,
 				2859B1021C5E29DC009656FC /* EventInfoView.swift in Sources */,
-				285F1BAB1C5B08FC00A7E0DD /* DTTimePeriodChain.m in Sources */,
 				285F1BB81C5B16C700A7E0DD /* EventCell.swift in Sources */,
-				285F1BA81C5B08FC00A7E0DD /* DTConstants.m in Sources */,
 				285F1B671C5AF7B100A7E0DD /* EventsViewController.swift in Sources */,
 				285F1B921C5B06CC00A7E0DD /* Event.swift in Sources */,
 				28A0BC941C5F50A2001625FB /* Schedule.swift in Sources */,
 				285F1BB41C5B0FDC00A7E0DD /* SpeakerViewModel.swift in Sources */,
 				28A0BC6F1C5F42D6001625FB /* Error.swift in Sources */,
-				285F1BAA1C5B08FC00A7E0DD /* DTTimePeriod.m in Sources */,
-				285F1BAE1C5B08FC00A7E0DD /* NSDate+DateTools.m in Sources */,
-				285F1BAC1C5B08FC00A7E0DD /* DTTimePeriodCollection.m in Sources */,
 				28A0BC711C5F4373001625FB /* EventsServiceProtocol.swift in Sources */,
 				28A0BC921C5F4FEC001625FB /* ScheduleViewModel.swift in Sources */,
 				285F1BB01C5B094F00A7E0DD /* Speaker.swift in Sources */,
 				28A0BC6D1C5F4082001625FB /* FossAsiaEventsService.swift in Sources */,
-				285F1BA91C5B08FC00A7E0DD /* DTError.m in Sources */,
 				285F1B791C5AFBBB00A7E0DD /* SwiftHEXColors.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -452,9 +515,10 @@
 		};
 		285F1B761C5AF7B100A7E0DD /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E0CFBD2E35D709E001678331 /* Pods-FOSSAsia.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = "$(inherited)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -462,7 +526,7 @@
 				);
 				INFOPLIST_FILE = FOSSAsia/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				OTHER_LDFLAGS = "";
+				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.fossasia.FOSSAsia;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "FOSSAsia/Fossasia-Bridging-Header.h";
@@ -472,9 +536,10 @@
 		};
 		285F1B771C5AF7B100A7E0DD /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 79D22ECB7ECA2ECF5403D3D1 /* Pods-FOSSAsia.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = "$(inherited)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -482,7 +547,7 @@
 				);
 				INFOPLIST_FILE = FOSSAsia/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				OTHER_LDFLAGS = "";
+				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.fossasia.FOSSAsia;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "FOSSAsia/Fossasia-Bridging-Header.h";

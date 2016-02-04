@@ -10,6 +10,6 @@
 #define Fossasia_Bridging_Header_h
 
 #import <TLYShyNavBar/TLYShyNavBarManager.h>
-#import "DateTools.h"
+#import <DateTools/DateTools.h>
 
 #endif /* Fossasia_Bridging_Header_h */

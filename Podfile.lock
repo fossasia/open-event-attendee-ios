@@ -1,0 +1,35 @@
+PODS:
+  - DateTools (1.7.0)
+  - SwiftyJSON (2.3.2)
+  - TLYShyNavBar (1.0.0)
+
+DEPENDENCIES:
+  - DateTools (from `https://github.com/MatthewYork/DateTools.git`)
+  - SwiftyJSON (from `https://github.com/SwiftyJSON/SwiftyJSON.git`)
+  - TLYShyNavBar (from `https://github.com/telly/TLYShyNavBar.git`)
+
+EXTERNAL SOURCES:
+  DateTools:
+    :git: https://github.com/MatthewYork/DateTools.git
+  SwiftyJSON:
+    :git: https://github.com/SwiftyJSON/SwiftyJSON.git
+  TLYShyNavBar:
+    :git: https://github.com/telly/TLYShyNavBar.git
+
+CHECKOUT OPTIONS:
+  DateTools:
+    :commit: bf49844aaf49d6d0eeebcdf4b1bb2c56439c30fd
+    :git: https://github.com/MatthewYork/DateTools.git
+  SwiftyJSON:
+    :commit: 42bdb102d2624b143c07850ebdc1537d5b6579b6
+    :git: https://github.com/SwiftyJSON/SwiftyJSON.git
+  TLYShyNavBar:
+    :commit: b0eacc80bffdbf3edc5c2d147d87d8d8a9cda08a
+    :git: https://github.com/telly/TLYShyNavBar.git
+
+SPEC CHECKSUMS:
+  DateTools: 53288ee8b905fdc75897a1e6b5cc0144b14cba60
+  SwiftyJSON: 04ccea08915aa0109039157c7974cf0298da292a
+  TLYShyNavBar: d313a1c50c58cb7af744829120eaa33ca8a998ce
+
+COCOAPODS: 0.39.0
