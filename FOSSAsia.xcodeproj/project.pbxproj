@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		28091E8D1C6332A600E789CD /* FilterListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28091E8C1C6332A600E789CD /* FilterListViewController.swift */; };
+		28091E8F1C636F9000E789CD /* FilterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28091E8E1C636F9000E789CD /* FilterCell.swift */; };
+		28091E911C64B0B900E789CD /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28091E901C64B0B900E789CD /* Constants.swift */; };
+		28091E931C64B61C00E789CD /* RangeExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28091E921C64B61C00E789CD /* RangeExtension.swift */; };
+		28091E9B1C64CC1A00E789CD /* TrackViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28091E9A1C64CC1A00E789CD /* TrackViewModel.swift */; };
 		280DE5291C62FCB200E64020 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 280DE5281C62FCB200E64020 /* Podfile */; };
 		2859B0FE1C5DF8D7009656FC /* EventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2859B0FD1C5DF8D7009656FC /* EventViewController.swift */; };
 		2859B1001C5DFD09009656FC /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2859B0FF1C5DFD09009656FC /* Colors.swift */; };
@@ -48,6 +53,11 @@
 
 /* Begin PBXFileReference section */
 		193D6EE00801D10F0049F1C3 /* Pods_FOSSAsia.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FOSSAsia.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		28091E8C1C6332A600E789CD /* FilterListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterListViewController.swift; sourceTree = "<group>"; };
+		28091E8E1C636F9000E789CD /* FilterCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterCell.swift; sourceTree = "<group>"; };
+		28091E901C64B0B900E789CD /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		28091E921C64B61C00E789CD /* RangeExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RangeExtension.swift; sourceTree = "<group>"; };
+		28091E9A1C64CC1A00E789CD /* TrackViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackViewModel.swift; sourceTree = "<group>"; };
 		280DE5281C62FCB200E64020 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
 		2859B0FD1C5DF8D7009656FC /* EventViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventViewController.swift; sourceTree = "<group>"; };
 		2859B0FF1C5DFD09009656FC /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
@@ -106,11 +116,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		28091E941C64B66100E789CD /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				28091E921C64B61C00E789CD /* RangeExtension.swift */,
+			);
+			name = Extensions;
+			sourceTree = "<group>";
+		};
 		2818A9311C62300300ECB57F /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
 				285F1B661C5AF7B100A7E0DD /* EventsViewController.swift */,
 				2859B0FD1C5DF8D7009656FC /* EventViewController.swift */,
+				28091E8C1C6332A600E789CD /* FilterListViewController.swift */,
 				285F1B681C5AF7B100A7E0DD /* SecondViewController.swift */,
 			);
 			name = "View Controllers";
@@ -132,6 +151,7 @@
 				285F1BBB1C5B2B2B00A7E0DD /* EventViewModel.swift */,
 				28A0BC911C5F4FEC001625FB /* ScheduleViewModel.swift */,
 				285F1BB31C5B0FDC00A7E0DD /* SpeakerViewModel.swift */,
+				28091E9A1C64CC1A00E789CD /* TrackViewModel.swift */,
 			);
 			name = ViewModels;
 			sourceTree = "<group>";
@@ -167,6 +187,7 @@
 			children = (
 				285F1BB71C5B16C700A7E0DD /* EventCell.swift */,
 				2859B1011C5E29DC009656FC /* EventInfoView.swift */,
+				28091E8E1C636F9000E789CD /* FilterCell.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -194,6 +215,7 @@
 			isa = PBXGroup;
 			children = (
 				285F1B641C5AF7B100A7E0DD /* AppDelegate.swift */,
+				28091E901C64B0B900E789CD /* Constants.swift */,
 				2818A9381C62301A00ECB57F /* Models */,
 				2818A9391C62305100ECB57F /* ViewModels */,
 				285F1B901C5B06A600A7E0DD /* Helpers */,
@@ -212,6 +234,7 @@
 		285F1B901C5B06A600A7E0DD /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				28091E941C64B66100E789CD /* Extensions */,
 				285F1B961C5B08FC00A7E0DD /* DateTools */,
 				2859B0FF1C5DFD09009656FC /* Colors.swift */,
 				28A0BC6E1C5F42D6001625FB /* Error.swift */,
@@ -388,14 +411,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				285F1B691C5AF7B100A7E0DD /* SecondViewController.swift in Sources */,
+				28091E8D1C6332A600E789CD /* FilterListViewController.swift in Sources */,
 				2859B1001C5DFD09009656FC /* Colors.swift in Sources */,
 				285F1B8F1C5B069D00A7E0DD /* Observable.swift in Sources */,
 				285F1BBC1C5B2B2B00A7E0DD /* EventViewModel.swift in Sources */,
 				285F1B651C5AF7B100A7E0DD /* AppDelegate.swift in Sources */,
 				2859B0FE1C5DF8D7009656FC /* EventViewController.swift in Sources */,
 				2859B1021C5E29DC009656FC /* EventInfoView.swift in Sources */,
+				28091E9B1C64CC1A00E789CD /* TrackViewModel.swift in Sources */,
 				285F1BB81C5B16C700A7E0DD /* EventCell.swift in Sources */,
+				28091E8F1C636F9000E789CD /* FilterCell.swift in Sources */,
 				285F1B671C5AF7B100A7E0DD /* EventsViewController.swift in Sources */,
+				28091E911C64B0B900E789CD /* Constants.swift in Sources */,
 				285F1B921C5B06CC00A7E0DD /* Event.swift in Sources */,
 				28A0BC941C5F50A2001625FB /* Schedule.swift in Sources */,
 				285F1BB41C5B0FDC00A7E0DD /* SpeakerViewModel.swift in Sources */,
@@ -405,6 +432,7 @@
 				285F1BB01C5B094F00A7E0DD /* Speaker.swift in Sources */,
 				28A0BC6D1C5F4082001625FB /* FossAsiaEventsService.swift in Sources */,
 				285F1B791C5AFBBB00A7E0DD /* SwiftHEXColors.swift in Sources */,
+				28091E931C64B61C00E789CD /* RangeExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

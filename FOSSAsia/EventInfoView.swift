@@ -20,9 +20,8 @@ class EventInfoView: UIView {
         
         if let delegate = self.delegate {
             eventLabel.text = delegate.eventName
-            // FIX ME:
-            speakerLabel.text = "Santosh Viswanatham"
-            locationLabel.text = "Mozilla - JFDI Blk71"
+            speakerLabel.text = delegate.speakerName
+            locationLabel.text = delegate.timing
         }
     }
 }

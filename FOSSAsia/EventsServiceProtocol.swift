@@ -11,5 +11,5 @@ import Foundation
 typealias EventCompletionHandler = ([Event]?, Error?) -> Void
 
 protocol EventsServiceProtocol {
-    func retrieveEventsInfo(completionHandler: EventCompletionHandler)
+    func retrieveEventsInfo(trackIds: [Int]?, completionHandler: EventCompletionHandler)
 }

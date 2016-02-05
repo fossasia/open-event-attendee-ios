@@ -17,7 +17,7 @@ struct FossAsiaEventsService: EventsServiceProtocol {
     private let dateFormatString = "yyyy-MM-dd'T'HH:mm:ss"
 
     
-    func retrieveEventsInfo(completionHandler: EventCompletionHandler) {
+    func retrieveEventsInfo(trackIds: [Int]?, completionHandler: EventCompletionHandler) {
         if (!NSUserDefaults.standardUserDefaults().boolForKey("HasInitialLoad")) {
             self.getEventsFromNetwork { (error) -> Void in
                 if error != nil {
@@ -26,27 +26,27 @@ struct FossAsiaEventsService: EventsServiceProtocol {
                 
                 let defaults = NSUserDefaults.standardUserDefaults()
                 defaults.setBool(true, forKey: "HasInitialLoad")
-                self.getEventsFromDisk { (events, error) -> Void in
+                self.getEventsFromDisk(trackIds, completionHandler: { (events, error) -> Void in
                     if let eventsFromDisk = events {
                         completionHandler(eventsFromDisk, nil)
                     } else {
                         completionHandler(nil, error)
                     }
-                }
+                })
             }
         }
         
-        self.getEventsFromDisk { (events, error) -> Void in
+        self.getEventsFromDisk(trackIds, completionHandler: { (events, error) -> Void in
             if let eventsFromDisk = events {
                 completionHandler(eventsFromDisk, nil)
             } else {
                 completionHandler(nil, error)
             }
-        }
+        })
 
     }
     
-    private func getEventsFromDisk(completionHandler: EventCompletionHandler) {
+    private func getEventsFromDisk(trackIds: [Int]?, completionHandler: EventCompletionHandler) {
         if let dir : NSString = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomainMask.AllDomainsMask, true).first {
             do {
                 let filePath = dir.stringByAppendingPathComponent(self.localEventsPath)
@@ -74,6 +74,10 @@ struct FossAsiaEventsService: EventsServiceProtocol {
                     
                     let tempSession = Event(trackCode: Event.Track(rawValue: trackId)!, title:sessionTitle, shortDescription: sessionDescription, speaker: Speaker(name: sessionSpeakerName), location: "Biopolis Matrix", startDateTime: NSDate(string: sessionStartDateTime, formatString: dateFormatString), endDateTime: NSDate(string: sessionEndDateTime, formatString: dateFormatString))
                     sessions.append(tempSession)
+                }
+                
+                if let filterTrackIds = trackIds {
+                    sessions = sessions.filter({ filterTrackIds.contains($0.trackCode.rawValue)})
                 }
                 
                 completionHandler(sessions, nil)

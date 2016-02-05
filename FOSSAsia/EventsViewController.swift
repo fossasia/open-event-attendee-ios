@@ -12,7 +12,6 @@ class EventsViewController: UIViewController {
     private let kEventCellReuseIdentifier = "EventCell"
     private var eventsArray: [EventViewModel] = []
 
-    @IBOutlet weak var filterButton: UIButton!
     @IBOutlet weak var tableView: UITableView!
     
     var viewModel: ScheduleViewModel? {
@@ -30,12 +29,10 @@ class EventsViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
         tableView.dataSource = self
         tableView.delegate = self
-        self.shyNavBarManager.scrollView = tableView;
+        self.shyNavBarManager.scrollView = tableView
+        self.shyNavBarManager.stickyExtensionView = true
         
         viewModel = ScheduleViewModel(NSDate(year: 2015, month: 03, day: 14))
-//        viewModel?.returnMockData()
-        
-//        filterButton.addTarget(self, action: "handleFilterButtonPressed:", forControlEvents: .TouchUpInside)
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -68,5 +65,10 @@ extension EventsViewController: UITableViewDataSource {
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
+    }
+    
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        // have to patch in code because IB wasn't listening to me
+        return 70
     }
 }

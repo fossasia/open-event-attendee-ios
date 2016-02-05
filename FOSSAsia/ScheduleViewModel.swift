@@ -8,12 +8,16 @@
 
 import Foundation
 
-struct ScheduleViewModel {
+protocol ScheduleCountPresentable {
+    var count: Int {get}
+}
+
+struct ScheduleViewModel: ScheduleCountPresentable {
     // MARK: - Properties
     let date: Observable<NSDate>
     let events: Observable<[EventViewModel]>
     
-    // MARK: - Properties
+    // MARK: - Errors
     let hasError: Observable<Bool>
     let errorMessage: Observable<String?>
     
@@ -29,13 +33,16 @@ struct ScheduleViewModel {
         
         // Dependency Injections
         eventsService = FossAsiaEventsService()
-        eventsService.retrieveEventsInfo { (events, error) -> Void in
-            if error == nil {
-                if let eventsArray = events {
-                    self.update(Schedule(date: NSDate(year: 2015, month: 03, day: 14), events: eventsArray))
+        if let filteredTracks = NSUserDefaults.standardUserDefaults().objectForKey(Constants.UserDefaultsKey.FilteredTrackIds) as? [Int] {
+            eventsService.retrieveEventsInfo(filteredTracks) { (events, error) -> Void in
+                if error == nil {
+                    if let eventsArray = events {
+                        self.update(Schedule(date: NSDate(year: 2015, month: 03, day: 14), events: eventsArray))
+                    }
                 }
             }
         }
+
     }
     
     private func update(schedule: Schedule) {
@@ -79,4 +86,9 @@ struct ScheduleViewModel {
         self.update(Schedule(date: NSDate(year: 2015, month: 03, day: 14), events: eventsArray))
         
     }
+}
+
+// MARK :- ScheduleCountPresentableConformance
+extension ScheduleViewModel {
+    var count: Int { return self.events.value.count }
 }

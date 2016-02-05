@@ -18,6 +18,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         UITabBar.appearance().tintColor = Colors.mainRedColor
         UINavigationBar.appearance().tintColor = Colors.creamTintColor
+        
+        NSUserDefaults.standardUserDefaults().registerDefaults([Constants.UserDefaultsKey.FilteredTrackIds: (1...Constants.numberOfTracks).toArray()])
         return true
     }
 

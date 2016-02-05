@@ -9,9 +9,21 @@
 import Foundation
 
 struct Event {
-    enum Track: Int {
+    enum Track: Int, CustomStringConvertible {
         case General = 1
         case OpenTech, DevOps, Web, Python, Mozilla, Exhibition, Workshops
+        var description: String {
+            switch self {
+            case .General: return "General";
+            case .OpenTech: return "OpenTech";
+            case .DevOps: return "DevOps";
+            case .Web: return "Web";
+            case .Python: return "Python";
+            case .Mozilla: return "Mozilla";
+            case .Exhibition: return "Exhibition";
+            case .Workshops: return "Workshops";
+            }
+        }
         
         func getTrackColor() -> UIColor {
             switch self {
@@ -34,6 +46,7 @@ struct Event {
             }
         }
     }
+
     
     let trackCode: Track
     let title: String
@@ -42,5 +55,19 @@ struct Event {
     let location: String
     let startDateTime: NSDate
     let endDateTime: NSDate
-    let favorite: Bool = false
+    var favorite = false
+    
+    init (trackCode: Track, title: String, shortDescription: String, speaker: Speaker?, location: String, startDateTime: NSDate, endDateTime: NSDate) {
+        self.trackCode = trackCode
+        self.title = title
+        self.shortDescription = shortDescription
+        self.speaker = speaker
+        self.location = location
+        self.startDateTime = startDateTime
+        self.endDateTime = endDateTime
+    }
+    
+    mutating func setFavorite() {
+        favorite = !favorite
+    }
 }
