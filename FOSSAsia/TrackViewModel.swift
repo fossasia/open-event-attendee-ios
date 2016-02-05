@@ -49,7 +49,7 @@ struct TrackViewModel: TrackDetailsPresentable, TrackStatusPresentable, TrackCol
                 guard filteredTracksDefaults.contains(self.id.value) else {
                     return
                 }
-                filteredTracksDefaults.removeFirst(self.id.value)
+                filteredTracksDefaults = filteredTracksDefaults.filter({ $0 != self.id.value})
             }
             NSUserDefaults.standardUserDefaults().setObject(filteredTracksDefaults, forKey: Constants.UserDefaultsKey.FilteredTrackIds)
 

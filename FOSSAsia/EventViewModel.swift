@@ -59,6 +59,10 @@ extension EventViewModel {
 extension EventViewModel {
     var eventName: String { return self.title.value }
     var speakerName: String { return (self.speaker.value?.name)! }
-    // FIX ME: -
-    var timing: String { return "09:00AM - 10:00AM - Biopolis Hub" }
+
+    var timing: String {
+        let startTime = self.startDateTime.value.formattedDateWithFormat("HH:mm")
+        let endTime = self.endDateTime.value.formattedDateWithFormat("HH:mm")
+        return  "\(startTime) - \(endTime) - \(self.location.value)"
+    }
 }
