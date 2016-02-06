@@ -11,6 +11,7 @@ import UIKit
 class FilterListViewController: UIViewController {
     private let kFilterCellReuseIdentifier = "FilterCell"
     @IBOutlet weak var filterTableView: UITableView!
+    var scheduleViewModel: ScheduleCountPresentable?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,10 +21,6 @@ class FilterListViewController: UIViewController {
     
     @IBAction func doneButtonPressed(sender: AnyObject) {
         self.navigationController?.dismissViewControllerAnimated(true, completion: nil)
-    }
-    
-    func trackSwitchFlipped(switchState: AnyObject) {
-        
     }
 }
 

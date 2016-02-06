@@ -33,16 +33,19 @@ struct ScheduleViewModel: ScheduleCountPresentable {
         
         // Dependency Injections
         eventsService = FossAsiaEventsService()
+        self.refresh()
+    }
+    
+    func refresh() {
         if let filteredTracks = NSUserDefaults.standardUserDefaults().objectForKey(Constants.UserDefaultsKey.FilteredTrackIds) as? [Int] {
             eventsService.retrieveEventsInfo(filteredTracks) { (events, error) -> Void in
                 if error == nil {
                     if let eventsArray = events {
-                        self.update(Schedule(date: NSDate(year: 2015, month: 03, day: 14), events: eventsArray))
+                        self.update(Schedule(date: self.date.value, events: eventsArray))
                     }
                 }
             }
         }
-
     }
     
     private func update(schedule: Schedule) {
