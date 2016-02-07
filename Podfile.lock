@@ -1,16 +1,20 @@
 PODS:
   - DateTools (1.7.0)
+  - MGSwipeTableCell (1.5.3)
   - SwiftyJSON (2.3.2)
   - TLYShyNavBar (1.0.0)
 
 DEPENDENCIES:
   - DateTools (from `https://github.com/MatthewYork/DateTools.git`)
+  - MGSwipeTableCell (from `https://github.com/MortimerGoro/MGSwipeTableCell.git`)
   - SwiftyJSON (from `https://github.com/SwiftyJSON/SwiftyJSON.git`)
   - TLYShyNavBar (from `https://github.com/telly/TLYShyNavBar.git`)
 
 EXTERNAL SOURCES:
   DateTools:
     :git: https://github.com/MatthewYork/DateTools.git
+  MGSwipeTableCell:
+    :git: https://github.com/MortimerGoro/MGSwipeTableCell.git
   SwiftyJSON:
     :git: https://github.com/SwiftyJSON/SwiftyJSON.git
   TLYShyNavBar:
@@ -20,6 +24,9 @@ CHECKOUT OPTIONS:
   DateTools:
     :commit: bf49844aaf49d6d0eeebcdf4b1bb2c56439c30fd
     :git: https://github.com/MatthewYork/DateTools.git
+  MGSwipeTableCell:
+    :commit: 118d969ff4857db9bad056cd4cc979750b418a15
+    :git: https://github.com/MortimerGoro/MGSwipeTableCell.git
   SwiftyJSON:
     :commit: 42bdb102d2624b143c07850ebdc1537d5b6579b6
     :git: https://github.com/SwiftyJSON/SwiftyJSON.git
@@ -29,6 +36,7 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   DateTools: 53288ee8b905fdc75897a1e6b5cc0144b14cba60
+  MGSwipeTableCell: 5ae3b9a15efda26b201adc8676b24040febe6ff6
   SwiftyJSON: 04ccea08915aa0109039157c7974cf0298da292a
   TLYShyNavBar: d313a1c50c58cb7af744829120eaa33ca8a998ce
 

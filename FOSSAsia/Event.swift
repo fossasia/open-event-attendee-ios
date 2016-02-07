@@ -47,7 +47,7 @@ struct Event {
         }
     }
 
-    
+    let id: Int
     let trackCode: Track
     let title: String
     let shortDescription: String
@@ -55,19 +55,5 @@ struct Event {
     let location: String
     let startDateTime: NSDate
     let endDateTime: NSDate
-    var favorite = false
-    
-    init (trackCode: Track, title: String, shortDescription: String, speaker: Speaker?, location: String, startDateTime: NSDate, endDateTime: NSDate) {
-        self.trackCode = trackCode
-        self.title = title
-        self.shortDescription = shortDescription
-        self.speaker = speaker
-        self.location = location
-        self.startDateTime = startDateTime
-        self.endDateTime = endDateTime
-    }
-    
-    mutating func setFavorite() {
-        favorite = !favorite
-    }
+    var favorite: Bool
 }

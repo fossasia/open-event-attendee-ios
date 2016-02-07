@@ -7,20 +7,30 @@
 //
 
 import UIKit
+import MGSwipeTableCell
 
 typealias EventCellWithTypePresentable = protocol<EventTypePresentable, EventDetailsPresentable>
 
-class EventCell: UITableViewCell {
+class EventCell: MGSwipeTableCell {
+    @IBOutlet weak var favoriteImage: UIImageView!
     @IBOutlet weak var typeView: UIView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var timingLabel: UILabel!
-    private var delegate: EventCellWithTypePresentable?
+    
+    private var viewModel: EventCellWithTypePresentable?
     
     func configure(withPresenter presenter: EventCellWithTypePresentable) {
-        delegate = presenter
-        titleLabel.text = delegate!.eventName
-        typeView.backgroundColor = delegate!.typeColor
-        timingLabel.text = delegate!.timing
+        viewModel = presenter
+        titleLabel.text = viewModel!.eventName
+        typeView.backgroundColor = viewModel!.typeColor
+        timingLabel.text = viewModel!.timing
+        if (viewModel!.isFavorite) {
+            favoriteImage.transform = CGAffineTransformIdentity
+            favoriteImage.alpha = 1.0
+        } else {
+            favoriteImage.transform = CGAffineTransformMakeScale(0.1, 0.1)
+            favoriteImage.alpha = 0.0
+        }
     }
     
 }

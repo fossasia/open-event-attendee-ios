@@ -17,6 +17,7 @@ protocol EventDetailsPresentable {
     var eventName: String {get}
     var speakerName: String {get}
     var timing: String {get}
+    var isFavorite: Bool {get}
 }
 
 protocol EventDescriptionPresentable {
@@ -24,6 +25,7 @@ protocol EventDescriptionPresentable {
 }
 
 struct EventViewModel: EventTypePresentable, EventDetailsPresentable, EventDescriptionPresentable {
+    let sessionId: Observable<Int>
     let track: Observable<UIColor>
     let title: Observable<String>
     let shortDescription: Observable<String>
@@ -34,6 +36,7 @@ struct EventViewModel: EventTypePresentable, EventDetailsPresentable, EventDescr
     let favorite: Observable<Bool>
     
     init (_ event: Event) {
+        sessionId = Observable(event.id)
         track = Observable(event.trackCode.getTrackColor())
         title = Observable(event.title)
         shortDescription = Observable(event.shortDescription)
@@ -42,6 +45,10 @@ struct EventViewModel: EventTypePresentable, EventDetailsPresentable, EventDescr
         startDateTime = Observable(event.startDateTime)
         endDateTime = Observable(event.endDateTime)
         favorite = Observable(event.favorite)
+    }
+    
+    func updateFavorite() {
+        favorite.value = !favorite.value
     }
 }
 
@@ -59,10 +66,10 @@ extension EventViewModel {
 extension EventViewModel {
     var eventName: String { return self.title.value }
     var speakerName: String { return (self.speaker.value?.name)! }
-
     var timing: String {
         let startTime = self.startDateTime.value.formattedDateWithFormat("HH:mm")
         let endTime = self.endDateTime.value.formattedDateWithFormat("HH:mm")
         return  "\(startTime) - \(endTime) - \(self.location.value)"
     }
+    var isFavorite: Bool { return self.favorite.value }
 }

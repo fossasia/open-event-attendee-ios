@@ -9,6 +9,8 @@
 #ifndef Fossasia_Bridging_Header_h
 #define Fossasia_Bridging_Header_h
 
+#import <MGSwipeTableCell/MGSwipeTableCell.h>
+#import <MGSwipeTableCell/MGSwipeButton.h>
 #import <TLYShyNavBar/TLYShyNavBarManager.h>
 #import <DateTools/DateTools.h>
 
