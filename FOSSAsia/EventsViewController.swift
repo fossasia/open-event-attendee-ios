@@ -41,10 +41,16 @@ class EventsViewController: EventsBaseViewController {
         
         resultsTableController = storyboard!.instantiateViewControllerWithIdentifier(EventsResultsViewController.StoryboardConstants.viewControllerId) as! EventsResultsViewController
         resultsTableController.allEvents = self.allEvents
+
         
         searchController = UISearchController(searchResultsController: resultsTableController)
         searchController.searchResultsUpdater = self
         searchController.hidesNavigationBarDuringPresentation = false
+        
+        // We want to be the delegate for our filtered table so didSelectRowAtIndexPath(_:) is called for both tables.
+        // calling .view will force Storyboards to render the view hierarchy to make tableView accessible
+        let _ = searchController.view
+        resultsTableController.tableView.delegate = self
         
         searchController.searchBar.searchBarStyle = .Minimal
         searchController.searchBar.tintColor = Colors.creamTintColor
