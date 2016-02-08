@@ -12,6 +12,22 @@ import MGSwipeTableCell
 class EventsViewController: EventsBaseViewController {
     
     var searchController: UISearchController!
+    var resultsTableController: EventsResultsViewController!
+    
+    lazy var filteredEvents: [EventViewModel] = self.allEvents
+    
+    var filterString: String? = nil {
+        didSet {
+            if filterString == nil || filterString!.isEmpty {
+                filteredEvents = self.allEvents
+            } else {
+                let filterPredicate = NSPredicate(format: "self contains[c] %@", argumentArray: [filterString!])
+                filteredEvents = allEvents.filter( {filterPredicate.evaluateWithObject($0.eventName) } )
+            }
+            resultsTableController.visibleEvents = filteredEvents
+            resultsTableController.tableView.reloadData()
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,11 +39,11 @@ class EventsViewController: EventsBaseViewController {
         
         viewModel = ScheduleViewModel(NSDate(year: 2015, month: 03, day: 14))
         
-        let searchResultsController = storyboard!.instantiateViewControllerWithIdentifier(SessionsSearchViewController.StoryboardConstants.identifier) as! SessionsSearchViewController
-        searchResultsController.allEvents = self.allEvents
+        resultsTableController = storyboard!.instantiateViewControllerWithIdentifier(EventsResultsViewController.StoryboardConstants.viewControllerId) as! EventsResultsViewController
+        resultsTableController.allEvents = self.allEvents
         
-        searchController = UISearchController(searchResultsController: searchResultsController)
-        searchController.searchResultsUpdater = searchResultsController
+        searchController = UISearchController(searchResultsController: resultsTableController)
+        searchController.searchResultsUpdater = self
         searchController.hidesNavigationBarDuringPresentation = false
         
         searchController.searchBar.searchBarStyle = .Minimal
@@ -42,19 +58,17 @@ class EventsViewController: EventsBaseViewController {
         definesPresentationContext = true
         
     }
-    
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if (segue.identifier == "ShowEventDetail") {
-            if let selectedIndexPath = self.tableView.indexPathForSelectedRow {
-                let eventViewController = segue.destinationViewController as! EventViewController
-                eventViewController.eventViewModel = allEvents[selectedIndexPath.row]
-            }
-        }
-    }
 
 }
 
-
+extension EventsViewController: UISearchResultsUpdating {
+    func updateSearchResultsForSearchController(searchController: UISearchController) {
+        guard searchController.active else {
+            return
+        }
+        filterString = searchController.searchBar.text
+    }
+}
 
 extension EventsViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -64,6 +78,20 @@ extension EventsViewController {
         cell.delegate = self
         
         return cell
+    }
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let selectedEventViewModel: EventViewModel
+        
+        if tableView == self.tableView {
+            selectedEventViewModel = self.allEvents[indexPath.row]
+        } else {
+            selectedEventViewModel = resultsTableController.visibleEvents[indexPath.row]
+        }
+        
+        let eventViewController = EventViewController.eventViewControllerForEvent(selectedEventViewModel)
+        
+        navigationController?.pushViewController(eventViewController, animated: true)
     }
     
 }
