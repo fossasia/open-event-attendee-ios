@@ -13,6 +13,8 @@
 		28091E931C64B61C00E789CD /* RangeExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28091E921C64B61C00E789CD /* RangeExtension.swift */; };
 		28091E9B1C64CC1A00E789CD /* TrackViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28091E9A1C64CC1A00E789CD /* TrackViewModel.swift */; };
 		280DE5291C62FCB200E64020 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 280DE5281C62FCB200E64020 /* Podfile */; };
+		281324ED1C672EE80072E730 /* SessionsSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 281324EC1C672EE80072E730 /* SessionsSearchViewController.swift */; };
+		281324EF1C6735430072E730 /* EventsBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 281324EE1C6735430072E730 /* EventsBaseViewController.swift */; };
 		2859B0FE1C5DF8D7009656FC /* EventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2859B0FD1C5DF8D7009656FC /* EventViewController.swift */; };
 		2859B1001C5DFD09009656FC /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2859B0FF1C5DFD09009656FC /* Colors.swift */; };
 		2859B1021C5E29DC009656FC /* EventInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2859B1011C5E29DC009656FC /* EventInfoView.swift */; };
@@ -59,6 +61,8 @@
 		28091E921C64B61C00E789CD /* RangeExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RangeExtension.swift; sourceTree = "<group>"; };
 		28091E9A1C64CC1A00E789CD /* TrackViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackViewModel.swift; sourceTree = "<group>"; };
 		280DE5281C62FCB200E64020 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		281324EC1C672EE80072E730 /* SessionsSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionsSearchViewController.swift; sourceTree = "<group>"; };
+		281324EE1C6735430072E730 /* EventsBaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsBaseViewController.swift; sourceTree = "<group>"; };
 		2859B0FD1C5DF8D7009656FC /* EventViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventViewController.swift; sourceTree = "<group>"; };
 		2859B0FF1C5DFD09009656FC /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		2859B1011C5E29DC009656FC /* EventInfoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventInfoView.swift; sourceTree = "<group>"; };
@@ -127,7 +131,9 @@
 		2818A9311C62300300ECB57F /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				281324EE1C6735430072E730 /* EventsBaseViewController.swift */,
 				285F1B661C5AF7B100A7E0DD /* EventsViewController.swift */,
+				281324EC1C672EE80072E730 /* SessionsSearchViewController.swift */,
 				2859B0FD1C5DF8D7009656FC /* EventViewController.swift */,
 				28091E8C1C6332A600E789CD /* FilterListViewController.swift */,
 				285F1B681C5AF7B100A7E0DD /* SecondViewController.swift */,
@@ -321,6 +327,7 @@
 				TargetAttributes = {
 					285F1B601C5AF7B100A7E0DD = {
 						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = EZ49532236;
 					};
 				};
 			};
@@ -411,6 +418,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				285F1B691C5AF7B100A7E0DD /* SecondViewController.swift in Sources */,
+				281324EF1C6735430072E730 /* EventsBaseViewController.swift in Sources */,
 				28091E8D1C6332A600E789CD /* FilterListViewController.swift in Sources */,
 				2859B1001C5DFD09009656FC /* Colors.swift in Sources */,
 				285F1B8F1C5B069D00A7E0DD /* Observable.swift in Sources */,
@@ -423,6 +431,7 @@
 				28091E8F1C636F9000E789CD /* FilterCell.swift in Sources */,
 				285F1B671C5AF7B100A7E0DD /* EventsViewController.swift in Sources */,
 				28091E911C64B0B900E789CD /* Constants.swift in Sources */,
+				281324ED1C672EE80072E730 /* SessionsSearchViewController.swift in Sources */,
 				285F1B921C5B06CC00A7E0DD /* Event.swift in Sources */,
 				28A0BC941C5F50A2001625FB /* Schedule.swift in Sources */,
 				285F1BB41C5B0FDC00A7E0DD /* SpeakerViewModel.swift in Sources */,
@@ -546,6 +555,8 @@
 			baseConfigurationReference = E0CFBD2E35D709E001678331 /* Pods-FOSSAsia.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = "$(inherited)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -557,6 +568,7 @@
 				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.fossasia.FOSSAsia;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "FOSSAsia/Fossasia-Bridging-Header.h";
 				USER_HEADER_SEARCH_PATHS = "";
 			};
@@ -567,6 +579,8 @@
 			baseConfigurationReference = 79D22ECB7ECA2ECF5403D3D1 /* Pods-FOSSAsia.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = "$(inherited)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -578,6 +592,7 @@
 				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.fossasia.FOSSAsia;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "FOSSAsia/Fossasia-Bridging-Header.h";
 				USER_HEADER_SEARCH_PATHS = "";
 			};

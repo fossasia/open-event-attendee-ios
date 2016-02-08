@@ -9,26 +9,9 @@
 import UIKit
 import MGSwipeTableCell
 
-class EventsViewController: UIViewController {
-    private let kEventCellReuseIdentifier = "EventCell"
-    private var eventsArray: [EventViewModel] = []
-
-    @IBOutlet weak var tableView: UITableView!
+class EventsViewController: EventsBaseViewController {
     
-    var viewModel: ScheduleViewModel? {
-        didSet {
-            viewModel?.events.observe {
-                [unowned self] in
-                self.eventsArray = $0
-                self.tableView.reloadData()
-            }
-        }
-    }
-    
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
-        viewModel?.refresh()
-    }
+    var searchController: UISearchController!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,49 +22,50 @@ class EventsViewController: UIViewController {
         self.shyNavBarManager.stickyExtensionView = true
         
         viewModel = ScheduleViewModel(NSDate(year: 2015, month: 03, day: 14))
+        
+        let searchResultsController = storyboard!.instantiateViewControllerWithIdentifier(SessionsSearchViewController.StoryboardConstants.identifier) as! SessionsSearchViewController
+        searchResultsController.allEvents = self.allEvents
+        
+        searchController = UISearchController(searchResultsController: searchResultsController)
+        searchController.searchResultsUpdater = searchResultsController
+        searchController.hidesNavigationBarDuringPresentation = false
+        
+        searchController.searchBar.searchBarStyle = .Minimal
+        searchController.searchBar.tintColor = Colors.creamTintColor
+        searchController.searchBar.placeholder = "Search"
+        if let textFieldInSearchBar = searchController.searchBar.valueForKey("searchField") as? UITextField {
+            textFieldInSearchBar.textColor = Colors.creamTintColor
+        }
+        
+        navigationItem.titleView = searchController.searchBar
+        
+        definesPresentationContext = true
+        
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if (segue.identifier == "ShowEventDetail") {
             if let selectedIndexPath = self.tableView.indexPathForSelectedRow {
                 let eventViewController = segue.destinationViewController as! EventViewController
-                eventViewController.eventViewModel = eventsArray[selectedIndexPath.row]
+                eventViewController.eventViewModel = allEvents[selectedIndexPath.row]
             }
         }
     }
-    
-    func eventViewModelForIndexPath(path: NSIndexPath) -> EventViewModel {
-        return eventsArray[path.row]
-    }
 
 }
 
-extension EventsViewController: UITableViewDelegate {
-    
-}
 
-extension EventsViewController: UITableViewDataSource {
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+
+extension EventsViewController {
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier(kEventCellReuseIdentifier, forIndexPath: indexPath) as! EventCell
-        let eventViewModel = eventsArray[indexPath.row]
+        let eventViewModel = allEvents[indexPath.row]
         cell.configure(withPresenter: eventViewModel)
         cell.delegate = self
         
         return cell
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return eventsArray.count
-    }
-    
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        tableView.deselectRowAtIndexPath(indexPath, animated: true)
-    }
-    
-    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        // have to patch in code because IB wasn't listening to me
-        return 70
-    }
 }
 
 extension EventsViewController: MGSwipeTableCellDelegate {
