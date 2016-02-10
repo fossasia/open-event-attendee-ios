@@ -17,7 +17,7 @@ struct FossAsiaEventsService: EventsServiceProtocol {
     private let localFavoritesPath = "faves.json"
     private let dateFormatString = "yyyy-MM-dd'T'HH:mm:ss"
     
-    func retrieveEventsInfo(trackIds: [Int]?, completionHandler: EventCompletionHandler) {
+    func retrieveEventsInfo(date: NSDate?, trackIds: [Int]?, completionHandler: EventCompletionHandler) {
         if (!NSUserDefaults.standardUserDefaults().boolForKey("HasInitialLoad")) {
             self.getEventsFromNetwork { (error) -> Void in
                 if error != nil {
@@ -26,7 +26,7 @@ struct FossAsiaEventsService: EventsServiceProtocol {
                 
                 let defaults = NSUserDefaults.standardUserDefaults()
                 defaults.setBool(true, forKey: "HasInitialLoad")
-                self.getEventsFromDisk(trackIds, completionHandler: { (events, error) -> Void in
+                self.getEventsFromDisk(date, trackIds: trackIds, completionHandler: { (events, error) -> Void in
                     if let eventsFromDisk = events {
                         completionHandler(eventsFromDisk, nil)
                     } else {
@@ -36,7 +36,7 @@ struct FossAsiaEventsService: EventsServiceProtocol {
             }
         }
         
-        self.getEventsFromDisk(trackIds, completionHandler: { (events, error) -> Void in
+        self.getEventsFromDisk(date, trackIds: trackIds, completionHandler: { (events, error) -> Void in
             if let eventsFromDisk = events {
                 completionHandler(eventsFromDisk, nil)
             } else {
@@ -112,7 +112,7 @@ struct FossAsiaEventsService: EventsServiceProtocol {
         }
     }
     
-    private func getEventsFromDisk(trackIds: [Int]?, completionHandler: EventCompletionHandler) {
+    private func getEventsFromDisk(date: NSDate?, trackIds: [Int]?, completionHandler: EventCompletionHandler) {
         if let dir : NSString = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .AllDomainsMask, true).first {
             do {
                 let filePath = dir.stringByAppendingPathComponent(self.localEventsPath)
@@ -144,6 +144,7 @@ struct FossAsiaEventsService: EventsServiceProtocol {
                         }
                         
                         
+                        // FIX ME: - Location is hardcoded for now
                         let tempSession = Event(id: sessionId,
                             trackCode: Event.Track(rawValue: trackId)!,
                             title: sessionTitle,
@@ -157,7 +158,11 @@ struct FossAsiaEventsService: EventsServiceProtocol {
                     }
                     
                     if let filterTrackIds = trackIds {
-                        sessions = sessions.filter({ filterTrackIds.contains($0.trackCode.rawValue)})
+                        sessions = sessions.filter({ filterTrackIds.contains($0.trackCode.rawValue) })
+                    }
+                    
+                    if let filterDate = date {
+                        sessions = sessions.filter({ filterDate.daysFrom($0.startDateTime) == 0 })
                     }
                 })
                 

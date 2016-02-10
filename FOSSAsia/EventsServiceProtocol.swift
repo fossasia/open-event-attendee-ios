@@ -11,6 +11,6 @@ import Foundation
 typealias EventCompletionHandler = ([Event]?, Error?) -> Void
 
 protocol EventsServiceProtocol {
-    func retrieveEventsInfo(trackIds: [Int]?, completionHandler: EventCompletionHandler)
+    func retrieveEventsInfo(date: NSDate?, trackIds: [Int]?, completionHandler: EventCompletionHandler)
     func toggleFavorite(sessionId: Int, completionHandler: EventsServiceCommitmentCompletionHandler)
 }

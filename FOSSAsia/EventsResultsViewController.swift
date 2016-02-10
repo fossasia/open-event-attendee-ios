@@ -24,12 +24,13 @@ class EventsResultsViewController: EventsBaseViewController {
 
 // MARK: UITableViewDataSource
 extension EventsResultsViewController {
+    
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return visibleEvents.count
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier(kEventCellReuseIdentifier, forIndexPath: indexPath) as! EventCell
+        let cell = tableView.dequeueReusableCellWithIdentifier(EventsBaseViewController.kEventCellReuseIdentifier, forIndexPath: indexPath) as! EventCell
         let eventViewModel = visibleEvents[indexPath.row]
         cell.configure(withPresenter: eventViewModel)
         

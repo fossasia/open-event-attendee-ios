@@ -9,7 +9,13 @@
 import UIKit
 import MGSwipeTableCell
 
-class EventsViewController: EventsBaseViewController {
+class ScheduleViewController: EventsBaseViewController {
+    // Constants for Storyboard/VC
+    struct StoryboardConstants {
+        static let storyboardName = "Sessions"
+        static let viewControllerId = "ScheduleViewController"
+    }
+    
     
     var searchController: UISearchController!
     var resultsTableController: EventsResultsViewController!
@@ -24,50 +30,22 @@ class EventsViewController: EventsBaseViewController {
                 let filterPredicate = NSPredicate(format: "self contains[c] %@", argumentArray: [filterString!])
                 filteredEvents = allEvents.filter( {filterPredicate.evaluateWithObject($0.eventName) } )
             }
-            resultsTableController.visibleEvents = filteredEvents
-            resultsTableController.tableView.reloadData()
         }
     }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        tableView.dataSource = self
-        tableView.delegate = self
-        self.shyNavBarManager.scrollView = tableView
-        self.shyNavBarManager.stickyExtensionView = true
-        
-        viewModel = ScheduleViewModel(NSDate(year: 2015, month: 03, day: 14))
-        
-        resultsTableController = storyboard!.instantiateViewControllerWithIdentifier(EventsResultsViewController.StoryboardConstants.viewControllerId) as! EventsResultsViewController
-        resultsTableController.allEvents = self.allEvents
 
+    
+    class func scheduleViewControllerFor(schedule: ScheduleViewModel) -> ScheduleViewController {
+        let storyboard = UIStoryboard(name: ScheduleViewController.StoryboardConstants.storyboardName, bundle: nil)
+
+        let viewController = storyboard.instantiateViewControllerWithIdentifier(ScheduleViewController.StoryboardConstants.viewControllerId) as! ScheduleViewController
+        viewController.viewModel = schedule
         
-        searchController = UISearchController(searchResultsController: resultsTableController)
-        searchController.searchResultsUpdater = self
-        searchController.hidesNavigationBarDuringPresentation = false
-        
-        // We want to be the delegate for our filtered table so didSelectRowAtIndexPath(_:) is called for both tables.
-        // calling .view will force Storyboards to render the view hierarchy to make tableView accessible
-        let _ = searchController.view
-        resultsTableController.tableView.delegate = self
-        
-        searchController.searchBar.searchBarStyle = .Minimal
-        searchController.searchBar.tintColor = Colors.creamTintColor
-        searchController.searchBar.placeholder = "Search"
-        if let textFieldInSearchBar = searchController.searchBar.valueForKey("searchField") as? UITextField {
-            textFieldInSearchBar.textColor = Colors.creamTintColor
-        }
-        
-        navigationItem.titleView = searchController.searchBar
-        
-        definesPresentationContext = true
-        
+        return viewController
     }
 
 }
 
-extension EventsViewController: UISearchResultsUpdating {
+extension ScheduleViewController: UISearchResultsUpdating {
     func updateSearchResultsForSearchController(searchController: UISearchController) {
         guard searchController.active else {
             return
@@ -76,9 +54,9 @@ extension EventsViewController: UISearchResultsUpdating {
     }
 }
 
-extension EventsViewController {
+extension ScheduleViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier(kEventCellReuseIdentifier, forIndexPath: indexPath) as! EventCell
+        let cell = tableView.dequeueReusableCellWithIdentifier(EventsBaseViewController.kEventCellReuseIdentifier, forIndexPath: indexPath) as! EventCell
         let eventViewModel = allEvents[indexPath.row]
         cell.configure(withPresenter: eventViewModel)
         cell.delegate = self
@@ -102,7 +80,7 @@ extension EventsViewController {
     
 }
 
-extension EventsViewController: MGSwipeTableCellDelegate {
+extension ScheduleViewController: MGSwipeTableCellDelegate {
     func swipeTableCell(cell: MGSwipeTableCell!, swipeButtonsForDirection direction: MGSwipeDirection, swipeSettings: MGSwipeSettings!, expansionSettings: MGSwipeExpansionSettings!) -> [AnyObject]! {
         swipeSettings.transition = .Border
         expansionSettings.buttonIndex = 0

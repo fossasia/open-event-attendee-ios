@@ -9,7 +9,7 @@
 import UIKit
 
 class EventsBaseViewController: UIViewController {
-    let kEventCellReuseIdentifier = "EventCell"
+    static let kEventCellReuseIdentifier = "EventCell"
     var allEvents: [EventViewModel] = []
 
     @IBOutlet weak var tableView: UITableView!
@@ -19,7 +19,9 @@ class EventsBaseViewController: UIViewController {
             viewModel?.events.observe {
                 [unowned self] in
                 self.allEvents = $0
-                self.tableView.reloadData()
+                if self.tableView != nil {
+                    self.tableView.reloadData()
+                }
             }
         }
     }
@@ -34,6 +36,7 @@ class EventsBaseViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
         tableView.dataSource = self
         tableView.delegate = self
+        tableView.rowHeight = 70
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -57,7 +60,7 @@ extension EventsBaseViewController: UITableViewDelegate {
 
 extension EventsBaseViewController: UITableViewDataSource {
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier(kEventCellReuseIdentifier, forIndexPath: indexPath) as! EventCell
+        let cell = tableView.dequeueReusableCellWithIdentifier(EventsBaseViewController.kEventCellReuseIdentifier, forIndexPath: indexPath) as! EventCell
         let eventViewModel = allEvents[indexPath.row]
         cell.configure(withPresenter: eventViewModel)
         
@@ -71,9 +74,5 @@ extension EventsBaseViewController: UITableViewDataSource {
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
     }
-    
-    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        // have to patch in code because IB wasn't listening to me
-        return 70
-    }
+
 }
