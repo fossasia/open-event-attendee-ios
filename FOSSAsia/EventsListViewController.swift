@@ -7,24 +7,17 @@
 //
 
 import UIKit
+import Pages
 
 class EventsListViewController: UIViewController {
-    weak var pageVC: UIPageViewController!
-    private (set) var scheduleViewControllers: [ScheduleViewController]!
+    weak var pagesVC: PagesController!
     var viewModel: EventsListViewModel? {
         didSet {
             viewModel?.allSchedules.observe { viewModels in
                 let viewControllers = viewModels.map { viewModel in
                     return ScheduleViewController.scheduleViewControllerFor(viewModel)
                 }
-                self.scheduleViewControllers = viewControllers
-                if let firstVC = self.scheduleViewControllers.first {
-                    self.pageVC.setViewControllers([firstVC], direction: .Forward, animated: true, completion: { (done) -> Void in
-                        if done {
-                            self.currentViewController = firstVC
-                        }
-                    })
-                }
+                self.pagesVC.add(viewControllers)
             }
         }
     }
@@ -39,10 +32,12 @@ class EventsListViewController: UIViewController {
             resultsTableController.tableView.reloadData()
         }
     }
+    @IBOutlet weak var prevButton: UIButton!
+    @IBOutlet weak var nextButton: UIButton!
+    @IBOutlet weak var dateLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         viewModel = EventsListViewModel()
         
         resultsTableController = storyboard!.instantiateViewControllerWithIdentifier(EventsResultsViewController.StoryboardConstants.viewControllerId) as! EventsResultsViewController
@@ -71,14 +66,53 @@ class EventsListViewController: UIViewController {
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if (segue.identifier == "EventsPageViewController") {
-            if let embeddedPageVC = segue.destinationViewController as? UIPageViewController {
-                self.pageVC = embeddedPageVC
-                self.pageVC.dataSource = self
+            if let embeddedPageVC = segue.destinationViewController as? PagesController {
+                self.pagesVC = embeddedPageVC
+                self.pagesVC.enableSwipe = false
+                self.pagesVC.pagesDelegate = self
             }
         }
     }
+    
+    @IBAction func prevButtonPressed(sender: AnyObject) {
+        pagesVC.previous()
+    }
+    
+    @IBAction func nextButtonPressed(sender: AnyObject) {
+        pagesVC.next()
+    }
+    
 }
 
+extension EventsListViewController: PagesControllerDelegate {
+    func pageViewController(pageViewController: UIPageViewController, setViewController viewController: UIViewController, atPage page: Int) {
+        guard let currentVC = viewController as? ScheduleViewController else {
+            return
+        }
+        
+        dateLabel.text = currentVC.viewModel?.date.value.formattedDateWithFormat("EEEE, MMM dd")
+        
+        // Govern Previous Button
+        if page == 0 {
+            prevButton.enabled = false
+        } else {
+            prevButton.enabled = true
+        }
+        
+        // Govern Next Button
+        if let scheduleViewModels = viewModel {
+            if page == scheduleViewModels.count.value - 1 {
+                nextButton.enabled = false
+            } else {
+                nextButton.enabled = true
+            }
+        }
+
+        
+        
+        self.currentViewController = currentVC
+    }
+}
 
 extension EventsListViewController: UISearchResultsUpdating {
     func updateSearchResultsForSearchController(searchController: UISearchController) {
@@ -100,44 +134,4 @@ extension EventsListViewController: UITableViewDelegate {
         navigationController?.pushViewController(eventViewController, animated: true)
     }
     
-}
-
-extension EventsListViewController: UIPageViewControllerDataSource {
-    func pageViewController(pageViewController: UIPageViewController, viewControllerBeforeViewController viewController: UIViewController) -> UIViewController? {
-        guard let scheduleViewController = viewController as? ScheduleViewController else {
-            return nil
-        }
-        
-        guard let viewControllerIndex = scheduleViewControllers.indexOf(scheduleViewController) else {
-            return nil
-        }
-        
-        let previousIndex = viewControllerIndex - 1
-        guard previousIndex >= 0 &&
-            scheduleViewControllers.count > previousIndex else {
-            return nil
-        }
-        self.currentViewController = scheduleViewControllers[previousIndex]
-        return scheduleViewControllers[previousIndex]
-    }
-    
-    func pageViewController(pageViewController: UIPageViewController, viewControllerAfterViewController viewController: UIViewController) -> UIViewController? {
-        guard let scheduleViewController = viewController as? ScheduleViewController else {
-            return nil
-        }
-        
-        guard let viewControllerIndex = scheduleViewControllers.indexOf(scheduleViewController) else {
-            return nil
-        }
-        
-        let nextIndex = viewControllerIndex + 1
-        let viewControllersCount = scheduleViewControllers.count
-        guard viewControllersCount != nextIndex &&
-            viewControllersCount > nextIndex else {
-                return nil
-        }
-        self.currentViewController = scheduleViewControllers[nextIndex]
-        return scheduleViewControllers[nextIndex]
-
-    }
 }

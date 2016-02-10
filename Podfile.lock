@@ -1,24 +1,24 @@
 PODS:
   - DateTools (1.7.0)
   - MGSwipeTableCell (1.5.3)
+  - Pages (0.6.3)
   - SwiftyJSON (2.3.2)
-  - TLYShyNavBar (1.0.0)
 
 DEPENDENCIES:
   - DateTools (from `https://github.com/MatthewYork/DateTools.git`)
   - MGSwipeTableCell (from `https://github.com/MortimerGoro/MGSwipeTableCell.git`)
+  - Pages (from `https://github.com/hyperoslo/Pages.git`)
   - SwiftyJSON (from `https://github.com/SwiftyJSON/SwiftyJSON.git`)
-  - TLYShyNavBar (from `https://github.com/telly/TLYShyNavBar.git`)
 
 EXTERNAL SOURCES:
   DateTools:
     :git: https://github.com/MatthewYork/DateTools.git
   MGSwipeTableCell:
     :git: https://github.com/MortimerGoro/MGSwipeTableCell.git
+  Pages:
+    :git: https://github.com/hyperoslo/Pages.git
   SwiftyJSON:
     :git: https://github.com/SwiftyJSON/SwiftyJSON.git
-  TLYShyNavBar:
-    :git: https://github.com/telly/TLYShyNavBar.git
 
 CHECKOUT OPTIONS:
   DateTools:
@@ -27,17 +27,17 @@ CHECKOUT OPTIONS:
   MGSwipeTableCell:
     :commit: 118d969ff4857db9bad056cd4cc979750b418a15
     :git: https://github.com/MortimerGoro/MGSwipeTableCell.git
+  Pages:
+    :commit: 1d5606593d51be60e51b669ee10cbe4718ca952b
+    :git: https://github.com/hyperoslo/Pages.git
   SwiftyJSON:
     :commit: 42bdb102d2624b143c07850ebdc1537d5b6579b6
     :git: https://github.com/SwiftyJSON/SwiftyJSON.git
-  TLYShyNavBar:
-    :commit: b0eacc80bffdbf3edc5c2d147d87d8d8a9cda08a
-    :git: https://github.com/telly/TLYShyNavBar.git
 
 SPEC CHECKSUMS:
   DateTools: 53288ee8b905fdc75897a1e6b5cc0144b14cba60
   MGSwipeTableCell: 5ae3b9a15efda26b201adc8676b24040febe6ff6
+  Pages: 71e80bc64040f1176297c327d080d80b7e74b38c
   SwiftyJSON: 04ccea08915aa0109039157c7974cf0298da292a
-  TLYShyNavBar: d313a1c50c58cb7af744829120eaa33ca8a998ce
 
 COCOAPODS: 0.39.0

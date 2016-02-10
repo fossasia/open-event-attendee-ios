@@ -51,6 +51,7 @@ struct EventsListViewModel {
     
     private func update(allSchedule: [ScheduleViewModel]) {
         self.allSchedules.value = allSchedule
+        self.count.value = allSchedule.count
     }
     
     private func retrieveSchedule(dates: [NSDate]) -> [ScheduleViewModel] {

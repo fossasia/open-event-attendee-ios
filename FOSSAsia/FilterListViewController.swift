@@ -11,7 +11,6 @@ import UIKit
 class FilterListViewController: UIViewController {
     private let kFilterCellReuseIdentifier = "FilterCell"
     @IBOutlet weak var filterTableView: UITableView!
-    var scheduleViewModel: ScheduleCountPresentable?
     
     override func viewDidLoad() {
         super.viewDidLoad()

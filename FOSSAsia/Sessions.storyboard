@@ -128,18 +128,64 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pMe-dz-lfp">
-                                <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                                <rect key="frame" x="0.0" y="96" width="600" height="504"/>
                                 <connections>
                                     <segue destination="FSN-SQ-TRn" kind="embed" identifier="EventsPageViewController" id="TyX-RB-9l5"/>
                                 </connections>
                             </containerView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KPS-XI-9Rb">
+                                <rect key="frame" x="0.0" y="64" width="600" height="32"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oye-mT-mpq" userLabel="Previous Button">
+                                        <rect key="frame" x="0.0" y="5" width="31" height="22"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="31" id="LPx-jP-P8D"/>
+                                        </constraints>
+                                        <state key="normal" image="arrow_prev_enabled"/>
+                                        <connections>
+                                            <action selector="prevButtonPressed:" destination="9pv-A4-QxB" eventType="touchUpInside" id="o7S-p6-lYu"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u38-Ak-pTT" userLabel="Next Button">
+                                        <rect key="frame" x="569" y="5" width="31" height="22"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="31" id="Zxo-bv-UVH"/>
+                                        </constraints>
+                                        <state key="normal" image="arrow_next_enabled"/>
+                                        <state key="disabled" image="arrow_next_disabled"/>
+                                        <connections>
+                                            <action selector="nextButtonPressed:" destination="9pv-A4-QxB" eventType="touchUpInside" id="UJA-bR-wGh"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oPW-14-woO" userLabel="Date Label">
+                                        <rect key="frame" x="39" y="8" width="522" height="16"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="13"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.97252601385116577" green="0.97326189279556274" blue="0.97263997793197632" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="u38-Ak-pTT" firstAttribute="leading" secondItem="oPW-14-woO" secondAttribute="trailing" constant="8" id="2sz-DU-QEe"/>
+                                    <constraint firstItem="oPW-14-woO" firstAttribute="centerY" secondItem="KPS-XI-9Rb" secondAttribute="centerY" id="9B1-q9-rYf"/>
+                                    <constraint firstItem="oPW-14-woO" firstAttribute="leading" secondItem="oye-mT-mpq" secondAttribute="trailing" constant="8" id="9X5-g8-xqF"/>
+                                    <constraint firstItem="u38-Ak-pTT" firstAttribute="centerY" secondItem="KPS-XI-9Rb" secondAttribute="centerY" id="Dv5-uf-Wcq"/>
+                                    <constraint firstItem="oye-mT-mpq" firstAttribute="centerY" secondItem="KPS-XI-9Rb" secondAttribute="centerY" id="XCb-x1-Flo"/>
+                                    <constraint firstAttribute="trailing" secondItem="u38-Ak-pTT" secondAttribute="trailing" id="f3C-ou-BlH"/>
+                                    <constraint firstAttribute="height" constant="32" id="lTY-tv-XxC"/>
+                                    <constraint firstItem="oye-mT-mpq" firstAttribute="leading" secondItem="KPS-XI-9Rb" secondAttribute="leading" id="vu4-m5-Zrv"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="pMe-dz-lfp" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leadingMargin" constant="-20" id="5ey-w4-Awy"/>
-                            <constraint firstItem="pMe-dz-lfp" firstAttribute="top" secondItem="Ia1-K6-d13" secondAttribute="bottom" id="8p7-c0-oNq"/>
                             <constraint firstAttribute="trailingMargin" secondItem="pMe-dz-lfp" secondAttribute="trailing" constant="-20" id="BI2-ij-mRB"/>
+                            <constraint firstItem="KPS-XI-9Rb" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leadingMargin" constant="-20" id="BXm-Sh-qWv"/>
                             <constraint firstItem="pMe-dz-lfp" firstAttribute="bottom" secondItem="tsR-hK-woN" secondAttribute="bottomMargin" id="CeN-wN-u68"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="KPS-XI-9Rb" secondAttribute="trailing" constant="-20" id="L5Q-VF-3PF"/>
+                            <constraint firstItem="pMe-dz-lfp" firstAttribute="top" secondItem="KPS-XI-9Rb" secondAttribute="bottom" id="ql4-8r-pbq"/>
+                            <constraint firstItem="KPS-XI-9Rb" firstAttribute="top" secondItem="Ia1-K6-d13" secondAttribute="bottom" id="tl6-uH-IN1"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="FOSSAsia" id="BZJ-qg-GtK">
@@ -150,6 +196,11 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="dateLabel" destination="oPW-14-woO" id="JoF-PU-Ttk"/>
+                        <outlet property="nextButton" destination="u38-Ak-pTT" id="QDa-7q-rsk"/>
+                        <outlet property="prevButton" destination="oye-mT-mpq" id="pPl-MD-B9h"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
@@ -533,16 +584,19 @@
             </objects>
             <point key="canvasLocation" x="2143" y="-1071"/>
         </scene>
-        <!--Page View Controller-->
+        <!--Pages Controller-->
         <scene sceneID="q58-Ei-cBx">
             <objects>
-                <pageViewController autoresizesArchivedViewToFullSize="NO" automaticallyAdjustsScrollViewInsets="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="FSN-SQ-TRn" sceneMemberID="viewController"/>
+                <pageViewController autoresizesArchivedViewToFullSize="NO" automaticallyAdjustsScrollViewInsets="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="FSN-SQ-TRn" customClass="HYPPagesController" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="g8q-qD-xi0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2154" y="-345"/>
         </scene>
     </scenes>
     <resources>
+        <image name="arrow_next_disabled" width="8" height="11"/>
+        <image name="arrow_next_enabled" width="8" height="11"/>
+        <image name="arrow_prev_enabled" width="8" height="11"/>
         <image name="cal_unselected" width="21" height="23"/>
         <image name="session_cell_favorite" width="15" height="15"/>
     </resources>
