@@ -3,7 +3,6 @@ use_frameworks!
 
 target 'FOSSAsia' do
 
-pod 'TLYShyNavBar', :git => 'https://github.com/telly/TLYShyNavBar.git'
 pod 'SwiftyJSON', :git => 'https://github.com/SwiftyJSON/SwiftyJSON.git'
 pod 'DateTools', :git => 'https://github.com/MatthewYork/DateTools.git'
 pod 'MGSwipeTableCell', :git => 'https://github.com/MortimerGoro/MGSwipeTableCell.git'
