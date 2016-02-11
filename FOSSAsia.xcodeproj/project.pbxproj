@@ -15,6 +15,8 @@
 		280DE5291C62FCB200E64020 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 280DE5281C62FCB200E64020 /* Podfile */; };
 		281324ED1C672EE80072E730 /* EventsResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 281324EC1C672EE80072E730 /* EventsResultsViewController.swift */; };
 		281324EF1C6735430072E730 /* EventsBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 281324EE1C6735430072E730 /* EventsBaseViewController.swift */; };
+		2824FD581C6C09B900F783E1 /* FavoritesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2824FD571C6C09B900F783E1 /* FavoritesListViewController.swift */; };
+		2824FD5A1C6C0AFE00F783E1 /* SchedulePagingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2824FD591C6C0AFE00F783E1 /* SchedulePagingView.swift */; };
 		28352C711C6B2B9F0055E2F5 /* EventsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28352C701C6B2B9F0055E2F5 /* EventsListViewController.swift */; };
 		28352C731C6B411C0055E2F5 /* EventsListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28352C721C6B411C0055E2F5 /* EventsListViewModel.swift */; };
 		2859B0FE1C5DF8D7009656FC /* EventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2859B0FD1C5DF8D7009656FC /* EventViewController.swift */; };
@@ -65,6 +67,8 @@
 		280DE5281C62FCB200E64020 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		281324EC1C672EE80072E730 /* EventsResultsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsResultsViewController.swift; sourceTree = "<group>"; };
 		281324EE1C6735430072E730 /* EventsBaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsBaseViewController.swift; sourceTree = "<group>"; };
+		2824FD571C6C09B900F783E1 /* FavoritesListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesListViewController.swift; sourceTree = "<group>"; };
+		2824FD591C6C0AFE00F783E1 /* SchedulePagingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SchedulePagingView.swift; sourceTree = "<group>"; };
 		28352C701C6B2B9F0055E2F5 /* EventsListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsListViewController.swift; sourceTree = "<group>"; };
 		28352C721C6B411C0055E2F5 /* EventsListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsListViewModel.swift; sourceTree = "<group>"; };
 		2859B0FD1C5DF8D7009656FC /* EventViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventViewController.swift; sourceTree = "<group>"; };
@@ -138,6 +142,7 @@
 				281324EE1C6735430072E730 /* EventsBaseViewController.swift */,
 				285F1B661C5AF7B100A7E0DD /* ScheduleViewController.swift */,
 				28352C701C6B2B9F0055E2F5 /* EventsListViewController.swift */,
+				2824FD571C6C09B900F783E1 /* FavoritesListViewController.swift */,
 				281324EC1C672EE80072E730 /* EventsResultsViewController.swift */,
 				2859B0FD1C5DF8D7009656FC /* EventViewController.swift */,
 				28091E8C1C6332A600E789CD /* FilterListViewController.swift */,
@@ -200,6 +205,7 @@
 				285F1BB71C5B16C700A7E0DD /* EventCell.swift */,
 				2859B1011C5E29DC009656FC /* EventInfoView.swift */,
 				28091E8E1C636F9000E789CD /* FilterCell.swift */,
+				2824FD591C6C0AFE00F783E1 /* SchedulePagingView.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -445,10 +451,12 @@
 				285F1BB41C5B0FDC00A7E0DD /* SpeakerViewModel.swift in Sources */,
 				28A0BC6F1C5F42D6001625FB /* Error.swift in Sources */,
 				28A0BC711C5F4373001625FB /* EventsServiceProtocol.swift in Sources */,
+				2824FD5A1C6C0AFE00F783E1 /* SchedulePagingView.swift in Sources */,
 				28A0BC921C5F4FEC001625FB /* ScheduleViewModel.swift in Sources */,
 				285F1BB01C5B094F00A7E0DD /* Speaker.swift in Sources */,
 				28A0BC6D1C5F4082001625FB /* FossAsiaEventsService.swift in Sources */,
 				285F1B791C5AFBBB00A7E0DD /* SwiftHEXColors.swift in Sources */,
+				2824FD581C6C09B900F783E1 /* FavoritesListViewController.swift in Sources */,
 				28091E931C64B61C00E789CD /* RangeExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

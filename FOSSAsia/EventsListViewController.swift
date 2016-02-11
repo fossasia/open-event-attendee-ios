@@ -13,8 +13,9 @@ class EventsListViewController: UIViewController {
     weak var pagesVC: PagesController!
     var viewModel: EventsListViewModel? {
         didSet {
-            viewModel?.allSchedules.observe { viewModels in
-                let viewControllers = viewModels.map { viewModel in
+            viewModel?.allSchedules.observe {
+                [unowned self] in
+                let viewControllers = $0.map { viewModel in
                     return ScheduleViewController.scheduleViewControllerFor(viewModel)
                 }
                 self.pagesVC.add(viewControllers)
@@ -32,13 +33,13 @@ class EventsListViewController: UIViewController {
             resultsTableController.tableView.reloadData()
         }
     }
-    @IBOutlet weak var prevButton: UIButton!
-    @IBOutlet weak var nextButton: UIButton!
-    @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var pagingView: SchedulePagingView!
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel = EventsListViewModel()
+        pagingView.delegate = self
         
         resultsTableController = storyboard!.instantiateViewControllerWithIdentifier(EventsResultsViewController.StoryboardConstants.viewControllerId) as! EventsResultsViewController
         resultsTableController.allEvents = currentViewController.allEvents
@@ -73,15 +74,16 @@ class EventsListViewController: UIViewController {
             }
         }
     }
-    
-    @IBAction func prevButtonPressed(sender: AnyObject) {
-        pagesVC.previous()
+}
+
+extension EventsListViewController: SchedulePagingViewDelegate {
+    func nextButtonDidPress(sender: SchedulePagingView) {
+        self.pagesVC.next()
+
     }
-    
-    @IBAction func nextButtonPressed(sender: AnyObject) {
-        pagesVC.next()
+    func prevButtonDidPress(sender: SchedulePagingView) {
+        self.pagesVC.previous()
     }
-    
 }
 
 extension EventsListViewController: PagesControllerDelegate {
@@ -89,26 +91,23 @@ extension EventsListViewController: PagesControllerDelegate {
         guard let currentVC = viewController as? ScheduleViewController else {
             return
         }
-        
-        dateLabel.text = currentVC.viewModel?.date.value.formattedDateWithFormat("EEEE, MMM dd")
+        pagingView.dateLabel.text = currentVC.viewModel?.date.value.formattedDateWithFormat("EEEE, MMM dd")
         
         // Govern Previous Button
         if page == 0 {
-            prevButton.enabled = false
+            pagingView.prevButton.enabled = false
         } else {
-            prevButton.enabled = true
+            pagingView.prevButton.enabled = true
         }
         
         // Govern Next Button
         if let scheduleViewModels = viewModel {
             if page == scheduleViewModels.count.value - 1 {
-                nextButton.enabled = false
+                pagingView.nextButton.enabled = false
             } else {
-                nextButton.enabled = true
+                pagingView.nextButton.enabled = true
             }
         }
-
-        
         
         self.currentViewController = currentVC
     }

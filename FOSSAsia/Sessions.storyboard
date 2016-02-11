@@ -133,7 +133,7 @@
                                     <segue destination="FSN-SQ-TRn" kind="embed" identifier="EventsPageViewController" id="TyX-RB-9l5"/>
                                 </connections>
                             </containerView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KPS-XI-9Rb">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KPS-XI-9Rb" customClass="SchedulePagingView" customModule="FOSSAsia" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="64" width="600" height="32"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oye-mT-mpq" userLabel="Previous Button">
@@ -143,7 +143,7 @@
                                         </constraints>
                                         <state key="normal" image="arrow_prev_enabled"/>
                                         <connections>
-                                            <action selector="prevButtonPressed:" destination="9pv-A4-QxB" eventType="touchUpInside" id="o7S-p6-lYu"/>
+                                            <action selector="prevButtonPressed:" destination="KPS-XI-9Rb" eventType="touchUpInside" id="7zj-bQ-e2H"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u38-Ak-pTT" userLabel="Next Button">
@@ -154,7 +154,7 @@
                                         <state key="normal" image="arrow_next_enabled"/>
                                         <state key="disabled" image="arrow_next_disabled"/>
                                         <connections>
-                                            <action selector="nextButtonPressed:" destination="9pv-A4-QxB" eventType="touchUpInside" id="UJA-bR-wGh"/>
+                                            <action selector="nextButtonPressed:" destination="KPS-XI-9Rb" eventType="touchUpInside" id="4hH-No-jeN"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oPW-14-woO" userLabel="Date Label">
@@ -175,6 +175,11 @@
                                     <constraint firstAttribute="height" constant="32" id="lTY-tv-XxC"/>
                                     <constraint firstItem="oye-mT-mpq" firstAttribute="leading" secondItem="KPS-XI-9Rb" secondAttribute="leading" id="vu4-m5-Zrv"/>
                                 </constraints>
+                                <connections>
+                                    <outlet property="dateLabel" destination="oPW-14-woO" id="HCL-UJ-5hE"/>
+                                    <outlet property="nextButton" destination="u38-Ak-pTT" id="7ou-af-dGn"/>
+                                    <outlet property="prevButton" destination="oye-mT-mpq" id="WkC-OC-75s"/>
+                                </connections>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -197,9 +202,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="dateLabel" destination="oPW-14-woO" id="JoF-PU-Ttk"/>
-                        <outlet property="nextButton" destination="u38-Ak-pTT" id="QDa-7q-rsk"/>
-                        <outlet property="prevButton" destination="oye-mT-mpq" id="pPl-MD-B9h"/>
+                        <outlet property="pagingView" destination="KPS-XI-9Rb" id="RSq-QY-pah"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
