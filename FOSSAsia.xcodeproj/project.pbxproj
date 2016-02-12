@@ -17,6 +17,7 @@
 		281324EF1C6735430072E730 /* EventsBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 281324EE1C6735430072E730 /* EventsBaseViewController.swift */; };
 		2824FD5A1C6C0AFE00F783E1 /* SchedulePagingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2824FD591C6C0AFE00F783E1 /* SchedulePagingView.swift */; };
 		2824FD621C6C732300F783E1 /* MoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2824FD611C6C732300F783E1 /* MoreViewController.swift */; };
+		2824FD641C6DA80600F783E1 /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2824FD631C6DA80600F783E1 /* LoadingViewController.swift */; };
 		28352C711C6B2B9F0055E2F5 /* EventsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28352C701C6B2B9F0055E2F5 /* EventsListViewController.swift */; };
 		28352C731C6B411C0055E2F5 /* EventsListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28352C721C6B411C0055E2F5 /* EventsListViewModel.swift */; };
 		2859B0FE1C5DF8D7009656FC /* EventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2859B0FD1C5DF8D7009656FC /* EventViewController.swift */; };
@@ -24,7 +25,6 @@
 		2859B1021C5E29DC009656FC /* EventInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2859B1011C5E29DC009656FC /* EventInfoView.swift */; };
 		285F1B651C5AF7B100A7E0DD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285F1B641C5AF7B100A7E0DD /* AppDelegate.swift */; };
 		285F1B671C5AF7B100A7E0DD /* ScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285F1B661C5AF7B100A7E0DD /* ScheduleViewController.swift */; };
-		285F1B691C5AF7B100A7E0DD /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285F1B681C5AF7B100A7E0DD /* SecondViewController.swift */; };
 		285F1B6C1C5AF7B100A7E0DD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 285F1B6A1C5AF7B100A7E0DD /* Main.storyboard */; };
 		285F1B6E1C5AF7B100A7E0DD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 285F1B6D1C5AF7B100A7E0DD /* Assets.xcassets */; };
 		285F1B711C5AF7B100A7E0DD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 285F1B6F1C5AF7B100A7E0DD /* LaunchScreen.storyboard */; };
@@ -69,6 +69,7 @@
 		281324EE1C6735430072E730 /* EventsBaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsBaseViewController.swift; sourceTree = "<group>"; };
 		2824FD591C6C0AFE00F783E1 /* SchedulePagingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SchedulePagingView.swift; sourceTree = "<group>"; };
 		2824FD611C6C732300F783E1 /* MoreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoreViewController.swift; sourceTree = "<group>"; };
+		2824FD631C6DA80600F783E1 /* LoadingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingViewController.swift; sourceTree = "<group>"; };
 		28352C701C6B2B9F0055E2F5 /* EventsListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsListViewController.swift; sourceTree = "<group>"; };
 		28352C721C6B411C0055E2F5 /* EventsListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsListViewModel.swift; sourceTree = "<group>"; };
 		2859B0FD1C5DF8D7009656FC /* EventViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventViewController.swift; sourceTree = "<group>"; };
@@ -77,7 +78,6 @@
 		285F1B611C5AF7B100A7E0DD /* FOSSAsia.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FOSSAsia.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		285F1B641C5AF7B100A7E0DD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		285F1B661C5AF7B100A7E0DD /* ScheduleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleViewController.swift; sourceTree = "<group>"; };
-		285F1B681C5AF7B100A7E0DD /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		285F1B6B1C5AF7B100A7E0DD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		285F1B6D1C5AF7B100A7E0DD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		285F1B701C5AF7B100A7E0DD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -145,8 +145,8 @@
 				281324EC1C672EE80072E730 /* EventsResultsViewController.swift */,
 				2859B0FD1C5DF8D7009656FC /* EventViewController.swift */,
 				28091E8C1C6332A600E789CD /* FilterListViewController.swift */,
-				285F1B681C5AF7B100A7E0DD /* SecondViewController.swift */,
 				2824FD611C6C732300F783E1 /* MoreViewController.swift */,
+				2824FD631C6DA80600F783E1 /* LoadingViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -429,7 +429,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				285F1B691C5AF7B100A7E0DD /* SecondViewController.swift in Sources */,
 				281324EF1C6735430072E730 /* EventsBaseViewController.swift in Sources */,
 				28091E8D1C6332A600E789CD /* FilterListViewController.swift in Sources */,
 				28352C731C6B411C0055E2F5 /* EventsListViewModel.swift in Sources */,
@@ -446,6 +445,7 @@
 				28091E8F1C636F9000E789CD /* FilterCell.swift in Sources */,
 				285F1B671C5AF7B100A7E0DD /* ScheduleViewController.swift in Sources */,
 				28091E911C64B0B900E789CD /* Constants.swift in Sources */,
+				2824FD641C6DA80600F783E1 /* LoadingViewController.swift in Sources */,
 				281324ED1C672EE80072E730 /* EventsResultsViewController.swift in Sources */,
 				285F1B921C5B06CC00A7E0DD /* Event.swift in Sources */,
 				28A0BC941C5F50A2001625FB /* Schedule.swift in Sources */,

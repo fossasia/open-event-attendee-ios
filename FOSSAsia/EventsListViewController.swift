@@ -11,21 +11,27 @@ import Pages
 
 class EventsListViewController: UIViewController {
     weak var pagesVC: PagesController!
+    var searchController: UISearchController!
+    var resultsTableController: EventsResultsViewController!
+    @IBOutlet weak var pagingView: SchedulePagingView!
+    
+    
     var viewModel: EventsListViewModel? {
         didSet {
             viewModel?.allSchedules.observe {
                 [unowned self] in
+                guard $0.count > 0 else {
+                    return
+                }
                 let viewControllers = $0.map { viewModel in
                     return ScheduleViewController.scheduleViewControllerFor(viewModel)
                 }
                 self.pagesVC.add(viewControllers)
+                self.pagesVC.startPage = 1
             }
         }
     }
     
-    var currentViewController: ScheduleViewController!
-    var searchController: UISearchController!
-    var resultsTableController: EventsResultsViewController!
     var filterString: String? = nil {
         didSet {
             currentViewController.filterString = filterString
@@ -33,7 +39,13 @@ class EventsListViewController: UIViewController {
             resultsTableController.tableView.reloadData()
         }
     }
-    @IBOutlet weak var pagingView: SchedulePagingView!
+    var currentViewController: ScheduleViewController! {
+        didSet {
+            if resultsTableController != nil {
+                resultsTableController.allEvents = currentViewController.allEvents
+            }
+        }
+    }
 
     
     override func viewDidLoad() {
@@ -42,8 +54,7 @@ class EventsListViewController: UIViewController {
         pagingView.delegate = self
         
         resultsTableController = storyboard!.instantiateViewControllerWithIdentifier(EventsResultsViewController.StoryboardConstants.viewControllerId) as! EventsResultsViewController
-        resultsTableController.allEvents = currentViewController.allEvents
-        
+
         searchController = UISearchController(searchResultsController: resultsTableController)
         searchController.searchResultsUpdater = self
         searchController.hidesNavigationBarDuringPresentation = false
@@ -69,10 +80,21 @@ class EventsListViewController: UIViewController {
         if (segue.identifier == "EventsPageViewController") {
             if let embeddedPageVC = segue.destinationViewController as? PagesController {
                 self.pagesVC = embeddedPageVC
+                let loadingVC = self.storyboard!.instantiateViewControllerWithIdentifier("LoadingVC")
+                self.pagesVC.add([loadingVC])
                 self.pagesVC.enableSwipe = false
                 self.pagesVC.pagesDelegate = self
             }
         }
+    }
+    
+    private func delay(delay:Double, closure:()->()) {
+        dispatch_after(
+            dispatch_time(
+                DISPATCH_TIME_NOW,
+                Int64(delay * Double(NSEC_PER_SEC))
+            ),
+            dispatch_get_main_queue(), closure)
     }
 }
 
@@ -94,7 +116,7 @@ extension EventsListViewController: PagesControllerDelegate {
         pagingView.dateLabel.text = currentVC.viewModel?.date.value.formattedDateWithFormat("EEEE, MMM dd")
         
         // Govern Previous Button
-        if page == 0 {
+        if page == 1 {
             pagingView.prevButton.enabled = false
         } else {
             pagingView.prevButton.enabled = true
@@ -102,7 +124,7 @@ extension EventsListViewController: PagesControllerDelegate {
         
         // Govern Next Button
         if let scheduleViewModels = viewModel {
-            if page == scheduleViewModels.count.value - 1 {
+            if page == scheduleViewModels.count.value {
                 pagingView.nextButton.enabled = false
             } else {
                 pagingView.nextButton.enabled = true

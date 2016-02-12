@@ -6,6 +6,36 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
+        <!--Loading View Controller-->
+        <scene sceneID="yqo-Mf-Htd">
+            <objects>
+                <viewController storyboardIdentifier="LoadingVC" id="rp1-Wv-sQd" customClass="LoadingViewController" customModule="FOSSAsia" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="pnK-3k-Zdc"/>
+                        <viewControllerLayoutGuide type="bottom" id="xjc-Pp-Lmi"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Tgz-yj-NMY">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="loading_indicator" translatesAutoresizingMaskIntoConstraints="NO" id="L75-Ay-uOF">
+                                <rect key="frame" x="276" y="276" width="48" height="48"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="L75-Ay-uOF" firstAttribute="centerY" secondItem="Tgz-yj-NMY" secondAttribute="centerY" id="Sbb-lC-fiV"/>
+                            <constraint firstItem="L75-Ay-uOF" firstAttribute="centerX" secondItem="Tgz-yj-NMY" secondAttribute="centerX" id="o3f-KL-A9S"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="loadingImageView" destination="L75-Ay-uOF" id="pzA-Gz-gy9"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pG5-Qz-YFB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2754" y="-1057"/>
+        </scene>
         <!--Events Results View Controller-->
         <scene sceneID="eid-il-k32">
             <objects>
@@ -26,7 +56,7 @@
                                         <rect key="frame" x="0.0" y="28" width="600" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="0ZK-4s-zzX" id="Cr6-qB-Rag">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="69.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="70"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WBq-uE-VFi" userLabel="Type View">
@@ -127,12 +157,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pMe-dz-lfp">
-                                <rect key="frame" x="0.0" y="96" width="600" height="504"/>
-                                <connections>
-                                    <segue destination="FSN-SQ-TRn" kind="embed" identifier="EventsPageViewController" id="TyX-RB-9l5"/>
-                                </connections>
-                            </containerView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KPS-XI-9Rb" customClass="SchedulePagingView" customModule="FOSSAsia" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="64" width="600" height="32"/>
                                 <subviews>
@@ -157,7 +181,7 @@
                                             <action selector="nextButtonPressed:" destination="KPS-XI-9Rb" eventType="touchUpInside" id="4hH-No-jeN"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oPW-14-woO" userLabel="Date Label">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oPW-14-woO" userLabel="Date Label">
                                         <rect key="frame" x="39" y="8" width="522" height="16"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="13"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -181,6 +205,12 @@
                                     <outlet property="prevButton" destination="oye-mT-mpq" id="WkC-OC-75s"/>
                                 </connections>
                             </view>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pMe-dz-lfp" userLabel="Event List Container">
+                                <rect key="frame" x="0.0" y="96" width="600" height="504"/>
+                                <connections>
+                                    <segue destination="FSN-SQ-TRn" kind="embed" identifier="EventsPageViewController" id="TyX-RB-9l5"/>
+                                </connections>
+                            </containerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -227,10 +257,10 @@
                                 <color key="sectionIndexBackgroundColor" red="0.97244364023208618" green="0.97260981798171997" blue="0.97243314981460571" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="FilterCell" rowHeight="44" id="QCO-th-2Ec" customClass="FilterCell" customModule="FOSSAsia" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="49.5" width="600" height="44"/>
+                                        <rect key="frame" x="0.0" y="50" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="QCO-th-2Ec" id="LeF-k6-trq">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tua-eP-blV">
@@ -301,7 +331,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jbQ-pE-HZY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2315" y="493"/>
+            <point key="canvasLocation" x="2283" y="1055"/>
         </scene>
         <!--Event-->
         <scene sceneID="BnK-ZP-8nm">
@@ -437,7 +467,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d8q-Fj-4cs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2848" y="-355"/>
+            <point key="canvasLocation" x="3168" y="-301"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Tii-Oj-xqW">
@@ -481,7 +511,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BIG-pk-9u1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1491" y="493"/>
+            <point key="canvasLocation" x="1491" y="1049"/>
         </scene>
         <!--Schedule View Controller-->
         <scene sceneID="2RM-eF-hMB">
@@ -503,7 +533,7 @@
                                         <rect key="frame" x="0.0" y="28" width="560" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="m2M-FY-gxG" id="wr5-Q9-Xkc">
-                                            <rect key="frame" x="0.0" y="0.0" width="560" height="69.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="560" height="70"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NRq-Ui-5It">
@@ -597,7 +627,7 @@
                 <pageViewController autoresizesArchivedViewToFullSize="NO" automaticallyAdjustsScrollViewInsets="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="FSN-SQ-TRn" customClass="HYPPagesController" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="g8q-qD-xi0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2154" y="-345"/>
+            <point key="canvasLocation" x="2210" y="-345"/>
         </scene>
     </scenes>
     <resources>
@@ -605,6 +635,7 @@
         <image name="arrow_next_enabled" width="8" height="11"/>
         <image name="arrow_prev_enabled" width="8" height="11"/>
         <image name="cal_unselected" width="21" height="23"/>
+        <image name="loading_indicator" width="48" height="48"/>
         <image name="session_cell_favorite" width="15" height="15"/>
     </resources>
 </document>

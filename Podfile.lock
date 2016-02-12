@@ -7,7 +7,7 @@ PODS:
 DEPENDENCIES:
   - DateTools (from `https://github.com/MatthewYork/DateTools.git`)
   - MGSwipeTableCell (from `https://github.com/MortimerGoro/MGSwipeTableCell.git`)
-  - Pages (from `https://github.com/hyperoslo/Pages.git`)
+  - Pages (from `https://github.com/jurvis/Pages.git`)
   - SwiftyJSON (from `https://github.com/SwiftyJSON/SwiftyJSON.git`)
 
 EXTERNAL SOURCES:
@@ -16,7 +16,7 @@ EXTERNAL SOURCES:
   MGSwipeTableCell:
     :git: https://github.com/MortimerGoro/MGSwipeTableCell.git
   Pages:
-    :git: https://github.com/hyperoslo/Pages.git
+    :git: https://github.com/jurvis/Pages.git
   SwiftyJSON:
     :git: https://github.com/SwiftyJSON/SwiftyJSON.git
 
@@ -28,8 +28,8 @@ CHECKOUT OPTIONS:
     :commit: 118d969ff4857db9bad056cd4cc979750b418a15
     :git: https://github.com/MortimerGoro/MGSwipeTableCell.git
   Pages:
-    :commit: 1d5606593d51be60e51b669ee10cbe4718ca952b
-    :git: https://github.com/hyperoslo/Pages.git
+    :commit: 514306af335930b1c7db8f2e1b0ef79b3e92fec2
+    :git: https://github.com/jurvis/Pages.git
   SwiftyJSON:
     :commit: 42bdb102d2624b143c07850ebdc1537d5b6579b6
     :git: https://github.com/SwiftyJSON/SwiftyJSON.git

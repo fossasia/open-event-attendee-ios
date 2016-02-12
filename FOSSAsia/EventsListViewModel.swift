@@ -10,7 +10,7 @@ import Foundation
 
 struct EventsListViewModel {
     //MARK:- Properties
-    let allSchedules: Observable<[ScheduleViewModel]>
+    let allSchedules: Observable<[ScheduleViewModel]> = Observable([])
     let count: Observable<Int>
     
     // MARK: - Errors
@@ -25,7 +25,6 @@ struct EventsListViewModel {
         hasError = Observable(false)
         errorMessage = Observable(nil)
         
-        self.allSchedules = Observable([])
         self.count = Observable(1)
         
         // Dependency Injections
@@ -37,15 +36,15 @@ struct EventsListViewModel {
     func refreshDates() {
         // Retrieve all dates
         eventsService.retrieveEventsInfo(nil, trackIds: nil) { (events, error) -> Void in
-            var dates = Set<NSDate>()
             if let eventsArray = events {
+                var dates = Set<NSDate>()
                 for event in eventsArray {
                     let newDate = NSDate(year: event.startDateTime.year(), month: event.startDateTime.month(), day: event.startDateTime.day())
                     dates.insert(newDate)
                 }
+                let sortedDates = dates.sort({$0.compare($1) == .OrderedAscending})
+                self.update(self.retrieveSchedule(sortedDates))
             }
-            let sortedDates = dates.sort({$0.compare($1) == .OrderedAscending})
-            self.update(self.retrieveSchedule(sortedDates))
         }
     }
     
