@@ -12,6 +12,8 @@ struct EventsListViewModel {
     //MARK:- Properties
     let allSchedules: Observable<[ScheduleViewModel]> = Observable([])
     let count: Observable<Int>
+    var isFavoritesOnly: Observable<Bool> = Observable(false)
+
     
     // MARK: - Errors
     let hasError: Observable<Bool>
@@ -48,6 +50,11 @@ struct EventsListViewModel {
         }
     }
     
+    mutating func setFavoritesOnly(isFavoritesOnly: Bool) {
+        self.isFavoritesOnly = Observable(true)
+        refreshDates()
+    }
+    
     private func update(allSchedule: [ScheduleViewModel]) {
         self.allSchedules.value = allSchedule
         self.count.value = allSchedule.count
@@ -55,7 +62,7 @@ struct EventsListViewModel {
     
     private func retrieveSchedule(dates: [NSDate]) -> [ScheduleViewModel] {
         let allSchedules = dates.map { date in
-            return ScheduleViewModel(date)
+            return ScheduleViewModel(date, favoritesOnly: (isFavoritesOnly.value ? true : false))
         }
         return allSchedules
     }

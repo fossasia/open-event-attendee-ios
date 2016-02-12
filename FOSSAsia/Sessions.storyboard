@@ -9,7 +9,7 @@
         <!--Loading View Controller-->
         <scene sceneID="yqo-Mf-Htd">
             <objects>
-                <viewController storyboardIdentifier="LoadingVC" id="rp1-Wv-sQd" customClass="LoadingViewController" customModule="FOSSAsia" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoadingViewController" id="rp1-Wv-sQd" customClass="LoadingViewController" customModule="FOSSAsia" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="pnK-3k-Zdc"/>
                         <viewControllerLayoutGuide type="bottom" id="xjc-Pp-Lmi"/>
@@ -34,7 +34,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pG5-Qz-YFB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2754" y="-1057"/>
+            <point key="canvasLocation" x="2826" y="-1056"/>
         </scene>
         <!--Events Results View Controller-->
         <scene sceneID="eid-il-k32">
@@ -456,6 +456,7 @@
                         <barButtonItem key="backBarButtonItem" id="c84-4G-31x">
                             <color key="tintColor" red="0.99605792760848999" green="0.98371905088424683" blue="0.85540348291397095" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Favorite" id="4TN-7r-a37"/>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <connections>

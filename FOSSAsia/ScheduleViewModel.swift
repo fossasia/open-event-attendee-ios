@@ -17,6 +17,8 @@ struct ScheduleViewModel: ScheduleCountPresentable {
     let date: Observable<NSDate>
     let events: Observable<[EventViewModel]>
     
+    let isFavoritesOnly: Observable<Bool>
+    
     // MARK: - Errors
     let hasError: Observable<Bool>
     let errorMessage: Observable<String?>
@@ -24,29 +26,33 @@ struct ScheduleViewModel: ScheduleCountPresentable {
     // MARK: - Services
     private var eventsService: EventsServiceProtocol
     
-    init (_ date: NSDate) {
+    init (_ date: NSDate, favoritesOnly: Bool = false) {
         hasError = Observable(false)
         errorMessage = Observable(nil)
         
         self.date = Observable(date)
         self.events = Observable([])
+        self.isFavoritesOnly = Observable(favoritesOnly)
         
         // Dependency Injections
         eventsService = FossAsiaEventsService()
         self.refresh()
     }
+
     
     func refresh() {
         if let filteredTracks = NSUserDefaults.standardUserDefaults().objectForKey(Constants.UserDefaultsKey.FilteredTrackIds) as? [Int] {
             eventsService.retrieveEventsInfo(date.value, trackIds: filteredTracks) { (events, error) -> Void in
                 if error == nil {
-                    if let eventsArray = events {
+                    if var eventsArray = events {
+                        if self.isFavoritesOnly.value {
+                            eventsArray = eventsArray.filter({ $0.favorite })
+                        }
                         self.update(Schedule(date: self.date.value, events: eventsArray))
                     }
                 }
             }
         }
-
     }
     
     func favoriteEvent(sessionId: Int) {
@@ -55,7 +61,6 @@ struct ScheduleViewModel: ScheduleCountPresentable {
                 self.refresh()
             }
         }
-        
     }
     
     private func update(schedule: Schedule) {

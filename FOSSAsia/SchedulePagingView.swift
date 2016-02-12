@@ -8,10 +8,6 @@
 
 import UIKit
 
-protocol SchedulePagingViewDelegate: class {
-    func nextButtonDidPress(sender: SchedulePagingView)
-    func prevButtonDidPress(sender: SchedulePagingView)
-}
 
 class SchedulePagingView: UIView {
     

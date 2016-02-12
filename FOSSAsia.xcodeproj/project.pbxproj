@@ -18,6 +18,10 @@
 		2824FD5A1C6C0AFE00F783E1 /* SchedulePagingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2824FD591C6C0AFE00F783E1 /* SchedulePagingView.swift */; };
 		2824FD621C6C732300F783E1 /* MoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2824FD611C6C732300F783E1 /* MoreViewController.swift */; };
 		2824FD641C6DA80600F783E1 /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2824FD631C6DA80600F783E1 /* LoadingViewController.swift */; };
+		2824FD661C6DBBF500F783E1 /* EventListBrowsingProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2824FD651C6DBBF500F783E1 /* EventListBrowsingProtocol.swift */; };
+		2824FD6B1C6DBF9A00F783E1 /* More.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2824FD6A1C6DBF9A00F783E1 /* More.storyboard */; };
+		2824FD6D1C6DC05300F783E1 /* FavoriteEventsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2824FD6C1C6DC05300F783E1 /* FavoriteEventsListViewController.swift */; };
+		2824FD6F1C6DC4E100F783E1 /* EventsBaseListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2824FD6E1C6DC4E100F783E1 /* EventsBaseListViewController.swift */; };
 		28352C711C6B2B9F0055E2F5 /* EventsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28352C701C6B2B9F0055E2F5 /* EventsListViewController.swift */; };
 		28352C731C6B411C0055E2F5 /* EventsListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28352C721C6B411C0055E2F5 /* EventsListViewModel.swift */; };
 		2859B0FE1C5DF8D7009656FC /* EventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2859B0FD1C5DF8D7009656FC /* EventViewController.swift */; };
@@ -70,6 +74,10 @@
 		2824FD591C6C0AFE00F783E1 /* SchedulePagingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SchedulePagingView.swift; sourceTree = "<group>"; };
 		2824FD611C6C732300F783E1 /* MoreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoreViewController.swift; sourceTree = "<group>"; };
 		2824FD631C6DA80600F783E1 /* LoadingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingViewController.swift; sourceTree = "<group>"; };
+		2824FD651C6DBBF500F783E1 /* EventListBrowsingProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventListBrowsingProtocol.swift; sourceTree = "<group>"; };
+		2824FD6A1C6DBF9A00F783E1 /* More.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = More.storyboard; sourceTree = "<group>"; };
+		2824FD6C1C6DC05300F783E1 /* FavoriteEventsListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteEventsListViewController.swift; sourceTree = "<group>"; };
+		2824FD6E1C6DC4E100F783E1 /* EventsBaseListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsBaseListViewController.swift; sourceTree = "<group>"; };
 		28352C701C6B2B9F0055E2F5 /* EventsListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsListViewController.swift; sourceTree = "<group>"; };
 		28352C721C6B411C0055E2F5 /* EventsListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsListViewModel.swift; sourceTree = "<group>"; };
 		2859B0FD1C5DF8D7009656FC /* EventViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventViewController.swift; sourceTree = "<group>"; };
@@ -141,7 +149,9 @@
 			children = (
 				281324EE1C6735430072E730 /* EventsBaseViewController.swift */,
 				285F1B661C5AF7B100A7E0DD /* ScheduleViewController.swift */,
+				2824FD6E1C6DC4E100F783E1 /* EventsBaseListViewController.swift */,
 				28352C701C6B2B9F0055E2F5 /* EventsListViewController.swift */,
+				2824FD6C1C6DC05300F783E1 /* FavoriteEventsListViewController.swift */,
 				281324EC1C672EE80072E730 /* EventsResultsViewController.swift */,
 				2859B0FD1C5DF8D7009656FC /* EventViewController.swift */,
 				28091E8C1C6332A600E789CD /* FilterListViewController.swift */,
@@ -184,6 +194,7 @@
 		2818A93B1C62347A00ECB57F /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
+				2824FD651C6DBBF500F783E1 /* EventListBrowsingProtocol.swift */,
 				28A0BC701C5F4373001625FB /* EventsServiceProtocol.swift */,
 			);
 			name = Protocols;
@@ -193,6 +204,7 @@
 			isa = PBXGroup;
 			children = (
 				285F1B6A1C5AF7B100A7E0DD /* Main.storyboard */,
+				2824FD6A1C6DBF9A00F783E1 /* More.storyboard */,
 				289ADCF51C6086CF00E1DA09 /* Sessions.storyboard */,
 				285F1B6F1C5AF7B100A7E0DD /* LaunchScreen.storyboard */,
 			);
@@ -367,6 +379,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				280DE5291C62FCB200E64020 /* Podfile in Resources */,
+				2824FD6B1C6DBF9A00F783E1 /* More.storyboard in Resources */,
 				285F1B711C5AF7B100A7E0DD /* LaunchScreen.storyboard in Resources */,
 				285F1B6E1C5AF7B100A7E0DD /* Assets.xcassets in Resources */,
 				285F1B6C1C5AF7B100A7E0DD /* Main.storyboard in Resources */,
@@ -430,12 +443,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				281324EF1C6735430072E730 /* EventsBaseViewController.swift in Sources */,
+				2824FD661C6DBBF500F783E1 /* EventListBrowsingProtocol.swift in Sources */,
 				28091E8D1C6332A600E789CD /* FilterListViewController.swift in Sources */,
 				28352C731C6B411C0055E2F5 /* EventsListViewModel.swift in Sources */,
 				2859B1001C5DFD09009656FC /* Colors.swift in Sources */,
 				285F1B8F1C5B069D00A7E0DD /* Observable.swift in Sources */,
 				28352C711C6B2B9F0055E2F5 /* EventsListViewController.swift in Sources */,
 				285F1BBC1C5B2B2B00A7E0DD /* EventViewModel.swift in Sources */,
+				2824FD6F1C6DC4E100F783E1 /* EventsBaseListViewController.swift in Sources */,
 				285F1B651C5AF7B100A7E0DD /* AppDelegate.swift in Sources */,
 				2859B0FE1C5DF8D7009656FC /* EventViewController.swift in Sources */,
 				2859B1021C5E29DC009656FC /* EventInfoView.swift in Sources */,
@@ -454,6 +469,7 @@
 				28A0BC711C5F4373001625FB /* EventsServiceProtocol.swift in Sources */,
 				2824FD5A1C6C0AFE00F783E1 /* SchedulePagingView.swift in Sources */,
 				28A0BC921C5F4FEC001625FB /* ScheduleViewModel.swift in Sources */,
+				2824FD6D1C6DC05300F783E1 /* FavoriteEventsListViewController.swift in Sources */,
 				285F1BB01C5B094F00A7E0DD /* Speaker.swift in Sources */,
 				28A0BC6D1C5F4082001625FB /* FossAsiaEventsService.swift in Sources */,
 				285F1B791C5AFBBB00A7E0DD /* SwiftHEXColors.swift in Sources */,

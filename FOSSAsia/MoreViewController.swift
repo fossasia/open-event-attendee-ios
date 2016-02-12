@@ -12,7 +12,7 @@ import SafariServices
 class MoreViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        guard indexPath.section == 1 else {
+        guard indexPath.section == 0 else {
             return
         }
         

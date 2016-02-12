@@ -9,28 +9,9 @@
 import UIKit
 import Pages
 
-class EventsListViewController: UIViewController {
-    weak var pagesVC: PagesController!
+class EventsListViewController: EventsBaseListViewController {
     var searchController: UISearchController!
     var resultsTableController: EventsResultsViewController!
-    @IBOutlet weak var pagingView: SchedulePagingView!
-    
-    
-    var viewModel: EventsListViewModel? {
-        didSet {
-            viewModel?.allSchedules.observe {
-                [unowned self] in
-                guard $0.count > 0 else {
-                    return
-                }
-                let viewControllers = $0.map { viewModel in
-                    return ScheduleViewController.scheduleViewControllerFor(viewModel)
-                }
-                self.pagesVC.add(viewControllers)
-                self.pagesVC.startPage = 1
-            }
-        }
-    }
     
     var filterString: String? = nil {
         didSet {
@@ -50,7 +31,7 @@ class EventsListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        viewModel = EventsListViewModel()
+        viewModel = self.getEventsListViewModel()
         pagingView.delegate = self
         
         resultsTableController = storyboard!.instantiateViewControllerWithIdentifier(EventsResultsViewController.StoryboardConstants.viewControllerId) as! EventsResultsViewController
@@ -80,7 +61,7 @@ class EventsListViewController: UIViewController {
         if (segue.identifier == "EventsPageViewController") {
             if let embeddedPageVC = segue.destinationViewController as? PagesController {
                 self.pagesVC = embeddedPageVC
-                let loadingVC = self.storyboard!.instantiateViewControllerWithIdentifier("LoadingVC")
+                let loadingVC = self.storyboard!.instantiateViewControllerWithIdentifier(LoadingViewController.StoryboardConstants.viewControllerId)
                 self.pagesVC.add([loadingVC])
                 self.pagesVC.enableSwipe = false
                 self.pagesVC.pagesDelegate = self
@@ -98,37 +79,11 @@ class EventsListViewController: UIViewController {
     }
 }
 
-extension EventsListViewController: SchedulePagingViewDelegate {
-    func nextButtonDidPress(sender: SchedulePagingView) {
-        self.pagesVC.next()
-
-    }
-    func prevButtonDidPress(sender: SchedulePagingView) {
-        self.pagesVC.previous()
-    }
-}
-
-extension EventsListViewController: PagesControllerDelegate {
-    func pageViewController(pageViewController: UIPageViewController, setViewController viewController: UIViewController, atPage page: Int) {
+extension EventsListViewController {
+    override func pageViewController(pageViewController: UIPageViewController, setViewController viewController: UIViewController, atPage page: Int) {
+        super.pageViewController(pageViewController, setViewController: viewController, atPage: page)
         guard let currentVC = viewController as? ScheduleViewController else {
             return
-        }
-        pagingView.dateLabel.text = currentVC.viewModel?.date.value.formattedDateWithFormat("EEEE, MMM dd")
-        
-        // Govern Previous Button
-        if page == 1 {
-            pagingView.prevButton.enabled = false
-        } else {
-            pagingView.prevButton.enabled = true
-        }
-        
-        // Govern Next Button
-        if let scheduleViewModels = viewModel {
-            if page == scheduleViewModels.count.value {
-                pagingView.nextButton.enabled = false
-            } else {
-                pagingView.nextButton.enabled = true
-            }
         }
         
         self.currentViewController = currentVC
