@@ -134,7 +134,7 @@
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8SW-V2-bbD" userLabel="Event List Container">
                                 <rect key="frame" x="0.0" y="96" width="600" height="504"/>
                                 <connections>
-                                    <segue destination="hlm-Ht-K5z" kind="embed" identifier="EventsPageViewController" id="iio-MN-Ru0"/>
+                                    <segue destination="5PC-Ig-OwP" kind="embed" identifier="EventsPageViewController" id="wbb-lu-o9v"/>
                                 </connections>
                             </containerView>
                         </subviews>
@@ -158,13 +158,13 @@
             </objects>
             <point key="canvasLocation" x="1487" y="184"/>
         </scene>
-        <!--Pages Controller-->
-        <scene sceneID="c7R-6q-Zpg">
+        <!--HYPPagesController-->
+        <scene sceneID="7Um-h9-6Xp">
             <objects>
-                <pageViewController autoresizesArchivedViewToFullSize="NO" automaticallyAdjustsScrollViewInsets="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="hlm-Ht-K5z" customClass="HYPPagesController" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="tp1-F1-iOY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewControllerPlaceholder storyboardName="Sessions" referencedIdentifier="HYPPagesController" id="5PC-Ig-OwP" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uUp-B2-JZz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2206" y="184"/>
+            <point key="canvasLocation" x="2211.5" y="-194"/>
         </scene>
     </scenes>
     <resources>

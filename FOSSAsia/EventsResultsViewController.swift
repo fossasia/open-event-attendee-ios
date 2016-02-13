@@ -9,10 +9,6 @@
 import UIKit
 
 class EventsResultsViewController: EventsBaseViewController {
-    struct StoryboardConstants {
-        static let storyboardName = "Sessions"
-        static let viewControllerId = "EventsResultsViewController"
-    }
     
     lazy var visibleEvents: [EventViewModel] = self.allEvents
     
@@ -24,7 +20,6 @@ class EventsResultsViewController: EventsBaseViewController {
 
 // MARK: UITableViewDataSource
 extension EventsResultsViewController {
-    
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return visibleEvents.count
     }

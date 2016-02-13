@@ -11,7 +11,6 @@
 
 #import <MGSwipeTableCell/MGSwipeTableCell.h>
 #import <MGSwipeTableCell/MGSwipeButton.h>
-#import <TLYShyNavBar/TLYShyNavBarManager.h>
 #import <DateTools/DateTools.h>
 
 #endif /* Fossasia_Bridging_Header_h */

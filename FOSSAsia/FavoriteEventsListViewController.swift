@@ -9,11 +9,20 @@
 import UIKit
 import Pages
 
-class FavoriteEventsListViewController: EventsBaseListViewController {    
+class FavoriteEventsListViewController: EventsBaseListViewController {
     override func viewDidLoad() {
         viewModel = getEventsListViewModel()
         pagingView.delegate = self
     }
+    
+    override func onViewModelScheduleChange(newSchedule: [ScheduleViewModel]) {
+        let viewControllers = newSchedule.map { viewModel in
+            return FavoritesScheduleViewController.scheduleViewControllerFor(viewModel)
+        }
+        self.pagesVC.add(viewControllers)
+        self.pagesVC.startPage = 1
+    }
+    
 }
 
 extension FavoriteEventsListViewController {

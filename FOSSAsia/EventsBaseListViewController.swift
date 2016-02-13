@@ -20,11 +20,7 @@ class EventsBaseListViewController: UIViewController, EventListBrowsingByDate  {
                 guard $0.count > 0 else {
                     return
                 }
-                let viewControllers = $0.map { viewModel in
-                    return ScheduleViewController.scheduleViewControllerFor(viewModel)
-                }
-                self.pagesVC.add(viewControllers)
-                self.pagesVC.startPage = 1
+                self.onViewModelScheduleChange($0)
             }
         }
     }
@@ -47,6 +43,14 @@ class EventsBaseListViewController: UIViewController, EventListBrowsingByDate  {
             }
         }
     }
+    
+    func onViewModelScheduleChange(newSchedule: [ScheduleViewModel]) {
+        let viewControllers = newSchedule.map { viewModel in
+            return ScheduleViewController.scheduleViewControllerFor(viewModel)
+        }
+        self.pagesVC.add(viewControllers)
+        self.pagesVC.startPage = 1
+    }
 }
 
 extension EventsBaseListViewController {
@@ -59,7 +63,7 @@ extension EventsBaseListViewController {
     }
     
     func pageViewController(pageViewController: UIPageViewController, setViewController viewController: UIViewController, atPage page: Int) {
-        guard let currentVC = viewController as? ScheduleViewController else {
+        guard let currentVC = viewController as? EventsBaseViewController else {
             return
         }
         pagingView.dateLabel.text = currentVC.viewModel?.date.value.formattedDateWithFormat("EEEE, MMM dd")

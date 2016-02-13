@@ -1,55 +1,36 @@
 //
-//  FirstViewController.swift
+//  FavoritesScheduleViewController.swift
 //  FOSSAsia
 //
-//  Created by Jurvis Tan on 29/1/16.
+//  Created by Jurvis Tan on 13/2/16.
 //  Copyright © 2016 FossAsia. All rights reserved.
 //
 
 import UIKit
 import MGSwipeTableCell
 
-class ScheduleViewController: EventsBaseViewController, SwipeToFavoriteCellPresentable {
-    // Constants for Storyboard/VC
+class FavoritesScheduleViewController: EventsBaseViewController, SwipeToFavoriteCellPresentable {
     struct StoryboardConstants {
         static let storyboardName = "Sessions"
-        static let viewControllerId = String(ScheduleViewController)
+        static let viewControllerId = String(FavoritesScheduleViewController)
     }
     
-    lazy var filteredEvents: [EventViewModel] = self.allEvents
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
     
-    class func scheduleViewControllerFor(schedule: ScheduleViewModel) -> ScheduleViewController {
-        let storyboard = UIStoryboard(name: ScheduleViewController.StoryboardConstants.storyboardName, bundle: nil)
+    class func scheduleViewControllerFor(schedule: ScheduleViewModel) -> FavoritesScheduleViewController {
+        let storyboard = UIStoryboard(name: FavoritesScheduleViewController.StoryboardConstants.storyboardName, bundle: nil)
         
-        let viewController = storyboard.instantiateViewControllerWithIdentifier(ScheduleViewController.StoryboardConstants.viewControllerId) as! ScheduleViewController
+        let viewController = storyboard.instantiateViewControllerWithIdentifier(FavoritesScheduleViewController.StoryboardConstants.viewControllerId) as! FavoritesScheduleViewController
         viewController.viewModel = schedule
         
         return viewController
     }
-    
-    var filterString: String? = nil {
-        didSet {
-            if filterString == nil || filterString!.isEmpty {
-                filteredEvents = self.allEvents
-            } else {
-                let filterPredicate = NSPredicate(format: "self contains[c] %@", argumentArray: [filterString!])
-                filteredEvents = allEvents.filter( {filterPredicate.evaluateWithObject($0.eventName) } )
-            }
-        }
-    }
-
 }
 
-extension ScheduleViewController: UISearchResultsUpdating {
-    func updateSearchResultsForSearchController(searchController: UISearchController) {
-        guard searchController.active else {
-            return
-        }
-        filterString = searchController.searchBar.text
-    }
-}
-
-extension ScheduleViewController {
+// MARK:- UITableViewDelegate Conformance
+extension FavoritesScheduleViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier(EventsBaseViewController.kEventCellReuseIdentifier, forIndexPath: indexPath) as! EventCell
         let eventViewModel = allEvents[indexPath.row]
@@ -58,25 +39,15 @@ extension ScheduleViewController {
         
         return cell
     }
-    
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let selectedEventViewModel: EventViewModel
-        selectedEventViewModel = self.allEvents[indexPath.row]
-        
-        let eventViewController = EventViewController.eventViewControllerForEvent(selectedEventViewModel)
-        
-        navigationController?.pushViewController(eventViewController, animated: true)
-    }
-    
 }
 
-
 // MARK:- SwipeToFavoriteCellPresentable Conformance
-extension ScheduleViewController {
+extension FavoritesScheduleViewController {
     func favoriteEvent(indexPath: NSIndexPath)  {
-        weak var me = self
-        let eventViewModel = me!.eventViewModelForIndexPath(indexPath)
-        me!.viewModel?.favoriteEvent(eventViewModel.sessionId.value)
+        let eventViewModel = self.eventViewModelForIndexPath(indexPath)
+        self.viewModel?.favoriteEvent(eventViewModel.sessionId.value)
+        self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Left)
+//        self.tableView.reloadData()
     }
     
     func swipeTableCell(cell: MGSwipeTableCell!, swipeButtonsForDirection direction: MGSwipeDirection, swipeSettings: MGSwipeSettings!, expansionSettings: MGSwipeExpansionSettings!) -> [AnyObject]! {
@@ -103,11 +74,11 @@ extension ScheduleViewController {
                         }
                         }, completion: { (done) -> Void in
                             if done {
-                                self.favoriteEvent(me!.tableView.indexPathForCell(cell)!)
+                                self.favoriteEvent(me!.tableView.indexPathForCell(sender)!)
                             }
                     })
                 }
-                return true
+                return false
             }
             
             faveButton.setPadding(CGFloat(20))

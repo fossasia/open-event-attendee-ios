@@ -19,9 +19,9 @@ class EventsBaseViewController: UIViewController {
             viewModel?.events.observe {
                 [unowned self] in
                 self.allEvents = $0
-                if self.tableView != nil {
-                    self.tableView.reloadData()
-                }
+//                if self.tableView != nil {
+//                    self.tableView.reloadData()
+//                }
             }
         }
     }
@@ -29,6 +29,7 @@ class EventsBaseViewController: UIViewController {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         viewModel?.refresh()
+        self.tableView.reloadData()
     }
     
     override func viewDidLoad() {

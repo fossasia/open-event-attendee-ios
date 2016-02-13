@@ -34,7 +34,7 @@ class EventsListViewController: EventsBaseListViewController {
         viewModel = self.getEventsListViewModel()
         pagingView.delegate = self
         
-        resultsTableController = storyboard!.instantiateViewControllerWithIdentifier(EventsResultsViewController.StoryboardConstants.viewControllerId) as! EventsResultsViewController
+        resultsTableController = storyboard!.instantiateViewControllerWithIdentifier("EventsResultsViewController") as! EventsResultsViewController
 
         searchController = UISearchController(searchResultsController: resultsTableController)
         searchController.searchResultsUpdater = self
