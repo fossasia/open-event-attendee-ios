@@ -47,7 +47,6 @@ extension FavoritesScheduleViewController {
         let eventViewModel = self.eventViewModelForIndexPath(indexPath)
         self.viewModel?.favoriteEvent(eventViewModel.sessionId.value)
         self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Left)
-//        self.tableView.reloadData()
     }
     
     func swipeTableCell(cell: MGSwipeTableCell!, swipeButtonsForDirection direction: MGSwipeDirection, swipeSettings: MGSwipeSettings!, expansionSettings: MGSwipeExpansionSettings!) -> [AnyObject]! {

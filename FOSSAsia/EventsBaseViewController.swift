@@ -19,9 +19,6 @@ class EventsBaseViewController: UIViewController {
             viewModel?.events.observe {
                 [unowned self] in
                 self.allEvents = $0
-//                if self.tableView != nil {
-//                    self.tableView.reloadData()
-//                }
             }
         }
     }
