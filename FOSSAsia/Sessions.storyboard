@@ -56,7 +56,7 @@
                                         <rect key="frame" x="0.0" y="28" width="600" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="0ZK-4s-zzX" id="Cr6-qB-Rag">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="70"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="69"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WBq-uE-VFi" userLabel="Type View">
@@ -260,7 +260,7 @@
                                         <rect key="frame" x="0.0" y="50" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="QCO-th-2Ec" id="LeF-k6-trq">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tua-eP-blV">
@@ -333,155 +333,6 @@
             </objects>
             <point key="canvasLocation" x="2246" y="561"/>
         </scene>
-        <!--Event-->
-        <scene sceneID="BnK-ZP-8nm">
-            <objects>
-                <viewController storyboardIdentifier="EventViewController" automaticallyAdjustsScrollViewInsets="NO" id="Sut-fh-sfx" customClass="EventViewController" customModule="FOSSAsia" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="qgx-Ew-RvK"/>
-                        <viewControllerLayoutGuide type="bottom" id="Glt-BK-mvg"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="9ao-2B-76w">
-                        <rect key="frame" x="0.0" y="64" width="600" height="536"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4oP-0a-gfZ">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
-                                <subviews>
-                                    <view contentMode="scaleToFill" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="Tg2-E4-YMY" userLabel="Content View">
-                                        <rect key="frame" x="0.0" y="0.0" width="600" height="488"/>
-                                        <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IPm-Ec-DPH" userLabel="Talk Description View" customClass="EventInfoView" customModule="FOSSAsia" customModuleProvider="target">
-                                                <rect key="frame" x="8" y="8" width="584" height="94"/>
-                                                <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Santosh Viswanatham" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1cH-sZ-abm">
-                                                        <rect key="frame" x="8" y="36" width="568" height="21"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                        <color key="textColor" red="0.39952728152275085" green="0.41182690858840942" blue="0.46382170915603638" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mozilla — JFDI Blk71" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1aM-UU-y22">
-                                                        <rect key="frame" x="8" y="65" width="568" height="21"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                        <color key="textColor" red="0.39952728152275085" green="0.41182690858840942" blue="0.46382170915603638" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Collaborative Webmaking using TogetherJS" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="utZ-Ni-dqm">
-                                                        <rect key="frame" x="8" y="8" width="568" height="21"/>
-                                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                                                        <color key="textColor" red="0.27719634771347046" green="0.2859918475151062" blue="0.32460597157478333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                </subviews>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="bottom" secondItem="1aM-UU-y22" secondAttribute="bottom" constant="8" id="17X-cn-7ZE"/>
-                                                    <constraint firstItem="1aM-UU-y22" firstAttribute="top" secondItem="1cH-sZ-abm" secondAttribute="bottom" constant="8" id="6Sy-cG-5K4"/>
-                                                    <constraint firstItem="1cH-sZ-abm" firstAttribute="top" secondItem="utZ-Ni-dqm" secondAttribute="bottom" constant="8" id="9A2-Q8-CIP"/>
-                                                    <constraint firstItem="1aM-UU-y22" firstAttribute="leading" secondItem="IPm-Ec-DPH" secondAttribute="leading" constant="8" id="BjV-g6-Ccp"/>
-                                                    <constraint firstAttribute="trailing" secondItem="1cH-sZ-abm" secondAttribute="trailing" constant="8" id="IEp-WH-WYN"/>
-                                                    <constraint firstAttribute="trailing" secondItem="utZ-Ni-dqm" secondAttribute="trailing" constant="8" id="Reu-E7-zhl"/>
-                                                    <constraint firstAttribute="trailing" secondItem="1aM-UU-y22" secondAttribute="trailing" constant="8" id="THK-KJ-r2O"/>
-                                                    <constraint firstItem="1cH-sZ-abm" firstAttribute="top" secondItem="utZ-Ni-dqm" secondAttribute="bottom" constant="8" id="Ycq-uC-yJz"/>
-                                                    <constraint firstItem="1aM-UU-y22" firstAttribute="top" secondItem="1cH-sZ-abm" secondAttribute="bottom" constant="8" id="bPh-7A-unE"/>
-                                                    <constraint firstItem="utZ-Ni-dqm" firstAttribute="top" secondItem="IPm-Ec-DPH" secondAttribute="top" constant="8" id="cwd-3g-232"/>
-                                                    <constraint firstItem="1cH-sZ-abm" firstAttribute="leading" secondItem="IPm-Ec-DPH" secondAttribute="leading" constant="8" id="fQB-AK-sOn"/>
-                                                    <constraint firstItem="utZ-Ni-dqm" firstAttribute="leading" secondItem="IPm-Ec-DPH" secondAttribute="leading" constant="8" id="xno-8C-NoD"/>
-                                                </constraints>
-                                                <connections>
-                                                    <outlet property="eventLabel" destination="utZ-Ni-dqm" id="MN1-fK-6cH"/>
-                                                    <outlet property="locationLabel" destination="1aM-UU-y22" id="znr-Yt-n9t"/>
-                                                    <outlet property="speakerLabel" destination="1cH-sZ-abm" id="rTv-3O-fwa"/>
-                                                </connections>
-                                            </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Igb-Ir-RVV">
-                                                <rect key="frame" x="0.0" y="109" width="600" height="1"/>
-                                                <color key="backgroundColor" red="0.89365547895431519" green="0.89433497190475464" blue="0.89376074075698853" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="1" id="W5b-Mv-mZw"/>
-                                                    <constraint firstAttribute="height" constant="1" id="cMC-3X-vNB"/>
-                                                </constraints>
-                                                <variation key="default">
-                                                    <mask key="constraints">
-                                                        <exclude reference="cMC-3X-vNB"/>
-                                                    </mask>
-                                                </variation>
-                                            </view>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4zK-bB-z7Z">
-                                                <rect key="frame" x="8" y="118" width="584" height="362"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                <string key="text">Collaboration is an amazing option which adds beauty to work,reduces work burden,helps in Innovation and many more by enhancing teamwork option and enabling people to work collectively. TogetherJS is an Open source javascript library which adds collaborative features to a website.Thimble is an amazing Webmaker Tool which helps you to create Webpages and instantly preview your work.You can even publish the created webpages with a Single click.Awesomeness is when these two gets combine "Thimble" and "TogetherJS" where more than one person can work and code on a single webpage.Two or more people can work on a single webpage and instantly view the output.They can even discuss with the help of chatbox.
-</string>
-                                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="16"/>
-                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                            </textView>
-                                        </subviews>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <constraints>
-                                            <constraint firstAttribute="trailing" secondItem="4zK-bB-z7Z" secondAttribute="trailing" constant="8" id="Isp-A7-q1W"/>
-                                            <constraint firstItem="IPm-Ec-DPH" firstAttribute="centerX" secondItem="Tg2-E4-YMY" secondAttribute="centerX" id="Izz-Fj-ptg"/>
-                                            <constraint firstItem="Igb-Ir-RVV" firstAttribute="top" secondItem="IPm-Ec-DPH" secondAttribute="bottom" constant="8" id="M1U-a0-6k9"/>
-                                            <constraint firstItem="4zK-bB-z7Z" firstAttribute="centerX" secondItem="Tg2-E4-YMY" secondAttribute="centerX" id="V6Y-bd-GlY"/>
-                                            <constraint firstAttribute="height" constant="1024" id="WO9-7r-LHQ"/>
-                                            <constraint firstAttribute="trailing" secondItem="Igb-Ir-RVV" secondAttribute="trailing" id="fzv-8h-c9F"/>
-                                            <constraint firstItem="Igb-Ir-RVV" firstAttribute="leading" secondItem="Tg2-E4-YMY" secondAttribute="leading" id="gwU-W3-tcE"/>
-                                            <constraint firstItem="IPm-Ec-DPH" firstAttribute="leading" secondItem="Tg2-E4-YMY" secondAttribute="leading" constant="8" id="rHo-qt-pph"/>
-                                            <constraint firstItem="Igb-Ir-RVV" firstAttribute="centerX" secondItem="Tg2-E4-YMY" secondAttribute="centerX" id="s36-pB-4a2"/>
-                                            <constraint firstAttribute="trailing" secondItem="IPm-Ec-DPH" secondAttribute="trailing" constant="8" id="tJC-US-p1v"/>
-                                            <constraint firstItem="4zK-bB-z7Z" firstAttribute="top" secondItem="Igb-Ir-RVV" secondAttribute="bottom" constant="8" id="u4Z-6H-TBa"/>
-                                            <constraint firstItem="IPm-Ec-DPH" firstAttribute="top" secondItem="Tg2-E4-YMY" secondAttribute="top" constant="8" id="uaK-au-Cun"/>
-                                            <constraint firstAttribute="bottom" secondItem="4zK-bB-z7Z" secondAttribute="bottom" constant="8" id="wQg-JA-6P7"/>
-                                            <constraint firstItem="4zK-bB-z7Z" firstAttribute="leading" secondItem="Tg2-E4-YMY" secondAttribute="leading" constant="8" id="wWs-JM-wQ9"/>
-                                        </constraints>
-                                        <variation key="default">
-                                            <mask key="constraints">
-                                                <exclude reference="WO9-7r-LHQ"/>
-                                            </mask>
-                                        </variation>
-                                    </view>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="Tg2-E4-YMY" secondAttribute="bottom" constant="-488" id="06Z-BV-eOo"/>
-                                    <constraint firstItem="Tg2-E4-YMY" firstAttribute="leading" secondItem="4oP-0a-gfZ" secondAttribute="leading" id="0EI-ka-297"/>
-                                    <constraint firstAttribute="bottom" secondItem="Tg2-E4-YMY" secondAttribute="bottom" id="KVi-uX-Iui"/>
-                                    <constraint firstItem="Tg2-E4-YMY" firstAttribute="centerY" secondItem="4oP-0a-gfZ" secondAttribute="centerY" id="QcZ-Zt-b6X"/>
-                                    <constraint firstAttribute="trailing" secondItem="Tg2-E4-YMY" secondAttribute="trailing" id="ZdR-10-88m"/>
-                                    <constraint firstItem="Tg2-E4-YMY" firstAttribute="centerX" secondItem="4oP-0a-gfZ" secondAttribute="centerX" id="eke-gC-Xa1"/>
-                                    <constraint firstItem="Tg2-E4-YMY" firstAttribute="top" secondItem="4oP-0a-gfZ" secondAttribute="top" id="tdI-Un-cWK"/>
-                                </constraints>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="KVi-uX-Iui"/>
-                                        <exclude reference="QcZ-Zt-b6X"/>
-                                    </mask>
-                                </variation>
-                            </scrollView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="4oP-0a-gfZ" firstAttribute="leading" secondItem="9ao-2B-76w" secondAttribute="leadingMargin" constant="-20" id="I2V-re-Rm9"/>
-                            <constraint firstItem="4oP-0a-gfZ" firstAttribute="top" secondItem="qgx-Ew-RvK" secondAttribute="bottom" id="XqQ-f5-JjE"/>
-                            <constraint firstItem="Glt-BK-mvg" firstAttribute="top" secondItem="4oP-0a-gfZ" secondAttribute="bottom" id="g42-PI-3k1"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="4oP-0a-gfZ" secondAttribute="trailing" constant="-20" id="t3e-0N-Xuu"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" title="Event" id="CA1-tQ-ZT5">
-                        <barButtonItem key="backBarButtonItem" id="c84-4G-31x">
-                            <color key="tintColor" red="0.99605792760848999" green="0.98371905088424683" blue="0.85540348291397095" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        </barButtonItem>
-                    </navigationItem>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
-                    <connections>
-                        <outlet property="contentView" destination="Tg2-E4-YMY" id="4i2-nQ-Olf"/>
-                        <outlet property="eventDescriptionTextView" destination="4zK-bB-z7Z" id="fx3-iD-0Gr"/>
-                        <outlet property="eventInfoView" destination="IPm-Ec-DPH" id="HYd-4I-60F"/>
-                        <outlet property="scrollView" destination="4oP-0a-gfZ" id="uWc-d5-RfX"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="d8q-Fj-4cs" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2885" y="-297"/>
-        </scene>
         <!--Navigation Controller-->
         <scene sceneID="Tii-Oj-xqW">
             <objects>
@@ -546,7 +397,7 @@
                                         <rect key="frame" x="0.0" y="28" width="560" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="m2M-FY-gxG" id="wr5-Q9-Xkc">
-                                            <rect key="frame" x="0.0" y="0.0" width="560" height="70"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="560" height="69"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NRq-Ui-5It">
@@ -565,7 +416,7 @@
                                                     <rect key="frame" x="37" y="8" width="507" height="53"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="9:00AM - 9:30AM —" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ll3-Zx-f1U">
-                                                            <rect key="frame" x="0.0" y="29" width="507" height="20"/>
+                                                            <rect key="frame" x="0.0" y="28" width="507" height="21"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <color key="textColor" red="0.39952728152275085" green="0.41182690858840942" blue="0.46382170915603638" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
@@ -662,7 +513,7 @@
                                         <rect key="frame" x="0.0" y="28" width="560" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="SWa-yd-KWP" id="gXX-lW-mBL">
-                                            <rect key="frame" x="0.0" y="0.0" width="560" height="70"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="560" height="69"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="12V-r6-6qO">
@@ -680,7 +531,7 @@
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Op5-du-Mcd">
                                                     <rect key="frame" x="37" y="8" width="507" height="53"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="9:00AM - 9:30AM —" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lxp-TG-dyy">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="9:00AM - 9:30AM —" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lxp-TG-dyy">
                                                             <rect key="frame" x="0.0" y="29" width="507" height="20"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <color key="textColor" red="0.3995272815" green="0.41182690859999999" blue="0.46382170919999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

@@ -14,7 +14,7 @@ class EventViewController: UIViewController {
     
     // Constants for Storyboard/VC
     struct StoryboardConstants {
-        static let storyboardName = "Sessions"
+        static let storyboardName = "IndividualEvent"
         static let viewControllerId = "EventViewController"
     }
     
