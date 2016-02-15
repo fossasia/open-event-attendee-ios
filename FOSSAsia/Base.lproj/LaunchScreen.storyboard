@@ -33,10 +33,10 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1pg-Dq-mSi">
-                                <rect key="frame" x="0.0" y="64" width="600" height="32"/>
+                                <rect key="frame" x="0.0" y="64" width="600" height="36"/>
                                 <color key="backgroundColor" red="0.96852236986160278" green="0.96868795156478882" blue="0.96851199865341187" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="32" id="S8f-lI-4PO"/>
+                                    <constraint firstAttribute="height" constant="36" id="S8f-lI-4PO"/>
                                 </constraints>
                             </view>
                         </subviews>

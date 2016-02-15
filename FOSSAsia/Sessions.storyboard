@@ -158,10 +158,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KPS-XI-9Rb" customClass="SchedulePagingView" customModule="FOSSAsia" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="64" width="600" height="32"/>
+                                <rect key="frame" x="0.0" y="64" width="600" height="36"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oye-mT-mpq" userLabel="Previous Button">
-                                        <rect key="frame" x="0.0" y="5" width="31" height="22"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="31" height="36"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="31" id="LPx-jP-P8D"/>
                                         </constraints>
@@ -171,7 +171,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u38-Ak-pTT" userLabel="Next Button">
-                                        <rect key="frame" x="569" y="5" width="31" height="22"/>
+                                        <rect key="frame" x="569" y="0.0" width="31" height="36"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="31" id="Zxo-bv-UVH"/>
                                         </constraints>
@@ -182,7 +182,7 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oPW-14-woO" userLabel="Date Label">
-                                        <rect key="frame" x="39" y="8" width="522" height="16"/>
+                                        <rect key="frame" x="39" y="10" width="522" height="16"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="13"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -190,15 +190,25 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.97252601385116577" green="0.97326189279556274" blue="0.97263997793197632" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
+                                    <constraint firstItem="oye-mT-mpq" firstAttribute="top" secondItem="KPS-XI-9Rb" secondAttribute="top" id="1qq-k7-1Li"/>
+                                    <constraint firstAttribute="bottom" secondItem="u38-Ak-pTT" secondAttribute="bottom" id="2Be-nt-Cj0"/>
                                     <constraint firstItem="u38-Ak-pTT" firstAttribute="leading" secondItem="oPW-14-woO" secondAttribute="trailing" constant="8" id="2sz-DU-QEe"/>
                                     <constraint firstItem="oPW-14-woO" firstAttribute="centerY" secondItem="KPS-XI-9Rb" secondAttribute="centerY" id="9B1-q9-rYf"/>
                                     <constraint firstItem="oPW-14-woO" firstAttribute="leading" secondItem="oye-mT-mpq" secondAttribute="trailing" constant="8" id="9X5-g8-xqF"/>
-                                    <constraint firstItem="u38-Ak-pTT" firstAttribute="centerY" secondItem="KPS-XI-9Rb" secondAttribute="centerY" id="Dv5-uf-Wcq"/>
-                                    <constraint firstItem="oye-mT-mpq" firstAttribute="centerY" secondItem="KPS-XI-9Rb" secondAttribute="centerY" id="XCb-x1-Flo"/>
+                                    <constraint firstItem="u38-Ak-pTT" firstAttribute="centerY" secondItem="KPS-XI-9Rb" secondAttribute="centerY" constant="-2" id="Dv5-uf-Wcq"/>
+                                    <constraint firstAttribute="bottom" secondItem="oye-mT-mpq" secondAttribute="bottom" id="QcR-Mh-x5l"/>
+                                    <constraint firstItem="oye-mT-mpq" firstAttribute="centerY" secondItem="KPS-XI-9Rb" secondAttribute="centerY" constant="-2" id="XCb-x1-Flo"/>
+                                    <constraint firstItem="u38-Ak-pTT" firstAttribute="top" secondItem="KPS-XI-9Rb" secondAttribute="top" id="YoK-5b-t23"/>
                                     <constraint firstAttribute="trailing" secondItem="u38-Ak-pTT" secondAttribute="trailing" id="f3C-ou-BlH"/>
-                                    <constraint firstAttribute="height" constant="32" id="lTY-tv-XxC"/>
+                                    <constraint firstAttribute="height" constant="36" id="lTY-tv-XxC"/>
                                     <constraint firstItem="oye-mT-mpq" firstAttribute="leading" secondItem="KPS-XI-9Rb" secondAttribute="leading" id="vu4-m5-Zrv"/>
                                 </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="XCb-x1-Flo"/>
+                                        <exclude reference="Dv5-uf-Wcq"/>
+                                    </mask>
+                                </variation>
                                 <connections>
                                     <outlet property="dateLabel" destination="oPW-14-woO" id="HCL-UJ-5hE"/>
                                     <outlet property="nextButton" destination="u38-Ak-pTT" id="7ou-af-dGn"/>
@@ -206,7 +216,7 @@
                                 </connections>
                             </view>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pMe-dz-lfp" userLabel="Event List Container">
-                                <rect key="frame" x="0.0" y="96" width="600" height="504"/>
+                                <rect key="frame" x="0.0" y="100" width="600" height="500"/>
                                 <connections>
                                     <segue destination="FSN-SQ-TRn" kind="embed" identifier="EventsPageViewController" id="TyX-RB-9l5"/>
                                 </connections>
@@ -531,8 +541,8 @@
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Op5-du-Mcd">
                                                     <rect key="frame" x="37" y="8" width="507" height="53"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="9:00AM - 9:30AM —" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lxp-TG-dyy">
-                                                            <rect key="frame" x="0.0" y="29" width="507" height="20"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="9:00AM - 9:30AM —" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lxp-TG-dyy">
+                                                            <rect key="frame" x="0.0" y="28" width="507" height="21"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <color key="textColor" red="0.3995272815" green="0.41182690859999999" blue="0.46382170919999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
