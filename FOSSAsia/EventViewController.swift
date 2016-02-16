@@ -29,6 +29,7 @@ class EventViewController: UIViewController {
     @IBOutlet weak var eventInfoView: EventInfoView!
     @IBOutlet weak var eventDateTimeLabel: UILabel!
     @IBOutlet weak var eventAddToCalendarButton: UIButton!
+    @IBOutlet weak var eventAddToCalendarButtonBottomConstraint: NSLayoutConstraint!
     
     // MARK:- Initialization
     class func eventViewControllerForEvent(event: EventViewModel) -> EventViewController {
@@ -47,8 +48,7 @@ class EventViewController: UIViewController {
     }
     
     override func viewDidLayoutSubviews() {
-        self.eventAddToCalendarButton.frame.size = self.eventAddToCalendarButton.sizeThatFits(CGSizeMake(self.eventAddToCalendarButton.frame.size.width, CGFloat.max))
-        self.scrollView.contentSize = CGSizeMake(self.scrollView.frame.size.width, CGRectGetMaxY(self.eventAddToCalendarButton.frame))
+        self.scrollView.contentSize = CGSizeMake(self.scrollView.frame.size.width, CGRectGetMaxY(self.eventAddToCalendarButton.frame) + eventAddToCalendarButtonBottomConstraint.constant)
     }
     
     func configure(presenter: IndividualEventPresentable) {
