@@ -8,6 +8,7 @@
 
 import UIKit
 import EventKit
+import EventKitUI
 
 typealias IndividualEventPresentable = protocol<EventDetailsPresentable, EventDescriptionPresentable, EventAddToCalendarPresentable>
 
@@ -60,6 +61,7 @@ class EventViewController: UIViewController {
     
     @IBAction func eventAddToCalendar(sender: UIButton) {
         let store = EKEventStore()
+        
         store.requestAccessToEntityType(.Event) {(granted, error) in
             if !granted { return }
             let event = EKEvent(eventStore: store)
@@ -67,10 +69,19 @@ class EventViewController: UIViewController {
             event.startDate = (self.presenter?.eventStartDate)!
             event.endDate = (self.presenter?.eventEndDate)!
             event.calendar = store.defaultCalendarForNewEvents
-            do {
-                try store.saveEvent(event, span: .ThisEvent, commit: true)
-            } catch {
-            }
+            
+            let eventVC = EKEventEditViewController()
+            eventVC.navigationBar.tintColor = Colors.mainRedColor
+            eventVC.event = event
+            eventVC.eventStore = store
+            eventVC.editViewDelegate = self
+            self.presentViewController(eventVC, animated: true, completion: nil)
         }
+    }
+}
+
+extension EventViewController: EKEventEditViewDelegate {
+    func eventEditViewController(controller: EKEventEditViewController, didCompleteWithAction action: EKEventEditViewAction) {
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
 }
