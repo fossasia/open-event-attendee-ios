@@ -24,7 +24,17 @@ protocol EventDescriptionPresentable {
     var eventDescription: String {get }
 }
 
-struct EventViewModel: EventTypePresentable, EventDetailsPresentable, EventDescriptionPresentable {
+protocol EventAddToCalendarPresentable {
+    var eventStartTime: String {get}
+    var eventEndTime: String {get}
+    var eventDay: String {get}
+    var eventDate: String {get}
+    var eventMonth: String {get}
+    var eventStartDate: NSDate {get}
+    var eventEndDate: NSDate {get}
+}
+
+struct EventViewModel: EventTypePresentable, EventDetailsPresentable, EventDescriptionPresentable, EventAddToCalendarPresentable {
     let sessionId: Observable<Int>
     let track: Observable<UIColor>
     let title: Observable<String>
@@ -72,4 +82,15 @@ extension EventViewModel {
         return  "\(startTime) - \(endTime) - \(self.location.value)"
     }
     var isFavorite: Bool { return self.favorite.value }
+}
+
+// MARK: - EventAddToCalendar Conformance
+extension EventViewModel {
+    var eventStartTime: String { return self.startDateTime.value.formattedDateWithFormat("HH:mm") }
+    var eventEndTime: String { return self.endDateTime.value.formattedDateWithFormat("HH:mm") }
+    var eventDate: String { return self.startDateTime.value.formattedDateWithFormat("dd") }
+    var eventDay: String { return self.startDateTime.value.formattedDateWithFormat("EEEE") }
+    var eventMonth: String { return self.startDateTime.value.formattedDateWithFormat("MMM") }
+    var eventStartDate: NSDate { return self.startDateTime.value }
+    var eventEndDate: NSDate { return self.endDateTime.value }
 }

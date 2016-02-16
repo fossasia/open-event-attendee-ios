@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import EventKit
 
-typealias IndividualEventPresentable = protocol<EventDetailsPresentable, EventDescriptionPresentable>
+typealias IndividualEventPresentable = protocol<EventDetailsPresentable, EventDescriptionPresentable, EventAddToCalendarPresentable>
 
 class EventViewController: UIViewController {
     
@@ -20,11 +21,14 @@ class EventViewController: UIViewController {
     
     // MARK:- Properties
     var eventViewModel: EventViewModel?
+    var presenter: IndividualEventPresentable?
     
     @IBOutlet weak var contentView: UIView!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var eventDescriptionTextView: UITextView!
     @IBOutlet weak var eventInfoView: EventInfoView!
+    @IBOutlet weak var eventDateTimeLabel: UILabel!
+    @IBOutlet weak var eventAddToCalendarButton: UIButton!
     
     // MARK:- Initialization
     class func eventViewControllerForEvent(event: EventViewModel) -> EventViewController {
@@ -43,12 +47,30 @@ class EventViewController: UIViewController {
     }
     
     override func viewDidLayoutSubviews() {
-        self.eventDescriptionTextView.frame.size = self.eventDescriptionTextView.sizeThatFits(CGSizeMake(self.eventDescriptionTextView.frame.size.width, CGFloat.max))
-        self.scrollView.contentSize = CGSizeMake(self.scrollView.frame.size.width, CGRectGetMaxY(self.eventDescriptionTextView.frame))
+        self.eventAddToCalendarButton.frame.size = self.eventAddToCalendarButton.sizeThatFits(CGSizeMake(self.eventAddToCalendarButton.frame.size.width, CGFloat.max))
+        self.scrollView.contentSize = CGSizeMake(self.scrollView.frame.size.width, CGRectGetMaxY(self.eventAddToCalendarButton.frame))
     }
     
     func configure(presenter: IndividualEventPresentable) {
         eventDescriptionTextView.text = presenter.eventDescription
         eventInfoView.configure(presenter)
+        eventDateTimeLabel.text = "\(presenter.eventDay), \(presenter.eventDate) \(presenter.eventMonth), \(presenter.eventStartTime) - \(presenter.eventEndTime)"
+        self.presenter = presenter
+    }
+    
+    @IBAction func eventAddToCalendar(sender: UIButton) {
+        let store = EKEventStore()
+        store.requestAccessToEntityType(.Event) {(granted, error) in
+            if !granted { return }
+            let event = EKEvent(eventStore: store)
+            event.title = (self.presenter?.eventName)!
+            event.startDate = (self.presenter?.eventStartDate)!
+            event.endDate = (self.presenter?.eventEndDate)!
+            event.calendar = store.defaultCalendarForNewEvents
+            do {
+                try store.saveEvent(event, span: .ThisEvent, commit: true)
+            } catch {
+            }
+        }
     }
 }

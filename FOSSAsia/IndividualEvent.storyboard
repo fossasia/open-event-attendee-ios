@@ -21,26 +21,26 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iYz-ho-dCf">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="ov1-VO-pkC" userLabel="Content View">
+                                    <view contentMode="scaleToFill" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" placeholderIntrinsicWidth="600" placeholderIntrinsicHeight="488" translatesAutoresizingMaskIntoConstraints="NO" id="ov1-VO-pkC" userLabel="Content View">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="488"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UQs-dw-Qdl" userLabel="Talk Description View" customClass="EventInfoView" customModule="FOSSAsia" customModuleProvider="target">
-                                                <rect key="frame" x="8" y="8" width="584" height="95"/>
+                                                <rect key="frame" x="8" y="8" width="584" height="93.5"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Santosh Viswanatham" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b3B-gf-smR">
-                                                        <rect key="frame" x="8" y="37" width="568" height="21"/>
+                                                        <rect key="frame" x="8" y="36" width="568" height="20.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <color key="textColor" red="0.3995272815" green="0.41182690859999999" blue="0.46382170919999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mozilla — JFDI Blk71" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0XL-9Z-ufs">
-                                                        <rect key="frame" x="8" y="66" width="568" height="21"/>
+                                                        <rect key="frame" x="8" y="65" width="568" height="20.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <color key="textColor" red="0.3995272815" green="0.41182690859999999" blue="0.46382170919999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Collaborative Webmaking using TogetherJS" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6KL-h6-aGX">
-                                                        <rect key="frame" x="8" y="8" width="568" height="21"/>
+                                                        <rect key="frame" x="8" y="8" width="568" height="20.5"/>
                                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                                         <color key="textColor" red="0.27719634770000001" green="0.28599184750000001" blue="0.32460597159999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
@@ -68,7 +68,7 @@
                                                 </connections>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l1P-zW-uzf">
-                                                <rect key="frame" x="0.0" y="111" width="600" height="1"/>
+                                                <rect key="frame" x="0.0" y="109" width="600" height="1"/>
                                                 <color key="backgroundColor" red="0.89365547899999997" green="0.8943349719" blue="0.89376074080000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="1" id="a6Y-pA-CMj"/>
@@ -81,27 +81,53 @@
                                                 </variation>
                                             </view>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hnB-J0-qpW">
-                                                <rect key="frame" x="8" y="120" width="584" height="360"/>
+                                                <rect key="frame" x="8" y="118" width="584" height="265.5"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <string key="text">Collaboration is an amazing option which adds beauty to work,reduces work burden,helps in Innovation and many more by enhancing teamwork option and enabling people to work collectively. TogetherJS is an Open source javascript library which adds collaborative features to a website.Thimble is an amazing Webmaker Tool which helps you to create Webpages and instantly preview your work.You can even publish the created webpages with a Single click.Awesomeness is when these two gets combine "Thimble" and "TogetherJS" where more than one person can work and code on a single webpage.Two or more people can work on a single webpage and instantly view the output.They can even discuss with the help of chatbox.
 </string>
                                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="16"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Monday, 8 June, 10:00AM - 12:00PM" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LVQ-C4-9Wm">
+                                                <rect key="frame" x="173" y="399" width="253.5" height="18"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xOk-0C-oEj">
+                                                <rect key="frame" x="178" y="435" width="244" height="35"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="244" id="1FK-n9-LVP"/>
+                                                    <constraint firstAttribute="height" constant="35" id="j1W-HR-LOZ"/>
+                                                </constraints>
+                                                <state key="normal" image="calendar_add_btn"/>
+                                                <state key="selected" image="calendar_add_btn_selected"/>
+                                                <state key="highlighted" image="calendar_add_btn_selected"/>
+                                                <connections>
+                                                    <action selector="eventAddToCalendar:" destination="7sQ-cA-ql5" eventType="touchUpInside" id="XY4-U3-kM2"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstItem="hnB-J0-qpW" firstAttribute="centerX" secondItem="ov1-VO-pkC" secondAttribute="centerX" id="1IB-yt-UZe"/>
+                                            <constraint firstItem="xOk-0C-oEj" firstAttribute="centerX" secondItem="LVQ-C4-9Wm" secondAttribute="centerX" id="3CS-Ng-dea"/>
                                             <constraint firstItem="l1P-zW-uzf" firstAttribute="centerX" secondItem="ov1-VO-pkC" secondAttribute="centerX" id="4YY-J4-kob"/>
-                                            <constraint firstAttribute="bottom" secondItem="hnB-J0-qpW" secondAttribute="bottom" constant="8" id="Cdh-hM-Ywo"/>
+                                            <constraint firstAttribute="bottom" secondItem="xOk-0C-oEj" secondAttribute="bottom" constant="18" id="5Wm-gi-6vc"/>
+                                            <constraint firstItem="xOk-0C-oEj" firstAttribute="top" secondItem="LVQ-C4-9Wm" secondAttribute="bottom" constant="18" id="BtD-2s-i0C"/>
                                             <constraint firstAttribute="trailing" secondItem="l1P-zW-uzf" secondAttribute="trailing" id="Diu-m6-4yp"/>
                                             <constraint firstItem="hnB-J0-qpW" firstAttribute="top" secondItem="l1P-zW-uzf" secondAttribute="bottom" constant="8" id="QL1-A3-8Ag"/>
+                                            <constraint firstAttribute="trailing" secondItem="LVQ-C4-9Wm" secondAttribute="trailing" constant="8" id="Qv2-xG-IwZ"/>
+                                            <constraint firstItem="LVQ-C4-9Wm" firstAttribute="leading" secondItem="ov1-VO-pkC" secondAttribute="leading" constant="8" id="Rpq-Oa-8Xq"/>
                                             <constraint firstItem="UQs-dw-Qdl" firstAttribute="top" secondItem="ov1-VO-pkC" secondAttribute="top" constant="8" id="Yt3-5d-f2G"/>
                                             <constraint firstAttribute="height" constant="1024" id="ZIR-n1-E9O"/>
+                                            <constraint firstItem="LVQ-C4-9Wm" firstAttribute="centerX" secondItem="hnB-J0-qpW" secondAttribute="centerX" id="bSt-WZ-jLs"/>
                                             <constraint firstItem="l1P-zW-uzf" firstAttribute="top" secondItem="UQs-dw-Qdl" secondAttribute="bottom" constant="8" id="c9W-Ig-dwS"/>
                                             <constraint firstAttribute="trailing" secondItem="UQs-dw-Qdl" secondAttribute="trailing" constant="8" id="cPb-w6-xjn"/>
+                                            <constraint firstItem="LVQ-C4-9Wm" firstAttribute="centerX" secondItem="hnB-J0-qpW" secondAttribute="centerX" id="e0P-Mb-hrP"/>
                                             <constraint firstItem="UQs-dw-Qdl" firstAttribute="centerX" secondItem="ov1-VO-pkC" secondAttribute="centerX" id="fBl-Sm-mkH"/>
                                             <constraint firstItem="hnB-J0-qpW" firstAttribute="leading" secondItem="ov1-VO-pkC" secondAttribute="leading" constant="8" id="frb-CH-Gex"/>
+                                            <constraint firstItem="LVQ-C4-9Wm" firstAttribute="top" secondItem="hnB-J0-qpW" secondAttribute="bottom" constant="16" id="gwa-o0-e9h"/>
                                             <constraint firstItem="l1P-zW-uzf" firstAttribute="leading" secondItem="ov1-VO-pkC" secondAttribute="leading" id="pfS-BU-x1X"/>
                                             <constraint firstItem="UQs-dw-Qdl" firstAttribute="leading" secondItem="ov1-VO-pkC" secondAttribute="leading" constant="8" id="uP9-lA-wrQ"/>
                                             <constraint firstAttribute="trailing" secondItem="hnB-J0-qpW" secondAttribute="trailing" constant="8" id="xEq-m1-NG3"/>
@@ -109,6 +135,10 @@
                                         <variation key="default">
                                             <mask key="constraints">
                                                 <exclude reference="ZIR-n1-E9O"/>
+                                                <exclude reference="frb-CH-Gex"/>
+                                                <exclude reference="Qv2-xG-IwZ"/>
+                                                <exclude reference="Rpq-Oa-8Xq"/>
+                                                <exclude reference="bSt-WZ-jLs"/>
                                             </mask>
                                         </variation>
                                     </view>
@@ -124,8 +154,8 @@
                                 </constraints>
                                 <variation key="default">
                                     <mask key="constraints">
-                                        <exclude reference="H99-oA-DQ6"/>
                                         <exclude reference="E7w-Yh-4Uj"/>
+                                        <exclude reference="H99-oA-DQ6"/>
                                     </mask>
                                 </variation>
                             </scrollView>
@@ -146,6 +176,8 @@
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <connections>
                         <outlet property="contentView" destination="ov1-VO-pkC" id="bBJ-0u-cJn"/>
+                        <outlet property="eventAddToCalendarButton" destination="xOk-0C-oEj" id="cci-nI-H5u"/>
+                        <outlet property="eventDateTimeLabel" destination="LVQ-C4-9Wm" id="Fxq-1V-tqH"/>
                         <outlet property="eventDescriptionTextView" destination="hnB-J0-qpW" id="1lK-Dh-e1m"/>
                         <outlet property="eventInfoView" destination="UQs-dw-Qdl" id="djP-eg-MW7"/>
                         <outlet property="scrollView" destination="iYz-ho-dCf" id="3WC-dH-aPj"/>
@@ -153,7 +185,11 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="q6W-UB-SSr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2885" y="-297"/>
+            <point key="canvasLocation" x="3023" y="-293"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="calendar_add_btn" width="244" height="35"/>
+        <image name="calendar_add_btn_selected" width="244" height="35"/>
+    </resources>
 </document>
