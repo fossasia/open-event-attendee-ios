@@ -9,6 +9,8 @@
 import Foundation
 
 
+typealias EventViewModelCompletionHandler = (EventViewModel?, Error?) -> ()
+
 protocol EventTypePresentable {
     var typeColor: UIColor {get}
 }
@@ -63,7 +65,7 @@ struct EventViewModel: EventTypePresentable, EventDetailsPresentable, EventDescr
         eventsService = FossAsiaEventsService()
     }
     
-    func favoriteEvent(completionHandler: (EventViewModel?, Error?) -> Void) {
+    func favoriteEvent(completionHandler: EventViewModelCompletionHandler) {
         eventsService.toggleFavorite(self.sessionId.value) { (error) -> Void in
             guard error == nil else {
                 completionHandler(nil, error)

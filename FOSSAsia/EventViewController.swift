@@ -21,7 +21,13 @@ class EventViewController: UIViewController {
     }
     
     // MARK:- Properties
-    var eventViewModel: EventViewModel?
+    var eventViewModel: EventViewModel? {
+        didSet {
+            eventViewModel?.favorite.observe({ (newValue) -> Void in
+                self.navBarButtonItem.image = newValue ? UIImage(named: "navbar_fave_highlighted") : UIImage(named: "navbar_fave")
+            })
+        }
+    }
     var presenter: IndividualEventPresentable?
     
     @IBOutlet weak var contentView: UIView!
@@ -31,6 +37,7 @@ class EventViewController: UIViewController {
     @IBOutlet weak var eventDateTimeLabel: UILabel!
     @IBOutlet weak var eventAddToCalendarButton: UIButton!
     @IBOutlet weak var eventAddToCalendarButtonBottomConstraint: NSLayoutConstraint!
+    @IBOutlet weak var navBarButtonItem: UIBarButtonItem!
     
     // MARK:- Initialization
     class func eventViewControllerForEvent(event: EventViewModel) -> EventViewController {
@@ -77,6 +84,11 @@ class EventViewController: UIViewController {
             eventVC.editViewDelegate = self
             self.presentViewController(eventVC, animated: true, completion: nil)
         }
+    }
+    @IBAction func favoriteEvent(sender: AnyObject) {
+        self.eventViewModel?.favoriteEvent({ (eventViewModel, error) -> () in
+            // do something
+        })
     }
 }
 
