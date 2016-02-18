@@ -76,8 +76,11 @@ extension ScheduleViewController {
     func favoriteEvent(indexPath: NSIndexPath)  {
         weak var me = self
         let eventViewModel = me!.eventViewModelForIndexPath(indexPath)
-        me!.viewModel?.favoriteEvent(eventViewModel.sessionId.value)
-        self.tableView.reloadData()
+        eventViewModel.favoriteEvent { (eventViewModel, error) -> Void in
+            if error == nil {
+                self.tableView.reloadData()
+            }
+        }
     }
     
     func swipeTableCell(cell: MGSwipeTableCell!, swipeButtonsForDirection direction: MGSwipeDirection, swipeSettings: MGSwipeSettings!, expansionSettings: MGSwipeExpansionSettings!) -> [AnyObject]! {

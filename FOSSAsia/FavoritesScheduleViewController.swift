@@ -45,8 +45,11 @@ extension FavoritesScheduleViewController {
 extension FavoritesScheduleViewController {
     func favoriteEvent(indexPath: NSIndexPath)  {
         let eventViewModel = self.eventViewModelForIndexPath(indexPath)
-        self.viewModel?.favoriteEvent(eventViewModel.sessionId.value)
-        self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Left)
+        eventViewModel.favoriteEvent { (viewModel, error) -> Void in
+            if error == nil {
+                self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Left)
+            }
+        }
     }
     
     func swipeTableCell(cell: MGSwipeTableCell!, swipeButtonsForDirection direction: MGSwipeDirection, swipeSettings: MGSwipeSettings!, expansionSettings: MGSwipeExpansionSettings!) -> [AnyObject]! {

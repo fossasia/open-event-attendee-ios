@@ -45,6 +45,9 @@ struct EventViewModel: EventTypePresentable, EventDetailsPresentable, EventDescr
     let endDateTime: Observable<NSDate>
     let favorite: Observable<Bool>
     
+    // MARK: - Services
+    private var eventsService: EventsServiceProtocol
+    
     init (_ event: Event) {
         sessionId = Observable(event.id)
         track = Observable(event.trackCode.getTrackColor())
@@ -55,9 +58,25 @@ struct EventViewModel: EventTypePresentable, EventDetailsPresentable, EventDescr
         startDateTime = Observable(event.startDateTime)
         endDateTime = Observable(event.endDateTime)
         favorite = Observable(event.favorite)
+    
+        // Dependency Injections
+        eventsService = FossAsiaEventsService()
     }
     
-    func updateFavorite() {
+    func favoriteEvent(completionHandler: (EventViewModel?, Error?) -> Void) {
+        eventsService.toggleFavorite(self.sessionId.value) { (error) -> Void in
+            guard error == nil else {
+                completionHandler(nil, error)
+                return
+            }
+            
+            self.updateFavorite()
+            completionHandler(self, nil)
+        }
+    }
+    
+    
+    private func updateFavorite() {
         favorite.value = !favorite.value
     }
 }

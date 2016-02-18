@@ -55,14 +55,6 @@ struct ScheduleViewModel: ScheduleCountPresentable {
         }
     }
     
-    func favoriteEvent(sessionId: Int) {
-        eventsService.toggleFavorite(sessionId) { (error) -> Void in
-            if error == nil {
-                self.refresh()
-            }
-        }
-    }
-    
     private func update(schedule: Schedule) {
         let tempEvents = schedule.events.map { event in
             return EventViewModel(event)
