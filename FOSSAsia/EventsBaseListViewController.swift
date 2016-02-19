@@ -13,7 +13,11 @@ class EventsBaseListViewController: UIViewController, EventListBrowsingByDate, U
     weak var pagesVC: PagesController!
     @IBOutlet weak var pagingView: SchedulePagingView!
  
-    var currentViewController: EventsBaseViewController!
+    var currentViewController: EventsBaseViewController! {
+        didSet {
+            self.registerForPreviewingWithDelegate(self, sourceView: currentViewController.tableView)
+        }
+    }
     var viewModel: EventsListViewModel? {
         didSet {
             viewModel?.allSchedules.observe {
@@ -31,7 +35,6 @@ class EventsBaseListViewController: UIViewController, EventListBrowsingByDate, U
         viewModel = getEventsListViewModel()
         pagingView.delegate = self
         
-        self.registerForPreviewingWithDelegate(self, sourceView: currentViewController.tableView)
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
