@@ -8,6 +8,7 @@
 
 import UIKit
 import MGSwipeTableCell
+import DZNEmptyDataSet
 
 class FavoritesScheduleViewController: EventsBaseViewController, SwipeToFavoriteCellPresentable {
     struct StoryboardConstants {
@@ -17,6 +18,9 @@ class FavoritesScheduleViewController: EventsBaseViewController, SwipeToFavorite
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.tableView.emptyDataSetSource = self
+        self.tableView.tableFooterView = UIView(frame: CGRect.zero)
     }
     
     class func scheduleViewControllerFor(schedule: ScheduleViewModel) -> FavoritesScheduleViewController {
@@ -27,6 +31,26 @@ class FavoritesScheduleViewController: EventsBaseViewController, SwipeToFavorite
         
         return viewController
     }
+}
+
+extension FavoritesScheduleViewController: DZNEmptyDataSetSource {
+    internal func titleForEmptyDataSet(scrollView: UIScrollView!) -> NSAttributedString! {
+        let text = "No Favorites Yet!"
+        let attributes = [NSFontAttributeName: UIFont.boldSystemFontOfSize(18.0),
+            NSForegroundColorAttributeName: UIColor.darkGrayColor()]
+        
+        return NSAttributedString.init(string: text, attributes: attributes)
+    }
+    
+    internal func buttonImageForEmptyDataSet(scrollView: UIScrollView!, forState state: UIControlState) -> UIImage! {
+        switch state {
+        case UIControlState.Highlighted:
+            return UIImage(named: "browse_events_btn_selected")
+        default:
+            return UIImage(named: "browse_events_btn")
+        }
+    }
+
 }
 
 // MARK:- UITableViewDelegate Conformance

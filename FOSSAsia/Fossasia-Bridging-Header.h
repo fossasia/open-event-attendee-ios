@@ -11,6 +11,7 @@
 
 #import <MGSwipeTableCell/MGSwipeTableCell.h>
 #import <MGSwipeTableCell/MGSwipeButton.h>
+#import <DZNEmptyDataSet/UIScrollView+EmptyDataSet.h>
 #import <DateTools/DateTools.h>
 
 #endif /* Fossasia_Bridging_Header_h */

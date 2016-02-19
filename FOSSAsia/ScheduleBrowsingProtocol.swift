@@ -8,6 +8,7 @@
 
 import Foundation
 import MGSwipeTableCell
+import DZNEmptyDataSet
 
 typealias SwipeToFavoriteCellPresentable = protocol<MGSwipeTableCellDelegate, CellsFavoritable>
 
