@@ -79,9 +79,11 @@ extension FavoritesScheduleViewController {
 extension FavoritesScheduleViewController {
     func favoriteEvent(indexPath: NSIndexPath)  {
         let eventViewModel = self.eventViewModelForIndexPath(indexPath)
-        eventViewModel.favoriteEvent { (viewModel, error) -> Void in
+        eventViewModel.favoriteEvent { [weak self] (viewModel, error) -> Void in
             if error == nil {
-                self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Left)
+                self?.viewModel?.refresh()
+                self?.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Left)
+                self?.tableView.reloadData() // refresh empty state layout
             }
         }
     }
