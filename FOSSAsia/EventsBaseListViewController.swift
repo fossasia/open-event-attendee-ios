@@ -62,9 +62,12 @@ class EventsBaseListViewController: UIViewController, EventListBrowsingByDate, U
 // MARK:- UIViewControllerPreviewingDelegate Conformance
 extension EventsBaseListViewController {
     func previewingContext(previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
-        let indexPath = self.currentViewController.tableView.indexPathForRowAtPoint(location)
-        let eventVM = self.currentViewController.eventViewModelForIndexPath(indexPath!)
-        if let eventCell = self.currentViewController.tableView.cellForRowAtIndexPath(indexPath!) {
+        guard let indexPath = self.currentViewController.tableView.indexPathForRowAtPoint(location) else {
+            return nil
+        }
+        
+        let eventVM = self.currentViewController.eventViewModelForIndexPath(indexPath)
+        if let eventCell = self.currentViewController.tableView.cellForRowAtIndexPath(indexPath) {
             previewingContext.sourceRect = eventCell.frame
         }
         
