@@ -13,6 +13,8 @@ class FavoriteEventsListViewController: EventsBaseListViewController {
     override func viewDidLoad() {
         viewModel = getEventsListViewModel()
         pagingView.delegate = self
+        
+        self.registerForPreviewingWithDelegate(self, sourceView: currentViewController.tableView)
     }
     
     override func onViewModelScheduleChange(newSchedule: [ScheduleViewModel]) {

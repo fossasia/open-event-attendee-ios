@@ -9,10 +9,11 @@
 import UIKit
 import Pages
 
-class EventsBaseListViewController: UIViewController, EventListBrowsingByDate  {
+class EventsBaseListViewController: UIViewController, EventListBrowsingByDate, UIViewControllerPreviewingDelegate  {
     weak var pagesVC: PagesController!
     @IBOutlet weak var pagingView: SchedulePagingView!
  
+    var currentViewController: EventsBaseViewController!
     var viewModel: EventsListViewModel? {
         didSet {
             viewModel?.allSchedules.observe {
@@ -29,6 +30,8 @@ class EventsBaseListViewController: UIViewController, EventListBrowsingByDate  {
         super.viewDidLoad()
         viewModel = getEventsListViewModel()
         pagingView.delegate = self
+        
+        self.registerForPreviewingWithDelegate(self, sourceView: currentViewController.tableView)
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -50,6 +53,24 @@ class EventsBaseListViewController: UIViewController, EventListBrowsingByDate  {
         }
         self.pagesVC.add(viewControllers)
         self.pagesVC.startPage = 1
+    }
+}
+
+// MARK:- UIViewControllerPreviewingDelegate Conformance
+extension EventsBaseListViewController {
+    func previewingContext(previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
+        let indexPath = self.currentViewController.tableView.indexPathForRowAtPoint(location)
+        let eventVM = self.currentViewController.eventViewModelForIndexPath(indexPath!)
+        if let eventCell = self.currentViewController.tableView.cellForRowAtIndexPath(indexPath!) {
+            previewingContext.sourceRect = eventCell.frame
+        }
+        
+        let eventVC = EventViewController.eventViewControllerForEvent(eventVM)
+        return eventVC
+    }
+    
+    func previewingContext(previewingContext: UIViewControllerPreviewing, commitViewController viewControllerToCommit: UIViewController) {
+        navigationController?.pushViewController(viewControllerToCommit, animated: true)
     }
 }
 
@@ -83,5 +104,8 @@ extension EventsBaseListViewController {
                 pagingView.nextButton.enabled = true
             }
         }
+        
+        self.currentViewController = currentVC
+        
     }
 }

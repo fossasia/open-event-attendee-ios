@@ -15,19 +15,23 @@ class EventsListViewController: EventsBaseListViewController {
     
     var filterString: String? = nil {
         didSet {
-            currentViewController.filterString = filterString
-            resultsTableController.visibleEvents = currentViewController.filteredEvents
+            guard let scheduleVC = currentViewController as? ScheduleViewController else {
+                return
+            }
+            
+            scheduleVC.filterString = filterString
+            resultsTableController.visibleEvents = scheduleVC.filteredEvents
             resultsTableController.tableView.reloadData()
+
         }
     }
-    var currentViewController: ScheduleViewController! {
+    override var currentViewController: EventsBaseViewController! {
         didSet {
             if resultsTableController != nil {
                 resultsTableController.allEvents = currentViewController.allEvents
             }
         }
     }
-
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -79,17 +83,6 @@ class EventsListViewController: EventsBaseListViewController {
     }
 }
 
-extension EventsListViewController {
-    override func pageViewController(pageViewController: UIPageViewController, setViewController viewController: UIViewController, atPage page: Int) {
-        super.pageViewController(pageViewController, setViewController: viewController, atPage: page)
-        guard let currentVC = viewController as? ScheduleViewController else {
-            return
-        }
-        
-        self.currentViewController = currentVC
-    }
-}
-
 extension EventsListViewController: UISearchResultsUpdating {
     func updateSearchResultsForSearchController(searchController: UISearchController) {
         guard searchController.active else {
@@ -100,9 +93,10 @@ extension EventsListViewController: UISearchResultsUpdating {
 }
 
 extension EventsListViewController: UITableViewDelegate {
+    // This delegate is for the UISearchController.
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let selectedEventViewModel: EventViewModel
-
+        
         selectedEventViewModel = resultsTableController.visibleEvents[indexPath.row]
         
         let eventViewController = EventViewController.eventViewControllerForEvent(selectedEventViewModel)

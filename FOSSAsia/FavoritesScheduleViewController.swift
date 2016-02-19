@@ -39,6 +39,16 @@ extension FavoritesScheduleViewController {
         
         return cell
     }
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let selectedEventViewModel: EventViewModel
+        selectedEventViewModel = self.allEvents[indexPath.row]
+        
+        let eventViewController = EventViewController.eventViewControllerForEvent(selectedEventViewModel)
+        
+        navigationController?.pushViewController(eventViewController, animated: true)
+    }
+
 }
 
 // MARK:- SwipeToFavoriteCellPresentable Conformance
