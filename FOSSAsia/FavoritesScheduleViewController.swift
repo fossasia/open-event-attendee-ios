@@ -10,7 +10,9 @@ import UIKit
 import MGSwipeTableCell
 import DZNEmptyDataSet
 
-class FavoritesScheduleViewController: EventsBaseViewController, SwipeToFavoriteCellPresentable {
+typealias FavoritesEmptyState = protocol<DZNEmptyDataSetDelegate, DZNEmptyDataSetSource>
+
+class FavoritesScheduleViewController: EventsBaseViewController, SwipeToFavoriteCellPresentable, FavoritesEmptyState {
     struct StoryboardConstants {
         static let storyboardName = "Sessions"
         static let viewControllerId = String(FavoritesScheduleViewController)
@@ -20,6 +22,7 @@ class FavoritesScheduleViewController: EventsBaseViewController, SwipeToFavorite
         super.viewDidLoad()
         
         self.tableView.emptyDataSetSource = self
+        self.tableView.emptyDataSetDelegate = self
         self.tableView.tableFooterView = UIView(frame: CGRect.zero)
     }
     
@@ -33,7 +36,8 @@ class FavoritesScheduleViewController: EventsBaseViewController, SwipeToFavorite
     }
 }
 
-extension FavoritesScheduleViewController: DZNEmptyDataSetSource {
+// MARK:- DZNEmptyDataSetSource Conformance
+extension FavoritesScheduleViewController {
     internal func titleForEmptyDataSet(scrollView: UIScrollView!) -> NSAttributedString! {
         let text = "No Favorites Yet!"
         let attributes = [NSFontAttributeName: UIFont.boldSystemFontOfSize(18.0),
@@ -50,7 +54,13 @@ extension FavoritesScheduleViewController: DZNEmptyDataSetSource {
             return UIImage(named: "browse_events_btn")
         }
     }
+}
 
+// MARK:- DZNEmptyDataSetDelegate Conformance
+extension FavoritesScheduleViewController {
+    internal func emptyDataSet(scrollView: UIScrollView!, didTapButton button: UIButton!) {
+        self.tabBarController?.selectedIndex = 0
+    }
 }
 
 // MARK:- UITableViewDelegate Conformance
