@@ -20,7 +20,7 @@ class EventInfoView: UIView {
         
         if let delegate = self.delegate {
             eventLabel.text = delegate.eventName
-            speakerLabel.text = delegate.speakerName
+            speakerLabel.text = delegate.speakerNames
             locationLabel.text = delegate.timing
         }
     }

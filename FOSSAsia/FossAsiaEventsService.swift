@@ -137,19 +137,24 @@ struct FossAsiaEventsService: EventsServiceProtocol {
                             sessionId = session["id"].int,
                             sessionTitle = session["title"].string,
                             sessionDescription = session["description"].string,
-                            sessionSpeakerName = session["speakers"][0]["name"].string,
+                            sessionSpeakers = session["speakers"].array,
                             sessionStartDateTime = session["begin"].string,
                             sessionEndDateTime = session["end"].string else {
                                 continue
                         }
                         
+                        var sessionSpeakersNames: [Speaker] = []
+                        for speaker in sessionSpeakers {
+                            let name = speaker["name"].string!
+                            sessionSpeakersNames.append(Speaker(name: name))
+                        }
                         
                         // FIX ME: - Location is hardcoded for now
                         let tempSession = Event(id: sessionId,
                             trackCode: Event.Track(rawValue: trackId)!,
                             title: sessionTitle,
                             shortDescription: sessionDescription,
-                            speaker: Speaker(name: sessionSpeakerName),
+                            speakers: sessionSpeakersNames,
                             location: "Biopolis Matrix",
                             startDateTime: NSDate(string: sessionStartDateTime, formatString: self.dateFormatString),
                             endDateTime: NSDate(string: sessionEndDateTime, formatString: self.dateFormatString),

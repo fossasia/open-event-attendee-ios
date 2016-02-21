@@ -17,7 +17,7 @@ protocol EventTypePresentable {
 
 protocol EventDetailsPresentable {
     var eventName: String {get}
-    var speakerName: String {get}
+    var speakerNames: String {get}
     var timing: String {get}
     var isFavorite: Bool {get}
 }
@@ -41,7 +41,7 @@ struct EventViewModel: EventTypePresentable, EventDetailsPresentable, EventDescr
     let track: Observable<UIColor>
     let title: Observable<String>
     let shortDescription: Observable<String>
-    let speaker: Observable<Speaker?>
+    let speakers: Observable<[Speaker]?>
     let location: Observable<String>
     let startDateTime: Observable<NSDate>
     let endDateTime: Observable<NSDate>
@@ -55,7 +55,7 @@ struct EventViewModel: EventTypePresentable, EventDetailsPresentable, EventDescr
         track = Observable(event.trackCode.getTrackColor())
         title = Observable(event.title)
         shortDescription = Observable(event.shortDescription)
-        speaker = Observable(event.speaker)
+        speakers = Observable(event.speakers)
         location = Observable(event.location)
         startDateTime = Observable(event.startDateTime)
         endDateTime = Observable(event.endDateTime)
@@ -96,7 +96,14 @@ extension EventViewModel {
 // MARK: - EventPresentable Conformance
 extension EventViewModel {
     var eventName: String { return self.title.value }
-    var speakerName: String { return (self.speaker.value?.name)! }
+    var speakerNames: String {
+        let speakers = self.speakers.value
+        var speakersNames: [String] = []
+        for speaker in speakers! {
+            speakersNames.append(speaker.name)
+        }
+        return speakersNames.joinWithSeparator(", ")
+    }
     var timing: String {
         let startTime = self.startDateTime.value.formattedDateWithFormat("HH:mm")
         let endTime = self.endDateTime.value.formattedDateWithFormat("HH:mm")
