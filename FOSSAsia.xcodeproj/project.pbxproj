@@ -49,6 +49,7 @@
 		28A0BC921C5F4FEC001625FB /* ScheduleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A0BC911C5F4FEC001625FB /* ScheduleViewModel.swift */; };
 		28A0BC941C5F50A2001625FB /* Schedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A0BC931C5F50A2001625FB /* Schedule.swift */; };
 		28A17BCA1C70AF0200318336 /* IndividualEvent.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28A17BC91C70AF0200318336 /* IndividualEvent.storyboard */; };
+		28E2DA891C7EDFCB002F2FAA /* ScheduleVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28E2DA881C7EDFCB002F2FAA /* ScheduleVC.storyboard */; };
 		DA4CC3D451E57B3D3B6780CD /* Pods_FOSSAsia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 193D6EE00801D10F0049F1C3 /* Pods_FOSSAsia.framework */; };
 /* End PBXBuildFile section */
 
@@ -128,6 +129,7 @@
 		28A0BC911C5F4FEC001625FB /* ScheduleViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleViewModel.swift; sourceTree = "<group>"; };
 		28A0BC931C5F50A2001625FB /* Schedule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Schedule.swift; sourceTree = "<group>"; };
 		28A17BC91C70AF0200318336 /* IndividualEvent.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = IndividualEvent.storyboard; sourceTree = "<group>"; };
+		28E2DA881C7EDFCB002F2FAA /* ScheduleVC.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ScheduleVC.storyboard; sourceTree = "<group>"; };
 		79D22ECB7ECA2ECF5403D3D1 /* Pods-FOSSAsia.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FOSSAsia.release.xcconfig"; path = "Pods/Target Support Files/Pods-FOSSAsia/Pods-FOSSAsia.release.xcconfig"; sourceTree = "<group>"; };
 		E0CFBD2E35D709E001678331 /* Pods-FOSSAsia.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FOSSAsia.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FOSSAsia/Pods-FOSSAsia.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -212,6 +214,7 @@
 				2821357C1C76FCD5006787E0 /* Favorites.storyboard */,
 				2824FD6A1C6DBF9A00F783E1 /* More.storyboard */,
 				289ADCF51C6086CF00E1DA09 /* Sessions.storyboard */,
+				28E2DA881C7EDFCB002F2FAA /* ScheduleVC.storyboard */,
 				285F1B6F1C5AF7B100A7E0DD /* LaunchScreen.storyboard */,
 				28A17BC91C70AF0200318336 /* IndividualEvent.storyboard */,
 			);
@@ -413,6 +416,7 @@
 				285F1B6E1C5AF7B100A7E0DD /* Assets.xcassets in Resources */,
 				285F1B6C1C5AF7B100A7E0DD /* Main.storyboard in Resources */,
 				2821357E1C76FCD5006787E0 /* Favorites.storyboard in Resources */,
+				28E2DA891C7EDFCB002F2FAA /* ScheduleVC.storyboard in Resources */,
 				289ADCF61C6086CF00E1DA09 /* Sessions.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

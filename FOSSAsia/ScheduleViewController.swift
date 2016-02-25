@@ -12,7 +12,7 @@ import MGSwipeTableCell
 class ScheduleViewController: EventsBaseViewController, SwipeToFavoriteCellPresentable {
     // Constants for Storyboard/VC
     struct StoryboardConstants {
-        static let storyboardName = "Sessions"
+        static let storyboardName = "ScheduleVC"
         static let viewControllerId = String(ScheduleViewController)
     }
     

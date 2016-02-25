@@ -14,7 +14,7 @@ typealias FavoritesEmptyState = protocol<DZNEmptyDataSetDelegate, DZNEmptyDataSe
 
 class FavoritesScheduleViewController: EventsBaseViewController, SwipeToFavoriteCellPresentable, FavoritesEmptyState {
     struct StoryboardConstants {
-        static let storyboardName = "Sessions"
+        static let storyboardName = "ScheduleVC"
         static let viewControllerId = String(FavoritesScheduleViewController)
     }
     
