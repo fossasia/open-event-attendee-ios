@@ -77,12 +77,14 @@ class EventViewController: UIViewController {
             event.endDate = (self.presenter?.eventEndDate)!
             event.calendar = store.defaultCalendarForNewEvents
             
-            let eventVC = EKEventEditViewController()
-            eventVC.navigationBar.tintColor = Colors.mainRedColor
-            eventVC.event = event
-            eventVC.eventStore = store
-            eventVC.editViewDelegate = self
-            self.presentViewController(eventVC, animated: true, completion: nil)
+            NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
+                let eventVC = EKEventEditViewController()
+                eventVC.navigationBar.tintColor = Colors.mainRedColor
+                eventVC.event = event
+                eventVC.eventStore = store
+                eventVC.editViewDelegate = self
+                self.presentViewController(eventVC, animated: true, completion: nil)
+            })
         }
     }
     @IBAction func favoriteEvent(sender: AnyObject) {
