@@ -10,6 +10,11 @@ import UIKit
 
 class EventsResultsViewController: EventsBaseViewController {
     
+    struct StoryboardConstants {
+        static let storyboardName = "ScheduleVC"
+        static let viewControllerId = String(EventsResultsViewController)
+    }
+    
     lazy var visibleEvents: [EventViewModel] = self.allEvents
     
     override func viewDidLoad() {

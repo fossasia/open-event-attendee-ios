@@ -18,7 +18,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="loading_indicator" translatesAutoresizingMaskIntoConstraints="NO" id="L75-Ay-uOF">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="loading_indicator" translatesAutoresizingMaskIntoConstraints="NO" id="L75-Ay-uOF">
                                 <rect key="frame" x="276" y="276" width="48" height="48"/>
                             </imageView>
                         </subviews>
@@ -158,10 +158,10 @@
                                 <color key="sectionIndexBackgroundColor" red="0.97244364023208618" green="0.97260981798171997" blue="0.97243314981460571" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="FilterCell" rowHeight="44" id="QCO-th-2Ec" customClass="FilterCell" customModule="FOSSAsia" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="50" width="600" height="44"/>
+                                        <rect key="frame" x="0.0" y="49.5" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="QCO-th-2Ec" id="LeF-k6-trq">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tua-eP-blV">
@@ -232,7 +232,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jbQ-pE-HZY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2246" y="561"/>
+            <point key="canvasLocation" x="2166" y="453"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Tii-Oj-xqW">
@@ -276,7 +276,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BIG-pk-9u1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1544" y="561"/>
+            <point key="canvasLocation" x="1491" y="445"/>
         </scene>
         <!--Pages Controller-->
         <scene sceneID="q58-Ei-cBx">
@@ -285,30 +285,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="g8q-qD-xi0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2210" y="-345"/>
-        </scene>
-        <!--ScheduleViewController-->
-        <scene sceneID="G5h-bG-UhF">
-            <objects>
-                <viewControllerPlaceholder storyboardIdentifier="ScheduleViewController" storyboardName="ScheduleVC" referencedIdentifier="ScheduleViewController" id="B2h-d0-WTf" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="IHc-Ov-DDV" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2167" y="-1088"/>
-        </scene>
-        <!--FavoritesScheduleViewController-->
-        <scene sceneID="RQu-1L-iGD">
-            <objects>
-                <viewControllerPlaceholder storyboardIdentifier="FavoritesScheduleViewController" storyboardName="ScheduleVC" referencedIdentifier="FavoritesScheduleViewController" id="tYg-Ns-UNh" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="kfM-JM-3vf" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2825" y="-1088"/>
-        </scene>
-        <!--EventsResultsViewController-->
-        <scene sceneID="5qs-k5-naz">
-            <objects>
-                <viewControllerPlaceholder storyboardIdentifier="EventsResultsViewController" storyboardName="ScheduleVC" referencedIdentifier="EventsResultsViewController" id="bqe-ee-x1Z" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="gZ4-UL-Lnb" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1491" y="-1071"/>
         </scene>
     </scenes>
     <resources>
