@@ -24,7 +24,7 @@ struct ScheduleViewModel: ScheduleCountPresentable {
     let errorMessage: Observable<String?>
     
     // MARK: - Services
-    private var eventsService: EventsServiceProtocol
+    private var eventsService: EventProvider
     
     init (_ date: NSDate, favoritesOnly: Bool = false) {
         hasError = Observable(false)
@@ -35,14 +35,14 @@ struct ScheduleViewModel: ScheduleCountPresentable {
         self.isFavoritesOnly = Observable(favoritesOnly)
         
         // Dependency Injections
-        eventsService = FossAsiaEventsService()
+        eventsService = EventProvider()
         self.refresh()
     }
 
     
     func refresh() {
         if let filteredTracks = NSUserDefaults.standardUserDefaults().objectForKey(Constants.UserDefaultsKey.FilteredTrackIds) as? [Int] {
-            eventsService.retrieveEventsInfo(date.value, trackIds: filteredTracks) { (events, error) -> Void in
+            eventsService.getEvents(date.value, trackIds: filteredTracks) { (events, error) -> Void in
                 if error == nil {
                     if var eventsArray = events {
                         if self.isFavoritesOnly.value {
@@ -76,6 +76,8 @@ struct ScheduleViewModel: ScheduleCountPresentable {
             errorMessage.value = "We're having trouble parsing events data."
         case .JSONSystemReadingFailed:
             errorMessage.value = "There seems to be a problem with reading data from disk."
+        case .WritingOnDiskFailed:
+            errorMessage.value = "There seems to be a problem with writing data on disk."
         }
         
         self.events.value = []

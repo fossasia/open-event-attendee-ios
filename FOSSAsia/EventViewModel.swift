@@ -48,7 +48,7 @@ struct EventViewModel: EventTypePresentable, EventDetailsPresentable, EventDescr
     let favorite: Observable<Bool>
     
     // MARK: - Services
-    private var eventsService: EventsServiceProtocol
+    private var eventsService: EventProvider
     
     init (_ event: Event) {
         sessionId = Observable(event.id)
@@ -62,7 +62,7 @@ struct EventViewModel: EventTypePresentable, EventDetailsPresentable, EventDescr
         favorite = Observable(event.favorite)
     
         // Dependency Injections
-        eventsService = FossAsiaEventsService()
+        eventsService = EventProvider()
     }
     
     func favoriteEvent(completionHandler: EventViewModelCompletionHandler) {

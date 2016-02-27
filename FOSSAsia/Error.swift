@@ -15,6 +15,7 @@ struct Error {
         case JSONSerializationFailed  = -6002
         case JSONParsingFailed        = -6003
         case JSONSystemReadingFailed  = -6004
+        case WritingOnDiskFailed      = -6005
     }
     
     let errorCode: Code

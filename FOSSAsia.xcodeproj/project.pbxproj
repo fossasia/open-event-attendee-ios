@@ -51,7 +51,12 @@
 		28A0BC941C5F50A2001625FB /* Schedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A0BC931C5F50A2001625FB /* Schedule.swift */; };
 		28A17BCA1C70AF0200318336 /* IndividualEvent.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28A17BC91C70AF0200318336 /* IndividualEvent.storyboard */; };
 		28E2DA891C7EDFCB002F2FAA /* ScheduleVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28E2DA881C7EDFCB002F2FAA /* ScheduleVC.storyboard */; };
-		28EBE25C1C82D79100A0B214 /* FossAsiaAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28EBE25B1C82D79100A0B214 /* FossAsiaAPI.swift */; };
+		30321F5D1C8176EE008E5258 /* Type.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30321F5C1C8176EE008E5258 /* Type.swift */; };
+		30321F611C81851E008E5258 /* ApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30321F601C81851E008E5258 /* ApiClient.swift */; };
+		30321F641C818595008E5258 /* Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30321F631C818595008E5258 /* Api.swift */; };
+		30321F691C81A06F008E5258 /* FetchDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30321F681C81A06F008E5258 /* FetchDataService.swift */; };
+		30F0AFB61C81B9C400CE5D18 /* EventProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F0AFB51C81B9C400CE5D18 /* EventProvider.swift */; };
+		30F0AFB81C81C4C600CE5D18 /* SettingsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F0AFB71C81C4C600CE5D18 /* SettingsManager.swift */; };
 		DA4CC3D451E57B3D3B6780CD /* Pods_FOSSAsia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 193D6EE00801D10F0049F1C3 /* Pods_FOSSAsia.framework */; };
 /* End PBXBuildFile section */
 
@@ -133,7 +138,12 @@
 		28A0BC931C5F50A2001625FB /* Schedule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Schedule.swift; sourceTree = "<group>"; };
 		28A17BC91C70AF0200318336 /* IndividualEvent.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = IndividualEvent.storyboard; sourceTree = "<group>"; };
 		28E2DA881C7EDFCB002F2FAA /* ScheduleVC.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ScheduleVC.storyboard; sourceTree = "<group>"; };
-		28EBE25B1C82D79100A0B214 /* FossAsiaAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FossAsiaAPI.swift; sourceTree = "<group>"; };
+		30321F5C1C8176EE008E5258 /* Type.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Type.swift; sourceTree = "<group>"; };
+		30321F601C81851E008E5258 /* ApiClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiClient.swift; sourceTree = "<group>"; };
+		30321F631C818595008E5258 /* Api.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Api.swift; sourceTree = "<group>"; };
+		30321F681C81A06F008E5258 /* FetchDataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FetchDataService.swift; sourceTree = "<group>"; };
+		30F0AFB51C81B9C400CE5D18 /* EventProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventProvider.swift; sourceTree = "<group>"; };
+		30F0AFB71C81C4C600CE5D18 /* SettingsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsManager.swift; sourceTree = "<group>"; };
 		79D22ECB7ECA2ECF5403D3D1 /* Pods-FOSSAsia.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FOSSAsia.release.xcconfig"; path = "Pods/Target Support Files/Pods-FOSSAsia/Pods-FOSSAsia.release.xcconfig"; sourceTree = "<group>"; };
 		E0CFBD2E35D709E001678331 /* Pods-FOSSAsia.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FOSSAsia.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FOSSAsia/Pods-FOSSAsia.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -281,6 +291,8 @@
 		285F1B631C5AF7B100A7E0DD /* FOSSAsia */ = {
 			isa = PBXGroup;
 			children = (
+				30F0AFB41C81B9B000CE5D18 /* Provider */,
+				30321F5B1C81759F008E5258 /* Api */,
 				285F1B641C5AF7B100A7E0DD /* AppDelegate.swift */,
 				28091E901C64B0B900E789CD /* Constants.swift */,
 				2818A9381C62301A00ECB57F /* Models */,
@@ -333,6 +345,26 @@
 			);
 			name = DateTools;
 			path = ../DateTools/DateTools;
+			sourceTree = "<group>";
+		};
+		30321F5B1C81759F008E5258 /* Api */ = {
+			isa = PBXGroup;
+			children = (
+				30321F631C818595008E5258 /* Api.swift */,
+				30321F681C81A06F008E5258 /* FetchDataService.swift */,
+				30321F5C1C8176EE008E5258 /* Type.swift */,
+				30321F601C81851E008E5258 /* ApiClient.swift */,
+			);
+			name = Api;
+			sourceTree = "<group>";
+		};
+		30F0AFB41C81B9B000CE5D18 /* Provider */ = {
+			isa = PBXGroup;
+			children = (
+				30F0AFB51C81B9C400CE5D18 /* EventProvider.swift */,
+				30F0AFB71C81C4C600CE5D18 /* SettingsManager.swift */,
+			);
+			name = Provider;
 			sourceTree = "<group>";
 		};
 		68CECE78A9679E26EB9537C1 /* Pods */ = {
@@ -485,8 +517,10 @@
 				281324EF1C6735430072E730 /* EventsBaseViewController.swift in Sources */,
 				2824FD661C6DBBF500F783E1 /* EventListBrowsingProtocol.swift in Sources */,
 				28091E8D1C6332A600E789CD /* FilterListViewController.swift in Sources */,
+				30321F691C81A06F008E5258 /* FetchDataService.swift in Sources */,
 				28352C731C6B411C0055E2F5 /* EventsListViewModel.swift in Sources */,
 				2859B1001C5DFD09009656FC /* Colors.swift in Sources */,
+				30321F641C818595008E5258 /* Api.swift in Sources */,
 				285F1B8F1C5B069D00A7E0DD /* Observable.swift in Sources */,
 				28352C711C6B2B9F0055E2F5 /* EventsListViewController.swift in Sources */,
 				285F1BBC1C5B2B2B00A7E0DD /* EventViewModel.swift in Sources */,
@@ -513,11 +547,15 @@
 				2824FD5A1C6C0AFE00F783E1 /* SchedulePagingView.swift in Sources */,
 				28A0BC921C5F4FEC001625FB /* ScheduleViewModel.swift in Sources */,
 				2824FD6D1C6DC05300F783E1 /* FavoriteEventsListViewController.swift in Sources */,
+				30321F611C81851E008E5258 /* ApiClient.swift in Sources */,
 				285F1BB01C5B094F00A7E0DD /* Speaker.swift in Sources */,
 				28A0BC6D1C5F4082001625FB /* FossAsiaEventsService.swift in Sources */,
 				2824FE101C6EBB6700F783E1 /* FavoritesScheduleViewController.swift in Sources */,
 				285F1B791C5AFBBB00A7E0DD /* SwiftHEXColors.swift in Sources */,
+				30F0AFB81C81C4C600CE5D18 /* SettingsManager.swift in Sources */,
+				30F0AFB61C81B9C400CE5D18 /* EventProvider.swift in Sources */,
 				28091E931C64B61C00E789CD /* RangeExtension.swift in Sources */,
+				30321F5D1C8176EE008E5258 /* Type.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

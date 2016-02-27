@@ -20,7 +20,7 @@ struct EventsListViewModel {
     let errorMessage: Observable<String?>
     
     // MARK: - Services
-    private var eventsService: EventsServiceProtocol
+    private var eventsService: EventProvider
 
     
     init () {
@@ -30,14 +30,14 @@ struct EventsListViewModel {
         self.count = Observable(1)
         
         // Dependency Injections
-        eventsService = FossAsiaEventsService()
+        eventsService = EventProvider()
         
         refreshDates()
     }
     
     func refreshDates() {
         // Retrieve all dates
-        eventsService.retrieveEventsInfo(nil, trackIds: nil) { (events, error) -> Void in
+        eventsService.getEvents(nil, trackIds: nil) { (events, error) -> Void in
             if let eventsArray = events {
                 var dates = Set<NSDate>()
                 for event in eventsArray {
