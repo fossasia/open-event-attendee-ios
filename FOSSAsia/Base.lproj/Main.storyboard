@@ -16,24 +16,14 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <segue destination="KRl-NV-RwG" kind="relationship" relationship="viewControllers" id="Zh2-dv-DAo"/>
-                        <segue destination="bWn-jd-yq8" kind="relationship" relationship="viewControllers" id="lzU-1b-eKA"/>
+                        <segue destination="Gew-OO-4HF" kind="relationship" relationship="viewControllers" id="hqO-c6-gQM"/>
+                        <segue destination="Erb-u6-Fam" kind="relationship" relationship="viewControllers" id="Myv-mw-e7r"/>
                         <segue destination="3sh-pZ-TEG" kind="relationship" relationship="viewControllers" id="Ew2-ev-ivT"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="0.0" y="0.0"/>
-        </scene>
-        <!--SessionsNavigationController-->
-        <scene sceneID="KFQ-ag-fVn">
-            <objects>
-                <viewControllerPlaceholder storyboardName="Sessions" referencedIdentifier="SessionsNavigationController" id="KRl-NV-RwG" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="xQM-Ix-HXJ"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="3WZ-Ee-761" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="599" y="-347"/>
         </scene>
         <!--More-->
         <scene sceneID="tQO-Z8-Qqw">
@@ -46,14 +36,48 @@
             <point key="canvasLocation" x="755.5" y="681"/>
         </scene>
         <!--Favorites-->
-        <scene sceneID="XxW-hS-Ifa">
+        <scene sceneID="v4W-Ic-iDq">
             <objects>
-                <viewControllerPlaceholder storyboardName="Favorites" id="bWn-jd-yq8" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="U8B-bG-T5p"/>
+                <viewControllerPlaceholder storyboardName="Favorites" id="Erb-u6-Fam" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="J43-7S-Ozg"/>
                 </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="K0A-XU-NTc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LvE-za-atG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="793" y="184"/>
+            <point key="canvasLocation" x="753" y="135"/>
+        </scene>
+        <!--UISplitViewController-Vm3-Pj-sfX-->
+        <scene sceneID="gDQ-Ok-2pQ">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Sessions" referencedIdentifier="UISplitViewController-Vm3-Pj-sfX" id="Gew-OO-4HF" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="jf1-hP-5ks"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XUn-wc-phh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="832" y="-421"/>
+        </scene>
+        <!--SessionsNavigationController-->
+        <scene sceneID="JJ1-2a-YN0">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="SessionsNavigationController" storyboardName="Sessions" referencedIdentifier="SessionsNavigationController" id="dO5-jL-uux" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LSZ-LL-Nwz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1558" y="-421"/>
+        </scene>
+        <!--HYPPagesController-->
+        <scene sceneID="grf-oi-zFU">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="HYPPagesController" storyboardName="Sessions" referencedIdentifier="HYPPagesController" id="OSF-ot-bad" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="d2f-6w-3ob" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3018" y="-421"/>
+        </scene>
+        <!--LoadingViewController-->
+        <scene sceneID="ZNX-bL-1wa">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="LoadingViewController" storyboardName="Sessions" referencedIdentifier="LoadingViewController" id="1EQ-Fr-GDa" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gXB-yv-i1S" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2304" y="-1096"/>
         </scene>
     </scenes>
 </document>

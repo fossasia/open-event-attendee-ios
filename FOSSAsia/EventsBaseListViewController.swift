@@ -10,12 +10,14 @@ import UIKit
 import Pages
 
 class EventsBaseListViewController: UIViewController, EventListBrowsingByDate, UIViewControllerPreviewingDelegate  {
+    private var collapseDetailViewController = true
     weak var pagesVC: PagesController!
     @IBOutlet weak var pagingView: SchedulePagingView!
  
     var currentViewController: EventsBaseViewController! {
         didSet {
             self.registerForPreviewingWithDelegate(self, sourceView: currentViewController.tableView)
+            currentViewController.delegate = self
         }
     }
     var viewModel: EventsListViewModel? {
@@ -34,7 +36,7 @@ class EventsBaseListViewController: UIViewController, EventListBrowsingByDate, U
         super.viewDidLoad()
         viewModel = getEventsListViewModel()
         pagingView.delegate = self
-        
+        navigationController?.splitViewController?.delegate = self
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -56,6 +58,20 @@ class EventsBaseListViewController: UIViewController, EventListBrowsingByDate, U
         }
         self.pagesVC.add(viewControllers)
         self.pagesVC.startPage = 1
+    }
+}
+
+// MARK:- ScheduleViewControllerDelegate Conformance {
+extension EventsBaseListViewController: ScheduleViewControllerDelegate {
+    func eventDidGetSelected(tableView: UITableView, atIndexPath: NSIndexPath) {
+        collapseDetailViewController = false
+    }
+}
+
+// MARK:- UISplitViewControllerDelegate Conformance
+extension EventsBaseListViewController: UISplitViewControllerDelegate {
+    func splitViewController(splitViewController: UISplitViewController, collapseSecondaryViewController secondaryViewController: UIViewController, ontoPrimaryViewController primaryViewController: UIViewController) -> Bool {
+        return collapseDetailViewController
     }
 }
 

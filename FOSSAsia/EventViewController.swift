@@ -53,6 +53,9 @@ class EventViewController: UIViewController {
         if let viewModel = eventViewModel {
             self.configure(viewModel)
         }
+        
+        navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem()
+        navigationItem.leftItemsSupplementBackButton = true
     }
     
     override func viewDidLayoutSubviews() {

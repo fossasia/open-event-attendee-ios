@@ -12,7 +12,7 @@ import Pages
 class FavoriteEventsListViewController: EventsBaseListViewController {
     override func viewDidLoad() {
         viewModel = getEventsListViewModel()
-        pagingView.delegate = self
+        super.viewDidLoad()
         
         self.registerForPreviewingWithDelegate(self, sourceView: currentViewController.tableView)
     }
@@ -25,12 +25,4 @@ class FavoriteEventsListViewController: EventsBaseListViewController {
         self.pagesVC.startPage = 1
     }
     
-}
-
-extension FavoriteEventsListViewController {
-    func getEventsListViewModel() -> EventsListViewModel {
-        var eventsViewModel = EventsListViewModel()
-        eventsViewModel.setFavoritesOnly(true)
-        return eventsViewModel
-    }
 }

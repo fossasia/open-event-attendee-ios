@@ -21,6 +21,14 @@ extension EventsPresentable where Self: EventsBaseListViewController {
     }
 }
 
+extension EventsPresentable where Self: FavoriteEventsListViewController {
+    func getEventsListViewModel() -> EventsListViewModel {
+        var eventsViewModel = EventsListViewModel()
+        eventsViewModel.setFavoritesOnly(true)
+        return eventsViewModel
+    }
+}
+
 protocol SchedulePagingViewDelegate: class {
     func nextButtonDidPress(sender: SchedulePagingView)
     func prevButtonDidPress(sender: SchedulePagingView)

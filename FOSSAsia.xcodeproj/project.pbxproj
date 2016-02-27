@@ -15,7 +15,6 @@
 		280DE5291C62FCB200E64020 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 280DE5281C62FCB200E64020 /* Podfile */; };
 		281324ED1C672EE80072E730 /* EventsResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 281324EC1C672EE80072E730 /* EventsResultsViewController.swift */; };
 		281324EF1C6735430072E730 /* EventsBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 281324EE1C6735430072E730 /* EventsBaseViewController.swift */; };
-		2821357E1C76FCD5006787E0 /* Favorites.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2821357C1C76FCD5006787E0 /* Favorites.storyboard */; };
 		2824FD5A1C6C0AFE00F783E1 /* SchedulePagingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2824FD591C6C0AFE00F783E1 /* SchedulePagingView.swift */; };
 		2824FD621C6C732300F783E1 /* MoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2824FD611C6C732300F783E1 /* MoreViewController.swift */; };
 		2824FD641C6DA80600F783E1 /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2824FD631C6DA80600F783E1 /* LoadingViewController.swift */; };
@@ -42,7 +41,9 @@
 		285F1BB41C5B0FDC00A7E0DD /* SpeakerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285F1BB31C5B0FDC00A7E0DD /* SpeakerViewModel.swift */; };
 		285F1BB81C5B16C700A7E0DD /* EventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285F1BB71C5B16C700A7E0DD /* EventCell.swift */; };
 		285F1BBC1C5B2B2B00A7E0DD /* EventViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285F1BBB1C5B2B2B00A7E0DD /* EventViewModel.swift */; };
-		289ADCF61C6086CF00E1DA09 /* Sessions.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 289ADCF51C6086CF00E1DA09 /* Sessions.storyboard */; };
+		285F89AF1C81448A0033D090 /* ScheduleViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285F89AE1C81448A0033D090 /* ScheduleViewControllerDelegate.swift */; };
+		285F89B21C8149420033D090 /* Favorites.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 285F89B01C8149420033D090 /* Favorites.storyboard */; };
+		285F89B41C814B0A0033D090 /* Sessions.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 285F89B31C814B0A0033D090 /* Sessions.storyboard */; };
 		28A0BC6D1C5F4082001625FB /* FossAsiaEventsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A0BC6C1C5F4082001625FB /* FossAsiaEventsService.swift */; };
 		28A0BC6F1C5F42D6001625FB /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A0BC6E1C5F42D6001625FB /* Error.swift */; };
 		28A0BC711C5F4373001625FB /* EventsServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A0BC701C5F4373001625FB /* EventsServiceProtocol.swift */; };
@@ -76,7 +77,6 @@
 		280DE5281C62FCB200E64020 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		281324EC1C672EE80072E730 /* EventsResultsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsResultsViewController.swift; sourceTree = "<group>"; };
 		281324EE1C6735430072E730 /* EventsBaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsBaseViewController.swift; sourceTree = "<group>"; };
-		2821357D1C76FCD5006787E0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Favorites.storyboard; sourceTree = "<group>"; };
 		2824FD591C6C0AFE00F783E1 /* SchedulePagingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SchedulePagingView.swift; sourceTree = "<group>"; };
 		2824FD611C6C732300F783E1 /* MoreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoreViewController.swift; sourceTree = "<group>"; };
 		2824FD631C6DA80600F783E1 /* LoadingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingViewController.swift; sourceTree = "<group>"; };
@@ -122,7 +122,9 @@
 		285F1BB31C5B0FDC00A7E0DD /* SpeakerViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpeakerViewModel.swift; sourceTree = "<group>"; };
 		285F1BB71C5B16C700A7E0DD /* EventCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventCell.swift; sourceTree = "<group>"; };
 		285F1BBB1C5B2B2B00A7E0DD /* EventViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventViewModel.swift; sourceTree = "<group>"; };
-		289ADCF51C6086CF00E1DA09 /* Sessions.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Sessions.storyboard; sourceTree = "<group>"; };
+		285F89AE1C81448A0033D090 /* ScheduleViewControllerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleViewControllerDelegate.swift; sourceTree = "<group>"; };
+		285F89B11C8149420033D090 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Favorites.storyboard; sourceTree = "<group>"; };
+		285F89B31C814B0A0033D090 /* Sessions.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Sessions.storyboard; sourceTree = "<group>"; };
 		28A0BC6C1C5F4082001625FB /* FossAsiaEventsService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FossAsiaEventsService.swift; sourceTree = "<group>"; };
 		28A0BC6E1C5F42D6001625FB /* Error.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
 		28A0BC701C5F4373001625FB /* EventsServiceProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsServiceProtocol.swift; sourceTree = "<group>"; };
@@ -200,6 +202,7 @@
 		2818A93B1C62347A00ECB57F /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
+				285F89AE1C81448A0033D090 /* ScheduleViewControllerDelegate.swift */,
 				2824FE111C6EBB9E00F783E1 /* ScheduleBrowsingProtocol.swift */,
 				2824FD651C6DBBF500F783E1 /* EventListBrowsingProtocol.swift */,
 				28A0BC701C5F4373001625FB /* EventsServiceProtocol.swift */,
@@ -211,9 +214,9 @@
 			isa = PBXGroup;
 			children = (
 				285F1B6A1C5AF7B100A7E0DD /* Main.storyboard */,
-				2821357C1C76FCD5006787E0 /* Favorites.storyboard */,
+				285F89B31C814B0A0033D090 /* Sessions.storyboard */,
+				285F89B01C8149420033D090 /* Favorites.storyboard */,
 				2824FD6A1C6DBF9A00F783E1 /* More.storyboard */,
-				289ADCF51C6086CF00E1DA09 /* Sessions.storyboard */,
 				28E2DA881C7EDFCB002F2FAA /* ScheduleVC.storyboard */,
 				285F1B6F1C5AF7B100A7E0DD /* LaunchScreen.storyboard */,
 				28A17BC91C70AF0200318336 /* IndividualEvent.storyboard */,
@@ -411,13 +414,13 @@
 			files = (
 				280DE5291C62FCB200E64020 /* Podfile in Resources */,
 				2824FD6B1C6DBF9A00F783E1 /* More.storyboard in Resources */,
+				285F89B21C8149420033D090 /* Favorites.storyboard in Resources */,
 				285F1B711C5AF7B100A7E0DD /* LaunchScreen.storyboard in Resources */,
 				28A17BCA1C70AF0200318336 /* IndividualEvent.storyboard in Resources */,
+				285F89B41C814B0A0033D090 /* Sessions.storyboard in Resources */,
 				285F1B6E1C5AF7B100A7E0DD /* Assets.xcassets in Resources */,
 				285F1B6C1C5AF7B100A7E0DD /* Main.storyboard in Resources */,
-				2821357E1C76FCD5006787E0 /* Favorites.storyboard in Resources */,
 				28E2DA891C7EDFCB002F2FAA /* ScheduleVC.storyboard in Resources */,
-				289ADCF61C6086CF00E1DA09 /* Sessions.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -491,6 +494,7 @@
 				2824FD621C6C732300F783E1 /* MoreViewController.swift in Sources */,
 				28091E9B1C64CC1A00E789CD /* TrackViewModel.swift in Sources */,
 				285F1BB81C5B16C700A7E0DD /* EventCell.swift in Sources */,
+				285F89AF1C81448A0033D090 /* ScheduleViewControllerDelegate.swift in Sources */,
 				28091E8F1C636F9000E789CD /* FilterCell.swift in Sources */,
 				285F1B671C5AF7B100A7E0DD /* ScheduleViewController.swift in Sources */,
 				2824FE121C6EBB9E00F783E1 /* ScheduleBrowsingProtocol.swift in Sources */,
@@ -516,14 +520,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		2821357C1C76FCD5006787E0 /* Favorites.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				2821357D1C76FCD5006787E0 /* Base */,
-			);
-			name = Favorites.storyboard;
-			sourceTree = "<group>";
-		};
 		285F1B6A1C5AF7B100A7E0DD /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -538,6 +534,14 @@
 				285F1B701C5AF7B100A7E0DD /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		285F89B01C8149420033D090 /* Favorites.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				285F89B11C8149420033D090 /* Base */,
+			);
+			name = Favorites.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

@@ -9,6 +9,7 @@
 import UIKit
 
 class EventsBaseViewController: UIViewController {
+    var delegate: ScheduleViewControllerDelegate?
     static let kEventCellReuseIdentifier = "EventCell"
     var allEvents: [EventViewModel] = []
 
@@ -35,13 +36,17 @@ class EventsBaseViewController: UIViewController {
         tableView.dataSource = self
         tableView.delegate = self
         tableView.rowHeight = 70
+        
+        tableView.tableFooterView = UIView(frame: CGRect.zero)
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if (segue.identifier == "ShowEventDetail") {
             if let selectedIndexPath = self.tableView.indexPathForSelectedRow {
-                let eventViewController = segue.destinationViewController as! EventViewController
-                eventViewController.eventViewModel = allEvents[selectedIndexPath.row]
+                if let eventNavigationController = segue.destinationViewController as? UINavigationController {
+                    let eventViewController = eventNavigationController.topViewController as! EventViewController
+                    eventViewController.eventViewModel = allEvents[selectedIndexPath.row]
+                }
             }
         }
     }
@@ -53,7 +58,10 @@ class EventsBaseViewController: UIViewController {
 }
 
 extension EventsBaseViewController: UITableViewDelegate {
-    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        self.tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        delegate?.eventDidGetSelected(tableView, atIndexPath: indexPath)
+    }
 }
 
 extension EventsBaseViewController: UITableViewDataSource {
@@ -69,8 +77,5 @@ extension EventsBaseViewController: UITableViewDataSource {
         return allEvents.count
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        tableView.deselectRowAtIndexPath(indexPath, animated: true)
-    }
 
 }

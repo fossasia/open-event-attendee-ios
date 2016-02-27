@@ -26,7 +26,7 @@
                                         <rect key="frame" x="0.0" y="28" width="600" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="0ZK-4s-zzX" id="Cr6-qB-Rag">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="69.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="69"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WBq-uE-VFi" userLabel="Type View">
@@ -93,6 +93,7 @@
                                             <outlet property="timingLabel" destination="rBD-qw-PlP" id="bBf-KP-aZm"/>
                                             <outlet property="titleLabel" destination="JNu-to-jI8" id="vgy-dN-l0I"/>
                                             <outlet property="typeView" destination="WBq-uE-VFi" id="Ocz-Sw-Hr9"/>
+                                            <segue destination="5tK-Bc-qQl" kind="showDetail" identifier="ShowEventDetail" id="aZ7-lk-XqN"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -135,7 +136,7 @@
                                         <rect key="frame" x="0.0" y="28" width="600" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="m2M-FY-gxG" id="wr5-Q9-Xkc">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="69.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="69"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NRq-Ui-5It">
@@ -202,6 +203,7 @@
                                             <outlet property="timingLabel" destination="Ll3-Zx-f1U" id="jaG-Ym-jv8"/>
                                             <outlet property="titleLabel" destination="VoT-Uk-fKE" id="RuA-4A-EKA"/>
                                             <outlet property="typeView" destination="NRq-Ui-5It" id="pda-QH-Upa"/>
+                                            <segue destination="5tK-Bc-qQl" kind="showDetail" identifier="ShowEventDetail" id="Oox-vv-Y4y"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -223,6 +225,14 @@
             </objects>
             <point key="canvasLocation" x="2159" y="-798"/>
         </scene>
+        <!--IndividualEvent-->
+        <scene sceneID="gbS-St-BAF">
+            <objects>
+                <viewControllerPlaceholder storyboardName="IndividualEvent" id="5tK-Bc-qQl" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fVQ-bJ-Whd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2164" y="-333"/>
+        </scene>
         <!--Favorites Schedule View Controller-->
         <scene sceneID="d9g-QS-aK9">
             <objects>
@@ -243,7 +253,7 @@
                                         <rect key="frame" x="0.0" y="28" width="600" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="SWa-yd-KWP" id="gXX-lW-mBL">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="69.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="69"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="12V-r6-6qO">
@@ -310,6 +320,7 @@
                                             <outlet property="timingLabel" destination="lxp-TG-dyy" id="3oU-9c-JIr"/>
                                             <outlet property="titleLabel" destination="9mM-XK-CHn" id="UJj-Y4-pV0"/>
                                             <outlet property="typeView" destination="12V-r6-6qO" id="UkW-4O-nFN"/>
+                                            <segue destination="5tK-Bc-qQl" kind="showDetail" identifier="ShowEventDetail" id="NFj-fv-urR"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -335,4 +346,7 @@
     <resources>
         <image name="session_cell_favorite" width="15" height="15"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="Oox-vv-Y4y"/>
+    </inferredMetricsTieBreakers>
 </document>

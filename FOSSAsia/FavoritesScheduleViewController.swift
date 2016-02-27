@@ -23,7 +23,6 @@ class FavoritesScheduleViewController: EventsBaseViewController, SwipeToFavorite
         
         self.tableView.emptyDataSetSource = self
         self.tableView.emptyDataSetDelegate = self
-        self.tableView.tableFooterView = UIView(frame: CGRect.zero)
     }
     
     class func scheduleViewControllerFor(schedule: ScheduleViewModel) -> FavoritesScheduleViewController {
@@ -73,16 +72,6 @@ extension FavoritesScheduleViewController {
         
         return cell
     }
-    
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let selectedEventViewModel: EventViewModel
-        selectedEventViewModel = self.allEvents[indexPath.row]
-        
-        let eventViewController = EventViewController.eventViewControllerForEvent(selectedEventViewModel)
-        
-        navigationController?.pushViewController(eventViewController, animated: true)
-    }
-
 }
 
 // MARK:- SwipeToFavoriteCellPresentable Conformance
