@@ -42,7 +42,7 @@ struct EventProvider {
         
     }
     
-    private func getEventsFromDisk(date: NSDate?, trackIds: [Int]?, completionHandler: EventCompletionHandler) {
+    private func getEventsFromDisk(date: NSDate?, trackIds: [Int]?, completionHandler: EventsLoadingCompletionHandler) {
         if let dir : NSString = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .AllDomainsMask, true).first {
             do {
                 let filePath = dir.stringByAppendingPathComponent(SettingsManager.getLocalFileName(Type.Events))
