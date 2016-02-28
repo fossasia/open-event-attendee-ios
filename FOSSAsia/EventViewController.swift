@@ -91,9 +91,15 @@ class EventViewController: UIViewController {
         }
     }
     @IBAction func favoriteEvent(sender: AnyObject) {
-        self.eventViewModel?.favoriteEvent({ (eventViewModel, error) -> () in
-            // do something
-        })
+        self.eventViewModel?.favoriteEvent{  [weak self] (eventViewModel, error) -> () in
+            if let masterNavVC = self?.splitViewController?.viewControllers[0] as? UINavigationController {
+                if let masterVC = masterNavVC.topViewController as? EventsBaseListViewController {
+                    NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
+                        masterVC.currentViewController.tableView.reloadData()
+                    })
+                }
+            }
+        }
     }
 }
 
