@@ -45,39 +45,15 @@
             </objects>
             <point key="canvasLocation" x="753" y="135"/>
         </scene>
-        <!--UISplitViewController-Vm3-Pj-sfX-->
+        <!--Sessions-->
         <scene sceneID="gDQ-Ok-2pQ">
             <objects>
-                <viewControllerPlaceholder storyboardName="Sessions" referencedIdentifier="UISplitViewController-Vm3-Pj-sfX" id="Gew-OO-4HF" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="Sessions" id="Gew-OO-4HF" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="jf1-hP-5ks"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XUn-wc-phh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="832" y="-421"/>
-        </scene>
-        <!--SessionsNavigationController-->
-        <scene sceneID="JJ1-2a-YN0">
-            <objects>
-                <viewControllerPlaceholder storyboardIdentifier="SessionsNavigationController" storyboardName="Sessions" referencedIdentifier="SessionsNavigationController" id="dO5-jL-uux" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="LSZ-LL-Nwz" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1558" y="-421"/>
-        </scene>
-        <!--HYPPagesController-->
-        <scene sceneID="grf-oi-zFU">
-            <objects>
-                <viewControllerPlaceholder storyboardIdentifier="HYPPagesController" storyboardName="Sessions" referencedIdentifier="HYPPagesController" id="OSF-ot-bad" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="d2f-6w-3ob" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3018" y="-421"/>
-        </scene>
-        <!--LoadingViewController-->
-        <scene sceneID="ZNX-bL-1wa">
-            <objects>
-                <viewControllerPlaceholder storyboardIdentifier="LoadingViewController" storyboardName="Sessions" referencedIdentifier="LoadingViewController" id="1EQ-Fr-GDa" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="gXB-yv-i1S" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2304" y="-1096"/>
         </scene>
     </scenes>
 </document>
