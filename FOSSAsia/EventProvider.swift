@@ -45,13 +45,13 @@ struct EventProvider {
     private func getEventsFromDisk(date: NSDate?, trackIds: [Int]?, eventsLoadingCompletionHandler: EventsLoadingCompletionHandler) {
         if let dir : NSString = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .AllDomainsMask, true).first {
             do {
-                let filePath = dir.stringByAppendingPathComponent(SettingsManager.getLocalFileName(EventInfo.Events))
-                let eventsData = try NSData(contentsOfFile: filePath, options: .DataReadingMappedIfSafe)
-                let jsonObj = JSON(data: eventsData)
-                guard let sessionsArray = jsonObj["sessions"].array else {
-                    let error = Error(errorCode: .JSONParsingFailed)
+		let filePath = dir.stringByAppendingPathComponent(SettingsManager.getLocalFileName(EventInfo.Events))
+		let eventsData = try NSData(contentsOfFile: filePath, options: .DataReadingMappedIfSafe)
+		let jsonObj = JSON(data: eventsData)
+		guard let sessionsArray = jsonObj[EventInfo.Events.rawValue].array else {
+		    let error = Error(errorCode: .JSONParsingFailed)
 		    eventsLoadingCompletionHandler(nil, error)
-                    return
+		    return
                 }
                 
                 var sessions: [Event] = []
@@ -83,7 +83,6 @@ struct EventProvider {
                             sessionSpeakersNames.append(Speaker(name: name))
                         }
                         
-                        // FIX ME: - Location is hardcoded for now
                         let tempSession = Event(id: sessionId,
                             trackCode: Event.Track(rawValue: trackId)!,
                             title: sessionTitle,
