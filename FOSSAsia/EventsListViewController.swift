@@ -100,9 +100,14 @@ extension EventsListViewController: UITableViewDelegate {
         
         selectedEventViewModel = resultsTableController.visibleEvents[indexPath.row]
         
-        let eventViewController = EventViewController.eventViewControllerForEvent(selectedEventViewModel)
-        
-        navigationController?.pushViewController(eventViewController, animated: true)
+        let storyboard = UIStoryboard(name: EventViewController.StoryboardConstants.storyboardName, bundle: nil)
+        if let nvc = storyboard.instantiateViewControllerWithIdentifier("IndividualEventNavController") as? UINavigationController {
+            if let eventVC = nvc.topViewController as? EventViewController {
+                eventVC.eventViewModel = selectedEventViewModel
+                splitViewController?.showDetailViewController(nvc, sender: self)
+                searchController.searchBar.resignFirstResponder()
+            }
+        }
     }
     
 }

@@ -9,7 +9,7 @@
         <!--Navigation Controller-->
         <scene sceneID="jK6-G9-h8d">
             <objects>
-                <navigationController id="o5S-Pz-giN" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="IndividualEventNavController" id="o5S-Pz-giN" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="3q8-XM-GmX">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>

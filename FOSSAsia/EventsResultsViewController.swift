@@ -17,9 +17,15 @@ class EventsResultsViewController: EventsBaseViewController {
     
     lazy var visibleEvents: [EventViewModel] = self.allEvents
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if (segue.identifier == "ShowEventDetail") {
+            if let selectedIndexPath = self.tableView.indexPathForSelectedRow {
+                if let eventNavigationController = segue.destinationViewController as? UINavigationController {
+                    let eventViewController = eventNavigationController.topViewController as! EventViewController
+                    eventViewController.eventViewModel = visibleEvents[selectedIndexPath.row]
+                }
+            }
+        }
     }
 }
 

@@ -93,7 +93,6 @@
                                             <outlet property="timingLabel" destination="rBD-qw-PlP" id="bBf-KP-aZm"/>
                                             <outlet property="titleLabel" destination="JNu-to-jI8" id="vgy-dN-l0I"/>
                                             <outlet property="typeView" destination="WBq-uE-VFi" id="Ocz-Sw-Hr9"/>
-                                            <segue destination="5tK-Bc-qQl" kind="showDetail" identifier="ShowEventDetail" id="aZ7-lk-XqN"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

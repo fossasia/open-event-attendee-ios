@@ -59,7 +59,6 @@ class EventsBaseViewController: UIViewController {
 
 extension EventsBaseViewController: UITableViewDelegate {
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        self.tableView.deselectRowAtIndexPath(indexPath, animated: true)
         delegate?.eventDidGetSelected(tableView, atIndexPath: indexPath)
     }
 }
