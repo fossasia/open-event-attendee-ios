@@ -10,7 +10,7 @@ import Foundation
 
 typealias CommitmentCompletionHandler = (Error?) -> Void
 
-protocol Api {
+protocol ApiProtocol {
     func sendGetRequest(completionHandler: CommitmentCompletionHandler)
     func processResponse(data: NSData) -> Bool
 }

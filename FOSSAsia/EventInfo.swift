@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum Type: String {
+enum EventInfo: String {
     case Events = "sessions"
     case Tracks = "tracks"
     case Microlocations = "microlocations"

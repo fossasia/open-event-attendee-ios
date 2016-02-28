@@ -17,7 +17,7 @@ struct EventProvider {
     
     func getEvents(date: NSDate?, trackIds: [Int]?, completionHandler: EventsLoadingCompletionHandler) {
         if !SettingsManager.isKeyPresentInUserDefaults(SettingsManager.keyForEvent) {
-            FetchDateService().fetchData(Type.Events) { (error) -> Void in
+            FetchDateService().fetchData(EventInfo.Events) { (error) -> Void in
                 if error != nil {
                     completionHandler(nil, error!)
                 }
@@ -45,7 +45,7 @@ struct EventProvider {
     private func getEventsFromDisk(date: NSDate?, trackIds: [Int]?, completionHandler: EventsLoadingCompletionHandler) {
         if let dir : NSString = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .AllDomainsMask, true).first {
             do {
-                let filePath = dir.stringByAppendingPathComponent(SettingsManager.getLocalFileName(Type.Events))
+                let filePath = dir.stringByAppendingPathComponent(SettingsManager.getLocalFileName(EventInfo.Events))
                 let eventsData = try NSData(contentsOfFile: filePath, options: .DataReadingMappedIfSafe)
                 let jsonObj = JSON(data: eventsData)
                 guard let sessionsArray = jsonObj["sessions"].array else {

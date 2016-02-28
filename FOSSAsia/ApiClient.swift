@@ -8,16 +8,16 @@
 
 import Foundation
 
-struct ApiClient: Api {
+struct ApiClient: ApiProtocol {
 
     static let url = "https://raw.githubusercontent.com/fossasia/open-event/master/testapi/event/1/"
 
-    let type: Type
+    let eventInfo: EventInfo
 
     func sendGetRequest(completionHandler: CommitmentCompletionHandler) {
         let sessionConfig = NSURLSessionConfiguration.defaultSessionConfiguration()
         let session = NSURLSession(configuration: sessionConfig)
-        let request = NSURLRequest(URL: NSURL(string: getUrl(type))!)
+        let request = NSURLRequest(URL: NSURL(string: getUrl(eventInfo))!)
         let task = session.dataTaskWithRequest(request) { (data, response, networkError) -> Void in
             if (networkError != nil) {
                 let error = Error(errorCode: .NetworkRequestFailed)
@@ -39,14 +39,14 @@ struct ApiClient: Api {
 
     func processResponse(data: NSData) -> Bool {
         if let dir : NSString = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomainMask.AllDomainsMask, true).first {
-            let path = dir.stringByAppendingPathComponent(SettingsManager.getLocalFileName(type));
+            let path = dir.stringByAppendingPathComponent(SettingsManager.getLocalFileName(eventInfo));
             return data.writeToFile(path, atomically: false)
         }
         return false
     }
 
-    private func getUrl(type: Type) -> String {
-       return ApiClient.url + type.rawValue
+    private func getUrl(eventInfo: EventInfo) -> String {
+       return ApiClient.url + eventInfo.rawValue
     }
 
 }

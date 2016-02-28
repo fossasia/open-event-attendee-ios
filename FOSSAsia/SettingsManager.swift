@@ -24,8 +24,8 @@ struct SettingsManager {
         defaults.setBool(bool, forKey: key)
     }
 
-    static func getLocalFileName(type: Type) -> String {
-        return type.rawValue + ".json"
+    static func getLocalFileName(eventInfo: EventInfo) -> String {
+        return eventInfo.rawValue + ".json"
     }
 
 }
