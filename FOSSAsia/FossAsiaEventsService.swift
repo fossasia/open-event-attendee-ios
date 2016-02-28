@@ -10,6 +10,7 @@ import Foundation
 import SwiftyJSON
 
 typealias EventsServiceCommitmentCompletionHandler = (Error?) -> Void
+typealias APINetworkCompletionHandler =  (NSData?, Error?) -> Void
 
 struct FossAsiaEventsService: EventsServiceProtocol {
     private let urlPath = "https://raw.githubusercontent.com/fossasia/open-event/master/testapi/"
@@ -181,32 +182,18 @@ struct FossAsiaEventsService: EventsServiceProtocol {
     }
     
     private func getEventsFromNetwork(completionHandler: EventsServiceCommitmentCompletionHandler) {
-        let sessionConfig = NSURLSessionConfiguration.defaultSessionConfiguration()
-        let session = NSURLSession(configuration: sessionConfig)
-        
-        let url = urlPath + "event/1/sessions"
-        let request = NSURLRequest(URL: NSURL(string: url)!)
-        let task  = session.dataTaskWithRequest(request) { (data, response, networkError) -> Void in
-            if networkError != nil {
-                let error = Error(errorCode: .NetworkRequestFailed)
+        let api = FossAsiaAPI()
+        api.getEventsFromNetwork { (data, error) -> Void in
+            if error != nil {
                 completionHandler(error)
-            }
-            
-            guard let unwrappedData = data else {
-                let error = Error(errorCode: .JSONSerializationFailed)
-                completionHandler(error)
-                return
             }
             
             if let dir : NSString = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomainMask.AllDomainsMask, true).first {
                 let path = dir.stringByAppendingPathComponent(self.localEventsPath);
                 
-                unwrappedData.writeToFile(path, atomically: false)
+                data!.writeToFile(path, atomically: false)
+                completionHandler(nil)
             }
-            
-            completionHandler(nil)
         }
-        
-        task.resume()
     }
 }

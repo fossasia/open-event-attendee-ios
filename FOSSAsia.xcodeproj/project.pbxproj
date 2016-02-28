@@ -51,6 +51,7 @@
 		28A0BC941C5F50A2001625FB /* Schedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A0BC931C5F50A2001625FB /* Schedule.swift */; };
 		28A17BCA1C70AF0200318336 /* IndividualEvent.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28A17BC91C70AF0200318336 /* IndividualEvent.storyboard */; };
 		28E2DA891C7EDFCB002F2FAA /* ScheduleVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28E2DA881C7EDFCB002F2FAA /* ScheduleVC.storyboard */; };
+		28EBE25C1C82D79100A0B214 /* FossAsiaAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28EBE25B1C82D79100A0B214 /* FossAsiaAPI.swift */; };
 		DA4CC3D451E57B3D3B6780CD /* Pods_FOSSAsia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 193D6EE00801D10F0049F1C3 /* Pods_FOSSAsia.framework */; };
 /* End PBXBuildFile section */
 
@@ -132,6 +133,7 @@
 		28A0BC931C5F50A2001625FB /* Schedule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Schedule.swift; sourceTree = "<group>"; };
 		28A17BC91C70AF0200318336 /* IndividualEvent.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = IndividualEvent.storyboard; sourceTree = "<group>"; };
 		28E2DA881C7EDFCB002F2FAA /* ScheduleVC.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ScheduleVC.storyboard; sourceTree = "<group>"; };
+		28EBE25B1C82D79100A0B214 /* FossAsiaAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FossAsiaAPI.swift; sourceTree = "<group>"; };
 		79D22ECB7ECA2ECF5403D3D1 /* Pods-FOSSAsia.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FOSSAsia.release.xcconfig"; path = "Pods/Target Support Files/Pods-FOSSAsia/Pods-FOSSAsia.release.xcconfig"; sourceTree = "<group>"; };
 		E0CFBD2E35D709E001678331 /* Pods-FOSSAsia.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FOSSAsia.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FOSSAsia/Pods-FOSSAsia.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -195,6 +197,7 @@
 			isa = PBXGroup;
 			children = (
 				28A0BC6C1C5F4082001625FB /* FossAsiaEventsService.swift */,
+				28EBE25B1C82D79100A0B214 /* FossAsiaAPI.swift */,
 			);
 			name = Services;
 			sourceTree = "<group>";
@@ -498,6 +501,7 @@
 				28091E8F1C636F9000E789CD /* FilterCell.swift in Sources */,
 				285F1B671C5AF7B100A7E0DD /* ScheduleViewController.swift in Sources */,
 				2824FE121C6EBB9E00F783E1 /* ScheduleBrowsingProtocol.swift in Sources */,
+				28EBE25C1C82D79100A0B214 /* FossAsiaAPI.swift in Sources */,
 				28091E911C64B0B900E789CD /* Constants.swift in Sources */,
 				2824FD641C6DA80600F783E1 /* LoadingViewController.swift in Sources */,
 				281324ED1C672EE80072E730 /* EventsResultsViewController.swift in Sources */,
