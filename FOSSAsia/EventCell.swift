@@ -33,4 +33,22 @@ class EventCell: MGSwipeTableCell {
         }
     }
     
+    override func setSelected(selected: Bool, animated: Bool) {
+        let color = typeView.backgroundColor
+        super.setSelected(selected, animated: animated)
+        
+        if (selected) {
+            typeView.backgroundColor = color
+        }
+    }
+    
+    override func setHighlighted(highlighted: Bool, animated: Bool) {
+        let color = typeView.backgroundColor
+        super.setSelected(selected, animated: animated)
+        
+        if (selected) {
+            typeView.backgroundColor = color
+        }
+    }
+    
 }
