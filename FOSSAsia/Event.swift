@@ -52,7 +52,7 @@ struct Event {
     let title: String
     let shortDescription: String
     let speakers: [Speaker]?
-    let location: String
+    var location: String
     let startDateTime: NSDate
     let endDateTime: NSDate
     var favorite: Bool

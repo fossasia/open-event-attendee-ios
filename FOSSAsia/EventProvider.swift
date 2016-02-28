@@ -22,7 +22,7 @@ struct EventProvider {
                     completionHandler(nil, error!)
                 }
                 SettingsManager.saveKeyInUserDefaults(SettingsManager.keyForEvent, bool: true)
-                self.getEventsFromDisk(date, trackIds: trackIds, completionHandler: { (events, error) -> Void in
+                self.getEventsFromDisk(date, trackIds: trackIds, eventsLoadingCompletionHandler: { (events, error) -> Void in
                     if let eventsFromDisk = events {
                         completionHandler(eventsFromDisk, nil)
                     } else {
@@ -32,7 +32,7 @@ struct EventProvider {
             }
             
         }
-        self.getEventsFromDisk(date, trackIds: trackIds, completionHandler: { (events, error) -> Void in
+        self.getEventsFromDisk(date, trackIds: trackIds, eventsLoadingCompletionHandler: { (events, error) -> Void in
             if let eventsFromDisk = events {
                 completionHandler(eventsFromDisk, nil)
             } else {
@@ -42,7 +42,7 @@ struct EventProvider {
         
     }
     
-    private func getEventsFromDisk(date: NSDate?, trackIds: [Int]?, completionHandler: EventsLoadingCompletionHandler) {
+    private func getEventsFromDisk(date: NSDate?, trackIds: [Int]?, eventsLoadingCompletionHandler: EventsLoadingCompletionHandler) {
         if let dir : NSString = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .AllDomainsMask, true).first {
             do {
                 let filePath = dir.stringByAppendingPathComponent(SettingsManager.getLocalFileName(EventInfo.Events))
@@ -50,15 +50,16 @@ struct EventProvider {
                 let jsonObj = JSON(data: eventsData)
                 guard let sessionsArray = jsonObj["sessions"].array else {
                     let error = Error(errorCode: .JSONParsingFailed)
-                    completionHandler(nil, error)
+                    eventsLoadingCompletionHandler(nil, error)
                     return
                 }
                 
                 var sessions: [Event] = []
+                var microlocationIdArray: [Int] = []
                 
                 getFavoriteEventsId({ (favoriteIds, error) -> Void in
                     guard let idArray = favoriteIds else  {
-                        completionHandler(nil, error)
+                        eventsLoadingCompletionHandler(nil, error)
                         return
                     }
                     
@@ -67,11 +68,14 @@ struct EventProvider {
                             sessionId = session["id"].int,
                             sessionTitle = session["title"].string,
                             sessionDescription = session["description"].string,
+                            sessionMicrolocation = session["microlocation"].int,
                             sessionSpeakers = session["speakers"].array,
                             sessionStartDateTime = session["begin"].string,
                             sessionEndDateTime = session["end"].string else {
                                 continue
                         }
+                        
+                        microlocationIdArray.append(sessionMicrolocation)
                         
                         var sessionSpeakersNames: [Speaker] = []
                         for speaker in sessionSpeakers {
@@ -85,13 +89,27 @@ struct EventProvider {
                             title: sessionTitle,
                             shortDescription: sessionDescription,
                             speakers: sessionSpeakersNames,
-                            location: "Biopolis Matrix",
+                            location: "Unable to find location",
                             startDateTime: NSDate(string: sessionStartDateTime, formatString: self.dateFormatString),
                             endDateTime: NSDate(string: sessionEndDateTime, formatString: self.dateFormatString),
                             favorite: idArray.contains(sessionId))
                         sessions.append(tempSession)
                     }
-                    
+                })
+                
+                let microlocationProvider = MicrolocationProvider()
+                microlocationProvider.getMicrolocations { (microlocations, error) -> Void in
+                    if error == nil {
+                        if let microlocationsArray = microlocations {
+                            var count = 0
+                            for id in microlocationIdArray {
+                                if let name = Microlocation.getNameOfMicrolocationId(id, microlocations: microlocationsArray) {
+                                    sessions[count].location = name
+                                }
+                                count++
+                            }
+                        }
+                    }
                     if let filterTrackIds = trackIds {
                         sessions = sessions.filter({ filterTrackIds.contains($0.trackCode.rawValue) })
                     }
@@ -99,11 +117,11 @@ struct EventProvider {
                     if let filterDate = date {
                         sessions = sessions.filter({ filterDate.daysFrom($0.startDateTime) == 0 })
                     }
-                })
+                    eventsLoadingCompletionHandler(sessions, nil)
+                }
                 
-                completionHandler(sessions, nil)
             } catch {
-                completionHandler(nil, Error(errorCode: .JSONSystemReadingFailed))
+                eventsLoadingCompletionHandler(nil, Error(errorCode: .JSONSystemReadingFailed))
             }
         }
     }
