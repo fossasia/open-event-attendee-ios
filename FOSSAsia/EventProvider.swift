@@ -48,7 +48,7 @@ struct EventProvider {
                 let filePath = dir.stringByAppendingPathComponent(SettingsManager.getLocalFileName(EventInfo.Events))
                 let eventsData = try NSData(contentsOfFile: filePath, options: .DataReadingMappedIfSafe)
                 let jsonObj = JSON(data: eventsData)
-                guard let sessionsArray = jsonObj["sessions"].array else {
+                guard let sessionsArray = jsonObj[EventInfo.Events.rawValue].array else {
                     let error = Error(errorCode: .JSONParsingFailed)
                     eventsLoadingCompletionHandler(nil, error)
                     return
@@ -83,7 +83,6 @@ struct EventProvider {
                             sessionSpeakersNames.append(Speaker(name: name))
                         }
                         
-                        // FIX ME: - Location is hardcoded for now
                         let tempSession = Event(id: sessionId,
                             trackCode: Event.Track(rawValue: trackId)!,
                             title: sessionTitle,
