@@ -11,6 +11,7 @@ import Foundation
 struct SettingsManager {
 
     static let keyForEvent = "HasEvents"
+    static let keyForMicrolocations = "HasMicrolocations"
 
     static let favouritesLocalFileName = "faves.json"
 
