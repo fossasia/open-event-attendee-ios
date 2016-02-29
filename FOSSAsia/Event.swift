@@ -52,6 +52,7 @@ struct Event {
     let title: String
     let shortDescription: String
     let speakers: [Speaker]?
+    let microlocationId: Int
     var location: String
     let startDateTime: NSDate
     let endDateTime: NSDate
