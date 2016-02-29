@@ -16,6 +16,8 @@ struct EventProvider {
     private let dateFormatString = "yyyy-MM-dd'T'HH:mm:ss"
     
     func getEvents(date: NSDate?, trackIds: [Int]?, completionHandler: EventsLoadingCompletionHandler) {
+	let microlocationProvider = MicrolocationProvider()
+	microlocationProvider.getMicrolocations { _,_ in }
         if !SettingsManager.isKeyPresentInUserDefaults(SettingsManager.keyForEvent) {
             FetchDateService().fetchData(EventInfo.Events) { (error) -> Void in
                 if error != nil {
@@ -99,23 +101,23 @@ struct EventProvider {
 		    if let filterDate = date {
 			sessions = sessions.filter({ filterDate.daysFrom($0.startDateTime) == 0 })
 		    }
-		})
 
-		let microlocationProvider = MicrolocationProvider()
-		microlocationProvider.getMicrolocations { (microlocations, error) -> Void in
-		    if error == nil {
-			if let microlocationsArray = microlocations {
-			    for index in 0..<sessions.count {
-				if let name = Microlocation.getNameOfMicrolocationId(sessions[index].microlocationId, microlocations: microlocationsArray) {
-				    sessions[index].location = name
+		    let microlocationProvider = MicrolocationProvider()
+		    microlocationProvider.getMicrolocations { (microlocations, error) -> Void in
+			if error == nil {
+			    if let microlocationsArray = microlocations {
+				for index in 0..<sessions.count {
+				    if let name = Microlocation.getNameOfMicrolocationId(sessions[index].microlocationId, microlocations: microlocationsArray) {
+					sessions[index].location = name
+				    }
 				}
 			    }
 			}
+			eventsLoadingCompletionHandler(sessions, nil)
 		    }
-		    eventsLoadingCompletionHandler(sessions, nil)
-		}
+		})
 
-            } catch {
+	    } catch {
 		eventsLoadingCompletionHandler(nil, Error(errorCode: .JSONSystemReadingFailed))
             }
         }
