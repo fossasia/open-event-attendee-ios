@@ -16,7 +16,7 @@
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <segue destination="S6t-0G-WFX" kind="relationship" relationship="masterViewController" id="gDf-s7-xIa"/>
-                        <segue destination="uYc-8w-CJD" kind="showDetail" identifier="ShowEventDetail" id="9eC-RR-Wvm"/>
+                        <segue destination="uYc-8w-CJD" kind="relationship" relationship="detailViewController" id="9o2-bm-Y88"/>
                     </connections>
                 </splitViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Oct-WF-qpO" userLabel="First Responder" sceneMemberID="firstResponder"/>

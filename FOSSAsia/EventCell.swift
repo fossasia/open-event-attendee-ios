@@ -39,6 +39,10 @@ class EventCell: MGSwipeTableCell {
         
         if (selected) {
             typeView.backgroundColor = color
+            
+            let view = UIView()
+            view.backgroundColor = UIColor(hexString: "FFF5F5")
+            self.selectedBackgroundView = view
         }
     }
     
