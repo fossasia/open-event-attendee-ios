@@ -55,7 +55,6 @@ struct EventProvider {
                 }
                 
                 var sessions: [Event] = []
-                var microlocationIdArray: [Int] = []
                 
                 getFavoriteEventsId({ (favoriteIds, error) -> Void in
                     guard let idArray = favoriteIds else  {
@@ -68,14 +67,12 @@ struct EventProvider {
                             sessionId = session["id"].int,
                             sessionTitle = session["title"].string,
                             sessionDescription = session["description"].string,
-                            sessionMicrolocation = session["microlocation"].int,
+                            sessionMicrolocationId = session["microlocation"].int,
                             sessionSpeakers = session["speakers"].array,
                             sessionStartDateTime = session["begin"].string,
                             sessionEndDateTime = session["end"].string else {
                                 continue
                         }
-                        
-                        microlocationIdArray.append(sessionMicrolocation)
                         
                         var sessionSpeakersNames: [Speaker] = []
                         for speaker in sessionSpeakers {
@@ -88,26 +85,12 @@ struct EventProvider {
                             title: sessionTitle,
                             shortDescription: sessionDescription,
                             speakers: sessionSpeakersNames,
+                            microlocationId: sessionMicrolocationId,
                             location: "Unable to find location",
                             startDateTime: NSDate(string: sessionStartDateTime, formatString: self.dateFormatString),
                             endDateTime: NSDate(string: sessionEndDateTime, formatString: self.dateFormatString),
                             favorite: idArray.contains(sessionId))
                         sessions.append(tempSession)
-                    }
-                })
-                
-                let microlocationProvider = MicrolocationProvider()
-                microlocationProvider.getMicrolocations { (microlocations, error) -> Void in
-                    if error == nil {
-                        if let microlocationsArray = microlocations {
-                            var count = 0
-                            for id in microlocationIdArray {
-                                if let name = Microlocation.getNameOfMicrolocationId(id, microlocations: microlocationsArray) {
-                                    sessions[count].location = name
-                                }
-                                count++
-                            }
-                        }
                     }
                     if let filterTrackIds = trackIds {
                         sessions = sessions.filter({ filterTrackIds.contains($0.trackCode.rawValue) })
@@ -115,6 +98,19 @@ struct EventProvider {
                     
                     if let filterDate = date {
                         sessions = sessions.filter({ filterDate.daysFrom($0.startDateTime) == 0 })
+                    }
+                })
+                
+                let microlocationProvider = MicrolocationProvider()
+                microlocationProvider.getMicrolocations { (microlocations, error) -> Void in
+                    if error == nil {
+                        if let microlocationsArray = microlocations {
+                            for index in 0..<sessions.count {
+                                if let name = Microlocation.getNameOfMicrolocationId(sessions[index].microlocationId, microlocations: microlocationsArray) {
+                                    sessions[index].location = name
+                                }
+                            }
+                        }
                     }
                     eventsLoadingCompletionHandler(sessions, nil)
                 }
