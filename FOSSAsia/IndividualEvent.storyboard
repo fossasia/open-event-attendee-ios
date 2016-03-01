@@ -24,7 +24,77 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5y1-ck-Rdu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2349" y="-274"/>
+            <point key="canvasLocation" x="2337" y="-274"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="edo-R3-haB">
+            <objects>
+                <navigationController storyboardIdentifier="SessionEmptyStateViewController" id="MzQ-Xy-RbM" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="olo-Dx-IT8">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.86923396587371826" green="0.022301075980067253" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="oWk-Ig-N2H" kind="relationship" relationship="rootViewController" id="7Xk-uc-YkG"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Eye-XP-OcK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2327" y="476"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="pCM-Cq-7tk">
+            <objects>
+                <viewController id="oWk-Ig-N2H" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="yHj-GE-3xZ"/>
+                        <viewControllerLayoutGuide type="bottom" id="Q7F-NH-dL4"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="m9v-0e-Lfa">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalCentering" alignment="center" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="XWn-qC-jdB">
+                                <rect key="frame" x="161" y="163" width="278" height="273"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to FOSSAsia!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mvz-Vv-sWY">
+                                        <rect key="frame" x="51" y="0.0" width="176" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="welcome_glyph" translatesAutoresizingMaskIntoConstraints="NO" id="IJP-ZR-tR0">
+                                        <rect key="frame" x="48" y="45" width="183" height="183"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="183" id="JpJ-nM-4FK"/>
+                                            <constraint firstAttribute="height" constant="183" id="aPX-9Y-nj5"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select a session on the left to begin!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IoJ-Ub-p6l">
+                                        <rect key="frame" x="0.0" y="252" width="278" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="273" id="3Mz-Is-kmz"/>
+                                    <constraint firstAttribute="width" constant="278" id="kzL-E3-ucI"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="XWn-qC-jdB" firstAttribute="centerX" secondItem="m9v-0e-Lfa" secondAttribute="centerX" id="KOD-4h-baR"/>
+                            <constraint firstItem="XWn-qC-jdB" firstAttribute="centerY" secondItem="m9v-0e-Lfa" secondAttribute="centerY" id="Nye-BD-0qN"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="vxR-AL-knK"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="plU-LB-gMt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3146" y="476"/>
         </scene>
         <!--Event-->
         <scene sceneID="Udv-0b-z2n">
@@ -228,5 +298,6 @@
         <image name="calendar_add_btn" width="244" height="35"/>
         <image name="calendar_add_btn_selected" width="244" height="35"/>
         <image name="navbar_fave" width="28" height="27"/>
+        <image name="welcome_glyph" width="183" height="183"/>
     </resources>
 </document>

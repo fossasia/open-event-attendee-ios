@@ -49,10 +49,10 @@
             </objects>
             <point key="canvasLocation" x="1435" y="135"/>
         </scene>
-        <!--IndividualEvent-->
+        <!--SessionEmptyStateViewController-->
         <scene sceneID="t2U-3w-qxQ">
             <objects>
-                <viewControllerPlaceholder storyboardName="IndividualEvent" id="00q-1q-7h0" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="IndividualEvent" referencedIdentifier="SessionEmptyStateViewController" id="00q-1q-7h0" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MJH-xo-Szi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1546" y="637"/>

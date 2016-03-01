@@ -255,10 +255,10 @@
             </objects>
             <point key="canvasLocation" x="1558" y="-421"/>
         </scene>
-        <!--IndividualEvent-->
+        <!--SessionEmptyStateViewController-->
         <scene sceneID="0OA-dd-CIl">
             <objects>
-                <viewControllerPlaceholder storyboardName="IndividualEvent" id="uYc-8w-CJD" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="IndividualEvent" referencedIdentifier="SessionEmptyStateViewController" id="uYc-8w-CJD" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="F9Q-hS-PQf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1497.5" y="155"/>
