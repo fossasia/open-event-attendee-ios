@@ -37,6 +37,7 @@ class EventsBaseListViewController: UIViewController, EventListBrowsingByDate, U
         viewModel = getEventsListViewModel()
         pagingView.delegate = self
         navigationController?.splitViewController?.delegate = self
+        splitViewController?.preferredDisplayMode = .AllVisible
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
