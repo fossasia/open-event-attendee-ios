@@ -37,21 +37,20 @@ class EventCell: MGSwipeTableCell {
         let color = typeView.backgroundColor
         super.setSelected(selected, animated: animated)
         
-        if (selected) {
+        if selected {
             typeView.backgroundColor = color
-            
-            let view = UIView()
-            view.backgroundColor = UIColor(hexString: "FFF5F5")
-            self.selectedBackgroundView = view
+            self.contentView.backgroundColor = UIColor(hexString: "FFF5F5")
         }
     }
     
     override func setHighlighted(highlighted: Bool, animated: Bool) {
         let color = typeView.backgroundColor
-        super.setSelected(selected, animated: animated)
+        super.setHighlighted(highlighted, animated: animated)
         
-        if (selected) {
+        if highlighted {
             typeView.backgroundColor = color
+        
+            self.contentView.backgroundColor = UIColor(hexString: "FFF5F5")
         }
     }
     
