@@ -15,17 +15,18 @@ struct MicrolocationProvider {
     func getMicrolocations(microlocationsLoadingCompletionHandler: MicrolocationsLoadingCompletionHandler) {
 	if !SettingsManager.isKeyPresentInUserDefaults(SettingsManager.keyForMicrolocations) {
 	    FetchDateService().fetchData(EventInfo.Microlocations) { (error) -> Void in
-		if error != nil {
-		    microlocationsLoadingCompletionHandler(nil, error!)
-		}
-		SettingsManager.saveKeyInUserDefaults(SettingsManager.keyForMicrolocations, bool: true)
-		self.getMicrolocationsFromDisk { (microlocations, error) -> Void in
-		    if let microlocationsFromDisk = microlocations {
-			microlocationsLoadingCompletionHandler(microlocationsFromDisk, nil)
-		    } else {
-			microlocationsLoadingCompletionHandler(nil, error)
-		    }
-		};
+            guard error == nil else {
+                microlocationsLoadingCompletionHandler(nil, error!)
+                return
+            }
+            SettingsManager.saveKeyInUserDefaults(SettingsManager.keyForMicrolocations, bool: true)
+            self.getMicrolocationsFromDisk { (microlocations, error) -> Void in
+                if let microlocationsFromDisk = microlocations {
+                microlocationsLoadingCompletionHandler(microlocationsFromDisk, nil)
+                } else {
+                microlocationsLoadingCompletionHandler(nil, error)
+                }
+            };
 	    }
 
 	}

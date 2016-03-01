@@ -19,10 +19,12 @@ struct ApiClient: ApiProtocol {
         let session = NSURLSession(configuration: sessionConfig)
         let request = NSURLRequest(URL: NSURL(string: getUrl(eventInfo))!)
         let task = session.dataTaskWithRequest(request) { (data, response, networkError) -> Void in
-            if (networkError != nil) {
+            if let _ = networkError {
                 let error = Error(errorCode: .NetworkRequestFailed)
                 completionHandler(error)
+                return
             }
+
             guard let unwrappedData = data else {
                 let error = Error(errorCode: .JSONSerializationFailed)
                 completionHandler(error)

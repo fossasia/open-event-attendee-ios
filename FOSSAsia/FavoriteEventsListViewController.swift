@@ -13,8 +13,9 @@ class FavoriteEventsListViewController: EventsBaseListViewController {
     override func viewDidLoad() {
         viewModel = getEventsListViewModel()
         super.viewDidLoad()
-        
-        self.registerForPreviewingWithDelegate(self, sourceView: currentViewController.tableView)
+        if let currentVC = currentViewController {
+            self.registerForPreviewingWithDelegate(self, sourceView: currentVC.tableView)
+        }
     }
     
     override func onViewModelScheduleChange(newSchedule: [ScheduleViewModel]) {

@@ -20,11 +20,14 @@ struct EventProvider {
 	microlocationProvider.getMicrolocations { _,_ in }
         if !SettingsManager.isKeyPresentInUserDefaults(SettingsManager.keyForEvent) {
             FetchDateService().fetchData(EventInfo.Events) { (error) -> Void in
-                if error != nil {
-                    completionHandler(nil, error!)
+                guard error == nil else {
+                    completionHandler(nil, error)
+                    return
                 }
+
+
                 SettingsManager.saveKeyInUserDefaults(SettingsManager.keyForEvent, bool: true)
-		self.getEventsFromDisk(date, trackIds: trackIds, eventsLoadingCompletionHandler: { (events, error) -> Void in
+                self.getEventsFromDisk(date, trackIds: trackIds, eventsLoadingCompletionHandler: { (events, error) -> Void in
                     if let eventsFromDisk = events {
                         completionHandler(eventsFromDisk, nil)
                     } else {
@@ -34,7 +37,7 @@ struct EventProvider {
             }
             
         }
-	self.getEventsFromDisk(date, trackIds: trackIds, eventsLoadingCompletionHandler: { (events, error) -> Void in
+        self.getEventsFromDisk(date, trackIds: trackIds, eventsLoadingCompletionHandler: { (events, error) -> Void in
             if let eventsFromDisk = events {
                 completionHandler(eventsFromDisk, nil)
             } else {
