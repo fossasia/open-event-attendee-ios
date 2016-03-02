@@ -80,7 +80,33 @@ struct EventViewModel: EventTypePresentable, EventDetailsPresentable, EventDescr
     
     private func updateFavorite() {
         favorite.value = !favorite.value
+        if !favorite.value {
+            createLocalNotification()
+        } else {
+            cancelLocalNotification()
+        }
     }
+    
+    private func createLocalNotification() {
+        let localNotification = UILocalNotification()
+        localNotification.fireDate = self.startDateTime.value.dateByAddingMinutes(-15)
+        localNotification.alertBody = "\(self.title) starts in 15 minutes at \(location)!"
+        localNotification.soundName = UILocalNotificationDefaultSoundName
+        localNotification.userInfo = ["sessionID": sessionId.value]
+        UIApplication.sharedApplication().scheduleLocalNotification(localNotification)
+    }
+    
+    private func cancelLocalNotification() {
+        if let notifications = UIApplication.sharedApplication().scheduledLocalNotifications {
+            for notification in notifications {
+                if let info = notification.userInfo as? [String: Int] {
+                    if info["sessionID"] == sessionId.value {
+                        UIApplication.sharedApplication().cancelLocalNotification(notification)
+                    }
+                }
+            }
+        }
+     }
 }
 
 // MARK: - EventDescriptionPresentable Conformance
