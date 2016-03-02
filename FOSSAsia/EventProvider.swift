@@ -62,61 +62,63 @@ struct EventProvider {
 		var sessions: [Event] = []
 
 		getFavoriteEventsId({ (favoriteIds, error) -> Void in
-		    guard let idArray = favoriteIds else  {
-			eventsLoadingCompletionHandler(nil, error)
-                        return
-                    }
+            guard let idArray = favoriteIds else {
+                eventsLoadingCompletionHandler(nil, error)
+                return
+            }
+            
                     
-                    for session in sessionsArray {
-                        guard let trackId = session["track"].int,
-			    sessionId = session["id"].int,
-			    sessionTitle = session["title"].string,
-			    sessionDescription = session["description"].string,
-			    sessionMicrolocationId = session["microlocation"].int,
-			    sessionSpeakers = session["speakers"].array,
-			    sessionStartDateTime = session["begin"].string,
-			    sessionEndDateTime = session["end"].string else {
-				continue
-			}
+            for session in sessionsArray {
+                guard let trackId = session["track"].int,
+                    sessionId = session["id"].int,
+                    sessionTitle = session["title"].string,
+                    sessionDescription = session["description"].string,
+                    sessionMicrolocationId = session["microlocation"].int,
+                    sessionSpeakers = session["speakers"].array,
+                    sessionStartDateTime = session["begin"].string,
+                    sessionEndDateTime = session["end"].string else {
+                    continue
+                }
 
-			var sessionSpeakersNames: [Speaker] = []
-			for speaker in sessionSpeakers {
-			    let name = speaker["name"].string!
-                            sessionSpeakersNames.append(Speaker(name: name))
-                        }
-                        
-                        let tempSession = Event(id: sessionId,
-                            trackCode: Event.Track(rawValue: trackId)!,
-			    title: sessionTitle,
-			    shortDescription: sessionDescription,
-			    speakers: sessionSpeakersNames,
-			    microlocationId: sessionMicrolocationId,
-			    location: "Unable to find location",
-			    startDateTime: NSDate(string: sessionStartDateTime, formatString: self.dateFormatString),
-			    endDateTime: NSDate(string: sessionEndDateTime, formatString: self.dateFormatString),
-			    favorite: idArray.contains(sessionId))
-			sessions.append(tempSession)
+                var sessionSpeakersNames: [Speaker] = []
+                for speaker in sessionSpeakers {
+                    let name = speaker["name"].string!
+                    sessionSpeakersNames.append(Speaker(name: name))
+                }
+                            
+                let tempSession = Event(id: sessionId,
+                    trackCode: Event.Track(rawValue: trackId)!,
+                    title: sessionTitle,
+                    shortDescription: sessionDescription,
+                    speakers: sessionSpeakersNames,
+                    microlocationId: sessionMicrolocationId,
+                    location: "Unable to find location",
+                    startDateTime: NSDate(string: sessionStartDateTime, formatString: self.dateFormatString),
+                    endDateTime: NSDate(string: sessionEndDateTime, formatString: self.dateFormatString),
+                    favorite: idArray.contains(sessionId))
+                sessions.append(tempSession)
 		    }
+            
 		    if let filterTrackIds = trackIds {
-			sessions = sessions.filter({ filterTrackIds.contains($0.trackCode.rawValue) })
+                sessions = sessions.filter({ filterTrackIds.contains($0.trackCode.rawValue) })
 		    }
 
 		    if let filterDate = date {
-			sessions = sessions.filter({ filterDate.daysFrom($0.startDateTime) == 0 })
+                sessions = sessions.filter({ filterDate.daysFrom($0.startDateTime) == 0 })
 		    }
 
 		    let microlocationProvider = MicrolocationProvider()
 		    microlocationProvider.getMicrolocations { (microlocations, error) -> Void in
-			if error == nil {
-			    if let microlocationsArray = microlocations {
-				for index in 0..<sessions.count {
-				    if let name = Microlocation.getNameOfMicrolocationId(sessions[index].microlocationId, microlocations: microlocationsArray) {
-					sessions[index].location = name
-				    }
-				}
-			    }
-			}
-			eventsLoadingCompletionHandler(sessions, nil)
+                guard let unwrappedLocations = microlocations else {
+                    eventsLoadingCompletionHandler(nil, error)
+                    return
+                }
+                for index in 0..<sessions.count {
+                    if let name = Microlocation.getNameOfMicrolocationId(sessions[index].microlocationId, microlocations: unwrappedLocations) {
+                        sessions[index].location = name
+                    }
+                }
+                eventsLoadingCompletionHandler(sessions, nil)
 		    }
 		})
 
