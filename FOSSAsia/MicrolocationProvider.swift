@@ -14,7 +14,7 @@ typealias MicrolocationsLoadingCompletionHandler = ([Microlocation]?, Error?) ->
 struct MicrolocationProvider {
     func getMicrolocations(microlocationsLoadingCompletionHandler: MicrolocationsLoadingCompletionHandler) {
 	if !SettingsManager.isKeyPresentInUserDefaults(SettingsManager.keyForMicrolocations) {
-	    FetchDateService().fetchData(EventInfo.Microlocations) { (error) -> Void in
+	    FetchDataService().fetchData(EventInfo.Microlocations) { (error) -> Void in
             guard error == nil else {
                 microlocationsLoadingCompletionHandler(nil, error!)
                 return

@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct FetchDateService {
+struct FetchDataService {
     
     func fetchData(eventInfo: EventInfo, completionHandler: CommitmentCompletionHandler) {
         let apiClient = ApiClient(eventInfo: eventInfo)

@@ -19,7 +19,7 @@ struct EventProvider {
 	let microlocationProvider = MicrolocationProvider()
 	microlocationProvider.getMicrolocations { _,_ in }
         if !SettingsManager.isKeyPresentInUserDefaults(SettingsManager.keyForEvent) {
-            FetchDateService().fetchData(EventInfo.Events) { (error) -> Void in
+            FetchDataService().fetchData(EventInfo.Events) { (error) -> Void in
                 guard error == nil else {
                     completionHandler(nil, error)
                     return
