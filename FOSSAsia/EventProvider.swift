@@ -9,121 +9,122 @@
 import Foundation
 import SwiftyJSON
 
+typealias CommitmentCompletionHandler = (Error?) -> Void
 typealias EventsLoadingCompletionHandler = ([Event]?, Error?) -> Void
 
 struct EventProvider {
-    
     private let dateFormatString = "yyyy-MM-dd'T'HH:mm:ss"
     
     func getEvents(date: NSDate?, trackIds: [Int]?, completionHandler: EventsLoadingCompletionHandler) {
-	let microlocationProvider = MicrolocationProvider()
-	microlocationProvider.getMicrolocations { _,_ in }
         if !SettingsManager.isKeyPresentInUserDefaults(SettingsManager.keyForEvent) {
-            FetchDataService().fetchData(EventInfo.Events) { (error) -> Void in
+            FetchDataService().fetchData(EventInfo.Events) { (_, error) -> Void in
                 guard error == nil else {
+                    let error = Error(errorCode: .NetworkRequestFailed)
                     completionHandler(nil, error)
                     return
                 }
-
-
+                
                 SettingsManager.saveKeyInUserDefaults(SettingsManager.keyForEvent, bool: true)
                 self.getEventsFromDisk(date, trackIds: trackIds, eventsLoadingCompletionHandler: { (events, error) -> Void in
-                    if let eventsFromDisk = events {
-                        completionHandler(eventsFromDisk, nil)
-                    } else {
+                    guard let unwrappedEvents = events else {
+                        let error = Error(errorCode: .JSONSystemReadingFailed)
                         completionHandler(nil, error)
+                        return
                     }
-                });
+                    
+                    completionHandler(unwrappedEvents, nil)
+                })
             }
-            
+        } else {
+            self.getEventsFromDisk(date, trackIds: trackIds, eventsLoadingCompletionHandler: { (events, error) -> Void in
+                guard let unwrappedEvents = events else {
+                    let error = Error(errorCode: .JSONSystemReadingFailed)
+                    completionHandler(nil, error)
+                    return
+                }
+                
+                completionHandler(unwrappedEvents, nil)
+            })
         }
-        self.getEventsFromDisk(date, trackIds: trackIds, eventsLoadingCompletionHandler: { (events, error) -> Void in
-            if let eventsFromDisk = events {
-                completionHandler(eventsFromDisk, nil)
-            } else {
-                completionHandler(nil, error)
-            }
-        });
-        
     }
     
     private func getEventsFromDisk(date: NSDate?, trackIds: [Int]?, eventsLoadingCompletionHandler: EventsLoadingCompletionHandler) {
         if let dir : NSString = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .AllDomainsMask, true).first {
             do {
-		let filePath = dir.stringByAppendingPathComponent(SettingsManager.getLocalFileName(EventInfo.Events))
-		let eventsData = try NSData(contentsOfFile: filePath, options: .DataReadingMappedIfSafe)
-		let jsonObj = JSON(data: eventsData)
-		guard let sessionsArray = jsonObj[EventInfo.Events.rawValue].array else {
-		    let error = Error(errorCode: .JSONParsingFailed)
-		    eventsLoadingCompletionHandler(nil, error)
-		    return
-		}
-
-		var sessions: [Event] = []
-
-		getFavoriteEventsId({ (favoriteIds, error) -> Void in
-            guard let idArray = favoriteIds else {
-                eventsLoadingCompletionHandler(nil, error)
-                return
-            }
-            
-                    
-            for session in sessionsArray {
-                guard let trackId = session["track"].int,
-                    sessionId = session["id"].int,
-                    sessionTitle = session["title"].string,
-                    sessionDescription = session["description"].string,
-                    sessionMicrolocationId = session["microlocation"].int,
-                    sessionSpeakers = session["speakers"].array,
-                    sessionStartDateTime = session["begin"].string,
-                    sessionEndDateTime = session["end"].string else {
-                    continue
-                }
-
-                var sessionSpeakersNames: [Speaker] = []
-                for speaker in sessionSpeakers {
-                    let name = speaker["name"].string!
-                    sessionSpeakersNames.append(Speaker(name: name))
-                }
-                            
-                let tempSession = Event(id: sessionId,
-                    trackCode: Event.Track(rawValue: trackId)!,
-                    title: sessionTitle,
-                    shortDescription: sessionDescription,
-                    speakers: sessionSpeakersNames,
-                    microlocationId: sessionMicrolocationId,
-                    location: "Unable to find location",
-                    startDateTime: NSDate(string: sessionStartDateTime, formatString: self.dateFormatString),
-                    endDateTime: NSDate(string: sessionEndDateTime, formatString: self.dateFormatString),
-                    favorite: idArray.contains(sessionId))
-                sessions.append(tempSession)
-		    }
-            
-		    if let filterTrackIds = trackIds {
-                sessions = sessions.filter({ filterTrackIds.contains($0.trackCode.rawValue) })
-		    }
-
-		    if let filterDate = date {
-                sessions = sessions.filter({ filterDate.daysFrom($0.startDateTime) == 0 })
-		    }
-
-		    let microlocationProvider = MicrolocationProvider()
-		    microlocationProvider.getMicrolocations { (microlocations, error) -> Void in
-                guard let unwrappedLocations = microlocations else {
+                let filePath = dir.stringByAppendingPathComponent(SettingsManager.getLocalFileName(EventInfo.Events))
+                let eventsData = try NSData(contentsOfFile: filePath, options: .DataReadingMappedIfSafe)
+                let jsonObj = JSON(data: eventsData)
+                guard let sessionsArray = jsonObj[EventInfo.Events.rawValue].array else {
+                    let error = Error(errorCode: .JSONParsingFailed)
                     eventsLoadingCompletionHandler(nil, error)
                     return
                 }
-                for index in 0..<sessions.count {
-                    if let name = Microlocation.getNameOfMicrolocationId(sessions[index].microlocationId, microlocations: unwrappedLocations) {
-                        sessions[index].location = name
+                
+                getFavoriteEventsId({ (favoriteIds, error) -> Void in
+                    guard let idArray = favoriteIds else {
+                        eventsLoadingCompletionHandler(nil, error)
+                        return
                     }
-                }
-                eventsLoadingCompletionHandler(sessions, nil)
-		    }
-		})
-
-	    } catch {
-		eventsLoadingCompletionHandler(nil, Error(errorCode: .JSONSystemReadingFailed))
+                    
+                    let microlocationProvider = MicrolocationProvider()
+                    microlocationProvider.getMicrolocations({ (microlocations, error) -> Void in
+                        var sessions: [Event] = []
+                        guard error == nil else {
+                            eventsLoadingCompletionHandler(nil, error)
+                            return
+                        }
+                       
+                        for session in sessionsArray {
+                            guard let trackId = session["track"].int,
+                                sessionId = session["id"].int,
+                                sessionTitle = session["title"].string,
+                                sessionDescription = session["description"].string,
+                                sessionMicrolocationId = session["microlocation"].int,
+                                sessionSpeakers = session["speakers"].array,
+                                sessionStartDateTime = session["begin"].string,
+                                sessionEndDateTime = session["end"].string else {
+                                    continue
+                            }
+                            
+                            var sessionSpeakersNames: [Speaker] = []
+                            
+                            for speaker in sessionSpeakers {
+                                guard let speakerName = speaker["name"].string else { continue }
+                                let name = speakerName
+                                sessionSpeakersNames.append(Speaker(name: name))
+                            }
+                            
+                            if let locationObj = microlocations![sessionMicrolocationId] {
+                                let tempSession = Event(id: sessionId,
+                                    trackCode: Event.Track(rawValue: trackId)!,
+                                    title: sessionTitle,
+                                    shortDescription: sessionDescription,
+                                    speakers: sessionSpeakersNames,
+                                    microlocationId: sessionMicrolocationId,
+                                    location: locationObj.name,
+                                    startDateTime: NSDate(string: sessionStartDateTime, formatString: self.dateFormatString),
+                                    endDateTime: NSDate(string: sessionEndDateTime, formatString: self.dateFormatString),
+                                    favorite: idArray.contains(sessionId))
+                                sessions.append(tempSession)
+                            }
+                        }
+                        
+                        
+                        
+                        if let filterTrackIds = trackIds {
+                            sessions = sessions.filter({ filterTrackIds.contains($0.trackCode.rawValue) })
+                        }
+                        
+                        if let filterDate = date {
+                            sessions = sessions.filter({ filterDate.daysFrom($0.startDateTime) == 0 })
+                        }
+                        
+                        eventsLoadingCompletionHandler(sessions, nil)
+                    })
+                    
+                })
+            } catch {
+                eventsLoadingCompletionHandler(nil, Error(errorCode: .JSONSystemReadingFailed))
             }
         }
     }
@@ -190,5 +191,4 @@ struct EventProvider {
             completionHandler(error)
         }
     }
-    
 }

@@ -8,47 +8,53 @@
 
 import Foundation
 
-struct ApiClient: ApiProtocol {
+typealias ApiRequestCompletionHandler = (NSData?, Error?) -> Void
 
+struct ApiClient {
     static let url = "https://raw.githubusercontent.com/fossasia/open-event/master/testapi/event/1/"
 
     let eventInfo: EventInfo
 
-    func sendGetRequest(completionHandler: CommitmentCompletionHandler) {
+    func sendGetRequest(completionHandler: ApiRequestCompletionHandler) {
         let sessionConfig = NSURLSessionConfiguration.defaultSessionConfiguration()
         let session = NSURLSession(configuration: sessionConfig)
         let request = NSURLRequest(URL: NSURL(string: getUrl(eventInfo))!)
         let task = session.dataTaskWithRequest(request) { (data, response, networkError) -> Void in
             if let _ = networkError {
                 let error = Error(errorCode: .NetworkRequestFailed)
-                completionHandler(error)
+                completionHandler(nil, error)
                 return
             }
 
             guard let unwrappedData = data else {
                 let error = Error(errorCode: .JSONSerializationFailed)
-                completionHandler(error)
+                completionHandler(nil, error)
                 return
             }
-            if !self.processResponse(unwrappedData) {
-                let error = Error(errorCode: .WritingOnDiskFailed)
-                completionHandler(error)
-            }
-            completionHandler(nil)
+            
+            self.processResponse(unwrappedData, completionHandler: { (error) -> Void in
+                guard error == nil else {
+                    completionHandler(nil, error)
+                    return
+                }
+                completionHandler(unwrappedData, nil)
+            })
+            
         }
         task.resume()
     }
 
-    func processResponse(data: NSData) -> Bool {
-        if let dir : NSString = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomainMask.AllDomainsMask, true).first {
-            let path = dir.stringByAppendingPathComponent(SettingsManager.getLocalFileName(eventInfo));
-            return data.writeToFile(path, atomically: false)
-        }
-        return false
-    }
-
     private func getUrl(eventInfo: EventInfo) -> String {
        return ApiClient.url + eventInfo.rawValue
+    }
+    
+    private func processResponse(data: NSData, completionHandler: CommitmentCompletionHandler) {
+        if let dir : NSString = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomainMask.AllDomainsMask, true).first {
+            let path = dir.stringByAppendingPathComponent(SettingsManager.getLocalFileName(eventInfo));
+            data.writeToFile(path, atomically: false)
+            completionHandler(nil)
+        }
+        completionHandler(Error(errorCode: .JSONSystemReadingFailed))
     }
 
 }

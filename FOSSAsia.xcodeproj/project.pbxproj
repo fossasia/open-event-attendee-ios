@@ -51,7 +51,6 @@
 		28E2DA891C7EDFCB002F2FAA /* ScheduleVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28E2DA881C7EDFCB002F2FAA /* ScheduleVC.storyboard */; };
 		30321F5D1C8176EE008E5258 /* EventInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30321F5C1C8176EE008E5258 /* EventInfo.swift */; };
 		30321F611C81851E008E5258 /* ApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30321F601C81851E008E5258 /* ApiClient.swift */; };
-		30321F641C818595008E5258 /* ApiProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30321F631C818595008E5258 /* ApiProtocol.swift */; };
 		30321F691C81A06F008E5258 /* FetchDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30321F681C81A06F008E5258 /* FetchDataService.swift */; };
 		3094D57F1C833EA3007C2873 /* MicrolocationProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3094D57E1C833EA3007C2873 /* MicrolocationProvider.swift */; };
 		3094D5811C833F83007C2873 /* Microlocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3094D5801C833F83007C2873 /* Microlocation.swift */; };
@@ -138,7 +137,6 @@
 		28E2DA881C7EDFCB002F2FAA /* ScheduleVC.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ScheduleVC.storyboard; sourceTree = "<group>"; };
 		30321F5C1C8176EE008E5258 /* EventInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventInfo.swift; sourceTree = "<group>"; };
 		30321F601C81851E008E5258 /* ApiClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiClient.swift; sourceTree = "<group>"; };
-		30321F631C818595008E5258 /* ApiProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiProtocol.swift; sourceTree = "<group>"; };
 		30321F681C81A06F008E5258 /* FetchDataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FetchDataService.swift; sourceTree = "<group>"; };
 		3094D57E1C833EA3007C2873 /* MicrolocationProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MicrolocationProvider.swift; sourceTree = "<group>"; };
 		3094D5801C833F83007C2873 /* Microlocation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Microlocation.swift; sourceTree = "<group>"; };
@@ -340,7 +338,6 @@
 		30321F5B1C81759F008E5258 /* Api */ = {
 			isa = PBXGroup;
 			children = (
-				30321F631C818595008E5258 /* ApiProtocol.swift */,
 				30321F681C81A06F008E5258 /* FetchDataService.swift */,
 				30321F5C1C8176EE008E5258 /* EventInfo.swift */,
 				30321F601C81851E008E5258 /* ApiClient.swift */,
@@ -511,7 +508,6 @@
 				30321F691C81A06F008E5258 /* FetchDataService.swift in Sources */,
 				28352C731C6B411C0055E2F5 /* EventsListViewModel.swift in Sources */,
 				2859B1001C5DFD09009656FC /* Colors.swift in Sources */,
-				30321F641C818595008E5258 /* ApiProtocol.swift in Sources */,
 				285F1B8F1C5B069D00A7E0DD /* Observable.swift in Sources */,
 				28352C711C6B2B9F0055E2F5 /* EventsListViewController.swift in Sources */,
 				285F1BBC1C5B2B2B00A7E0DD /* EventViewModel.swift in Sources */,

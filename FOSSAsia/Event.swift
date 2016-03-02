@@ -53,7 +53,7 @@ struct Event {
     let shortDescription: String
     let speakers: [Speaker]?
     let microlocationId: Int
-    var location: String
+    let location: String
     let startDateTime: NSDate
     let endDateTime: NSDate
     var favorite: Bool
