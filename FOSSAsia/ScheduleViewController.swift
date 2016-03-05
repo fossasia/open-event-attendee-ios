@@ -9,7 +9,9 @@
 import UIKit
 import MGSwipeTableCell
 
-class ScheduleViewController: EventsBaseViewController, SwipeToFavoriteCellPresentable {
+class ScheduleViewController: EventsBaseViewController, SwipeToFavoriteCellPresentable, TableViewRefreshable {
+    var refreshControl = UIRefreshControl()
+    
     // Constants for Storyboard/VC
     struct StoryboardConstants {
         static let storyboardName = "ScheduleVC"
@@ -17,16 +19,6 @@ class ScheduleViewController: EventsBaseViewController, SwipeToFavoriteCellPrese
     }
     
     lazy var filteredEvents: [EventViewModel] = self.allEvents
-    
-    class func scheduleViewControllerFor(schedule: ScheduleViewModel) -> ScheduleViewController {
-        let storyboard = UIStoryboard(name: ScheduleViewController.StoryboardConstants.storyboardName, bundle: nil)
-        
-        let viewController = storyboard.instantiateViewControllerWithIdentifier(ScheduleViewController.StoryboardConstants.viewControllerId) as! ScheduleViewController
-        viewController.viewModel = schedule
-        
-        return viewController
-    }
-    
     var filterString: String? = nil {
         didSet {
             if filterString == nil || filterString!.isEmpty {
@@ -37,7 +29,29 @@ class ScheduleViewController: EventsBaseViewController, SwipeToFavoriteCellPrese
             }
         }
     }
-
+    
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        viewModel?.delegate = self
+        refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
+        refreshControl.addTarget(self, action: "refreshData:", forControlEvents: .ValueChanged)
+        tableView.addSubview(refreshControl)
+    }
+    
+    class func scheduleViewControllerFor(schedule: ScheduleViewModel) -> ScheduleViewController {
+        let storyboard = UIStoryboard(name: ScheduleViewController.StoryboardConstants.storyboardName, bundle: nil)
+        
+        let viewController = storyboard.instantiateViewControllerWithIdentifier(ScheduleViewController.StoryboardConstants.viewControllerId) as! ScheduleViewController
+        viewController.viewModel = schedule
+        
+        return viewController
+    }
+    
+    func refreshData(sender: AnyObject) {
+        viewModel?.refresh()
+    }
 }
 
 extension ScheduleViewController: UISearchResultsUpdating {

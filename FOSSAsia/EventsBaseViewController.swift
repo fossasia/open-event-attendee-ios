@@ -9,7 +9,7 @@
 import UIKit
 
 class EventsBaseViewController: UIViewController {
-    var delegate: ScheduleViewControllerDelegate?
+    weak var delegate: ScheduleViewControllerDelegate?
     static let kEventCellReuseIdentifier = "EventCell"
     var allEvents: [EventViewModel] = []
 

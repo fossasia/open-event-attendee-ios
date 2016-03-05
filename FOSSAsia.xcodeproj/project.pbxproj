@@ -15,6 +15,7 @@
 		280DE5291C62FCB200E64020 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 280DE5281C62FCB200E64020 /* Podfile */; };
 		281324ED1C672EE80072E730 /* EventsResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 281324EC1C672EE80072E730 /* EventsResultsViewController.swift */; };
 		281324EF1C6735430072E730 /* EventsBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 281324EE1C6735430072E730 /* EventsBaseViewController.swift */; };
+		282248E71C8A7C6600B10AB6 /* ScheduleViewModelDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 282248E61C8A7C6600B10AB6 /* ScheduleViewModelDelegate.swift */; };
 		2824FD5A1C6C0AFE00F783E1 /* SchedulePagingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2824FD591C6C0AFE00F783E1 /* SchedulePagingView.swift */; };
 		2824FD621C6C732300F783E1 /* MoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2824FD611C6C732300F783E1 /* MoreViewController.swift */; };
 		2824FD641C6DA80600F783E1 /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2824FD631C6DA80600F783E1 /* LoadingViewController.swift */; };
@@ -82,6 +83,7 @@
 		280DE5281C62FCB200E64020 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		281324EC1C672EE80072E730 /* EventsResultsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsResultsViewController.swift; sourceTree = "<group>"; };
 		281324EE1C6735430072E730 /* EventsBaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsBaseViewController.swift; sourceTree = "<group>"; };
+		282248E61C8A7C6600B10AB6 /* ScheduleViewModelDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleViewModelDelegate.swift; sourceTree = "<group>"; };
 		2824FD591C6C0AFE00F783E1 /* SchedulePagingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SchedulePagingView.swift; sourceTree = "<group>"; };
 		2824FD611C6C732300F783E1 /* MoreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoreViewController.swift; sourceTree = "<group>"; };
 		2824FD631C6DA80600F783E1 /* LoadingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingViewController.swift; sourceTree = "<group>"; };
@@ -206,6 +208,7 @@
 			isa = PBXGroup;
 			children = (
 				285F89AE1C81448A0033D090 /* ScheduleViewControllerDelegate.swift */,
+				282248E61C8A7C6600B10AB6 /* ScheduleViewModelDelegate.swift */,
 				2824FE111C6EBB9E00F783E1 /* ScheduleBrowsingProtocol.swift */,
 				2824FD651C6DBBF500F783E1 /* EventListBrowsingProtocol.swift */,
 			);
@@ -513,6 +516,7 @@
 				285F1BBC1C5B2B2B00A7E0DD /* EventViewModel.swift in Sources */,
 				2824FD6F1C6DC4E100F783E1 /* EventsBaseListViewController.swift in Sources */,
 				285F1B651C5AF7B100A7E0DD /* AppDelegate.swift in Sources */,
+				282248E71C8A7C6600B10AB6 /* ScheduleViewModelDelegate.swift in Sources */,
 				2859B0FE1C5DF8D7009656FC /* EventViewController.swift in Sources */,
 				2859B1021C5E29DC009656FC /* EventInfoView.swift in Sources */,
 				2824FD621C6C732300F783E1 /* MoreViewController.swift in Sources */,

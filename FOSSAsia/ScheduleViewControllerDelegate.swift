@@ -8,6 +8,6 @@
 
 import Foundation
 
-protocol ScheduleViewControllerDelegate {
+protocol ScheduleViewControllerDelegate: class {
     func eventDidGetSelected(tableView: UITableView, atIndexPath: NSIndexPath)
 }

@@ -13,6 +13,7 @@ protocol ScheduleCountPresentable {
 }
 
 struct ScheduleViewModel: ScheduleCountPresentable {
+    weak var delegate: ScheduleViewModelDelegate?
     // MARK: - Properties
     let date: Observable<NSDate>
     let events: Observable<[EventViewModel]>
@@ -43,14 +44,17 @@ struct ScheduleViewModel: ScheduleCountPresentable {
     func refresh() {
         if let filteredTracks = NSUserDefaults.standardUserDefaults().objectForKey(Constants.UserDefaultsKey.FilteredTrackIds) as? [Int] {
             eventsService.getEvents(date.value, trackIds: filteredTracks) { (events, error) -> Void in
-                if error == nil {
-                    if var eventsArray = events {
-                        if self.isFavoritesOnly.value {
-                            eventsArray = eventsArray.filter({ $0.favorite })
-                        }
-                        self.update(Schedule(date: self.date.value, events: eventsArray))
-                    }
+                guard let unwrappedEvents = events else {
+                    self.delegate?.scheduleDidLoad(nil, error: error)
+                    return
                 }
+                
+                var eventsArray: [Event] = unwrappedEvents
+                if self.isFavoritesOnly.value {
+                    eventsArray = eventsArray.filter({ $0.favorite })
+                }
+                
+                self.update(Schedule(date: self.date.value, events: eventsArray))
             }
         }
     }
@@ -60,6 +64,7 @@ struct ScheduleViewModel: ScheduleCountPresentable {
             return EventViewModel(event)
         }
         events.value = tempEvents
+        self.delegate?.scheduleDidLoad(schedule, error: nil)
     }
     
     private func update(error: Error) {
