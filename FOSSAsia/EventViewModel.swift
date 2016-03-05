@@ -37,7 +37,7 @@ protocol EventAddToCalendarPresentable {
 }
 
 struct EventViewModel: EventTypePresentable, EventDetailsPresentable, EventDescriptionPresentable, EventAddToCalendarPresentable {
-    let sessionId: Observable<Int>
+    let sessionId: Observable<String>
     let track: Observable<UIColor>
     let title: Observable<String>
     let shortDescription: Observable<String>
@@ -99,7 +99,7 @@ struct EventViewModel: EventTypePresentable, EventDetailsPresentable, EventDescr
     private func cancelLocalNotification() {
         if let notifications = UIApplication.sharedApplication().scheduledLocalNotifications {
             for notification in notifications {
-                if let info = notification.userInfo as? [String: Int] {
+                if let info = notification.userInfo as? [String: String] {
                     if info["sessionID"] == sessionId.value {
                         UIApplication.sharedApplication().cancelLocalNotification(notification)
                     }

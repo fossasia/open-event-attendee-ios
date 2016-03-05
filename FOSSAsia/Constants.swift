@@ -9,7 +9,7 @@
 import Foundation
 
 struct Constants {
-    static let numberOfTracks = 8
+    static let numberOfTracks = 15
     
     struct UserDefaultsKey {
         static let FilteredTrackIds = "FilteredTrackIds"

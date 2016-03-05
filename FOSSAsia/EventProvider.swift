@@ -13,7 +13,7 @@ typealias CommitmentCompletionHandler = (Error?) -> Void
 typealias EventsLoadingCompletionHandler = ([Event]?, Error?) -> Void
 
 struct EventProvider {
-    private let dateFormatString = "yyyy-MM-dd'T'HH:mm:ss"
+    private let dateFormatString = "yyyy-MM-dd'T'HH:mm:ssZ"
     
     func getEvents(date: NSDate?, trackIds: [Int]?, completionHandler: EventsLoadingCompletionHandler) {
         if !SettingsManager.isKeyPresentInUserDefaults(SettingsManager.keyForEvent) {
@@ -66,61 +66,56 @@ struct EventProvider {
                         return
                     }
                     
-                    let microlocationProvider = MicrolocationProvider()
-                    microlocationProvider.getMicrolocations({ (microlocations, error) -> Void in
-                        var sessions: [Event] = []
-                        guard error == nil else {
-                            eventsLoadingCompletionHandler(nil, error)
-                            return
-                        }
-                       
-                        for session in sessionsArray {
-                            guard let trackId = session["track"].int,
-                                sessionId = session["id"].int,
-                                sessionTitle = session["title"].string,
-                                sessionDescription = session["description"].string,
-                                sessionMicrolocationId = session["microlocation"].int,
-                                sessionSpeakers = session["speakers"].array,
-                                sessionStartDateTime = session["begin"].string,
-                                sessionEndDateTime = session["end"].string else {
-                                    continue
-                            }
-                            
-                            var sessionSpeakersNames: [Speaker] = []
-                            
-                            for speaker in sessionSpeakers {
-                                guard let speakerName = speaker["name"].string else { continue }
-                                let name = speakerName
-                                sessionSpeakersNames.append(Speaker(name: name))
-                            }
-                            
-                            if let locationObj = microlocations![sessionMicrolocationId] {
-                                let tempSession = Event(id: sessionId,
-                                    trackCode: Event.Track(rawValue: trackId)!,
-                                    title: sessionTitle,
-                                    shortDescription: sessionDescription,
-                                    speakers: sessionSpeakersNames,
-                                    microlocationId: sessionMicrolocationId,
-                                    location: locationObj.name,
-                                    startDateTime: NSDate(string: sessionStartDateTime, formatString: self.dateFormatString),
-                                    endDateTime: NSDate(string: sessionEndDateTime, formatString: self.dateFormatString),
-                                    favorite: idArray.contains(sessionId))
-                                sessions.append(tempSession)
-                            }
+                    var sessions: [Event] = []
+                    guard error == nil else {
+                        eventsLoadingCompletionHandler(nil, error)
+                        return
+                    }
+                    
+                    for session in sessionsArray {
+                        guard let trackId = session["track"]["id"].int,
+                            sessionId = session["session_id"].string,
+                            sessionTitle = session["title"].string,
+                            sessionDescription = session["description"].string,
+                            sessionLocation = session["location"].string,
+                            sessionSpeakers = session["speakers"].array,
+                            sessionStartDateTime = session["start_time"].string,
+                            sessionEndDateTime = session["end_time"].string else {
+                                continue
                         }
                         
+                        var sessionSpeakersNames: [Speaker] = []
                         
-                        
-                        if let filterTrackIds = trackIds {
-                            sessions = sessions.filter({ filterTrackIds.contains($0.trackCode.rawValue) })
+                        for speaker in sessionSpeakers {
+                            guard let speakerName = speaker["name"].string else { continue }
+                            let name = speakerName
+                            sessionSpeakersNames.append(Speaker(name: name))
                         }
+                                                
+                        let tempSession = Event(id: sessionId,
+                            trackCode: Event.Track(rawValue: trackId)!,
+                            title: sessionTitle,
+                            shortDescription: sessionDescription,
+                            speakers: sessionSpeakersNames,
+                            location: sessionLocation,
+                            startDateTime: NSDate(string: sessionStartDateTime, formatString: self.dateFormatString),
+                            endDateTime: NSDate(string: sessionEndDateTime, formatString: self.dateFormatString),
+                            favorite: idArray.contains(sessionId))
+                        sessions.append(tempSession)
                         
-                        if let filterDate = date {
-                            sessions = sessions.filter({ filterDate.daysFrom($0.startDateTime) == 0 })
-                        }
-                        
-                        eventsLoadingCompletionHandler(sessions, nil)
-                    })
+                    }
+                    
+                    if let filterTrackIds = trackIds {
+                        sessions = sessions.filter({ filterTrackIds.contains($0.trackCode.rawValue) })
+                    }
+                    
+                    if let filterDate = date {
+                        sessions = sessions.filter({ self.isSameDays(filterDate, $0.startDateTime) })
+                        sessions = sessions.sort({ $0.startDateTime.compare($1.startDateTime) == .OrderedAscending })
+                    }
+                    
+                    eventsLoadingCompletionHandler(sessions, nil)
+
                     
                 })
             } catch {
@@ -129,7 +124,7 @@ struct EventProvider {
         }
     }
     
-    private func getFavoriteEventsId(completionHandler: ([Int]?, Error?) -> Void) {
+    private func getFavoriteEventsId(completionHandler: ([String]?, Error?) -> Void) {
         if let dir: NSString = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .AllDomainsMask, true).first {
             let filePath = dir.stringByAppendingPathComponent(SettingsManager.favouritesLocalFileName)
             guard NSFileManager.defaultManager().fileExistsAtPath(filePath) else {
@@ -150,7 +145,7 @@ struct EventProvider {
                     return
                 }
                 
-                completionHandler(favoritesArray.map { return $0.int! }, nil)
+                completionHandler(favoritesArray.map { return $0.string! }, nil)
                 
             } catch {
                 completionHandler(nil, Error(errorCode: .JSONSystemReadingFailed))
@@ -158,7 +153,7 @@ struct EventProvider {
         }
     }
     
-    func toggleFavorite(sessionId: Int, completionHandler: CommitmentCompletionHandler) {
+    func toggleFavorite(sessionId: String, completionHandler: CommitmentCompletionHandler) {
         if let dir: NSString = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .AllDomainsMask, true).first {
             let filePath = dir.stringByAppendingPathComponent(SettingsManager.favouritesLocalFileName)
             guard NSFileManager.defaultManager().fileExistsAtPath(filePath) else {
@@ -190,5 +185,13 @@ struct EventProvider {
             let error = Error(errorCode: .JSONSystemReadingFailed)
             completionHandler(error)
         }
+    }
+    
+    private func isSameDays(date1:NSDate, _ date2:NSDate) -> Bool {
+        let calendar = NSCalendar.currentCalendar()
+        let comps1 = calendar.components([NSCalendarUnit.Month , NSCalendarUnit.Year , NSCalendarUnit.Day], fromDate:date1)
+        let comps2 = calendar.components([NSCalendarUnit.Month , NSCalendarUnit.Year , NSCalendarUnit.Day], fromDate:date2)
+        
+        return (comps1.day == comps2.day) && (comps1.month == comps2.month) && (comps1.year == comps2.year)
     }
 }

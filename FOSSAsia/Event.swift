@@ -10,49 +10,70 @@ import Foundation
 
 struct Event {
     enum Track: Int, CustomStringConvertible {
-        case General = 1
-        case OpenTech, DevOps, Web, Python, Mozilla, Exhibition, Workshops
+        case TechKids1 = 1
+        case TechKids2, OpenTechIOT, OpenTech, WebTech, Exhibition, HardwareIOT, Python, Databases, BigOpenData, DevOps, PrivSec, ISC, ScienceHackDay, Linux, Design
         var description: String {
             switch self {
-            case .General: return "General";
-            case .OpenTech: return "OpenTech";
-            case .DevOps: return "DevOps";
-            case .Web: return "Web";
-            case .Python: return "Python";
-            case .Mozilla: return "Mozilla";
+            case .TechKids1: return "Tech Kids I";
+            case .TechKids2: return "Tech Kids II";
+            case .OpenTechIOT: return "OpenTech and IOT";
+            case .OpenTech: return "OpenTech Workshops";
+            case .WebTech: return "WebTech";
             case .Exhibition: return "Exhibition";
-            case .Workshops: return "Workshops";
+            case .HardwareIOT: return "Hardware and IOT";
+            case .Python: return "Python";
+            case .Databases: return "Databases";
+            case .BigOpenData: return "Big Data/Open Data";
+            case .DevOps: return "DevOps";
+            case .PrivSec: return "Privacy and Security";
+            case .ISC: return "Internet, Society, Community";
+            case .ScienceHackDay: return "Science Hack Day";
+            case .Linux: return "Linux and MiniDebConf";
+            case .Design: return "Design, VR, 3D"
             }
         }
         
         func getTrackColor() -> UIColor {
             switch self {
-            case .General:
+            case .TechKids1, .TechKids2:
                 return UIColor(hexString: "8E8E93")!
+            case .OpenTechIOT:
+                return UIColor(hexString: "FF4D4D")!
             case .OpenTech:
-                return UIColor(hexString: "FF4D55")!
-            case .DevOps:
-                return UIColor(hexString: "FF8C2F")!
-            case .Web:
-                return UIColor(hexString: "FFD233")!
-            case .Python:
-                return UIColor(hexString: "6CBD7A")!
-            case .Mozilla:
-                return UIColor(hexString: "3DC8C3")!
+                return UIColor(hexString: "FF8E4C")!
+            case .WebTech:
+                return UIColor(hexString: "FFCF4C")!
             case .Exhibition:
-                return UIColor(hexString: "39A8FA")!
-            case .Workshops:
-                return UIColor(hexString: "B26DE0")!
+                return UIColor(hexString: "EAFF4C")!
+            case .HardwareIOT:
+                return UIColor(hexString: "B8FF4C")!
+            case .Python:
+                return UIColor(hexString: "85FF4C")!
+            case .Databases:
+                return UIColor(hexString: "50E3C2")!
+            case .BigOpenData:
+                return UIColor(hexString: "4CFFE7")!
+            case .DevOps:
+                return UIColor(hexString: "4CDBFF")!
+            case .PrivSec:
+                return UIColor(hexString: "4CA9FF")!
+            case .ISC:
+                return UIColor(hexString: "7C4CFF")!
+            case .ScienceHackDay:
+                return UIColor(hexString: "9D4CFF")!
+            case .Linux:
+                return UIColor(hexString: "ED4CFF")!
+            case .Design:
+                return UIColor(hexString: "FF4CCC")!
             }
         }
     }
 
-    let id: Int
+    let id: String
     let trackCode: Track
     let title: String
     let shortDescription: String
     let speakers: [Speaker]?
-    let microlocationId: Int
     let location: String
     let startDateTime: NSDate
     let endDateTime: NSDate
