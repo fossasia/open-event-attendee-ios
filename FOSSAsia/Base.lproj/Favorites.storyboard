@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="2Vw-HH-TAz">
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -138,10 +137,10 @@
                         <constraints>
                             <constraint firstItem="MFQ-c0-RJV" firstAttribute="top" secondItem="1Np-AC-70Y" secondAttribute="bottom" id="64C-09-Kz7"/>
                             <constraint firstAttribute="trailingMargin" secondItem="MFQ-c0-RJV" secondAttribute="trailing" constant="-20" id="FHV-Un-mPc"/>
-                            <constraint firstItem="0OH-aE-BXC" firstAttribute="leading" secondItem="Drh-ng-osQ" secondAttribute="leadingMargin" constant="-20" id="Ggm-80-ibn"/>
+                            <constraint firstItem="0OH-aE-BXC" firstAttribute="leading" secondItem="Drh-ng-osQ" secondAttribute="leading" id="Ggm-80-ibn"/>
                             <constraint firstItem="0OH-aE-BXC" firstAttribute="top" secondItem="MFQ-c0-RJV" secondAttribute="bottom" id="JeP-r0-qdW"/>
                             <constraint firstItem="MFQ-c0-RJV" firstAttribute="leading" secondItem="Drh-ng-osQ" secondAttribute="leadingMargin" constant="-20" id="T3d-5P-cJr"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="0OH-aE-BXC" secondAttribute="trailing" constant="-20" id="Vw4-vf-LhX"/>
+                            <constraint firstAttribute="trailing" secondItem="0OH-aE-BXC" secondAttribute="trailing" id="Vw4-vf-LhX"/>
                             <constraint firstItem="0OH-aE-BXC" firstAttribute="bottom" secondItem="Drh-ng-osQ" secondAttribute="bottomMargin" id="iYy-se-V1v"/>
                         </constraints>
                     </view>

@@ -49,6 +49,8 @@
 		28A0BC921C5F4FEC001625FB /* ScheduleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A0BC911C5F4FEC001625FB /* ScheduleViewModel.swift */; };
 		28A0BC941C5F50A2001625FB /* Schedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A0BC931C5F50A2001625FB /* Schedule.swift */; };
 		28A17BCA1C70AF0200318336 /* IndividualEvent.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28A17BC91C70AF0200318336 /* IndividualEvent.storyboard */; };
+		28A50BD51C8C5D2B009E91DE /* FOSSAsiaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A50BD41C8C5D2B009E91DE /* FOSSAsiaUITests.swift */; };
+		28A50BDD1C8C5E31009E91DE /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A50BDC1C8C5E31009E91DE /* SnapshotHelper.swift */; };
 		28E2DA891C7EDFCB002F2FAA /* ScheduleVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28E2DA881C7EDFCB002F2FAA /* ScheduleVC.storyboard */; };
 		30321F5D1C8176EE008E5258 /* EventInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30321F5C1C8176EE008E5258 /* EventInfo.swift */; };
 		30321F611C81851E008E5258 /* ApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30321F601C81851E008E5258 /* ApiClient.swift */; };
@@ -58,6 +60,16 @@
 		30F0AFB81C81C4C600CE5D18 /* SettingsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F0AFB71C81C4C600CE5D18 /* SettingsManager.swift */; };
 		DA4CC3D451E57B3D3B6780CD /* Pods_FOSSAsia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 193D6EE00801D10F0049F1C3 /* Pods_FOSSAsia.framework */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		28A50BD71C8C5D2B009E91DE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 285F1B591C5AF7B100A7E0DD /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 285F1B601C5AF7B100A7E0DD;
+			remoteInfo = FOSSAsia;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		285F1B861C5B014600A7E0DD /* Embed Frameworks */ = {
@@ -135,6 +147,10 @@
 		28A0BC911C5F4FEC001625FB /* ScheduleViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleViewModel.swift; sourceTree = "<group>"; };
 		28A0BC931C5F50A2001625FB /* Schedule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Schedule.swift; sourceTree = "<group>"; };
 		28A17BC91C70AF0200318336 /* IndividualEvent.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = IndividualEvent.storyboard; sourceTree = "<group>"; };
+		28A50BD21C8C5D2A009E91DE /* FOSSAsiaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FOSSAsiaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		28A50BD41C8C5D2B009E91DE /* FOSSAsiaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FOSSAsiaUITests.swift; sourceTree = "<group>"; };
+		28A50BD61C8C5D2B009E91DE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		28A50BDC1C8C5E31009E91DE /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnapshotHelper.swift; sourceTree = "<group>"; };
 		28E2DA881C7EDFCB002F2FAA /* ScheduleVC.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ScheduleVC.storyboard; sourceTree = "<group>"; };
 		30321F5C1C8176EE008E5258 /* EventInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventInfo.swift; sourceTree = "<group>"; };
 		30321F601C81851E008E5258 /* ApiClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiClient.swift; sourceTree = "<group>"; };
@@ -152,6 +168,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				DA4CC3D451E57B3D3B6780CD /* Pods_FOSSAsia.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		28A50BCF1C8C5D2A009E91DE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -264,6 +287,7 @@
 			children = (
 				280DE5281C62FCB200E64020 /* Podfile */,
 				285F1B631C5AF7B100A7E0DD /* FOSSAsia */,
+				28A50BD31C8C5D2B009E91DE /* FOSSAsiaUITests */,
 				285F1B621C5AF7B100A7E0DD /* Products */,
 				68CECE78A9679E26EB9537C1 /* Pods */,
 				DAE269688DB363D2864C25C6 /* Frameworks */,
@@ -274,6 +298,7 @@
 			isa = PBXGroup;
 			children = (
 				285F1B611C5AF7B100A7E0DD /* FOSSAsia.app */,
+				28A50BD21C8C5D2A009E91DE /* FOSSAsiaUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -336,6 +361,16 @@
 			path = ../DateTools/DateTools;
 			sourceTree = "<group>";
 		};
+		28A50BD31C8C5D2B009E91DE /* FOSSAsiaUITests */ = {
+			isa = PBXGroup;
+			children = (
+				28A50BDC1C8C5E31009E91DE /* SnapshotHelper.swift */,
+				28A50BD41C8C5D2B009E91DE /* FOSSAsiaUITests.swift */,
+				28A50BD61C8C5D2B009E91DE /* Info.plist */,
+			);
+			path = FOSSAsiaUITests;
+			sourceTree = "<group>";
+		};
 		30321F5B1C81759F008E5258 /* Api */ = {
 			isa = PBXGroup;
 			children = (
@@ -396,6 +431,24 @@
 			productReference = 285F1B611C5AF7B100A7E0DD /* FOSSAsia.app */;
 			productType = "com.apple.product-type.application";
 		};
+		28A50BD11C8C5D2A009E91DE /* FOSSAsiaUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 28A50BD91C8C5D2B009E91DE /* Build configuration list for PBXNativeTarget "FOSSAsiaUITests" */;
+			buildPhases = (
+				28A50BCE1C8C5D2A009E91DE /* Sources */,
+				28A50BCF1C8C5D2A009E91DE /* Frameworks */,
+				28A50BD01C8C5D2A009E91DE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				28A50BD81C8C5D2B009E91DE /* PBXTargetDependency */,
+			);
+			name = FOSSAsiaUITests;
+			productName = FOSSAsiaUITests;
+			productReference = 28A50BD21C8C5D2A009E91DE /* FOSSAsiaUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -409,6 +462,10 @@
 					285F1B601C5AF7B100A7E0DD = {
 						CreatedOnToolsVersion = 7.2;
 						DevelopmentTeam = EZ49532236;
+					};
+					28A50BD11C8C5D2A009E91DE = {
+						CreatedOnToolsVersion = 7.2.1;
+						TestTargetID = 285F1B601C5AF7B100A7E0DD;
 					};
 				};
 			};
@@ -426,6 +483,7 @@
 			projectRoot = "";
 			targets = (
 				285F1B601C5AF7B100A7E0DD /* FOSSAsia */,
+				28A50BD11C8C5D2A009E91DE /* FOSSAsiaUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -444,6 +502,13 @@
 				285F1B6E1C5AF7B100A7E0DD /* Assets.xcassets in Resources */,
 				285F1B6C1C5AF7B100A7E0DD /* Main.storyboard in Resources */,
 				28E2DA891C7EDFCB002F2FAA /* ScheduleVC.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		28A50BD01C8C5D2A009E91DE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -545,7 +610,24 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		28A50BCE1C8C5D2A009E91DE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				28A50BD51C8C5D2B009E91DE /* FOSSAsiaUITests.swift in Sources */,
+				28A50BDD1C8C5E31009E91DE /* SnapshotHelper.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		28A50BD81C8C5D2B009E91DE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 285F1B601C5AF7B100A7E0DD /* FOSSAsia */;
+			targetProxy = 28A50BD71C8C5D2B009E91DE /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		285F1B6A1C5AF7B100A7E0DD /* Main.storyboard */ = {
@@ -708,6 +790,32 @@
 			};
 			name = Release;
 		};
+		28A50BDA1C8C5D2B009E91DE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = FOSSAsiaUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = co.undertide.fossasia;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "fce03692-2579-43b1-8e85-3915222102d2";
+				TEST_TARGET_NAME = FOSSAsia;
+				USES_XCTRUNNER = YES;
+			};
+			name = Debug;
+		};
+		28A50BDB1C8C5D2B009E91DE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = FOSSAsiaUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = co.undertide.fossasia;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "fce03692-2579-43b1-8e85-3915222102d2";
+				TEST_TARGET_NAME = FOSSAsia;
+				USES_XCTRUNNER = YES;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -728,6 +836,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		28A50BD91C8C5D2B009E91DE /* Build configuration list for PBXNativeTarget "FOSSAsiaUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				28A50BDA1C8C5D2B009E91DE /* Debug */,
+				28A50BDB1C8C5D2B009E91DE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};
