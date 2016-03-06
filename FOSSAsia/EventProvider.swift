@@ -59,6 +59,11 @@ struct EventProvider {
                     eventsLoadingCompletionHandler(nil, error)
                     return
                 }
+                let dateFormatter: NSDateFormatter = {
+                    let formatter = NSDateFormatter()
+                    formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+                    return formatter
+                }()
                 
                 getFavoriteEventsId({ (favoriteIds, error) -> Void in
                     guard let idArray = favoriteIds else {
@@ -98,8 +103,8 @@ struct EventProvider {
                             shortDescription: sessionDescription,
                             speakers: sessionSpeakersNames,
                             location: sessionLocation,
-                            startDateTime: NSDate(string: sessionStartDateTime, formatString: self.dateFormatString),
-                            endDateTime: NSDate(string: sessionEndDateTime, formatString: self.dateFormatString),
+                            startDateTime: dateFormatter.dateFromString(sessionStartDateTime)!,
+                            endDateTime: dateFormatter.dateFromString(sessionEndDateTime)!,
                             favorite: idArray.contains(sessionId))
                         sessions.append(tempSession)
                         
