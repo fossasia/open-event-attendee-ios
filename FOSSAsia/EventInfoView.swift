@@ -15,6 +15,14 @@ class EventInfoView: UIView {
     
     private var delegate: EventDetailsPresentable?
     
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        eventLabel.preferredMaxLayoutWidth = eventLabel.bounds.size.width
+        speakerLabel.preferredMaxLayoutWidth = speakerLabel.bounds.size.width
+        locationLabel.preferredMaxLayoutWidth = locationLabel.bounds.size.width
+        super.layoutSubviews()
+    }
+    
     func configure(presenter: EventDetailsPresentable) {
         delegate = presenter
         
