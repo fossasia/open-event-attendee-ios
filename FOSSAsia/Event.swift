@@ -10,12 +10,13 @@ import Foundation
 
 struct Event {
     enum Track: Int, CustomStringConvertible {
-        case TechKids1 = 1
-        case TechKids2, OpenTechIOT, OpenTech, WebTech, Exhibition, HardwareIOT, Python, Databases, BigOpenData, DevOps, PrivSec, ISC, ScienceHackDay, Linux, Design
+        case OpenTechIOT = 1
+        case OpenTech, TechKids1, TechKids2, TechKids3, HardwareIOT, DevOps, WebTech, Python, BigOpenData, Databases, ISC, PrivSec, ScienceHackDay, Linux, Design, Exhibition, Social
         var description: String {
             switch self {
             case .TechKids1: return "Tech Kids I";
             case .TechKids2: return "Tech Kids II";
+            case .TechKids3: return "Tech Kids III"
             case .OpenTechIOT: return "OpenTech and IOT";
             case .OpenTech: return "OpenTech Workshops";
             case .WebTech: return "WebTech";
@@ -29,13 +30,14 @@ struct Event {
             case .ISC: return "Internet, Society, Community";
             case .ScienceHackDay: return "Science Hack Day";
             case .Linux: return "Linux and MiniDebConf";
-            case .Design: return "Design, VR, 3D"
+            case .Design: return "Design, VR, 3D";
+            case .Social: return "Social Event";
             }
         }
         
         func getTrackColor() -> UIColor {
             switch self {
-            case .TechKids1, .TechKids2:
+            case .TechKids1, .TechKids2, .TechKids3, .Social:
                 return UIColor(hexString: "8E8E93")!
             case .OpenTechIOT:
                 return UIColor(hexString: "FF4D4D")!
