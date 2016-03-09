@@ -50,7 +50,23 @@ class ScheduleViewController: EventsBaseViewController, SwipeToFavoriteCellPrese
     }
     
     func refreshData(sender: AnyObject) {
-        viewModel?.refresh()
+        let reachability: Reachability
+        do {
+            reachability = try Reachability.reachabilityForInternetConnection()
+            SettingsManager.setKeyForRefresh(true)
+            viewModel?.refresh()
+        } catch {
+            let alertVC = UIAlertController(title: "Oops!", message: "You appear to not be connected to the internet. We can't refresh the event data at this time.", preferredStyle: .Alert)
+            let alertAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: { (action) -> Void in
+                // do something
+            })
+            alertVC.addAction(alertAction)
+            self.presentViewController(alertVC, animated: true, completion: nil)
+            return
+        }
+        reachability.whenReachable = { reachability in
+            
+        }
     }
 }
 

@@ -19,7 +19,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UITabBar.appearance().tintColor = Colors.mainRedColor
         UINavigationBar.appearance().tintColor = Colors.creamTintColor
         
-        NSUserDefaults.standardUserDefaults().registerDefaults([Constants.UserDefaultsKey.FilteredTrackIds: (1...Constants.numberOfTracks).toArray()])
+        NSUserDefaults.standardUserDefaults().registerDefaults([
+            Constants.UserDefaultsKey.FilteredTrackIds: (1...Constants.numberOfTracks).toArray(),
+            SettingsManager.keyForEvent: false,
+            SettingsManager.keyForRefresh: false
+            ])
         return true
     }
 

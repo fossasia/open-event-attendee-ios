@@ -75,6 +75,4 @@ extension EventsBaseViewController: UITableViewDataSource {
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return allEvents.count
     }
-    
-
 }

@@ -11,14 +11,26 @@ import Foundation
 struct SettingsManager {
 
     static let keyForEvent = "HasEvents"
+    static let keyForRefresh = "CanRefresh"
     static let keyForMicrolocations = "HasMicrolocations"
 
     static let favouritesLocalFileName = "faves.json"
-
-    static func isKeyPresentInUserDefaults(key: String) -> Bool {
+    
+    static func isEventDataLoaded() -> Bool {
         let defaults = NSUserDefaults.standardUserDefaults()
-        return defaults.boolForKey(key)
+        return defaults.boolForKey(SettingsManager.keyForEvent)
     }
+    
+    static func isRefreshAllowed() -> Bool {
+        let defaults = NSUserDefaults.standardUserDefaults()
+        return defaults.boolForKey(SettingsManager.keyForRefresh)
+    }
+    
+    static func setKeyForRefresh(bool: Bool) {
+        let defaults = NSUserDefaults.standardUserDefaults()
+        defaults.setBool(bool, forKey: SettingsManager.keyForRefresh)
+    }
+    
 
     static func saveKeyInUserDefaults(key: String, bool: Bool) {
         let defaults = NSUserDefaults.standardUserDefaults()

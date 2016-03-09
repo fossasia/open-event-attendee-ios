@@ -16,7 +16,7 @@ struct EventProvider {
     private let dateFormatString = "yyyy-MM-dd'T'HH:mm:ssZ"
     
     func getEvents(date: NSDate?, trackIds: [Int]?, completionHandler: EventsLoadingCompletionHandler) {
-        if !SettingsManager.isKeyPresentInUserDefaults(SettingsManager.keyForEvent) {
+        if !SettingsManager.isEventDataLoaded() || SettingsManager.isRefreshAllowed() {
             FetchDataService().fetchData(EventInfo.Events) { (_, error) -> Void in
                 guard error == nil else {
                     let error = Error(errorCode: .NetworkRequestFailed)
@@ -25,6 +25,7 @@ struct EventProvider {
                 }
                 
                 SettingsManager.saveKeyInUserDefaults(SettingsManager.keyForEvent, bool: true)
+                SettingsManager.saveKeyInUserDefaults(SettingsManager.keyForRefresh, bool: false)
                 self.getEventsFromDisk(date, trackIds: trackIds, eventsLoadingCompletionHandler: { (events, error) -> Void in
                     guard let unwrappedEvents = events else {
                         let error = Error(errorCode: .JSONSystemReadingFailed)

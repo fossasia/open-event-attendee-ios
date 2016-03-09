@@ -45,6 +45,7 @@
 		285F89AF1C81448A0033D090 /* ScheduleViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285F89AE1C81448A0033D090 /* ScheduleViewControllerDelegate.swift */; };
 		285F89B21C8149420033D090 /* Favorites.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 285F89B01C8149420033D090 /* Favorites.storyboard */; };
 		285F89B41C814B0A0033D090 /* Sessions.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 285F89B31C814B0A0033D090 /* Sessions.storyboard */; };
+		287752161C90765D007BCBB0 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287752151C90765D007BCBB0 /* Reachability.swift */; };
 		28A0BC6F1C5F42D6001625FB /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A0BC6E1C5F42D6001625FB /* Error.swift */; };
 		28A0BC921C5F4FEC001625FB /* ScheduleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A0BC911C5F4FEC001625FB /* ScheduleViewModel.swift */; };
 		28A0BC941C5F50A2001625FB /* Schedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A0BC931C5F50A2001625FB /* Schedule.swift */; };
@@ -143,6 +144,7 @@
 		285F89AE1C81448A0033D090 /* ScheduleViewControllerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleViewControllerDelegate.swift; sourceTree = "<group>"; };
 		285F89B11C8149420033D090 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Favorites.storyboard; sourceTree = "<group>"; };
 		285F89B31C814B0A0033D090 /* Sessions.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Sessions.storyboard; sourceTree = "<group>"; };
+		287752151C90765D007BCBB0 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		28A0BC6E1C5F42D6001625FB /* Error.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
 		28A0BC911C5F4FEC001625FB /* ScheduleViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleViewModel.swift; sourceTree = "<group>"; };
 		28A0BC931C5F50A2001625FB /* Schedule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Schedule.swift; sourceTree = "<group>"; };
@@ -333,6 +335,7 @@
 				28A0BC6E1C5F42D6001625FB /* Error.swift */,
 				285F1B8E1C5B069D00A7E0DD /* Observable.swift */,
 				285F1B781C5AFBBB00A7E0DD /* SwiftHEXColors.swift */,
+				287752151C90765D007BCBB0 /* Reachability.swift */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -599,6 +602,7 @@
 				28A0BC921C5F4FEC001625FB /* ScheduleViewModel.swift in Sources */,
 				2824FD6D1C6DC05300F783E1 /* FavoriteEventsListViewController.swift in Sources */,
 				30321F611C81851E008E5258 /* ApiClient.swift in Sources */,
+				287752161C90765D007BCBB0 /* Reachability.swift in Sources */,
 				285F1BB01C5B094F00A7E0DD /* Speaker.swift in Sources */,
 				2824FE101C6EBB6700F783E1 /* FavoritesScheduleViewController.swift in Sources */,
 				285F1B791C5AFBBB00A7E0DD /* SwiftHEXColors.swift in Sources */,

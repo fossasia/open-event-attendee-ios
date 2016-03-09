@@ -53,6 +53,7 @@ struct ApiClient {
             let path = dir.stringByAppendingPathComponent(SettingsManager.getLocalFileName(eventInfo));
             data.writeToFile(path, atomically: false)
             completionHandler(nil)
+            return
         }
         completionHandler(Error(errorCode: .JSONSystemReadingFailed))
     }
