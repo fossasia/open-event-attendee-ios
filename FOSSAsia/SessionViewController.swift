@@ -1,5 +1,5 @@
 //
-//  EventViewController.swift
+//  SessionViewController.swift
 //  FOSSAsia
 //
 //  Created by Jurvis Tan on 31/1/16.
@@ -10,18 +10,18 @@ import UIKit
 import EventKit
 import EventKitUI
 
-typealias IndividualEventPresentable = protocol<EventDetailsPresentable, EventDescriptionPresentable, EventAddToCalendarPresentable>
+typealias IndividualEventPresentable = protocol<SessionDetailsPresentable, SessionDescriptionPresentable, SessionAddToCalendarPresentable>
 
-class EventViewController: UIViewController {
+class SessionViewController: UIViewController {
     
     // Constants for Storyboard/VC
     struct StoryboardConstants {
         static let storyboardName = "IndividualEvent"
-        static let viewControllerId = "EventViewController"
+        static let viewControllerId = "SessionViewController"
     }
     
     // MARK:- Properties
-    var eventViewModel: EventViewModel? {
+    var eventViewModel: SessionViewModel? {
         didSet {
             eventViewModel?.favorite.observe({ (newValue) -> Void in
                 self.navBarButtonItem.image = newValue ? UIImage(named: "navbar_fave_highlighted") : UIImage(named: "navbar_fave")
@@ -33,18 +33,18 @@ class EventViewController: UIViewController {
     @IBOutlet weak var contentView: UIView!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var eventDescriptionTextView: UITextView!
-    @IBOutlet weak var eventInfoView: EventInfoView!
+    @IBOutlet weak var sessionInfoView: SessionInfoView!
     @IBOutlet weak var eventDateTimeLabel: UILabel!
     @IBOutlet weak var eventAddToCalendarButton: UIButton!
     @IBOutlet weak var eventAddToCalendarButtonBottomConstraint: NSLayoutConstraint!
     @IBOutlet weak var navBarButtonItem: UIBarButtonItem!
     
     // MARK:- Initialization
-    class func eventViewControllerForEvent(event: EventViewModel) -> EventViewController {
-        let storyboard = UIStoryboard(name: EventViewController.StoryboardConstants.storyboardName, bundle: nil)
+    class func sessionViewControllerForSession(session: SessionViewModel) -> SessionViewController {
+        let storyboard = UIStoryboard(name: SessionViewController.StoryboardConstants.storyboardName, bundle: nil)
         
-        let viewController = storyboard.instantiateViewControllerWithIdentifier(EventViewController.StoryboardConstants.viewControllerId) as! EventViewController
-        viewController.eventViewModel = event
+        let viewController = storyboard.instantiateViewControllerWithIdentifier(SessionViewController.StoryboardConstants.viewControllerId) as! SessionViewController
+        viewController.eventViewModel = session
         
         return viewController
     }
@@ -63,9 +63,9 @@ class EventViewController: UIViewController {
     }
     
     func configure(presenter: IndividualEventPresentable) {
-        eventDescriptionTextView.text = presenter.eventDescription
-        eventInfoView.configure(presenter)
-        eventDateTimeLabel.text = "\(presenter.eventDay), \(presenter.eventDate) \(presenter.eventMonth), \(presenter.eventStartTime) - \(presenter.eventEndTime)"
+        eventDescriptionTextView.text = presenter.sessionDescription
+        sessionInfoView.configure(presenter)
+        eventDateTimeLabel.text = "\(presenter.sessionDay), \(presenter.sessionDate) \(presenter.sessionMonth), \(presenter.sessionStartTime) - \(presenter.sessionEndTime)"
         self.presenter = presenter
     }
     
@@ -75,9 +75,9 @@ class EventViewController: UIViewController {
         store.requestAccessToEntityType(.Event) {(granted, error) in
             if !granted { return }
             let event = EKEvent(eventStore: store)
-            event.title = (self.presenter?.eventName)!
-            event.startDate = (self.presenter?.eventStartDate)!
-            event.endDate = (self.presenter?.eventEndDate)!
+            event.title = (self.presenter?.sessionName)!
+            event.startDate = (self.presenter?.sessionStartDate)!
+            event.endDate = (self.presenter?.sessionEndDate)!
             event.calendar = store.defaultCalendarForNewEvents
             
             NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
@@ -91,7 +91,7 @@ class EventViewController: UIViewController {
         }
     }
     @IBAction func favoriteEvent(sender: AnyObject) {
-        self.eventViewModel?.favoriteEvent{  [weak self] (eventViewModel, error) -> () in
+        self.eventViewModel?.favoriteSession{  [weak self] (eventViewModel, error) -> () in
             if let masterNavVC = self?.splitViewController?.viewControllers[0] as? UINavigationController {
                 if let masterVC = masterNavVC.topViewController as? EventsBaseListViewController {
                     NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
@@ -103,7 +103,7 @@ class EventViewController: UIViewController {
     }
 }
 
-extension EventViewController: EKEventEditViewDelegate {
+extension SessionViewController: EKEventEditViewDelegate {
     func eventEditViewController(controller: EKEventEditViewController, didCompleteWithAction action: EKEventEditViewAction) {
         self.dismissViewControllerAnimated(true, completion: nil)
     }

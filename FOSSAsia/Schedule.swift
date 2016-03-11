@@ -10,5 +10,5 @@ import Foundation
 
 struct Schedule {
     let date: NSDate
-    let events: [Event]
+    let sessions: [Session]
 }

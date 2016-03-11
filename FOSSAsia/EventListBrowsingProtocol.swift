@@ -12,18 +12,18 @@ import Pages
 typealias EventListBrowsingByDate = protocol<EventsPresentable, SchedulePagingViewDelegate, PagesControllerDelegate>
 
 protocol EventsPresentable {
-    func getEventsListViewModel() -> EventsListViewModel
+    func getEventsListViewModel() -> SessionsListViewModel
 }
 
 extension EventsPresentable where Self: EventsBaseListViewController {
-    func getEventsListViewModel() -> EventsListViewModel {
-        return EventsListViewModel()
+    func getEventsListViewModel() -> SessionsListViewModel {
+        return SessionsListViewModel()
     }
 }
 
 extension EventsPresentable where Self: FavoriteEventsListViewController {
-    func getEventsListViewModel() -> EventsListViewModel {
-        var eventsViewModel = EventsListViewModel()
+    func getEventsListViewModel() -> SessionsListViewModel {
+        var eventsViewModel = SessionsListViewModel()
         eventsViewModel.setFavoritesOnly(true)
         return eventsViewModel
     }

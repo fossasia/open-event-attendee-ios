@@ -1,5 +1,5 @@
 //
-//  EventsListViewModel.swift
+//  SessionsListViewModel.swift
 //  FOSSAsia
 //
 //  Created by Jurvis Tan on 10/2/16.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct EventsListViewModel {
+struct SessionsListViewModel {
     //MARK:- Properties
     let allSchedules: Observable<[ScheduleViewModel]> = Observable([])
     let count: Observable<Int>
@@ -20,7 +20,7 @@ struct EventsListViewModel {
     let errorMessage: Observable<String?>
     
     // MARK: - Services
-    private var eventsService: EventProvider
+    private var sessionsService: SessionProvider
 
     
     init () {
@@ -30,18 +30,18 @@ struct EventsListViewModel {
         self.count = Observable(1)
         
         // Dependency Injections
-        eventsService = EventProvider()
+        sessionsService = SessionProvider()
         
         refreshDates()
     }
     
     func refreshDates() {
         // Retrieve all dates
-        eventsService.getEvents(nil, trackIds: nil) { (events, error) -> Void in
-            if let eventsArray = events {
+        sessionsService.getSessions(nil, trackIds: nil) { (sessions, error) -> Void in
+            if let sessionsArray = sessions {
                 var dates = Set<NSDate>()
-                for event in eventsArray {
-                    let newDate = NSDate(year: event.startDateTime.year(), month: event.startDateTime.month(), day: event.startDateTime.day())
+                for session in sessionsArray {
+                    let newDate = NSDate(year: session.startDateTime.year(), month: session.startDateTime.month(), day: session.startDateTime.day())
                     dates.insert(newDate)
                 }
                 let sortedDates = dates.sort({$0.compare($1) == .OrderedAscending})

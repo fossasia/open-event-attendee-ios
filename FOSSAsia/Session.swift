@@ -1,5 +1,5 @@
 //
-//  Event.swift
+//  Session.swift
 //  FOSSAsia
 //
 //  Created by Jurvis Tan on 29/1/16.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Event {
+struct Session {
     enum Track: Int, CustomStringConvertible {
         case OpenTechIOT = 1
         case OpenTech, TechKids1, TechKids2, TechKids3, HardwareIOT, DevOps, WebTech, Python, BigOpenData, Databases, ISC, PrivSec, ScienceHackDay, Linux, Design, Exhibition, Social

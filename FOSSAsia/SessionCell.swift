@@ -1,5 +1,5 @@
 //
-//  EventCell.swift
+//  SessionCell.swift
 //  FOSSAsia
 //
 //  Created by Jurvis Tan on 29/1/16.
@@ -9,19 +9,19 @@
 import UIKit
 import MGSwipeTableCell
 
-typealias EventCellWithTypePresentable = protocol<EventTypePresentable, EventDetailsPresentable>
+typealias SessionCellWithTypePresentable = protocol<SessionTypePresentable, SessionDetailsPresentable>
 
-class EventCell: MGSwipeTableCell {
+class SessionCell: MGSwipeTableCell {
     @IBOutlet weak var favoriteImage: UIImageView!
     @IBOutlet weak var typeView: UIView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var timingLabel: UILabel!
     
-    private var viewModel: EventCellWithTypePresentable?
+    private var viewModel: SessionCellWithTypePresentable?
     
-    func configure(withPresenter presenter: EventCellWithTypePresentable) {
+    func configure(withPresenter presenter: SessionCellWithTypePresentable) {
         viewModel = presenter
-        titleLabel.text = viewModel!.eventName
+        titleLabel.text = viewModel!.sessionName
         typeView.backgroundColor = viewModel!.typeColor
         timingLabel.text = viewModel!.timing
         if (viewModel!.isFavorite) {

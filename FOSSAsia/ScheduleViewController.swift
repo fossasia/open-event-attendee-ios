@@ -18,14 +18,14 @@ class ScheduleViewController: EventsBaseViewController, SwipeToFavoriteCellPrese
         static let viewControllerId = String(ScheduleViewController)
     }
     
-    lazy var filteredEvents: [EventViewModel] = self.allEvents
+    lazy var filteredEvents: [SessionViewModel] = self.allEvents
     var filterString: String? = nil {
         didSet {
             if filterString == nil || filterString!.isEmpty {
                 filteredEvents = self.allEvents
             } else {
                 let filterPredicate = NSPredicate(format: "self contains[c] %@", argumentArray: [filterString!])
-                filteredEvents = allEvents.filter( {filterPredicate.evaluateWithObject($0.eventName) } )
+                filteredEvents = allEvents.filter( {filterPredicate.evaluateWithObject($0.sessionName) } )
             }
         }
     }
@@ -81,7 +81,7 @@ extension ScheduleViewController: UISearchResultsUpdating {
 
 extension ScheduleViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier(EventsBaseViewController.kEventCellReuseIdentifier, forIndexPath: indexPath) as! EventCell
+        let cell = tableView.dequeueReusableCellWithIdentifier(EventsBaseViewController.kSessionCellReuseIdentifier, forIndexPath: indexPath) as! SessionCell
         let eventViewModel = allEvents[indexPath.row]
         cell.configure(withPresenter: eventViewModel)
         cell.delegate = self
@@ -96,7 +96,7 @@ extension ScheduleViewController {
     func favoriteEvent(indexPath: NSIndexPath)  {
         weak var me = self
         let eventViewModel = me!.eventViewModelForIndexPath(indexPath)
-        eventViewModel.favoriteEvent { (eventViewModel, error) -> Void in
+        eventViewModel.favoriteSession { (eventViewModel, error) -> Void in
             if error == nil {
                 self.tableView.reloadData()
             }
@@ -116,7 +116,7 @@ extension ScheduleViewController {
             
             
             let faveButton = MGSwipeButton(title: "", icon: (eventViewModel.isFavorite ? UIImage(named: "cell_favorite_selected") : UIImage(named: "cell_favorite")), backgroundColor: Colors.favoriteOrangeColor!) { (sender: MGSwipeTableCell!) -> Bool in
-                if let sessionCell = sender as? EventCell {
+                if let sessionCell = sender as? SessionCell {
                     UIView.animateWithDuration(0.3, animations: { () -> Void in
                         if (eventViewModel.isFavorite) {
                             sessionCell.favoriteImage.transform = CGAffineTransformMakeScale(0.1, 0.1)

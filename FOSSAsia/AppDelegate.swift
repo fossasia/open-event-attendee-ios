@@ -21,7 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         NSUserDefaults.standardUserDefaults().registerDefaults([
             Constants.UserDefaultsKey.FilteredTrackIds: (1...Constants.numberOfTracks).toArray(),
-            SettingsManager.keyForEvent: false,
+            SettingsManager.keyForSession: false,
             SettingsManager.keyForRefresh: false
             ])
         return true

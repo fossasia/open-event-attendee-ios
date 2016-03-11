@@ -10,15 +10,15 @@ import Foundation
 
 struct SettingsManager {
 
-    static let keyForEvent = "HasEvents"
+    static let keyForSession = "HasSessions"
     static let keyForRefresh = "CanRefresh"
     static let keyForMicrolocations = "HasMicrolocations"
 
     static let favouritesLocalFileName = "faves.json"
     
-    static func isEventDataLoaded() -> Bool {
+    static func isSessionDataLoaded() -> Bool {
         let defaults = NSUserDefaults.standardUserDefaults()
-        return defaults.boolForKey(SettingsManager.keyForEvent)
+        return defaults.boolForKey(SettingsManager.keyForSession)
     }
     
     static func isRefreshAllowed() -> Bool {

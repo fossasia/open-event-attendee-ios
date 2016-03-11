@@ -16,7 +16,7 @@ struct ScheduleViewModel: ScheduleCountPresentable {
     weak var delegate: ScheduleViewModelDelegate?
     // MARK: - Properties
     let date: Observable<NSDate>
-    let events: Observable<[EventViewModel]>
+    let sessions: Observable<[SessionViewModel]>
     
     let isFavoritesOnly: Observable<Bool>
     
@@ -25,45 +25,45 @@ struct ScheduleViewModel: ScheduleCountPresentable {
     let errorMessage: Observable<String?>
     
     // MARK: - Services
-    private var eventsService: EventProvider
+    private var sessionsService: SessionProvider
     
     init (_ date: NSDate, favoritesOnly: Bool = false) {
         hasError = Observable(false)
         errorMessage = Observable(nil)
         
         self.date = Observable(date)
-        self.events = Observable([])
+        self.sessions = Observable([])
         self.isFavoritesOnly = Observable(favoritesOnly)
         
         // Dependency Injections
-        eventsService = EventProvider()
+        sessionsService = SessionProvider()
         self.refresh()
     }
-
+    
     
     func refresh() {
         if let filteredTracks = NSUserDefaults.standardUserDefaults().objectForKey(Constants.UserDefaultsKey.FilteredTrackIds) as? [Int] {
-            eventsService.getEvents(date.value, trackIds: filteredTracks) { (events, error) -> Void in
-                guard let unwrappedEvents = events else {
+            sessionsService.getSessions(date.value, trackIds: filteredTracks) { (sessions, error) -> Void in
+                guard let unwrappedSessions = sessions else {
                     self.delegate?.scheduleDidLoad(nil, error: error)
                     return
                 }
                 
-                var eventsArray: [Event] = unwrappedEvents
+                var sessionsArray: [Session] = unwrappedSessions
                 if self.isFavoritesOnly.value {
-                    eventsArray = eventsArray.filter({ $0.favorite })
+                    sessionsArray = sessionsArray.filter({ $0.favorite })
                 }
                 
-                self.update(Schedule(date: self.date.value, events: eventsArray))
+                self.update(Schedule(date: self.date.value, sessions: sessionsArray))
             }
         }
     }
     
     private func update(schedule: Schedule) {
-        let tempEvents = schedule.events.map { event in
-            return EventViewModel(event)
+        let tempSessions = schedule.sessions.map { session in
+            return SessionViewModel(session)
         }
-        events.value = tempEvents
+        sessions.value = tempSessions
         self.delegate?.scheduleDidLoad(schedule, error: nil)
     }
     
@@ -85,12 +85,12 @@ struct ScheduleViewModel: ScheduleCountPresentable {
             errorMessage.value = "There seems to be a problem with writing data on disk."
         }
         
-        self.events.value = []
+        self.sessions.value = []
     }
-
+    
 }
 
 // MARK :- ScheduleCountPresentableConformance
 extension ScheduleViewModel {
-    var count: Int { return self.events.value.count }
+    var count: Int { return self.sessions.value.count }
 }

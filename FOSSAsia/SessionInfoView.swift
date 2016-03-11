@@ -1,5 +1,5 @@
 //
-//  EventInfoView.swift
+//  SessionInfoView.swift
 //  FOSSAsia
 //
 //  Created by Jurvis Tan on 31/1/16.
@@ -8,12 +8,12 @@
 
 import UIKit
 
-class EventInfoView: UIView {
+class SessionInfoView: UIView {
     @IBOutlet weak var eventLabel: UILabel!
     @IBOutlet weak var speakerLabel: UILabel!
     @IBOutlet weak var locationLabel: UILabel!
     
-    private var delegate: EventDetailsPresentable?
+    private var delegate: SessionDetailsPresentable?
     
     override func layoutSubviews() {
         super.layoutSubviews()
@@ -23,11 +23,11 @@ class EventInfoView: UIView {
         super.layoutSubviews()
     }
     
-    func configure(presenter: EventDetailsPresentable) {
+    func configure(presenter: SessionDetailsPresentable) {
         delegate = presenter
         
         if let delegate = self.delegate {
-            eventLabel.text = delegate.eventName
+            eventLabel.text = delegate.sessionName
             speakerLabel.text = delegate.speakerNames
             locationLabel.text = delegate.timing
         }

@@ -26,10 +26,10 @@
 		2824FE101C6EBB6700F783E1 /* FavoritesScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2824FE0F1C6EBB6700F783E1 /* FavoritesScheduleViewController.swift */; };
 		2824FE121C6EBB9E00F783E1 /* ScheduleBrowsingProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2824FE111C6EBB9E00F783E1 /* ScheduleBrowsingProtocol.swift */; };
 		28352C711C6B2B9F0055E2F5 /* EventsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28352C701C6B2B9F0055E2F5 /* EventsListViewController.swift */; };
-		28352C731C6B411C0055E2F5 /* EventsListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28352C721C6B411C0055E2F5 /* EventsListViewModel.swift */; };
-		2859B0FE1C5DF8D7009656FC /* EventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2859B0FD1C5DF8D7009656FC /* EventViewController.swift */; };
+		28352C731C6B411C0055E2F5 /* SessionsListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28352C721C6B411C0055E2F5 /* SessionsListViewModel.swift */; };
+		2859B0FE1C5DF8D7009656FC /* SessionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2859B0FD1C5DF8D7009656FC /* SessionViewController.swift */; };
 		2859B1001C5DFD09009656FC /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2859B0FF1C5DFD09009656FC /* Colors.swift */; };
-		2859B1021C5E29DC009656FC /* EventInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2859B1011C5E29DC009656FC /* EventInfoView.swift */; };
+		2859B1021C5E29DC009656FC /* SessionInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2859B1011C5E29DC009656FC /* SessionInfoView.swift */; };
 		285F1B651C5AF7B100A7E0DD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285F1B641C5AF7B100A7E0DD /* AppDelegate.swift */; };
 		285F1B671C5AF7B100A7E0DD /* ScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285F1B661C5AF7B100A7E0DD /* ScheduleViewController.swift */; };
 		285F1B6C1C5AF7B100A7E0DD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 285F1B6A1C5AF7B100A7E0DD /* Main.storyboard */; };
@@ -37,11 +37,11 @@
 		285F1B711C5AF7B100A7E0DD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 285F1B6F1C5AF7B100A7E0DD /* LaunchScreen.storyboard */; };
 		285F1B791C5AFBBB00A7E0DD /* SwiftHEXColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285F1B781C5AFBBB00A7E0DD /* SwiftHEXColors.swift */; };
 		285F1B8F1C5B069D00A7E0DD /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285F1B8E1C5B069D00A7E0DD /* Observable.swift */; };
-		285F1B921C5B06CC00A7E0DD /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285F1B911C5B06CC00A7E0DD /* Event.swift */; };
+		285F1B921C5B06CC00A7E0DD /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285F1B911C5B06CC00A7E0DD /* Session.swift */; };
 		285F1BB01C5B094F00A7E0DD /* Speaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285F1BAF1C5B094F00A7E0DD /* Speaker.swift */; };
 		285F1BB41C5B0FDC00A7E0DD /* SpeakerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285F1BB31C5B0FDC00A7E0DD /* SpeakerViewModel.swift */; };
-		285F1BB81C5B16C700A7E0DD /* EventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285F1BB71C5B16C700A7E0DD /* EventCell.swift */; };
-		285F1BBC1C5B2B2B00A7E0DD /* EventViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285F1BBB1C5B2B2B00A7E0DD /* EventViewModel.swift */; };
+		285F1BB81C5B16C700A7E0DD /* SessionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285F1BB71C5B16C700A7E0DD /* SessionCell.swift */; };
+		285F1BBC1C5B2B2B00A7E0DD /* SessionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285F1BBB1C5B2B2B00A7E0DD /* SessionViewModel.swift */; };
 		285F89AF1C81448A0033D090 /* ScheduleViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285F89AE1C81448A0033D090 /* ScheduleViewControllerDelegate.swift */; };
 		285F89B21C8149420033D090 /* Favorites.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 285F89B01C8149420033D090 /* Favorites.storyboard */; };
 		285F89B41C814B0A0033D090 /* Sessions.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 285F89B31C814B0A0033D090 /* Sessions.storyboard */; };
@@ -57,7 +57,7 @@
 		30321F611C81851E008E5258 /* ApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30321F601C81851E008E5258 /* ApiClient.swift */; };
 		30321F691C81A06F008E5258 /* FetchDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30321F681C81A06F008E5258 /* FetchDataService.swift */; };
 		3094D5811C833F83007C2873 /* Microlocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3094D5801C833F83007C2873 /* Microlocation.swift */; };
-		30F0AFB61C81B9C400CE5D18 /* EventProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F0AFB51C81B9C400CE5D18 /* EventProvider.swift */; };
+		30F0AFB61C81B9C400CE5D18 /* SessionProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F0AFB51C81B9C400CE5D18 /* SessionProvider.swift */; };
 		30F0AFB81C81C4C600CE5D18 /* SettingsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F0AFB71C81C4C600CE5D18 /* SettingsManager.swift */; };
 		DA4CC3D451E57B3D3B6780CD /* Pods_FOSSAsia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 193D6EE00801D10F0049F1C3 /* Pods_FOSSAsia.framework */; };
 /* End PBXBuildFile section */
@@ -106,10 +106,10 @@
 		2824FE0F1C6EBB6700F783E1 /* FavoritesScheduleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesScheduleViewController.swift; sourceTree = "<group>"; };
 		2824FE111C6EBB9E00F783E1 /* ScheduleBrowsingProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleBrowsingProtocol.swift; sourceTree = "<group>"; };
 		28352C701C6B2B9F0055E2F5 /* EventsListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsListViewController.swift; sourceTree = "<group>"; };
-		28352C721C6B411C0055E2F5 /* EventsListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsListViewModel.swift; sourceTree = "<group>"; };
-		2859B0FD1C5DF8D7009656FC /* EventViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventViewController.swift; sourceTree = "<group>"; };
+		28352C721C6B411C0055E2F5 /* SessionsListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionsListViewModel.swift; sourceTree = "<group>"; };
+		2859B0FD1C5DF8D7009656FC /* SessionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionViewController.swift; sourceTree = "<group>"; };
 		2859B0FF1C5DFD09009656FC /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
-		2859B1011C5E29DC009656FC /* EventInfoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventInfoView.swift; sourceTree = "<group>"; };
+		2859B1011C5E29DC009656FC /* SessionInfoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionInfoView.swift; sourceTree = "<group>"; };
 		285F1B611C5AF7B100A7E0DD /* FOSSAsia.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FOSSAsia.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		285F1B641C5AF7B100A7E0DD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		285F1B661C5AF7B100A7E0DD /* ScheduleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleViewController.swift; sourceTree = "<group>"; };
@@ -120,7 +120,7 @@
 		285F1B781C5AFBBB00A7E0DD /* SwiftHEXColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftHEXColors.swift; sourceTree = "<group>"; };
 		285F1B801C5AFE3200A7E0DD /* Fossasia-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Fossasia-Bridging-Header.h"; sourceTree = "<group>"; };
 		285F1B8E1C5B069D00A7E0DD /* Observable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
-		285F1B911C5B06CC00A7E0DD /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
+		285F1B911C5B06CC00A7E0DD /* Session.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
 		285F1B971C5B08FC00A7E0DD /* DateTools.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = DateTools.bundle; sourceTree = "<group>"; };
 		285F1B981C5B08FC00A7E0DD /* DateTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DateTools.h; sourceTree = "<group>"; };
 		285F1B991C5B08FC00A7E0DD /* DTConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTConstants.h; sourceTree = "<group>"; };
@@ -139,8 +139,8 @@
 		285F1BA61C5B08FC00A7E0DD /* NSDate+DateTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+DateTools.m"; sourceTree = "<group>"; };
 		285F1BAF1C5B094F00A7E0DD /* Speaker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Speaker.swift; sourceTree = "<group>"; };
 		285F1BB31C5B0FDC00A7E0DD /* SpeakerViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpeakerViewModel.swift; sourceTree = "<group>"; };
-		285F1BB71C5B16C700A7E0DD /* EventCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventCell.swift; sourceTree = "<group>"; };
-		285F1BBB1C5B2B2B00A7E0DD /* EventViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventViewModel.swift; sourceTree = "<group>"; };
+		285F1BB71C5B16C700A7E0DD /* SessionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionCell.swift; sourceTree = "<group>"; };
+		285F1BBB1C5B2B2B00A7E0DD /* SessionViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionViewModel.swift; sourceTree = "<group>"; };
 		285F89AE1C81448A0033D090 /* ScheduleViewControllerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleViewControllerDelegate.swift; sourceTree = "<group>"; };
 		285F89B11C8149420033D090 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Favorites.storyboard; sourceTree = "<group>"; };
 		285F89B31C814B0A0033D090 /* Sessions.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Sessions.storyboard; sourceTree = "<group>"; };
@@ -158,7 +158,7 @@
 		30321F601C81851E008E5258 /* ApiClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiClient.swift; sourceTree = "<group>"; };
 		30321F681C81A06F008E5258 /* FetchDataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FetchDataService.swift; sourceTree = "<group>"; };
 		3094D5801C833F83007C2873 /* Microlocation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Microlocation.swift; sourceTree = "<group>"; };
-		30F0AFB51C81B9C400CE5D18 /* EventProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventProvider.swift; sourceTree = "<group>"; };
+		30F0AFB51C81B9C400CE5D18 /* SessionProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionProvider.swift; sourceTree = "<group>"; };
 		30F0AFB71C81C4C600CE5D18 /* SettingsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsManager.swift; sourceTree = "<group>"; };
 		79D22ECB7ECA2ECF5403D3D1 /* Pods-FOSSAsia.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FOSSAsia.release.xcconfig"; path = "Pods/Target Support Files/Pods-FOSSAsia/Pods-FOSSAsia.release.xcconfig"; sourceTree = "<group>"; };
 		E0CFBD2E35D709E001678331 /* Pods-FOSSAsia.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FOSSAsia.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FOSSAsia/Pods-FOSSAsia.debug.xcconfig"; sourceTree = "<group>"; };
@@ -197,7 +197,7 @@
 				2824FD701C6DC8EB00F783E1 /* Schedule View Controllers */,
 				2824FD711C6DC8F600F783E1 /* Schedule List View Controllers */,
 				2824FD631C6DA80600F783E1 /* LoadingViewController.swift */,
-				2859B0FD1C5DF8D7009656FC /* EventViewController.swift */,
+				2859B0FD1C5DF8D7009656FC /* SessionViewController.swift */,
 				28091E8C1C6332A600E789CD /* FilterListViewController.swift */,
 				2824FD611C6C732300F783E1 /* MoreViewController.swift */,
 			);
@@ -207,7 +207,7 @@
 		2818A9381C62301A00ECB57F /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				285F1B911C5B06CC00A7E0DD /* Event.swift */,
+				285F1B911C5B06CC00A7E0DD /* Session.swift */,
 				28A0BC931C5F50A2001625FB /* Schedule.swift */,
 				285F1BAF1C5B094F00A7E0DD /* Speaker.swift */,
 				3094D5801C833F83007C2873 /* Microlocation.swift */,
@@ -218,9 +218,9 @@
 		2818A9391C62305100ECB57F /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				285F1BBB1C5B2B2B00A7E0DD /* EventViewModel.swift */,
+				285F1BBB1C5B2B2B00A7E0DD /* SessionViewModel.swift */,
 				28A0BC911C5F4FEC001625FB /* ScheduleViewModel.swift */,
-				28352C721C6B411C0055E2F5 /* EventsListViewModel.swift */,
+				28352C721C6B411C0055E2F5 /* SessionsListViewModel.swift */,
 				285F1BB31C5B0FDC00A7E0DD /* SpeakerViewModel.swift */,
 				28091E9A1C64CC1A00E789CD /* TrackViewModel.swift */,
 			);
@@ -276,8 +276,8 @@
 		2859B1031C5E2F0A009656FC /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				285F1BB71C5B16C700A7E0DD /* EventCell.swift */,
-				2859B1011C5E29DC009656FC /* EventInfoView.swift */,
+				285F1BB71C5B16C700A7E0DD /* SessionCell.swift */,
+				2859B1011C5E29DC009656FC /* SessionInfoView.swift */,
 				28091E8E1C636F9000E789CD /* FilterCell.swift */,
 				2824FD591C6C0AFE00F783E1 /* SchedulePagingView.swift */,
 			);
@@ -387,7 +387,7 @@
 		30F0AFB41C81B9B000CE5D18 /* Provider */ = {
 			isa = PBXGroup;
 			children = (
-				30F0AFB51C81B9C400CE5D18 /* EventProvider.swift */,
+				30F0AFB51C81B9C400CE5D18 /* SessionProvider.swift */,
 				30F0AFB71C81C4C600CE5D18 /* SettingsManager.swift */,
 			);
 			name = Provider;
@@ -574,19 +574,19 @@
 				2824FD661C6DBBF500F783E1 /* EventListBrowsingProtocol.swift in Sources */,
 				28091E8D1C6332A600E789CD /* FilterListViewController.swift in Sources */,
 				30321F691C81A06F008E5258 /* FetchDataService.swift in Sources */,
-				28352C731C6B411C0055E2F5 /* EventsListViewModel.swift in Sources */,
+				28352C731C6B411C0055E2F5 /* SessionsListViewModel.swift in Sources */,
 				2859B1001C5DFD09009656FC /* Colors.swift in Sources */,
 				285F1B8F1C5B069D00A7E0DD /* Observable.swift in Sources */,
 				28352C711C6B2B9F0055E2F5 /* EventsListViewController.swift in Sources */,
-				285F1BBC1C5B2B2B00A7E0DD /* EventViewModel.swift in Sources */,
+				285F1BBC1C5B2B2B00A7E0DD /* SessionViewModel.swift in Sources */,
 				2824FD6F1C6DC4E100F783E1 /* EventsBaseListViewController.swift in Sources */,
 				285F1B651C5AF7B100A7E0DD /* AppDelegate.swift in Sources */,
 				282248E71C8A7C6600B10AB6 /* ScheduleViewModelDelegate.swift in Sources */,
-				2859B0FE1C5DF8D7009656FC /* EventViewController.swift in Sources */,
-				2859B1021C5E29DC009656FC /* EventInfoView.swift in Sources */,
+				2859B0FE1C5DF8D7009656FC /* SessionViewController.swift in Sources */,
+				2859B1021C5E29DC009656FC /* SessionInfoView.swift in Sources */,
 				2824FD621C6C732300F783E1 /* MoreViewController.swift in Sources */,
 				28091E9B1C64CC1A00E789CD /* TrackViewModel.swift in Sources */,
-				285F1BB81C5B16C700A7E0DD /* EventCell.swift in Sources */,
+				285F1BB81C5B16C700A7E0DD /* SessionCell.swift in Sources */,
 				285F89AF1C81448A0033D090 /* ScheduleViewControllerDelegate.swift in Sources */,
 				28091E8F1C636F9000E789CD /* FilterCell.swift in Sources */,
 				285F1B671C5AF7B100A7E0DD /* ScheduleViewController.swift in Sources */,
@@ -594,7 +594,7 @@
 				28091E911C64B0B900E789CD /* Constants.swift in Sources */,
 				2824FD641C6DA80600F783E1 /* LoadingViewController.swift in Sources */,
 				281324ED1C672EE80072E730 /* EventsResultsViewController.swift in Sources */,
-				285F1B921C5B06CC00A7E0DD /* Event.swift in Sources */,
+				285F1B921C5B06CC00A7E0DD /* Session.swift in Sources */,
 				28A0BC941C5F50A2001625FB /* Schedule.swift in Sources */,
 				285F1BB41C5B0FDC00A7E0DD /* SpeakerViewModel.swift in Sources */,
 				28A0BC6F1C5F42D6001625FB /* Error.swift in Sources */,
@@ -607,7 +607,7 @@
 				2824FE101C6EBB6700F783E1 /* FavoritesScheduleViewController.swift in Sources */,
 				285F1B791C5AFBBB00A7E0DD /* SwiftHEXColors.swift in Sources */,
 				30F0AFB81C81C4C600CE5D18 /* SettingsManager.swift in Sources */,
-				30F0AFB61C81B9C400CE5D18 /* EventProvider.swift in Sources */,
+				30F0AFB61C81B9C400CE5D18 /* SessionProvider.swift in Sources */,
 				28091E931C64B61C00E789CD /* RangeExtension.swift in Sources */,
 				3094D5811C833F83007C2873 /* Microlocation.swift in Sources */,
 				30321F5D1C8176EE008E5258 /* EventInfo.swift in Sources */,

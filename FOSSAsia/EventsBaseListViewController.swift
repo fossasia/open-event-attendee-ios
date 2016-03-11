@@ -20,7 +20,7 @@ class EventsBaseListViewController: UIViewController, EventListBrowsingByDate, U
             currentViewController.delegate = self
         }
     }
-    var viewModel: EventsListViewModel? {
+    var viewModel: SessionsListViewModel? {
         didSet {
             viewModel?.allSchedules.observe {
                 [unowned self] in
@@ -84,11 +84,11 @@ extension EventsBaseListViewController {
         }
         
         let eventVM = self.currentViewController.eventViewModelForIndexPath(indexPath)
-        if let eventCell = self.currentViewController.tableView.cellForRowAtIndexPath(indexPath) {
-            previewingContext.sourceRect = eventCell.frame
+        if let sessionCell = self.currentViewController.tableView.cellForRowAtIndexPath(indexPath) {
+            previewingContext.sourceRect = sessionCell.frame
         }
         
-        let eventVC = EventViewController.eventViewControllerForEvent(eventVM)
+        let eventVC = SessionViewController.sessionViewControllerForSession(eventVM)
         return eventVC
     }
     

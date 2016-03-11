@@ -10,14 +10,14 @@ import UIKit
 
 class EventsBaseViewController: UIViewController {
     weak var delegate: ScheduleViewControllerDelegate?
-    static let kEventCellReuseIdentifier = "EventCell"
-    var allEvents: [EventViewModel] = []
+    static let kSessionCellReuseIdentifier = "SessionCell"
+    var allEvents: [SessionViewModel] = []
 
     @IBOutlet weak var tableView: UITableView!
     
     var viewModel: ScheduleViewModel? {
         didSet {
-            viewModel?.events.observe {
+            viewModel?.sessions.observe {
                 [unowned self] in
                 self.allEvents = $0
             }
@@ -44,14 +44,14 @@ class EventsBaseViewController: UIViewController {
         if (segue.identifier == "ShowEventDetail") {
             if let selectedIndexPath = self.tableView.indexPathForSelectedRow {
                 if let eventNavigationController = segue.destinationViewController as? UINavigationController {
-                    let eventViewController = eventNavigationController.topViewController as! EventViewController
-                    eventViewController.eventViewModel = allEvents[selectedIndexPath.row]
+                    let sessionViewController = eventNavigationController.topViewController as! SessionViewController
+                    sessionViewController.eventViewModel = allEvents[selectedIndexPath.row]
                 }
             }
         }
     }
     
-    func eventViewModelForIndexPath(path: NSIndexPath) -> EventViewModel {
+    func eventViewModelForIndexPath(path: NSIndexPath) -> SessionViewModel {
         return allEvents[path.row]
     }
     
@@ -65,7 +65,7 @@ extension EventsBaseViewController: UITableViewDelegate {
 
 extension EventsBaseViewController: UITableViewDataSource {
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier(EventsBaseViewController.kEventCellReuseIdentifier, forIndexPath: indexPath) as! EventCell
+        let cell = tableView.dequeueReusableCellWithIdentifier(EventsBaseViewController.kSessionCellReuseIdentifier, forIndexPath: indexPath) as! SessionCell
         let eventViewModel = allEvents[indexPath.row]
         cell.configure(withPresenter: eventViewModel)
         

@@ -15,14 +15,14 @@ class EventsResultsViewController: EventsBaseViewController {
         static let viewControllerId = String(EventsResultsViewController)
     }
     
-    lazy var visibleEvents: [EventViewModel] = self.allEvents
+    lazy var visibleEvents: [SessionViewModel] = self.allEvents
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if (segue.identifier == "ShowEventDetail") {
             if let selectedIndexPath = self.tableView.indexPathForSelectedRow {
                 if let eventNavigationController = segue.destinationViewController as? UINavigationController {
-                    let eventViewController = eventNavigationController.topViewController as! EventViewController
-                    eventViewController.eventViewModel = visibleEvents[selectedIndexPath.row]
+                    let sessionViewController = eventNavigationController.topViewController as! SessionViewController
+                    sessionViewController.eventViewModel = visibleEvents[selectedIndexPath.row]
                 }
             }
         }
@@ -36,7 +36,7 @@ extension EventsResultsViewController {
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier(EventsBaseViewController.kEventCellReuseIdentifier, forIndexPath: indexPath) as! EventCell
+        let cell = tableView.dequeueReusableCellWithIdentifier(EventsBaseViewController.kSessionCellReuseIdentifier, forIndexPath: indexPath) as! SessionCell
         let eventViewModel = visibleEvents[indexPath.row]
         cell.configure(withPresenter: eventViewModel)
         

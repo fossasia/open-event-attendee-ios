@@ -1,5 +1,5 @@
 //
-//  Type.swift
+//  EventInfo.swift
 //  FOSSAsia
 //
 //  Created by Pratik Todi on 27/02/16.
@@ -9,7 +9,7 @@
 import Foundation
 
 enum EventInfo: String {
-    case Events = "sessions"
+    case Sessions = "sessions"
     case Tracks = "tracks"
     case Microlocations = "microlocations"
     case Speakers = "speakers"

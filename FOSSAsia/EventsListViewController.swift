@@ -96,13 +96,13 @@ extension EventsListViewController: UISearchResultsUpdating {
 extension EventsListViewController: UITableViewDelegate {
     // This delegate is for the UISearchController.
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let selectedEventViewModel: EventViewModel
+        let selectedEventViewModel: SessionViewModel
         
         selectedEventViewModel = resultsTableController.visibleEvents[indexPath.row]
         
-        let storyboard = UIStoryboard(name: EventViewController.StoryboardConstants.storyboardName, bundle: nil)
+        let storyboard = UIStoryboard(name: SessionViewController.StoryboardConstants.storyboardName, bundle: nil)
         if let nvc = storyboard.instantiateViewControllerWithIdentifier("IndividualEventNavController") as? UINavigationController {
-            if let eventVC = nvc.topViewController as? EventViewController {
+            if let eventVC = nvc.topViewController as? SessionViewController {
                 eventVC.eventViewModel = selectedEventViewModel
                 splitViewController?.showDetailViewController(nvc, sender: self)
                 searchController.searchBar.resignFirstResponder()
