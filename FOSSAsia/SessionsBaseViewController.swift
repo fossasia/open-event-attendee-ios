@@ -1,5 +1,5 @@
 //
-//  EventsBaseViewController.swift
+//  SessionsBaseViewController.swift
 //  FOSSAsia
 //
 //  Created by Jurvis Tan on 7/2/16.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class EventsBaseViewController: UIViewController {
+class SessionsBaseViewController: UIViewController {
     weak var delegate: ScheduleViewControllerDelegate?
     static let kSessionCellReuseIdentifier = "SessionCell"
     var allEvents: [SessionViewModel] = []
@@ -45,7 +45,7 @@ class EventsBaseViewController: UIViewController {
             if let selectedIndexPath = self.tableView.indexPathForSelectedRow {
                 if let eventNavigationController = segue.destinationViewController as? UINavigationController {
                     let sessionViewController = eventNavigationController.topViewController as! SessionViewController
-                    sessionViewController.eventViewModel = allEvents[selectedIndexPath.row]
+                    sessionViewController.sessionViewModel = allEvents[selectedIndexPath.row]
                 }
             }
         }
@@ -57,15 +57,15 @@ class EventsBaseViewController: UIViewController {
     
 }
 
-extension EventsBaseViewController: UITableViewDelegate {
+extension SessionsBaseViewController: UITableViewDelegate {
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         delegate?.eventDidGetSelected(tableView, atIndexPath: indexPath)
     }
 }
 
-extension EventsBaseViewController: UITableViewDataSource {
+extension SessionsBaseViewController: UITableViewDataSource {
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier(EventsBaseViewController.kSessionCellReuseIdentifier, forIndexPath: indexPath) as! SessionCell
+        let cell = tableView.dequeueReusableCellWithIdentifier(SessionsBaseViewController.kSessionCellReuseIdentifier, forIndexPath: indexPath) as! SessionCell
         let eventViewModel = allEvents[indexPath.row]
         cell.configure(withPresenter: eventViewModel)
         

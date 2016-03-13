@@ -9,7 +9,7 @@
 import UIKit
 
 class SessionInfoView: UIView {
-    @IBOutlet weak var eventLabel: UILabel!
+    @IBOutlet weak var sessionLabel: UILabel!
     @IBOutlet weak var speakerLabel: UILabel!
     @IBOutlet weak var locationLabel: UILabel!
     
@@ -17,7 +17,7 @@ class SessionInfoView: UIView {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        eventLabel.preferredMaxLayoutWidth = eventLabel.bounds.size.width
+        sessionLabel.preferredMaxLayoutWidth = sessionLabel.bounds.size.width
         speakerLabel.preferredMaxLayoutWidth = speakerLabel.bounds.size.width
         locationLabel.preferredMaxLayoutWidth = locationLabel.bounds.size.width
         super.layoutSubviews()
@@ -27,7 +27,7 @@ class SessionInfoView: UIView {
         delegate = presenter
         
         if let delegate = self.delegate {
-            eventLabel.text = delegate.sessionName
+            sessionLabel.text = delegate.sessionName
             speakerLabel.text = delegate.speakerNames
             locationLabel.text = delegate.timing
         }

@@ -33,7 +33,7 @@
         <!--FOSSAsia-->
         <scene sceneID="XJE-5y-G6K">
             <objects>
-                <viewController automaticallyAdjustsScrollViewInsets="NO" id="O74-2b-t7i" customClass="EventsListViewController" customModule="FOSSAsia" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="O74-2b-t7i" customClass="SessionsListViewController" customModule="FOSSAsia" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="BjK-wu-r5m"/>
                         <viewControllerLayoutGuide type="bottom" id="ndS-bh-N3Z"/>
@@ -152,10 +152,10 @@
                                 <color key="sectionIndexBackgroundColor" red="0.97244364019999996" green="0.97260981800000001" blue="0.97243314979999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="FilterCell" rowHeight="44" id="jkm-tX-2kw" customClass="FilterCell" customModule="FOSSAsia" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="50" width="600" height="44"/>
+                                        <rect key="frame" x="0.0" y="49.5" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="jkm-tX-2kw" id="lts-yn-iy8">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BOA-TG-JLS">
@@ -257,7 +257,7 @@
         <!--SessionEmptyStateViewController-->
         <scene sceneID="0OA-dd-CIl">
             <objects>
-                <viewControllerPlaceholder storyboardName="IndividualEvent" referencedIdentifier="SessionEmptyStateViewController" id="uYc-8w-CJD" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="IndividualSession" referencedIdentifier="SessionEmptyStateViewController" id="uYc-8w-CJD" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="F9Q-hS-PQf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1497.5" y="155"/>

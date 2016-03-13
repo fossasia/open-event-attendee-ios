@@ -9,7 +9,7 @@
 import UIKit
 import MGSwipeTableCell
 
-class ScheduleViewController: EventsBaseViewController, SwipeToFavoriteCellPresentable, TableViewRefreshable {
+class ScheduleViewController: SessionsBaseViewController, SwipeToFavoriteCellPresentable, TableViewRefreshable {
     var refreshControl = UIRefreshControl()
     
     // Constants for Storyboard/VC
@@ -81,7 +81,7 @@ extension ScheduleViewController: UISearchResultsUpdating {
 
 extension ScheduleViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier(EventsBaseViewController.kSessionCellReuseIdentifier, forIndexPath: indexPath) as! SessionCell
+        let cell = tableView.dequeueReusableCellWithIdentifier(SessionsBaseViewController.kSessionCellReuseIdentifier, forIndexPath: indexPath) as! SessionCell
         let eventViewModel = allEvents[indexPath.row]
         cell.configure(withPresenter: eventViewModel)
         cell.delegate = self

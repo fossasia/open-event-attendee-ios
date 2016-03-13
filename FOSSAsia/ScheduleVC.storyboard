@@ -5,10 +5,10 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Events Results View Controller-->
+        <!--Sessions Results View Controller-->
         <scene sceneID="eid-il-k32">
             <objects>
-                <viewController storyboardIdentifier="EventsResultsViewController" id="JwQ-OB-Lsy" customClass="EventsResultsViewController" customModule="FOSSAsia" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SessionsResultsViewController" id="JwQ-OB-Lsy" customClass="SessionsResultsViewController" customModule="FOSSAsia" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="boS-dL-k5D"/>
                         <viewControllerLayoutGuide type="bottom" id="GI6-eS-DnG"/>
@@ -223,10 +223,10 @@
             </objects>
             <point key="canvasLocation" x="2159" y="-798"/>
         </scene>
-        <!--IndividualEvent-->
+        <!--IndividualSession-->
         <scene sceneID="gbS-St-BAF">
             <objects>
-                <viewControllerPlaceholder storyboardName="IndividualEvent" id="5tK-Bc-qQl" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="IndividualSession" id="5tK-Bc-qQl" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fVQ-bJ-Whd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2164" y="-333"/>

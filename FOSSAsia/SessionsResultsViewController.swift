@@ -1,5 +1,5 @@
 //
-//  SessionsSearchViewController.swift
+//  SessionsResultsViewController.swift
 //  FOSSAsia
 //
 //  Created by Jurvis Tan on 7/2/16.
@@ -8,11 +8,11 @@
 
 import UIKit
 
-class EventsResultsViewController: EventsBaseViewController {
+class SessionsResultsViewController: SessionsBaseViewController {
     
     struct StoryboardConstants {
         static let storyboardName = "ScheduleVC"
-        static let viewControllerId = String(EventsResultsViewController)
+        static let viewControllerId = String(SessionsResultsViewController)
     }
     
     lazy var visibleEvents: [SessionViewModel] = self.allEvents
@@ -22,7 +22,7 @@ class EventsResultsViewController: EventsBaseViewController {
             if let selectedIndexPath = self.tableView.indexPathForSelectedRow {
                 if let eventNavigationController = segue.destinationViewController as? UINavigationController {
                     let sessionViewController = eventNavigationController.topViewController as! SessionViewController
-                    sessionViewController.eventViewModel = visibleEvents[selectedIndexPath.row]
+                    sessionViewController.sessionViewModel = visibleEvents[selectedIndexPath.row]
                 }
             }
         }
@@ -30,13 +30,13 @@ class EventsResultsViewController: EventsBaseViewController {
 }
 
 // MARK: UITableViewDataSource
-extension EventsResultsViewController {
+extension SessionsResultsViewController {
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return visibleEvents.count
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier(EventsBaseViewController.kSessionCellReuseIdentifier, forIndexPath: indexPath) as! SessionCell
+        let cell = tableView.dequeueReusableCellWithIdentifier(SessionsBaseViewController.kSessionCellReuseIdentifier, forIndexPath: indexPath) as! SessionCell
         let eventViewModel = visibleEvents[indexPath.row]
         cell.configure(withPresenter: eventViewModel)
         

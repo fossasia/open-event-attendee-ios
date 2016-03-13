@@ -1,5 +1,5 @@
 //
-//  EventsBaseListViewController.swift
+//  SessionsBaseListViewController.swift
 //  FOSSAsia
 //
 //  Created by Jurvis Tan on 12/2/16.
@@ -9,12 +9,12 @@
 import UIKit
 import Pages
 
-class EventsBaseListViewController: UIViewController, EventListBrowsingByDate, UIViewControllerPreviewingDelegate  {
+class SessionsBaseListViewController: UIViewController, SessionListBrowsingByDate, UIViewControllerPreviewingDelegate  {
     private var collapseDetailViewController = true
     weak var pagesVC: PagesController!
     @IBOutlet weak var pagingView: SchedulePagingView!
  
-    var currentViewController: EventsBaseViewController! {
+    var currentViewController: SessionsBaseViewController! {
         didSet {
             self.registerForPreviewingWithDelegate(self, sourceView: currentViewController.tableView)
             currentViewController.delegate = self
@@ -34,7 +34,7 @@ class EventsBaseListViewController: UIViewController, EventListBrowsingByDate, U
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        viewModel = getEventsListViewModel()
+        viewModel = getSessionsListViewModel()
         pagingView.delegate = self
         navigationController?.splitViewController?.delegate = self
         splitViewController?.preferredDisplayMode = .AllVisible
@@ -63,21 +63,21 @@ class EventsBaseListViewController: UIViewController, EventListBrowsingByDate, U
 }
 
 // MARK:- ScheduleViewControllerDelegate Conformance {
-extension EventsBaseListViewController: ScheduleViewControllerDelegate {
+extension SessionsBaseListViewController: ScheduleViewControllerDelegate {
     func eventDidGetSelected(tableView: UITableView, atIndexPath: NSIndexPath) {
         collapseDetailViewController = false
     }
 }
 
 // MARK:- UISplitViewControllerDelegate Conformance
-extension EventsBaseListViewController: UISplitViewControllerDelegate {
+extension SessionsBaseListViewController: UISplitViewControllerDelegate {
     func splitViewController(splitViewController: UISplitViewController, collapseSecondaryViewController secondaryViewController: UIViewController, ontoPrimaryViewController primaryViewController: UIViewController) -> Bool {
         return collapseDetailViewController
     }
 }
 
 // MARK:- UIViewControllerPreviewingDelegate Conformance
-extension EventsBaseListViewController {
+extension SessionsBaseListViewController {
     func previewingContext(previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
         guard let indexPath = self.currentViewController.tableView.indexPathForRowAtPoint(location) else {
             return nil
@@ -97,7 +97,7 @@ extension EventsBaseListViewController {
     }
 }
 
-extension EventsBaseListViewController {
+extension SessionsBaseListViewController {
     func nextButtonDidPress(sender: SchedulePagingView) {
         self.pagesVC.next()
         
@@ -107,7 +107,7 @@ extension EventsBaseListViewController {
     }
     
     func pageViewController(pageViewController: UIPageViewController, setViewController viewController: UIViewController, atPage page: Int) {
-        guard let currentVC = viewController as? EventsBaseViewController else {
+        guard let currentVC = viewController as? SessionsBaseViewController else {
             return
         }
         pagingView.dateLabel.text = currentVC.viewModel?.date.value.formattedDateWithFormat("EEEE, MMM dd")

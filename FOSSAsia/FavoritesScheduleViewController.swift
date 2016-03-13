@@ -12,7 +12,7 @@ import DZNEmptyDataSet
 
 typealias FavoritesEmptyState = protocol<DZNEmptyDataSetDelegate, DZNEmptyDataSetSource>
 
-class FavoritesScheduleViewController: EventsBaseViewController, SwipeToFavoriteCellPresentable, FavoritesEmptyState {
+class FavoritesScheduleViewController: SessionsBaseViewController, SwipeToFavoriteCellPresentable, FavoritesEmptyState {
     var refreshControl = UIRefreshControl()
     
     struct StoryboardConstants {
@@ -71,7 +71,7 @@ extension FavoritesScheduleViewController {
 // MARK:- UITableViewDelegate Conformance
 extension FavoritesScheduleViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier(EventsBaseViewController.kSessionCellReuseIdentifier, forIndexPath: indexPath) as! SessionCell
+        let cell = tableView.dequeueReusableCellWithIdentifier(SessionsBaseViewController.kSessionCellReuseIdentifier, forIndexPath: indexPath) as! SessionCell
         let eventViewModel = allEvents[indexPath.row]
         cell.configure(withPresenter: eventViewModel)
         cell.delegate = self

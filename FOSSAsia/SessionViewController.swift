@@ -10,33 +10,33 @@ import UIKit
 import EventKit
 import EventKitUI
 
-typealias IndividualEventPresentable = protocol<SessionDetailsPresentable, SessionDescriptionPresentable, SessionAddToCalendarPresentable>
+typealias IndividualSessionPresentable = protocol<SessionDetailsPresentable, SessionDescriptionPresentable, SessionAddToCalendarPresentable>
 
 class SessionViewController: UIViewController {
     
     // Constants for Storyboard/VC
     struct StoryboardConstants {
-        static let storyboardName = "IndividualEvent"
+        static let storyboardName = "IndividualSession"
         static let viewControllerId = "SessionViewController"
     }
     
     // MARK:- Properties
-    var eventViewModel: SessionViewModel? {
+    var sessionViewModel: SessionViewModel? {
         didSet {
-            eventViewModel?.favorite.observe({ (newValue) -> Void in
+            sessionViewModel?.favorite.observe({ (newValue) -> Void in
                 self.navBarButtonItem.image = newValue ? UIImage(named: "navbar_fave_highlighted") : UIImage(named: "navbar_fave")
             })
         }
     }
-    var presenter: IndividualEventPresentable?
+    var presenter: IndividualSessionPresentable?
     
     @IBOutlet weak var contentView: UIView!
     @IBOutlet weak var scrollView: UIScrollView!
-    @IBOutlet weak var eventDescriptionTextView: UITextView!
+    @IBOutlet weak var sessionDescriptionTextView: UITextView!
     @IBOutlet weak var sessionInfoView: SessionInfoView!
-    @IBOutlet weak var eventDateTimeLabel: UILabel!
-    @IBOutlet weak var eventAddToCalendarButton: UIButton!
-    @IBOutlet weak var eventAddToCalendarButtonBottomConstraint: NSLayoutConstraint!
+    @IBOutlet weak var sessionDateTimeLabel: UILabel!
+    @IBOutlet weak var sessionAddToCalendarButton: UIButton!
+    @IBOutlet weak var sessionAddToCalendarButtonBottomConstraint: NSLayoutConstraint!
     @IBOutlet weak var navBarButtonItem: UIBarButtonItem!
     
     // MARK:- Initialization
@@ -44,13 +44,13 @@ class SessionViewController: UIViewController {
         let storyboard = UIStoryboard(name: SessionViewController.StoryboardConstants.storyboardName, bundle: nil)
         
         let viewController = storyboard.instantiateViewControllerWithIdentifier(SessionViewController.StoryboardConstants.viewControllerId) as! SessionViewController
-        viewController.eventViewModel = session
+        viewController.sessionViewModel = session
         
         return viewController
     }
     
     override func viewDidLoad() {
-        if let viewModel = eventViewModel {
+        if let viewModel = sessionViewModel {
             self.configure(viewModel)
         }
         
@@ -59,17 +59,17 @@ class SessionViewController: UIViewController {
     }
     
     override func viewDidLayoutSubviews() {
-        self.scrollView.contentSize = CGSizeMake(self.scrollView.frame.size.width, CGRectGetMaxY(self.eventAddToCalendarButton.frame) + eventAddToCalendarButtonBottomConstraint.constant)
+        self.scrollView.contentSize = CGSizeMake(self.scrollView.frame.size.width, CGRectGetMaxY(self.sessionAddToCalendarButton.frame) + sessionAddToCalendarButtonBottomConstraint.constant)
     }
     
-    func configure(presenter: IndividualEventPresentable) {
-        eventDescriptionTextView.text = presenter.sessionDescription
+    func configure(presenter: IndividualSessionPresentable) {
+        sessionDescriptionTextView.text = presenter.sessionDescription
         sessionInfoView.configure(presenter)
-        eventDateTimeLabel.text = "\(presenter.sessionDay), \(presenter.sessionDate) \(presenter.sessionMonth), \(presenter.sessionStartTime) - \(presenter.sessionEndTime)"
+        sessionDateTimeLabel.text = "\(presenter.sessionDay), \(presenter.sessionDate) \(presenter.sessionMonth), \(presenter.sessionStartTime) - \(presenter.sessionEndTime)"
         self.presenter = presenter
     }
     
-    @IBAction func eventAddToCalendar(sender: UIButton) {
+    @IBAction func sessionAddToCalendar(sender: UIButton) {
         let store = EKEventStore()
         
         store.requestAccessToEntityType(.Event) {(granted, error) in
@@ -91,9 +91,9 @@ class SessionViewController: UIViewController {
         }
     }
     @IBAction func favoriteEvent(sender: AnyObject) {
-        self.eventViewModel?.favoriteSession{  [weak self] (eventViewModel, error) -> () in
+        self.sessionViewModel?.favoriteSession{  [weak self] (eventViewModel, error) -> () in
             if let masterNavVC = self?.splitViewController?.viewControllers[0] as? UINavigationController {
-                if let masterVC = masterNavVC.topViewController as? EventsBaseListViewController {
+                if let masterVC = masterNavVC.topViewController as? SessionsBaseListViewController {
                     NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
                         masterVC.currentViewController.tableView.reloadData()
                     })

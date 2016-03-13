@@ -51,7 +51,7 @@
         <!--SessionEmptyStateViewController-->
         <scene sceneID="t2U-3w-qxQ">
             <objects>
-                <viewControllerPlaceholder storyboardName="IndividualEvent" referencedIdentifier="SessionEmptyStateViewController" id="00q-1q-7h0" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="IndividualSession" referencedIdentifier="SessionEmptyStateViewController" id="00q-1q-7h0" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MJH-xo-Szi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1546" y="637"/>
@@ -59,7 +59,7 @@
         <!--Favorites-->
         <scene sceneID="QGc-BC-FNU">
             <objects>
-                <viewController automaticallyAdjustsScrollViewInsets="NO" id="lyg-Ng-iKX" customClass="FavoriteEventsListViewController" customModule="FOSSAsia" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="lyg-Ng-iKX" customClass="FavoriteSessionsListViewController" customModule="FOSSAsia" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="1Np-AC-70Y"/>
                         <viewControllerLayoutGuide type="bottom" id="TDh-Ns-V7N"/>

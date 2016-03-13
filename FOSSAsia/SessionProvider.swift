@@ -97,7 +97,7 @@ struct SessionProvider {
                             let name = speakerName
                             sessionSpeakersNames.append(Speaker(name: name))
                         }
-                                                
+                        
                         let tempSession = Session(id: sessionId,
                             trackCode: Session.Track(rawValue: trackId)!,
                             title: sessionTitle,
@@ -121,7 +121,7 @@ struct SessionProvider {
                     }
                     
                     sessionsLoadingCompletionHandler(sessions, nil)
-
+                    
                     
                 })
             } catch {
