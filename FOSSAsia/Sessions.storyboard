@@ -100,10 +100,10 @@
                                     <outlet property="prevButton" destination="QPk-7B-Tu5" id="KMi-4q-EqA"/>
                                 </connections>
                             </view>
-                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G3E-Iw-ZKU" userLabel="Event List Container">
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G3E-Iw-ZKU" userLabel="Session List Container">
                                 <rect key="frame" x="0.0" y="100" width="600" height="500"/>
                                 <connections>
-                                    <segue destination="g5K-IK-1iQ" kind="embed" identifier="EventsPageViewController" id="B59-cw-Avu"/>
+                                    <segue destination="g5K-IK-1iQ" kind="embed" identifier="SessionsPageViewController" id="B59-cw-Avu"/>
                                 </connections>
                             </containerView>
                         </subviews>

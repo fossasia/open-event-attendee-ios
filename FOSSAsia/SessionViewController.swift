@@ -74,24 +74,24 @@ class SessionViewController: UIViewController {
         
         store.requestAccessToEntityType(.Event) {(granted, error) in
             if !granted { return }
-            let event = EKEvent(eventStore: store)
-            event.title = (self.presenter?.sessionName)!
-            event.startDate = (self.presenter?.sessionStartDate)!
-            event.endDate = (self.presenter?.sessionEndDate)!
-            event.calendar = store.defaultCalendarForNewEvents
+            let session = EKEvent(eventStore: store)
+            session.title = (self.presenter?.sessionName)!
+            session.startDate = (self.presenter?.sessionStartDate)!
+            session.endDate = (self.presenter?.sessionEndDate)!
+            session.calendar = store.defaultCalendarForNewEvents
             
             NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
-                let eventVC = EKEventEditViewController()
-                eventVC.navigationBar.tintColor = Colors.mainRedColor
-                eventVC.event = event
-                eventVC.eventStore = store
-                eventVC.editViewDelegate = self
-                self.presentViewController(eventVC, animated: true, completion: nil)
+                let sessionVC = EKEventEditViewController()
+                sessionVC.navigationBar.tintColor = Colors.mainRedColor
+                sessionVC.event = session
+                sessionVC.eventStore = store
+                sessionVC.editViewDelegate = self
+                self.presentViewController(sessionVC, animated: true, completion: nil)
             })
         }
     }
-    @IBAction func favoriteEvent(sender: AnyObject) {
-        self.sessionViewModel?.favoriteSession{  [weak self] (eventViewModel, error) -> () in
+    @IBAction func favoriteSession(sender: AnyObject) {
+        self.sessionViewModel?.favoriteSession{  [weak self] (sessionViewModel, error) -> () in
             if let masterNavVC = self?.splitViewController?.viewControllers[0] as? UINavigationController {
                 if let masterVC = masterNavVC.topViewController as? SessionsBaseListViewController {
                     NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in

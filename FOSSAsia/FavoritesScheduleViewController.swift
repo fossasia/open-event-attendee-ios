@@ -72,8 +72,8 @@ extension FavoritesScheduleViewController {
 extension FavoritesScheduleViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier(SessionsBaseViewController.kSessionCellReuseIdentifier, forIndexPath: indexPath) as! SessionCell
-        let eventViewModel = allEvents[indexPath.row]
-        cell.configure(withPresenter: eventViewModel)
+        let sessionViewModel = allSessions[indexPath.row]
+        cell.configure(withPresenter: sessionViewModel)
         cell.delegate = self
         
         return cell
@@ -82,9 +82,9 @@ extension FavoritesScheduleViewController {
 
 // MARK:- SwipeToFavoriteCellPresentable Conformance
 extension FavoritesScheduleViewController {
-    func favoriteEvent(indexPath: NSIndexPath)  {
-        let eventViewModel = self.eventViewModelForIndexPath(indexPath)
-        eventViewModel.favoriteSession { [weak self] (viewModel, error) -> Void in
+    func favoriteSession(indexPath: NSIndexPath)  {
+        let sessionViewModel = self.sessionViewModelForIndexPath(indexPath)
+        sessionViewModel.favoriteSession { [weak self] (viewModel, error) -> Void in
             if error == nil {
                 self?.viewModel?.refresh()
                 self?.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Left)
@@ -98,17 +98,17 @@ extension FavoritesScheduleViewController {
         expansionSettings.buttonIndex = 0
         
         weak var me = self
-        let eventViewModel = me!.eventViewModelForIndexPath(me!.tableView.indexPathForCell(cell)!)
+        let sessionViewModel = me!.sessionViewModelForIndexPath(me!.tableView.indexPathForCell(cell)!)
         
         if direction == .LeftToRight {
             expansionSettings.fillOnTrigger = false
             expansionSettings.threshold = 2
             
             
-            let faveButton = MGSwipeButton(title: "", icon: (eventViewModel.isFavorite ? UIImage(named: "cell_favorite_selected") : UIImage(named: "cell_favorite")), backgroundColor: Colors.favoriteOrangeColor!) { (sender: MGSwipeTableCell!) -> Bool in
+            let faveButton = MGSwipeButton(title: "", icon: (sessionViewModel.isFavorite ? UIImage(named: "cell_favorite_selected") : UIImage(named: "cell_favorite")), backgroundColor: Colors.favoriteOrangeColor!) { (sender: MGSwipeTableCell!) -> Bool in
                 if let sessionCell = sender as? SessionCell {
                     UIView.animateWithDuration(0.3, animations: { () -> Void in
-                        if (eventViewModel.isFavorite) {
+                        if (sessionViewModel.isFavorite) {
                             sessionCell.favoriteImage.transform = CGAffineTransformMakeScale(0.1, 0.1)
                             sessionCell.favoriteImage.alpha = 0.0
                         } else {
@@ -117,7 +117,7 @@ extension FavoritesScheduleViewController {
                         }
                         }, completion: { (done) -> Void in
                             if done {
-                                self.favoriteEvent(me!.tableView.indexPathForCell(sender)!)
+                                self.favoriteSession(me!.tableView.indexPathForCell(sender)!)
                             }
                     })
                 }

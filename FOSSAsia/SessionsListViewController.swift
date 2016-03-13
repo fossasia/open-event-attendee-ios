@@ -20,7 +20,7 @@ class SessionsListViewController: SessionsBaseListViewController {
             }
             
             scheduleVC.filterString = filterString
-            resultsTableController.visibleEvents = scheduleVC.filteredEvents
+            resultsTableController.visibleSessions = scheduleVC.filteredSessions
             resultsTableController.tableView.reloadData()
 
         }
@@ -28,7 +28,7 @@ class SessionsListViewController: SessionsBaseListViewController {
     override var currentViewController: SessionsBaseViewController! {
         didSet {
             if resultsTableController != nil {
-                resultsTableController.allEvents = currentViewController.allEvents
+                resultsTableController.allSessions = currentViewController.allSessions
             }
         }
     }
@@ -63,7 +63,7 @@ class SessionsListViewController: SessionsBaseListViewController {
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if (segue.identifier == "EventsPageViewController") {
+        if (segue.identifier == "SessionsPageViewController") {
             if let embeddedPageVC = segue.destinationViewController as? PagesController {
                 self.pagesVC = embeddedPageVC
                 let loadingVC = self.storyboard!.instantiateViewControllerWithIdentifier(LoadingViewController.StoryboardConstants.viewControllerId)
@@ -98,7 +98,7 @@ extension SessionsListViewController: UITableViewDelegate {
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let selectedSessionViewModel: SessionViewModel
         
-        selectedSessionViewModel = resultsTableController.visibleEvents[indexPath.row]
+        selectedSessionViewModel = resultsTableController.visibleSessions[indexPath.row]
         
         let storyboard = UIStoryboard(name: SessionViewController.StoryboardConstants.storyboardName, bundle: nil)
         if let nvc = storyboard.instantiateViewControllerWithIdentifier("IndividualSessionNavController") as? UINavigationController {

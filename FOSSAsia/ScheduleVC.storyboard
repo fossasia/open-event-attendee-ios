@@ -201,7 +201,7 @@
                                             <outlet property="timingLabel" destination="Ll3-Zx-f1U" id="jaG-Ym-jv8"/>
                                             <outlet property="titleLabel" destination="VoT-Uk-fKE" id="RuA-4A-EKA"/>
                                             <outlet property="typeView" destination="NRq-Ui-5It" id="pda-QH-Upa"/>
-                                            <segue destination="5tK-Bc-qQl" kind="showDetail" identifier="ShowEventDetail" id="Oox-vv-Y4y"/>
+                                            <segue destination="5tK-Bc-qQl" kind="showDetail" identifier="ShowSessionDetail" id="Oox-vv-Y4y"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -318,7 +318,7 @@
                                             <outlet property="timingLabel" destination="lxp-TG-dyy" id="3oU-9c-JIr"/>
                                             <outlet property="titleLabel" destination="9mM-XK-CHn" id="UJj-Y4-pV0"/>
                                             <outlet property="typeView" destination="12V-r6-6qO" id="UkW-4O-nFN"/>
-                                            <segue destination="5tK-Bc-qQl" kind="showDetail" identifier="ShowEventDetail" id="NFj-fv-urR"/>
+                                            <segue destination="5tK-Bc-qQl" kind="showDetail" identifier="ShowSessionDetail" id="NFj-fv-urR"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -345,6 +345,6 @@
         <image name="session_cell_favorite" width="15" height="15"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Oox-vv-Y4y"/>
+        <segue reference="NFj-fv-urR"/>
     </inferredMetricsTieBreakers>
 </document>

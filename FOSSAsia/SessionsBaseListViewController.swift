@@ -41,7 +41,7 @@ class SessionsBaseListViewController: UIViewController, SessionListBrowsingByDat
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if (segue.identifier == "EventsPageViewController") {
+        if (segue.identifier == "SessionsPageViewController") {
             if let embeddedPageVC = segue.destinationViewController as? PagesController {
                 self.pagesVC = embeddedPageVC
                 let storyboard = UIStoryboard(name: LoadingViewController.StoryboardConstants.storyboardName, bundle: nil)
@@ -64,7 +64,7 @@ class SessionsBaseListViewController: UIViewController, SessionListBrowsingByDat
 
 // MARK:- ScheduleViewControllerDelegate Conformance {
 extension SessionsBaseListViewController: ScheduleViewControllerDelegate {
-    func eventDidGetSelected(tableView: UITableView, atIndexPath: NSIndexPath) {
+    func sessionDidGetSelected(tableView: UITableView, atIndexPath: NSIndexPath) {
         collapseDetailViewController = false
     }
 }
@@ -83,13 +83,13 @@ extension SessionsBaseListViewController {
             return nil
         }
         
-        let eventVM = self.currentViewController.eventViewModelForIndexPath(indexPath)
+        let sessionVM = self.currentViewController.sessionViewModelForIndexPath(indexPath)
         if let sessionCell = self.currentViewController.tableView.cellForRowAtIndexPath(indexPath) {
             previewingContext.sourceRect = sessionCell.frame
         }
         
-        let eventVC = SessionViewController.sessionViewControllerForSession(eventVM)
-        return eventVC
+        let sessionVC = SessionViewController.sessionViewControllerForSession(sessionVM)
+        return sessionVC
     }
     
     func previewingContext(previewingContext: UIViewControllerPreviewing, commitViewController viewControllerToCommit: UIViewController) {

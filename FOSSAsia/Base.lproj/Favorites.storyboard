@@ -126,10 +126,10 @@
                                     <outlet property="prevButton" destination="2Ap-0r-uq0" id="9sb-67-8Wt"/>
                                 </connections>
                             </view>
-                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0OH-aE-BXC" userLabel="Event List Container">
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0OH-aE-BXC" userLabel="Session List Container">
                                 <rect key="frame" x="0.0" y="100" width="600" height="500"/>
                                 <connections>
-                                    <segue destination="tuq-1A-NnT" kind="embed" identifier="EventsPageViewController" id="beE-JT-C2I"/>
+                                    <segue destination="tuq-1A-NnT" kind="embed" identifier="SessionsPageViewController" id="beE-JT-C2I"/>
                                 </connections>
                             </containerView>
                         </subviews>
