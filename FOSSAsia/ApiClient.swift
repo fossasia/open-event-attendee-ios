@@ -14,7 +14,7 @@ struct ApiClient {
     static let url = "https://raw.githubusercontent.com/fossasia/open-event-scraper/master/out/"
     
     let eventInfo: EventInfo
-
+    
     func sendGetRequest(completionHandler: ApiRequestCompletionHandler) {
         let sessionConfig = NSURLSessionConfiguration.defaultSessionConfiguration()
         let session = NSURLSession(configuration: sessionConfig)
@@ -25,7 +25,7 @@ struct ApiClient {
                 completionHandler(nil, error)
                 return
             }
-
+            
             guard let unwrappedData = data else {
                 let error = Error(errorCode: .JSONSerializationFailed)
                 completionHandler(nil, error)
@@ -43,9 +43,9 @@ struct ApiClient {
         }
         task.resume()
     }
-
+    
     private func getUrl(eventInfo: EventInfo) -> String {
-       return ApiClient.url + eventInfo.rawValue + ".json"
+        return ApiClient.url + eventInfo.rawValue + ".json"
     }
     
     private func processResponse(data: NSData, completionHandler: CommitmentCompletionHandler) {
@@ -57,5 +57,5 @@ struct ApiClient {
         }
         completionHandler(Error(errorCode: .JSONSystemReadingFailed))
     }
-
+    
 }

@@ -9,7 +9,7 @@ Welcome! Thank you so much for the interest. Below here are some guidelines we'v
 - If there's a bug/issue you've found, [create the issue](http://github.com/fossasia/open-event-ios/issues/)
 - Fork and clone the repository
 - Create a branch with the work you're going to do
-- When finished with changes, create a PR against the development branch of this repository
+- When finished with changes, create a PR against the **development** branch of this repository
 
 ## What to Work On
 Check the list of [issues](https://github.com/fossasia/open-event-ios/issues)
@@ -17,7 +17,7 @@ Check the list of [issues](https://github.com/fossasia/open-event-ios/issues)
 ## Contribution Guidelines
 
 ### Any PRs are welcome
-Spot a typo? Send a pull request! Use of mutable values at the wrong places? Send a pull request!
+Spotted a typo? Send a pull request! Use of mutable values at the wrong places? Send a pull request!
 
 Basically, if you have something to contribute, we'll be more than happy to merge it if it fits the goals for the app.
 

@@ -1,5 +1,5 @@
 //
-//  Events.swift
+//  FetchDataService.swift
 //  FOSSAsia
 //
 //  Created by Pratik Todi on 27/02/16.

@@ -9,7 +9,7 @@
 import UIKit
 import MGSwipeTableCell
 
-class ScheduleViewController: EventsBaseViewController, SwipeToFavoriteCellPresentable, TableViewRefreshable {
+class ScheduleViewController: SessionsBaseViewController, SwipeToFavoriteCellPresentable, TableViewRefreshable {
     var refreshControl = UIRefreshControl()
     
     // Constants for Storyboard/VC
@@ -18,14 +18,14 @@ class ScheduleViewController: EventsBaseViewController, SwipeToFavoriteCellPrese
         static let viewControllerId = String(ScheduleViewController)
     }
     
-    lazy var filteredEvents: [EventViewModel] = self.allEvents
+    lazy var filteredSessions: [SessionViewModel] = self.allSessions
     var filterString: String? = nil {
         didSet {
             if filterString == nil || filterString!.isEmpty {
-                filteredEvents = self.allEvents
+                filteredSessions = self.allSessions
             } else {
                 let filterPredicate = NSPredicate(format: "self contains[c] %@", argumentArray: [filterString!])
-                filteredEvents = allEvents.filter( {filterPredicate.evaluateWithObject($0.eventName) } )
+                filteredSessions = allSessions.filter( {filterPredicate.evaluateWithObject($0.sessionName) } )
             }
         }
     }
@@ -81,9 +81,9 @@ extension ScheduleViewController: UISearchResultsUpdating {
 
 extension ScheduleViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier(EventsBaseViewController.kEventCellReuseIdentifier, forIndexPath: indexPath) as! EventCell
-        let eventViewModel = allEvents[indexPath.row]
-        cell.configure(withPresenter: eventViewModel)
+        let cell = tableView.dequeueReusableCellWithIdentifier(SessionsBaseViewController.kSessionCellReuseIdentifier, forIndexPath: indexPath) as! SessionCell
+        let sessionViewModel = allSessions[indexPath.row]
+        cell.configure(withPresenter: sessionViewModel)
         cell.delegate = self
         
         return cell
@@ -93,10 +93,10 @@ extension ScheduleViewController {
 
 // MARK:- SwipeToFavoriteCellPresentable Conformance
 extension ScheduleViewController {
-    func favoriteEvent(indexPath: NSIndexPath)  {
+    func favoriteSession(indexPath: NSIndexPath)  {
         weak var me = self
-        let eventViewModel = me!.eventViewModelForIndexPath(indexPath)
-        eventViewModel.favoriteEvent { (eventViewModel, error) -> Void in
+        let sessionViewModel = me!.sessionViewModelForIndexPath(indexPath)
+        sessionViewModel.favoriteSession { (sessionViewModel, error) -> Void in
             if error == nil {
                 self.tableView.reloadData()
             }
@@ -108,17 +108,17 @@ extension ScheduleViewController {
         expansionSettings.buttonIndex = 0
         
         weak var me = self
-        let eventViewModel = me!.eventViewModelForIndexPath(me!.tableView.indexPathForCell(cell)!)
+        let sessionViewModel = me!.sessionViewModelForIndexPath(me!.tableView.indexPathForCell(cell)!)
         
         if direction == .LeftToRight {
             expansionSettings.fillOnTrigger = false
             expansionSettings.threshold = 2
             
             
-            let faveButton = MGSwipeButton(title: "", icon: (eventViewModel.isFavorite ? UIImage(named: "cell_favorite_selected") : UIImage(named: "cell_favorite")), backgroundColor: Colors.favoriteOrangeColor!) { (sender: MGSwipeTableCell!) -> Bool in
-                if let sessionCell = sender as? EventCell {
+            let faveButton = MGSwipeButton(title: "", icon: (sessionViewModel.isFavorite ? UIImage(named: "cell_favorite_selected") : UIImage(named: "cell_favorite")), backgroundColor: Colors.favoriteOrangeColor!) { (sender: MGSwipeTableCell!) -> Bool in
+                if let sessionCell = sender as? SessionCell {
                     UIView.animateWithDuration(0.3, animations: { () -> Void in
-                        if (eventViewModel.isFavorite) {
+                        if (sessionViewModel.isFavorite) {
                             sessionCell.favoriteImage.transform = CGAffineTransformMakeScale(0.1, 0.1)
                             sessionCell.favoriteImage.alpha = 0.0
                         } else {
@@ -127,7 +127,7 @@ extension ScheduleViewController {
                         }
                         }, completion: { (done) -> Void in
                             if done {
-                                self.favoriteEvent(me!.tableView.indexPathForCell(cell)!)
+                                self.favoriteSession(me!.tableView.indexPathForCell(cell)!)
                             }
                     })
                 }

@@ -38,7 +38,7 @@ extension FilterListViewController: UITableViewDataSource {
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = self.filterTableView.dequeueReusableCellWithIdentifier(kFilterCellReuseIdentifier, forIndexPath: indexPath) as! FilterCell
         let trackId = indexPath.row + 1
-        let trackViewModel = TrackViewModel(Event.Track(rawValue: trackId)!)
+        let trackViewModel = TrackViewModel(Session.Track(rawValue: trackId)!)
         
         cell.configure(trackViewModel)
         

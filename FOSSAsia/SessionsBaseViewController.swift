@@ -1,5 +1,5 @@
 //
-//  EventsBaseViewController.swift
+//  SessionsBaseViewController.swift
 //  FOSSAsia
 //
 //  Created by Jurvis Tan on 7/2/16.
@@ -8,18 +8,18 @@
 
 import UIKit
 
-class EventsBaseViewController: UIViewController {
+class SessionsBaseViewController: UIViewController {
     weak var delegate: ScheduleViewControllerDelegate?
-    static let kEventCellReuseIdentifier = "EventCell"
-    var allEvents: [EventViewModel] = []
+    static let kSessionCellReuseIdentifier = "SessionCell"
+    var allSessions: [SessionViewModel] = []
 
     @IBOutlet weak var tableView: UITableView!
     
     var viewModel: ScheduleViewModel? {
         didSet {
-            viewModel?.events.observe {
+            viewModel?.sessions.observe {
                 [unowned self] in
-                self.allEvents = $0
+                self.allSessions = $0
             }
         }
     }
@@ -41,38 +41,38 @@ class EventsBaseViewController: UIViewController {
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if (segue.identifier == "ShowEventDetail") {
+        if (segue.identifier == "ShowSessionDetail") {
             if let selectedIndexPath = self.tableView.indexPathForSelectedRow {
-                if let eventNavigationController = segue.destinationViewController as? UINavigationController {
-                    let eventViewController = eventNavigationController.topViewController as! EventViewController
-                    eventViewController.eventViewModel = allEvents[selectedIndexPath.row]
+                if let sessionNavigationController = segue.destinationViewController as? UINavigationController {
+                    let sessionViewController = sessionNavigationController.topViewController as! SessionViewController
+                    sessionViewController.sessionViewModel = allSessions[selectedIndexPath.row]
                 }
             }
         }
     }
     
-    func eventViewModelForIndexPath(path: NSIndexPath) -> EventViewModel {
-        return allEvents[path.row]
+    func sessionViewModelForIndexPath(path: NSIndexPath) -> SessionViewModel {
+        return allSessions[path.row]
     }
     
 }
 
-extension EventsBaseViewController: UITableViewDelegate {
+extension SessionsBaseViewController: UITableViewDelegate {
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        delegate?.eventDidGetSelected(tableView, atIndexPath: indexPath)
+        delegate?.sessionDidGetSelected(tableView, atIndexPath: indexPath)
     }
 }
 
-extension EventsBaseViewController: UITableViewDataSource {
+extension SessionsBaseViewController: UITableViewDataSource {
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier(EventsBaseViewController.kEventCellReuseIdentifier, forIndexPath: indexPath) as! EventCell
-        let eventViewModel = allEvents[indexPath.row]
-        cell.configure(withPresenter: eventViewModel)
+        let cell = tableView.dequeueReusableCellWithIdentifier(SessionsBaseViewController.kSessionCellReuseIdentifier, forIndexPath: indexPath) as! SessionCell
+        let sessionViewModel = allSessions[indexPath.row]
+        cell.configure(withPresenter: sessionViewModel)
         
         return cell
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return allEvents.count
+        return allSessions.count
     }
 }

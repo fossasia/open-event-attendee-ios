@@ -1,5 +1,5 @@
 //
-//  FavoriteEventsListViewController.swift
+//  FavoriteSessionsListViewController.swift
 //  FOSSAsia
 //
 //  Created by Jurvis Tan on 12/2/16.
@@ -9,9 +9,9 @@
 import UIKit
 import Pages
 
-class FavoriteEventsListViewController: EventsBaseListViewController {
+class FavoriteSessionsListViewController: SessionsBaseListViewController {
     override func viewDidLoad() {
-        viewModel = getEventsListViewModel()
+        viewModel = getSessionsListViewModel()
         super.viewDidLoad()
         if let currentVC = currentViewController {
             self.registerForPreviewingWithDelegate(self, sourceView: currentVC.tableView)

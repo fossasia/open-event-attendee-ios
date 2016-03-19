@@ -1,5 +1,5 @@
 //
-//  EventsBaseListViewController.swift
+//  SessionsBaseListViewController.swift
 //  FOSSAsia
 //
 //  Created by Jurvis Tan on 12/2/16.
@@ -9,18 +9,18 @@
 import UIKit
 import Pages
 
-class EventsBaseListViewController: UIViewController, EventListBrowsingByDate, UIViewControllerPreviewingDelegate  {
+class SessionsBaseListViewController: UIViewController, SessionListBrowsingByDate, UIViewControllerPreviewingDelegate  {
     private var collapseDetailViewController = true
     weak var pagesVC: PagesController!
     @IBOutlet weak var pagingView: SchedulePagingView!
  
-    var currentViewController: EventsBaseViewController! {
+    var currentViewController: SessionsBaseViewController! {
         didSet {
             self.registerForPreviewingWithDelegate(self, sourceView: currentViewController.tableView)
             currentViewController.delegate = self
         }
     }
-    var viewModel: EventsListViewModel? {
+    var viewModel: SessionsListViewModel? {
         didSet {
             viewModel?.allSchedules.observe {
                 [unowned self] in
@@ -34,14 +34,14 @@ class EventsBaseListViewController: UIViewController, EventListBrowsingByDate, U
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        viewModel = getEventsListViewModel()
+        viewModel = getSessionsListViewModel()
         pagingView.delegate = self
         navigationController?.splitViewController?.delegate = self
         splitViewController?.preferredDisplayMode = .AllVisible
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if (segue.identifier == "EventsPageViewController") {
+        if (segue.identifier == "SessionsPageViewController") {
             if let embeddedPageVC = segue.destinationViewController as? PagesController {
                 self.pagesVC = embeddedPageVC
                 let storyboard = UIStoryboard(name: LoadingViewController.StoryboardConstants.storyboardName, bundle: nil)
@@ -63,33 +63,33 @@ class EventsBaseListViewController: UIViewController, EventListBrowsingByDate, U
 }
 
 // MARK:- ScheduleViewControllerDelegate Conformance {
-extension EventsBaseListViewController: ScheduleViewControllerDelegate {
-    func eventDidGetSelected(tableView: UITableView, atIndexPath: NSIndexPath) {
+extension SessionsBaseListViewController: ScheduleViewControllerDelegate {
+    func sessionDidGetSelected(tableView: UITableView, atIndexPath: NSIndexPath) {
         collapseDetailViewController = false
     }
 }
 
 // MARK:- UISplitViewControllerDelegate Conformance
-extension EventsBaseListViewController: UISplitViewControllerDelegate {
+extension SessionsBaseListViewController: UISplitViewControllerDelegate {
     func splitViewController(splitViewController: UISplitViewController, collapseSecondaryViewController secondaryViewController: UIViewController, ontoPrimaryViewController primaryViewController: UIViewController) -> Bool {
         return collapseDetailViewController
     }
 }
 
 // MARK:- UIViewControllerPreviewingDelegate Conformance
-extension EventsBaseListViewController {
+extension SessionsBaseListViewController {
     func previewingContext(previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
         guard let indexPath = self.currentViewController.tableView.indexPathForRowAtPoint(location) else {
             return nil
         }
         
-        let eventVM = self.currentViewController.eventViewModelForIndexPath(indexPath)
-        if let eventCell = self.currentViewController.tableView.cellForRowAtIndexPath(indexPath) {
-            previewingContext.sourceRect = eventCell.frame
+        let sessionVM = self.currentViewController.sessionViewModelForIndexPath(indexPath)
+        if let sessionCell = self.currentViewController.tableView.cellForRowAtIndexPath(indexPath) {
+            previewingContext.sourceRect = sessionCell.frame
         }
         
-        let eventVC = EventViewController.eventViewControllerForEvent(eventVM)
-        return eventVC
+        let sessionVC = SessionViewController.sessionViewControllerForSession(sessionVM)
+        return sessionVC
     }
     
     func previewingContext(previewingContext: UIViewControllerPreviewing, commitViewController viewControllerToCommit: UIViewController) {
@@ -97,7 +97,7 @@ extension EventsBaseListViewController {
     }
 }
 
-extension EventsBaseListViewController {
+extension SessionsBaseListViewController {
     func nextButtonDidPress(sender: SchedulePagingView) {
         self.pagesVC.next()
         
@@ -107,7 +107,7 @@ extension EventsBaseListViewController {
     }
     
     func pageViewController(pageViewController: UIPageViewController, setViewController viewController: UIViewController, atPage page: Int) {
-        guard let currentVC = viewController as? EventsBaseViewController else {
+        guard let currentVC = viewController as? SessionsBaseViewController else {
             return
         }
         pagingView.dateLabel.text = currentVC.viewModel?.date.value.formattedDateWithFormat("EEEE, MMM dd")

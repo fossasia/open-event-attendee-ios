@@ -30,7 +30,7 @@ struct TrackViewModel: TrackDetailsPresentable, TrackStatusPresentable, TrackCol
     let name: Observable<String>
 
     
-    init(_ track: Event.Track) {
+    init(_ track: Session.Track) {
         self.id = Observable(track.rawValue)
         self.name = Observable(track.description)
         if let filteredTrackIds = NSUserDefaults.standardUserDefaults().objectForKey(Constants.UserDefaultsKey.FilteredTrackIds) as? [Int] {
@@ -75,8 +75,8 @@ extension TrackViewModel {
 // MARK: - TrackColorPresentable 
 extension TrackViewModel {
     var trackColor: UIColor {
-        if let dummyEvent = Event.Track(rawValue: self.id.value) {
-            return dummyEvent.getTrackColor()
+        if let dummySession = Session.Track(rawValue: self.id.value) {
+            return dummySession.getTrackColor()
         } else {
             return UIColor.whiteColor()
         }

@@ -1,5 +1,5 @@
 //
-//  EventProvider.swift
+//  SessionProvider.swift
 //  FOSSAsia
 //
 //  Created by Pratik Todi on 27/02/16.
@@ -10,54 +10,54 @@ import Foundation
 import SwiftyJSON
 
 typealias CommitmentCompletionHandler = (Error?) -> Void
-typealias EventsLoadingCompletionHandler = ([Event]?, Error?) -> Void
+typealias SessionsLoadingCompletionHandler = ([Session]?, Error?) -> Void
 
-struct EventProvider {
+struct SessionProvider {
     private let dateFormatString = "yyyy-MM-dd'T'HH:mm:ssZ"
     
-    func getEvents(date: NSDate?, trackIds: [Int]?, completionHandler: EventsLoadingCompletionHandler) {
-        if !SettingsManager.isEventDataLoaded() || SettingsManager.isRefreshAllowed() {
-            FetchDataService().fetchData(EventInfo.Events) { (_, error) -> Void in
+    func getSessions(date: NSDate?, trackIds: [Int]?, completionHandler: SessionsLoadingCompletionHandler) {
+        if !SettingsManager.isSessionDataLoaded() || SettingsManager.isRefreshAllowed() {
+            FetchDataService().fetchData(EventInfo.Sessions) { (_, error) -> Void in
                 guard error == nil else {
                     let error = Error(errorCode: .NetworkRequestFailed)
                     completionHandler(nil, error)
                     return
                 }
                 
-                SettingsManager.saveKeyInUserDefaults(SettingsManager.keyForEvent, bool: true)
+                SettingsManager.saveKeyInUserDefaults(SettingsManager.keyForSession, bool: true)
                 SettingsManager.saveKeyInUserDefaults(SettingsManager.keyForRefresh, bool: false)
-                self.getEventsFromDisk(date, trackIds: trackIds, eventsLoadingCompletionHandler: { (events, error) -> Void in
-                    guard let unwrappedEvents = events else {
+                self.getSessionsFromDisk(date, trackIds: trackIds, sessionsLoadingCompletionHandler: { (sessions, error) -> Void in
+                    guard let unwrappedSessions = sessions else {
                         let error = Error(errorCode: .JSONSystemReadingFailed)
                         completionHandler(nil, error)
                         return
                     }
                     
-                    completionHandler(unwrappedEvents, nil)
+                    completionHandler(unwrappedSessions, nil)
                 })
             }
         } else {
-            self.getEventsFromDisk(date, trackIds: trackIds, eventsLoadingCompletionHandler: { (events, error) -> Void in
-                guard let unwrappedEvents = events else {
+            self.getSessionsFromDisk(date, trackIds: trackIds, sessionsLoadingCompletionHandler: { (sessions, error) -> Void in
+                guard let unwrappedSessions = sessions else {
                     let error = Error(errorCode: .JSONSystemReadingFailed)
                     completionHandler(nil, error)
                     return
                 }
                 
-                completionHandler(unwrappedEvents, nil)
+                completionHandler(unwrappedSessions, nil)
             })
         }
     }
     
-    private func getEventsFromDisk(date: NSDate?, trackIds: [Int]?, eventsLoadingCompletionHandler: EventsLoadingCompletionHandler) {
+    private func getSessionsFromDisk(date: NSDate?, trackIds: [Int]?, sessionsLoadingCompletionHandler: SessionsLoadingCompletionHandler) {
         if let dir : NSString = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .AllDomainsMask, true).first {
             do {
-                let filePath = dir.stringByAppendingPathComponent(SettingsManager.getLocalFileName(EventInfo.Events))
-                let eventsData = try NSData(contentsOfFile: filePath, options: .DataReadingMappedIfSafe)
-                let jsonObj = JSON(data: eventsData)
-                guard let sessionsArray = jsonObj[EventInfo.Events.rawValue].array else {
+                let filePath = dir.stringByAppendingPathComponent(SettingsManager.getLocalFileName(EventInfo.Sessions))
+                let sessionsData = try NSData(contentsOfFile: filePath, options: .DataReadingMappedIfSafe)
+                let jsonObj = JSON(data: sessionsData)
+                guard let sessionsArray = jsonObj[EventInfo.Sessions.rawValue].array else {
                     let error = Error(errorCode: .JSONParsingFailed)
-                    eventsLoadingCompletionHandler(nil, error)
+                    sessionsLoadingCompletionHandler(nil, error)
                     return
                 }
                 let dateFormatter: NSDateFormatter = {
@@ -66,15 +66,15 @@ struct EventProvider {
                     return formatter
                 }()
                 
-                getFavoriteEventsId({ (favoriteIds, error) -> Void in
+                getFavoriteSessionsId({ (favoriteIds, error) -> Void in
                     guard let idArray = favoriteIds else {
-                        eventsLoadingCompletionHandler(nil, error)
+                        sessionsLoadingCompletionHandler(nil, error)
                         return
                     }
                     
-                    var sessions: [Event] = []
+                    var sessions: [Session] = []
                     guard error == nil else {
-                        eventsLoadingCompletionHandler(nil, error)
+                        sessionsLoadingCompletionHandler(nil, error)
                         return
                     }
                     
@@ -97,9 +97,9 @@ struct EventProvider {
                             let name = speakerName
                             sessionSpeakersNames.append(Speaker(name: name))
                         }
-                                                
-                        let tempSession = Event(id: sessionId,
-                            trackCode: Event.Track(rawValue: trackId)!,
+                        
+                        let tempSession = Session(id: sessionId,
+                            trackCode: Session.Track(rawValue: trackId)!,
                             title: sessionTitle,
                             shortDescription: sessionDescription,
                             speakers: sessionSpeakersNames,
@@ -120,17 +120,17 @@ struct EventProvider {
                         sessions = sessions.sort({ $0.startDateTime.compare($1.startDateTime) == .OrderedAscending })
                     }
                     
-                    eventsLoadingCompletionHandler(sessions, nil)
-
+                    sessionsLoadingCompletionHandler(sessions, nil)
+                    
                     
                 })
             } catch {
-                eventsLoadingCompletionHandler(nil, Error(errorCode: .JSONSystemReadingFailed))
+                sessionsLoadingCompletionHandler(nil, Error(errorCode: .JSONSystemReadingFailed))
             }
         }
     }
     
-    private func getFavoriteEventsId(completionHandler: ([String]?, Error?) -> Void) {
+    private func getFavoriteSessionsId(completionHandler: ([String]?, Error?) -> Void) {
         if let dir: NSString = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .AllDomainsMask, true).first {
             let filePath = dir.stringByAppendingPathComponent(SettingsManager.favouritesLocalFileName)
             guard NSFileManager.defaultManager().fileExistsAtPath(filePath) else {
@@ -171,7 +171,7 @@ struct EventProvider {
                 return
             }
             
-            getFavoriteEventsId({ (favoriteIds, error) -> Void in
+            getFavoriteSessionsId({ (favoriteIds, error) -> Void in
                 if var favoriteIdArray = favoriteIds {
                     if favoriteIdArray.contains(sessionId) {
                         favoriteIdArray = favoriteIdArray.filter( {$0 != sessionId} )

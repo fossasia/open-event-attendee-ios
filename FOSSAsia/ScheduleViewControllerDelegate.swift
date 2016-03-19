@@ -9,5 +9,5 @@
 import Foundation
 
 protocol ScheduleViewControllerDelegate: class {
-    func eventDidGetSelected(tableView: UITableView, atIndexPath: NSIndexPath)
+    func sessionDidGetSelected(tableView: UITableView, atIndexPath: NSIndexPath)
 }

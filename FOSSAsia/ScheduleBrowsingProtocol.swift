@@ -14,7 +14,7 @@ typealias SwipeToFavoriteCellPresentable = protocol<MGSwipeTableCellDelegate, Ce
 typealias TableViewRefreshable = protocol<ScheduleRefreshable, ScheduleViewModelDelegate>
 
 protocol CellsFavoritable {
-    func favoriteEvent(indexPath: NSIndexPath)
+    func favoriteSession(indexPath: NSIndexPath)
 }
 
 protocol ScheduleRefreshable {

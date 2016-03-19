@@ -1,5 +1,5 @@
 //
-//  EventsListViewController.swift
+//  SessionsListViewController.swift
 //  FOSSAsia
 //
 //  Created by Jurvis Tan on 10/2/16.
@@ -9,9 +9,9 @@
 import UIKit
 import Pages
 
-class EventsListViewController: EventsBaseListViewController {
+class SessionsListViewController: SessionsBaseListViewController {
     var searchController: UISearchController!
-    var resultsTableController: EventsResultsViewController!
+    var resultsTableController: SessionsResultsViewController!
     
     var filterString: String? = nil {
         didSet {
@@ -20,26 +20,26 @@ class EventsListViewController: EventsBaseListViewController {
             }
             
             scheduleVC.filterString = filterString
-            resultsTableController.visibleEvents = scheduleVC.filteredEvents
+            resultsTableController.visibleSessions = scheduleVC.filteredSessions
             resultsTableController.tableView.reloadData()
 
         }
     }
-    override var currentViewController: EventsBaseViewController! {
+    override var currentViewController: SessionsBaseViewController! {
         didSet {
             if resultsTableController != nil {
-                resultsTableController.allEvents = currentViewController.allEvents
+                resultsTableController.allSessions = currentViewController.allSessions
             }
         }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        viewModel = self.getEventsListViewModel()
+        viewModel = self.getSessionsListViewModel()
         pagingView.delegate = self
         
-        let storyboard = UIStoryboard(name: EventsResultsViewController.StoryboardConstants.storyboardName, bundle: nil)
-        resultsTableController = storyboard.instantiateViewControllerWithIdentifier(EventsResultsViewController.StoryboardConstants.viewControllerId) as! EventsResultsViewController
+        let storyboard = UIStoryboard(name: SessionsResultsViewController.StoryboardConstants.storyboardName, bundle: nil)
+        resultsTableController = storyboard.instantiateViewControllerWithIdentifier(SessionsResultsViewController.StoryboardConstants.viewControllerId) as! SessionsResultsViewController
 
         searchController = UISearchController(searchResultsController: resultsTableController)
         searchController.searchResultsUpdater = self
@@ -63,7 +63,7 @@ class EventsListViewController: EventsBaseListViewController {
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if (segue.identifier == "EventsPageViewController") {
+        if (segue.identifier == "SessionsPageViewController") {
             if let embeddedPageVC = segue.destinationViewController as? PagesController {
                 self.pagesVC = embeddedPageVC
                 let loadingVC = self.storyboard!.instantiateViewControllerWithIdentifier(LoadingViewController.StoryboardConstants.viewControllerId)
@@ -84,7 +84,7 @@ class EventsListViewController: EventsBaseListViewController {
     }
 }
 
-extension EventsListViewController: UISearchResultsUpdating {
+extension SessionsListViewController: UISearchResultsUpdating {
     func updateSearchResultsForSearchController(searchController: UISearchController) {
         guard searchController.active else {
             return
@@ -93,17 +93,17 @@ extension EventsListViewController: UISearchResultsUpdating {
     }
 }
 
-extension EventsListViewController: UITableViewDelegate {
+extension SessionsListViewController: UITableViewDelegate {
     // This delegate is for the UISearchController.
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let selectedEventViewModel: EventViewModel
+        let selectedSessionViewModel: SessionViewModel
         
-        selectedEventViewModel = resultsTableController.visibleEvents[indexPath.row]
+        selectedSessionViewModel = resultsTableController.visibleSessions[indexPath.row]
         
-        let storyboard = UIStoryboard(name: EventViewController.StoryboardConstants.storyboardName, bundle: nil)
-        if let nvc = storyboard.instantiateViewControllerWithIdentifier("IndividualEventNavController") as? UINavigationController {
-            if let eventVC = nvc.topViewController as? EventViewController {
-                eventVC.eventViewModel = selectedEventViewModel
+        let storyboard = UIStoryboard(name: SessionViewController.StoryboardConstants.storyboardName, bundle: nil)
+        if let nvc = storyboard.instantiateViewControllerWithIdentifier("IndividualSessionNavController") as? UINavigationController {
+            if let sessionVC = nvc.topViewController as? SessionViewController {
+                sessionVC.sessionViewModel = selectedSessionViewModel
                 splitViewController?.showDetailViewController(nvc, sender: self)
                 searchController.searchBar.resignFirstResponder()
             }

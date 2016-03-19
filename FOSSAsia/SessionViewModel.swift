@@ -1,5 +1,5 @@
 //
-//  EventViewModel.swift
+//  SessionViewModel.swift
 //  FOSSAsia
 //
 //  Created by Jurvis Tan on 29/1/16.
@@ -9,34 +9,34 @@
 import Foundation
 
 
-typealias EventViewModelCompletionHandler = (EventViewModel?, Error?) -> ()
+typealias SessionViewModelCompletionHandler = (SessionViewModel?, Error?) -> ()
 
-protocol EventTypePresentable {
+protocol SessionTypePresentable {
     var typeColor: UIColor {get}
 }
 
-protocol EventDetailsPresentable {
-    var eventName: String {get}
+protocol SessionDetailsPresentable {
+    var sessionName: String {get}
     var speakerNames: String {get}
     var timing: String {get}
     var isFavorite: Bool {get}
 }
 
-protocol EventDescriptionPresentable {
-    var eventDescription: String {get }
+protocol SessionDescriptionPresentable {
+    var sessionDescription: String {get }
 }
 
-protocol EventAddToCalendarPresentable {
-    var eventStartTime: String {get}
-    var eventEndTime: String {get}
-    var eventDay: String {get}
-    var eventDate: String {get}
-    var eventMonth: String {get}
-    var eventStartDate: NSDate {get}
-    var eventEndDate: NSDate {get}
+protocol SessionAddToCalendarPresentable {
+    var sessionStartTime: String {get}
+    var sessionEndTime: String {get}
+    var sessionDay: String {get}
+    var sessionDate: String {get}
+    var sessionMonth: String {get}
+    var sessionStartDate: NSDate {get}
+    var sessionEndDate: NSDate {get}
 }
 
-struct EventViewModel: EventTypePresentable, EventDetailsPresentable, EventDescriptionPresentable, EventAddToCalendarPresentable {
+struct SessionViewModel: SessionTypePresentable, SessionDetailsPresentable, SessionDescriptionPresentable, SessionAddToCalendarPresentable {
     let sessionId: Observable<String>
     let track: Observable<UIColor>
     let title: Observable<String>
@@ -48,25 +48,25 @@ struct EventViewModel: EventTypePresentable, EventDetailsPresentable, EventDescr
     let favorite: Observable<Bool>
     
     // MARK: - Services
-    private var eventsService: EventProvider
+    private var sessionsService: SessionProvider
     
-    init (_ event: Event) {
-        sessionId = Observable(event.id)
-        track = Observable(event.trackCode.getTrackColor())
-        title = Observable(event.title)
-        shortDescription = Observable(event.shortDescription)
-        speakers = Observable(event.speakers)
-        location = Observable(event.location)
-        startDateTime = Observable(event.startDateTime)
-        endDateTime = Observable(event.endDateTime)
-        favorite = Observable(event.favorite)
+    init (_ session: Session) {
+        sessionId = Observable(session.id)
+        track = Observable(session.trackCode.getTrackColor())
+        title = Observable(session.title)
+        shortDescription = Observable(session.shortDescription)
+        speakers = Observable(session.speakers)
+        location = Observable(session.location)
+        startDateTime = Observable(session.startDateTime)
+        endDateTime = Observable(session.endDateTime)
+        favorite = Observable(session.favorite)
     
         // Dependency Injections
-        eventsService = EventProvider()
+        sessionsService = SessionProvider()
     }
     
-    func favoriteEvent(completionHandler: EventViewModelCompletionHandler) {
-        eventsService.toggleFavorite(self.sessionId.value) { (error) -> Void in
+    func favoriteSession(completionHandler: SessionViewModelCompletionHandler) {
+        sessionsService.toggleFavorite(self.sessionId.value) { (error) -> Void in
             guard error == nil else {
                 completionHandler(nil, error)
                 return
@@ -109,19 +109,19 @@ struct EventViewModel: EventTypePresentable, EventDetailsPresentable, EventDescr
      }
 }
 
-// MARK: - EventDescriptionPresentable Conformance
-extension EventViewModel {
-    var eventDescription: String { return shortDescription.value }
+// MARK: - SessionDescriptionPresentable Conformance
+extension SessionViewModel {
+    var sessionDescription: String { return shortDescription.value }
 }
 
 // MARK: - TypePresentable Conformance
-extension EventViewModel {
+extension SessionViewModel {
     var typeColor: UIColor { return self.track.value }
 }
 
-// MARK: - EventPresentable Conformance
-extension EventViewModel {
-    var eventName: String { return self.title.value }
+// MARK: - SessionPresentable Conformance
+extension SessionViewModel {
+    var sessionName: String { return self.title.value }
     var speakerNames: String {
         let speakers = self.speakers.value
         var speakersNames: [String] = []
@@ -138,13 +138,13 @@ extension EventViewModel {
     var isFavorite: Bool { return self.favorite.value }
 }
 
-// MARK: - EventAddToCalendar Conformance
-extension EventViewModel {
-    var eventStartTime: String { return self.startDateTime.value.formattedDateWithFormat("HH:mm") }
-    var eventEndTime: String { return self.endDateTime.value.formattedDateWithFormat("HH:mm") }
-    var eventDate: String { return self.startDateTime.value.formattedDateWithFormat("dd") }
-    var eventDay: String { return self.startDateTime.value.formattedDateWithFormat("EEEE") }
-    var eventMonth: String { return self.startDateTime.value.formattedDateWithFormat("MMM") }
-    var eventStartDate: NSDate { return self.startDateTime.value }
-    var eventEndDate: NSDate { return self.endDateTime.value }
+// MARK: - SessionAddToCalendar Conformance
+extension SessionViewModel {
+    var sessionStartTime: String { return self.startDateTime.value.formattedDateWithFormat("HH:mm") }
+    var sessionEndTime: String { return self.endDateTime.value.formattedDateWithFormat("HH:mm") }
+    var sessionDate: String { return self.startDateTime.value.formattedDateWithFormat("dd") }
+    var sessionDay: String { return self.startDateTime.value.formattedDateWithFormat("EEEE") }
+    var sessionMonth: String { return self.startDateTime.value.formattedDateWithFormat("MMM") }
+    var sessionStartDate: NSDate { return self.startDateTime.value }
+    var sessionEndDate: NSDate { return self.endDateTime.value }
 }
