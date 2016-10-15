@@ -1,3 +1,0 @@
-language: objective-c
-xcode_project: MyNewProject.xcodeproj # path to your xcodeproj folder
-xcode_scheme: MyNewProjectTests
