@@ -58,6 +58,7 @@
 		3094D5811C833F83007C2873 /* Microlocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3094D5801C833F83007C2873 /* Microlocation.swift */; };
 		30F0AFB61C81B9C400CE5D18 /* EventProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F0AFB51C81B9C400CE5D18 /* EventProvider.swift */; };
 		30F0AFB81C81C4C600CE5D18 /* SettingsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F0AFB71C81C4C600CE5D18 /* SettingsManager.swift */; };
+		5187E5C3F5730FE320E853FD /* Pods_FOSSAsia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFB927544B6326B8DD52CBCA /* Pods_FOSSAsia.framework */; };
 		6DBF207B1DB17B4400BE8946 /* DateTools.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6DBF20751DB17B4400BE8946 /* DateTools.framework */; };
 		6DBF207C1DB17B4400BE8946 /* DZNEmptyDataSet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6DBF20761DB17B4400BE8946 /* DZNEmptyDataSet.framework */; };
 		6DBF207D1DB17B4400BE8946 /* MGSwipeTableCell.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6DBF20771DB17B4400BE8946 /* MGSwipeTableCell.framework */; };
@@ -195,6 +196,7 @@
 				6DBF207E1DB17B4400BE8946 /* Pages.framework in Frameworks */,
 				6DBF207F1DB17B4400BE8946 /* Pods_FOSSAsia.framework in Frameworks */,
 				6DBF20801DB17B4400BE8946 /* SwiftyJSON.framework in Frameworks */,
+				5187E5C3F5730FE320E853FD /* Pods_FOSSAsia.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
