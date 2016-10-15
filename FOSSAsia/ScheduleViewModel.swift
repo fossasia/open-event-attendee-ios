@@ -15,7 +15,7 @@ protocol ScheduleCountPresentable {
 struct ScheduleViewModel: ScheduleCountPresentable {
     weak var delegate: ScheduleViewModelDelegate?
     // MARK: - Properties
-    let date: Observable<NSDate>
+    let date: Observable<Date>
     let events: Observable<[EventViewModel]>
     
     let isFavoritesOnly: Observable<Bool>
@@ -25,9 +25,9 @@ struct ScheduleViewModel: ScheduleCountPresentable {
     let errorMessage: Observable<String?>
     
     // MARK: - Services
-    private var eventsService: EventProvider
+    fileprivate var eventsService: EventProvider
     
-    init (_ date: NSDate, favoritesOnly: Bool = false) {
+    init (_ date: Date, favoritesOnly: Bool = false) {
         hasError = Observable(false)
         errorMessage = Observable(nil)
         
@@ -42,7 +42,7 @@ struct ScheduleViewModel: ScheduleCountPresentable {
 
     
     func refresh() {
-        if let filteredTracks = NSUserDefaults.standardUserDefaults().objectForKey(Constants.UserDefaultsKey.FilteredTrackIds) as? [Int] {
+        if let filteredTracks = UserDefaults.standard.object(forKey: Constants.UserDefaultsKey.FilteredTrackIds) as? [Int] {
             eventsService.getEvents(date.value, trackIds: filteredTracks) { (events, error) -> Void in
                 guard let unwrappedEvents = events else {
                     self.delegate?.scheduleDidLoad(nil, error: error)
@@ -59,7 +59,7 @@ struct ScheduleViewModel: ScheduleCountPresentable {
         }
     }
     
-    private func update(schedule: Schedule) {
+    fileprivate func update(_ schedule: Schedule) {
         let tempEvents = schedule.events.map { event in
             return EventViewModel(event)
         }
@@ -67,21 +67,21 @@ struct ScheduleViewModel: ScheduleCountPresentable {
         self.delegate?.scheduleDidLoad(schedule, error: nil)
     }
     
-    private func update(error: Error) {
+    fileprivate func update(_ error: Error) {
         hasError.value = true
         
         switch error.errorCode {
-        case .URLError:
+        case .urlError:
             errorMessage.value = "The events service is not working."
-        case .NetworkRequestFailed:
+        case .networkRequestFailed:
             errorMessage.value = "The network appears to be down."
-        case .JSONSerializationFailed:
+        case .jsonSerializationFailed:
             errorMessage.value = "We're having trouble processing events data."
-        case .JSONParsingFailed:
+        case .jsonParsingFailed:
             errorMessage.value = "We're having trouble parsing events data."
-        case .JSONSystemReadingFailed:
+        case .jsonSystemReadingFailed:
             errorMessage.value = "There seems to be a problem with reading data from disk."
-        case .WritingOnDiskFailed:
+        case .writingOnDiskFailed:
             errorMessage.value = "There seems to be a problem with writing data on disk."
         }
         

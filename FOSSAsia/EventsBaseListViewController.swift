@@ -10,13 +10,13 @@ import UIKit
 import Pages
 
 class EventsBaseListViewController: UIViewController, EventListBrowsingByDate, UIViewControllerPreviewingDelegate  {
-    private var collapseDetailViewController = true
+    fileprivate var collapseDetailViewController = true
     weak var pagesVC: PagesController!
     @IBOutlet weak var pagingView: SchedulePagingView!
  
     var currentViewController: EventsBaseViewController! {
         didSet {
-            self.registerForPreviewingWithDelegate(self, sourceView: currentViewController.tableView)
+            self.registerForPreviewing(with: self, sourceView: currentViewController.tableView)
             currentViewController.delegate = self
         }
     }
@@ -37,15 +37,15 @@ class EventsBaseListViewController: UIViewController, EventListBrowsingByDate, U
         viewModel = getEventsListViewModel()
         pagingView.delegate = self
         navigationController?.splitViewController?.delegate = self
-        splitViewController?.preferredDisplayMode = .AllVisible
+        splitViewController?.preferredDisplayMode = .allVisible
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "EventsPageViewController") {
-            if let embeddedPageVC = segue.destinationViewController as? PagesController {
+            if let embeddedPageVC = segue.destination as? PagesController {
                 self.pagesVC = embeddedPageVC
                 let storyboard = UIStoryboard(name: LoadingViewController.StoryboardConstants.storyboardName, bundle: nil)
-                let loadingVC = storyboard.instantiateViewControllerWithIdentifier(LoadingViewController.StoryboardConstants.viewControllerId)
+                let loadingVC = storyboard.instantiateViewController(withIdentifier: LoadingViewController.StoryboardConstants.viewControllerId)
                 self.pagesVC.add([loadingVC])
                 self.pagesVC.enableSwipe = false
                 self.pagesVC.pagesDelegate = self
@@ -53,7 +53,7 @@ class EventsBaseListViewController: UIViewController, EventListBrowsingByDate, U
         }
     }
     
-    func onViewModelScheduleChange(newSchedule: [ScheduleViewModel]) {
+    func onViewModelScheduleChange(_ newSchedule: [ScheduleViewModel]) {
         let viewControllers = newSchedule.map { viewModel in
             return ScheduleViewController.scheduleViewControllerFor(viewModel)
         }
@@ -64,27 +64,27 @@ class EventsBaseListViewController: UIViewController, EventListBrowsingByDate, U
 
 // MARK:- ScheduleViewControllerDelegate Conformance {
 extension EventsBaseListViewController: ScheduleViewControllerDelegate {
-    func eventDidGetSelected(tableView: UITableView, atIndexPath: NSIndexPath) {
+    func eventDidGetSelected(_ tableView: UITableView, atIndexPath: IndexPath) {
         collapseDetailViewController = false
     }
 }
 
 // MARK:- UISplitViewControllerDelegate Conformance
 extension EventsBaseListViewController: UISplitViewControllerDelegate {
-    func splitViewController(splitViewController: UISplitViewController, collapseSecondaryViewController secondaryViewController: UIViewController, ontoPrimaryViewController primaryViewController: UIViewController) -> Bool {
+    func splitViewController(_ splitViewController: UISplitViewController, collapseSecondary secondaryViewController: UIViewController, onto primaryViewController: UIViewController) -> Bool {
         return collapseDetailViewController
     }
 }
 
 // MARK:- UIViewControllerPreviewingDelegate Conformance
 extension EventsBaseListViewController {
-    func previewingContext(previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
-        guard let indexPath = self.currentViewController.tableView.indexPathForRowAtPoint(location) else {
+    func previewingContext(_ previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
+        guard let indexPath = self.currentViewController.tableView.indexPathForRow(at: location) else {
             return nil
         }
         
         let eventVM = self.currentViewController.eventViewModelForIndexPath(indexPath)
-        if let eventCell = self.currentViewController.tableView.cellForRowAtIndexPath(indexPath) {
+        if let eventCell = self.currentViewController.tableView.cellForRow(at: indexPath) {
             previewingContext.sourceRect = eventCell.frame
         }
         
@@ -92,39 +92,39 @@ extension EventsBaseListViewController {
         return eventVC
     }
     
-    func previewingContext(previewingContext: UIViewControllerPreviewing, commitViewController viewControllerToCommit: UIViewController) {
+    @objc(previewingContext:commitViewController:) func previewingContext(_ previewingContext: UIViewControllerPreviewing, commit viewControllerToCommit: UIViewController) {
         navigationController?.pushViewController(viewControllerToCommit, animated: true)
     }
 }
 
 extension EventsBaseListViewController {
-    func nextButtonDidPress(sender: SchedulePagingView) {
+    func nextButtonDidPress(_ sender: SchedulePagingView) {
         self.pagesVC.next()
         
     }
-    func prevButtonDidPress(sender: SchedulePagingView) {
+    func prevButtonDidPress(_ sender: SchedulePagingView) {
         self.pagesVC.previous()
     }
     
-    func pageViewController(pageViewController: UIPageViewController, setViewController viewController: UIViewController, atPage page: Int) {
+    func pageViewController(_ pageViewController: UIPageViewController, setViewController viewController: UIViewController, atPage page: Int) {
         guard let currentVC = viewController as? EventsBaseViewController else {
             return
         }
-        pagingView.dateLabel.text = currentVC.viewModel?.date.value.formattedDateWithFormat("EEEE, MMM dd")
+        pagingView.dateLabel.text = ((currentVC.viewModel?.date.value)! as NSDate).formattedDate(withFormat: "EEEE, MMM dd")
         
         // Govern Previous Button
         if page == 1 {
-            pagingView.prevButton.enabled = false
+            pagingView.prevButton.isEnabled = false
         } else {
-            pagingView.prevButton.enabled = true
+            pagingView.prevButton.isEnabled = true
         }
         
         // Govern Next Button
         if let scheduleViewModels = viewModel {
             if page == scheduleViewModels.count.value {
-                pagingView.nextButton.enabled = false
+                pagingView.nextButton.isEnabled = false
             } else {
-                pagingView.nextButton.enabled = true
+                pagingView.nextButton.isEnabled = true
             }
         }
         

@@ -9,7 +9,7 @@
 import UIKit
 import MGSwipeTableCell
 
-typealias EventCellWithTypePresentable = protocol<EventTypePresentable, EventDetailsPresentable>
+typealias EventCellWithTypePresentable = EventTypePresentable & EventDetailsPresentable
 
 class EventCell: MGSwipeTableCell {
     @IBOutlet weak var favoriteImage: UIImageView!
@@ -17,7 +17,7 @@ class EventCell: MGSwipeTableCell {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var timingLabel: UILabel!
     
-    private var viewModel: EventCellWithTypePresentable?
+    fileprivate var viewModel: EventCellWithTypePresentable?
     
     func configure(withPresenter presenter: EventCellWithTypePresentable) {
         viewModel = presenter
@@ -25,15 +25,15 @@ class EventCell: MGSwipeTableCell {
         typeView.backgroundColor = viewModel!.typeColor
         timingLabel.text = viewModel!.timing
         if (viewModel!.isFavorite) {
-            favoriteImage.transform = CGAffineTransformIdentity
+            favoriteImage.transform = CGAffineTransform.identity
             favoriteImage.alpha = 1.0
         } else {
-            favoriteImage.transform = CGAffineTransformMakeScale(0.1, 0.1)
+            favoriteImage.transform = CGAffineTransform(scaleX: 0.1, y: 0.1)
             favoriteImage.alpha = 0.0
         }
     }
     
-    override func setSelected(selected: Bool, animated: Bool) {
+    override func setSelected(_ selected: Bool, animated: Bool) {
         let color = typeView.backgroundColor
         super.setSelected(selected, animated: animated)
         
@@ -43,7 +43,7 @@ class EventCell: MGSwipeTableCell {
         }
     }
     
-    override func setHighlighted(highlighted: Bool, animated: Bool) {
+    override func setHighlighted(_ highlighted: Bool, animated: Bool) {
         let color = typeView.backgroundColor
         super.setHighlighted(highlighted, animated: animated)
         
