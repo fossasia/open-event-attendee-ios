@@ -1,0 +1,3 @@
+language: swift
+script: ./build.sh
+osx_image: xcode8
