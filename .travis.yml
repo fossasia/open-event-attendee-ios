@@ -1,4 +1,7 @@
-language: swift
-script: ./build.sh
+language: objective-c
 osx_image: xcode8
-xcode_sdk: iphonesimulator10.0
+env:
+  - DESTINATION="OS=10.0,name=iPhone 6s" SCHEME="FOSSAsia" SDK=iphonesimulator10.0
+script:
+  - xcodebuild -version
+  - xcodebuild test -workspace FOSSAsia.xcworkspace -scheme "$SCHEME" -sdk "$SDK" -destination "$DESTINATION"
