@@ -8,28 +8,28 @@
 
 import UIKit
 
-typealias TrackDetailsWithSwitchPresentable = protocol<TrackDetailsPresentable, TrackStatusPresentable, TrackColorPresentable>
+typealias TrackDetailsWithSwitchPresentable = TrackDetailsPresentable & TrackStatusPresentable & TrackColorPresentable
 
 class FilterCell: UITableViewCell {
     @IBOutlet weak var trackLabel: UILabel!
     @IBOutlet weak var trackIndicator: UIView!
     @IBOutlet weak var trackSwitch: UISwitch!
     
-    private var delegate: TrackDetailsWithSwitchPresentable?
+    fileprivate var delegate: TrackDetailsWithSwitchPresentable?
     
-    func configure(presenter: TrackDetailsWithSwitchPresentable) {
+    func configure(_ presenter: TrackDetailsWithSwitchPresentable) {
         delegate = presenter
         trackLabel.text = presenter.trackName
         trackIndicator.backgroundColor = presenter.trackColor
-        if let filterPrefs = NSUserDefaults.standardUserDefaults().objectForKey(Constants.UserDefaultsKey.FilteredTrackIds) as? [Int] {
-            trackSwitch.on = filterPrefs.contains(presenter.trackId)
+        if let filterPrefs = UserDefaults.standard.object(forKey: Constants.UserDefaultsKey.FilteredTrackIds) as? [Int] {
+            trackSwitch.isOn = filterPrefs.contains(presenter.trackId)
         }
-        trackSwitch.addTarget(self, action: "switchFlipped:", forControlEvents: .ValueChanged)
+        trackSwitch.addTarget(self, action: #selector(FilterCell.switchFlipped(_:)), for: .valueChanged)
     }
     
-    func switchFlipped(sender: AnyObject) {
+    func switchFlipped(_ sender: AnyObject) {
         if let filterSwitch = sender as? UISwitch {
-            delegate?.changeFilterPreference(filterSwitch.on)
+            delegate?.changeFilterPreference(filterSwitch.isOn)
         }
     }
     

@@ -10,7 +10,7 @@ import Foundation
 
 struct FetchDataService {
     
-    func fetchData(eventInfo: EventInfo, completionHandler: ApiRequestCompletionHandler) {
+    func fetchData(_ eventInfo: EventInfo, completionHandler: @escaping ApiRequestCompletionHandler) {
         let apiClient = ApiClient(eventInfo: eventInfo)
         apiClient.sendGetRequest { (data, error) -> Void in
             guard let unwrappedData = data else {

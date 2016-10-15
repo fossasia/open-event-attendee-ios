@@ -10,14 +10,14 @@ import UIKit
 import MGSwipeTableCell
 import DZNEmptyDataSet
 
-typealias FavoritesEmptyState = protocol<DZNEmptyDataSetDelegate, DZNEmptyDataSetSource>
+typealias FavoritesEmptyState = DZNEmptyDataSetDelegate & DZNEmptyDataSetSource
 
 class FavoritesScheduleViewController: EventsBaseViewController, SwipeToFavoriteCellPresentable, FavoritesEmptyState {
     var refreshControl = UIRefreshControl()
     
     struct StoryboardConstants {
         static let storyboardName = "ScheduleVC"
-        static let viewControllerId = String(FavoritesScheduleViewController)
+        static let viewControllerId = String(describing: FavoritesScheduleViewController())
     }
     
     override func viewDidLoad() {
@@ -27,14 +27,14 @@ class FavoritesScheduleViewController: EventsBaseViewController, SwipeToFavorite
         self.tableView.emptyDataSetDelegate = self
         
         refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
-        refreshControl.addTarget(self, action: "refresh:", forControlEvents: .ValueChanged)
+        refreshControl.addTarget(self, action: Selector(("refresh:")), for: .valueChanged)
         tableView.addSubview(refreshControl)
     }
     
-    class func scheduleViewControllerFor(schedule: ScheduleViewModel) -> FavoritesScheduleViewController {
+    class func scheduleViewControllerFor(_ schedule: ScheduleViewModel) -> FavoritesScheduleViewController {
         let storyboard = UIStoryboard(name: FavoritesScheduleViewController.StoryboardConstants.storyboardName, bundle: nil)
         
-        let viewController = storyboard.instantiateViewControllerWithIdentifier(FavoritesScheduleViewController.StoryboardConstants.viewControllerId) as! FavoritesScheduleViewController
+        let viewController = storyboard.instantiateViewController(withIdentifier: FavoritesScheduleViewController.StoryboardConstants.viewControllerId) as! FavoritesScheduleViewController
         viewController.viewModel = schedule
         
         return viewController
@@ -43,17 +43,17 @@ class FavoritesScheduleViewController: EventsBaseViewController, SwipeToFavorite
 
 // MARK:- DZNEmptyDataSetSource Conformance
 extension FavoritesScheduleViewController {
-    internal func titleForEmptyDataSet(scrollView: UIScrollView!) -> NSAttributedString! {
+    internal func title(forEmptyDataSet scrollView: UIScrollView) -> NSAttributedString? {
         let text = "No Favorites Yet!"
-        let attributes = [NSFontAttributeName: UIFont.boldSystemFontOfSize(18.0),
-            NSForegroundColorAttributeName: UIColor.darkGrayColor()]
+        let attributes = [NSFontAttributeName: UIFont.boldSystemFont(ofSize: 18.0),
+            NSForegroundColorAttributeName: UIColor.darkGray]
         
         return NSAttributedString.init(string: text, attributes: attributes)
     }
     
-    internal func buttonImageForEmptyDataSet(scrollView: UIScrollView!, forState state: UIControlState) -> UIImage! {
+    @objc(buttonImageForEmptyDataSet:forState:) internal func buttonImage(forEmptyDataSet scrollView: UIScrollView, for state: UIControlState) -> UIImage? {
         switch state {
-        case UIControlState.Highlighted:
+        case UIControlState.highlighted:
             return UIImage(named: "browse_events_btn_selected")
         default:
             return UIImage(named: "browse_events_btn")
@@ -63,16 +63,16 @@ extension FavoritesScheduleViewController {
 
 // MARK:- DZNEmptyDataSetDelegate Conformance
 extension FavoritesScheduleViewController {
-    internal func emptyDataSet(scrollView: UIScrollView!, didTapButton button: UIButton!) {
+    @objc(emptyDataSet:didTapButton:) internal func emptyDataSet(_ scrollView: UIScrollView, didTap button: UIButton) {
         self.tabBarController?.selectedIndex = 0
     }
 }
 
 // MARK:- UITableViewDelegate Conformance
 extension FavoritesScheduleViewController {
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier(EventsBaseViewController.kEventCellReuseIdentifier, forIndexPath: indexPath) as! EventCell
-        let eventViewModel = allEvents[indexPath.row]
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: EventsBaseViewController.kEventCellReuseIdentifier, for: indexPath) as! EventCell
+        let eventViewModel = allEvents[(indexPath as NSIndexPath).row]
         cell.configure(withPresenter: eventViewModel)
         cell.delegate = self
         
@@ -82,42 +82,42 @@ extension FavoritesScheduleViewController {
 
 // MARK:- SwipeToFavoriteCellPresentable Conformance
 extension FavoritesScheduleViewController {
-    func favoriteEvent(indexPath: NSIndexPath)  {
+    func favoriteEvent(_ indexPath: IndexPath)  {
         let eventViewModel = self.eventViewModelForIndexPath(indexPath)
         eventViewModel.favoriteEvent { [weak self] (viewModel, error) -> Void in
             if error == nil {
                 self?.viewModel?.refresh()
-                self?.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Left)
+                self?.tableView.deleteRows(at: [indexPath], with: .left)
                 self?.tableView.reloadData() // refresh empty state layout
             }
         }
     }
     
-    func swipeTableCell(cell: MGSwipeTableCell!, swipeButtonsForDirection direction: MGSwipeDirection, swipeSettings: MGSwipeSettings!, expansionSettings: MGSwipeExpansionSettings!) -> [AnyObject]! {
-        swipeSettings.transition = .Border
+    @objc(swipeTableCell:swipeButtonsForDirection:swipeSettings:expansionSettings:) func swipeTableCell(_ cell: MGSwipeTableCell, swipeButtonsFor direction: MGSwipeDirection, swipeSettings: MGSwipeSettings, expansionSettings: MGSwipeExpansionSettings) -> [UIView]? {
+        swipeSettings.transition = .border
         expansionSettings.buttonIndex = 0
         
         weak var me = self
-        let eventViewModel = me!.eventViewModelForIndexPath(me!.tableView.indexPathForCell(cell)!)
+        let eventViewModel = me!.eventViewModelForIndexPath(me!.tableView.indexPath(for: cell)!)
         
-        if direction == .LeftToRight {
+        if direction == .leftToRight {
             expansionSettings.fillOnTrigger = false
             expansionSettings.threshold = 2
             
             
             let faveButton = MGSwipeButton(title: "", icon: (eventViewModel.isFavorite ? UIImage(named: "cell_favorite_selected") : UIImage(named: "cell_favorite")), backgroundColor: Colors.favoriteOrangeColor!) { (sender: MGSwipeTableCell!) -> Bool in
                 if let sessionCell = sender as? EventCell {
-                    UIView.animateWithDuration(0.3, animations: { () -> Void in
+                    UIView.animate(withDuration: 0.3, animations: { () -> Void in
                         if (eventViewModel.isFavorite) {
-                            sessionCell.favoriteImage.transform = CGAffineTransformMakeScale(0.1, 0.1)
+                            sessionCell.favoriteImage.transform = CGAffineTransform(scaleX: 0.1, y: 0.1)
                             sessionCell.favoriteImage.alpha = 0.0
                         } else {
-                            sessionCell.favoriteImage.transform = CGAffineTransformIdentity
+                            sessionCell.favoriteImage.transform = CGAffineTransform.identity
                             sessionCell.favoriteImage.alpha = 1.0
                         }
                         }, completion: { (done) -> Void in
                             if done {
-                                self.favoriteEvent(me!.tableView.indexPathForCell(sender)!)
+                                self.favoriteEvent(me!.tableView.indexPath(for: sender)!)
                             }
                     })
                 }

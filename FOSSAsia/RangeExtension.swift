@@ -8,14 +8,9 @@
 
 import Foundation
 
-protocol ArrayRepresentable {
-    typealias ArrayType
-    
-    func toArray() -> [ArrayType]
-}
-
-extension Range : ArrayRepresentable {
-    func toArray() -> [Element] {
-        return [Element](self)
+extension Sequence {
+    func toArray() -> [Iterator.Element] {
+        
+        return Array(self)
     }
 }

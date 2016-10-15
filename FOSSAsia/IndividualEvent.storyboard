@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="o5S-Pz-giN">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="o5S-Pz-giN">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Navigation Controller-->
@@ -12,9 +13,9 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="3q8-XM-GmX">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" red="0.86923396587371826" green="0.022301075980067253" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="barTintColor" red="0.8264998197555542" green="0.0" blue="0.019660282880067825" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <textAttributes key="titleTextAttributes">
-                            <color key="textColor" red="0.97941631078720093" green="1" blue="0.97928720712661743" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="textColor" red="0.97479069232940674" green="1" blue="0.97394168376922607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </textAttributes>
                     </navigationBar>
                     <connections>
@@ -32,7 +33,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="olo-Dx-IT8">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" red="0.86923396587371826" green="0.022301075980067253" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="barTintColor" red="0.8264998197555542" green="0.0" blue="0.019660282880067825" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </navigationBar>
                     <connections>
                         <segue destination="oWk-Ig-N2H" kind="relationship" relationship="rootViewController" id="7Xk-uc-YkG"/>
@@ -51,29 +52,25 @@
                         <viewControllerLayoutGuide type="bottom" id="Q7F-NH-dL4"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="m9v-0e-Lfa">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalCentering" alignment="center" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="XWn-qC-jdB">
-                                <rect key="frame" x="161" y="163" width="278" height="273"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to FOSSAsia!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mvz-Vv-sWY">
-                                        <rect key="frame" x="51" y="0.0" width="176" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="welcome_glyph" translatesAutoresizingMaskIntoConstraints="NO" id="IJP-ZR-tR0">
-                                        <rect key="frame" x="48" y="45" width="183" height="183"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="183" id="JpJ-nM-4FK"/>
                                             <constraint firstAttribute="height" constant="183" id="aPX-9Y-nj5"/>
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select a session on the left to begin!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IoJ-Ub-p6l">
-                                        <rect key="frame" x="0.0" y="252" width="278" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
@@ -83,7 +80,7 @@
                                 </constraints>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="XWn-qC-jdB" firstAttribute="centerX" secondItem="m9v-0e-Lfa" secondAttribute="centerX" id="KOD-4h-baR"/>
                             <constraint firstItem="XWn-qC-jdB" firstAttribute="centerY" secondItem="m9v-0e-Lfa" secondAttribute="centerY" id="Nye-BD-0qN"/>
@@ -104,38 +101,32 @@
                         <viewControllerLayoutGuide type="bottom" id="Cva-T1-Cte"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="ljF-ga-Apg">
-                        <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iYz-ho-dCf">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" placeholderIntrinsicWidth="600" placeholderIntrinsicHeight="488" translatesAutoresizingMaskIntoConstraints="NO" id="ov1-VO-pkC" userLabel="Content View">
-                                        <rect key="frame" x="0.0" y="0.0" width="600" height="488"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UQs-dw-Qdl" userLabel="Talk Description View" customClass="EventInfoView" customModule="FOSSAsia" customModuleProvider="target">
-                                                <rect key="frame" x="8" y="8" width="584" height="95"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Santosh Viswanatham" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b3B-gf-smR">
-                                                        <rect key="frame" x="8" y="37" width="568" height="21"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Santosh Viswanatham" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b3B-gf-smR">
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                        <color key="textColor" red="0.3995272815" green="0.41182690859999999" blue="0.46382170919999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <color key="textColor" red="0.3255770206451416" green="0.33555895090103149" blue="0.38799157738685608" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mozilla — JFDI Blk71" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0XL-9Z-ufs">
-                                                        <rect key="frame" x="8" y="66" width="568" height="21"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mozilla — JFDI Blk71" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0XL-9Z-ufs">
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                        <color key="textColor" red="0.3995272815" green="0.41182690859999999" blue="0.46382170919999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <color key="textColor" red="0.3255770206451416" green="0.33555895090103149" blue="0.38799157738685608" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Collaborative Webmaking using TogetherJS" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6KL-h6-aGX">
-                                                        <rect key="frame" x="8" y="8" width="568" height="21"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Collaborative Webmaking using TogetherJS" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6KL-h6-aGX">
                                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                                                        <color key="textColor" red="0.27719634770000001" green="0.28599184750000001" blue="0.32460597159999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <color key="textColor" red="0.21433287858963013" green="0.22071753442287445" blue="0.25580373406410217" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                 </subviews>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstItem="0XL-9Z-ufs" firstAttribute="leading" secondItem="UQs-dw-Qdl" secondAttribute="leading" constant="8" id="0Xc-O8-hkp"/>
                                                     <constraint firstItem="0XL-9Z-ufs" firstAttribute="top" secondItem="b3B-gf-smR" secondAttribute="bottom" constant="8" id="57V-zB-ds8"/>
@@ -150,11 +141,6 @@
                                                     <constraint firstItem="0XL-9Z-ufs" firstAttribute="top" secondItem="b3B-gf-smR" secondAttribute="bottom" constant="8" id="ufk-4P-vuX"/>
                                                     <constraint firstItem="b3B-gf-smR" firstAttribute="leading" secondItem="UQs-dw-Qdl" secondAttribute="leading" constant="8" id="ylt-5s-pVk"/>
                                                 </constraints>
-                                                <variation key="default">
-                                                    <mask key="constraints">
-                                                        <exclude reference="oIv-8U-wgH"/>
-                                                    </mask>
-                                                </variation>
                                                 <connections>
                                                     <outlet property="eventLabel" destination="6KL-h6-aGX" id="lxL-p3-mBn"/>
                                                     <outlet property="locationLabel" destination="0XL-9Z-ufs" id="g7G-ss-W0u"/>
@@ -162,8 +148,7 @@
                                                 </connections>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l1P-zW-uzf">
-                                                <rect key="frame" x="0.0" y="111" width="600" height="1"/>
-                                                <color key="backgroundColor" red="0.89365547899999997" green="0.8943349719" blue="0.89376074080000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="backgroundColor" red="0.86793619394302368" green="0.86875742673873901" blue="0.86803185939788818" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="1" id="a6Y-pA-CMj"/>
                                                     <constraint firstAttribute="height" constant="1" id="h5d-jW-MKa"/>
@@ -174,22 +159,19 @@
                                                     </mask>
                                                 </variation>
                                             </view>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" placeholderIntrinsicWidth="584" placeholderIntrinsicHeight="infinite" scrollEnabled="NO" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hnB-J0-qpW">
-                                                <rect key="frame" x="8" y="120" width="584" height="251"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hnB-J0-qpW">
+                                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <string key="text">Collaboration is an amazing option which adds beauty to work,reduces work burden,helps in Innovation and many more by enhancing teamwork option and enabling people to work collectively. TogetherJS is an Open source javascript library which adds collaborative features to a website.Thimble is an amazing Webmaker Tool which helps you to create Webpages and instantly preview your work.You can even publish the created webpages with a Single click.Awesomeness is when these two gets combine "Thimble" and "TogetherJS" where more than one person can work and code on a single webpage.Two or more people can work on a single webpage and instantly view the output.They can even discuss with the help of chatbox.
 </string>
                                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="16"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Monday, 8 June, 10:00AM - 12:00PM" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LVQ-C4-9Wm">
-                                                <rect key="frame" x="173" y="399" width="254" height="18"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xOk-0C-oEj">
-                                                <rect key="frame" x="178" y="435" width="244" height="35"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="244" id="1FK-n9-LVP"/>
                                                     <constraint firstAttribute="height" constant="35" id="j1W-HR-LOZ"/>
@@ -202,8 +184,7 @@
                                                 </connections>
                                             </button>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mCu-OM-EsL">
-                                                <rect key="frame" x="0.0" y="379" width="600" height="1"/>
-                                                <color key="backgroundColor" red="0.89365547899999997" green="0.8943349719" blue="0.89376074080000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="backgroundColor" red="0.86793619394302368" green="0.86875742673873901" blue="0.86803185939788818" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="1" id="GId-f3-DJr"/>
                                                     <constraint firstAttribute="height" constant="1" id="QSn-bx-chZ"/>
@@ -215,7 +196,7 @@
                                                 </variation>
                                             </view>
                                         </subviews>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstItem="hnB-J0-qpW" firstAttribute="centerX" secondItem="ov1-VO-pkC" secondAttribute="centerX" id="1IB-yt-UZe"/>
                                             <constraint firstItem="xOk-0C-oEj" firstAttribute="centerX" secondItem="LVQ-C4-9Wm" secondAttribute="centerX" id="3CS-Ng-dea"/>
@@ -227,7 +208,7 @@
                                             <constraint firstItem="hnB-J0-qpW" firstAttribute="top" secondItem="l1P-zW-uzf" secondAttribute="bottom" constant="8" id="QL1-A3-8Ag"/>
                                             <constraint firstItem="UQs-dw-Qdl" firstAttribute="top" secondItem="ov1-VO-pkC" secondAttribute="top" constant="8" id="Yt3-5d-f2G"/>
                                             <constraint firstAttribute="height" constant="1024" id="ZIR-n1-E9O"/>
-                                            <constraint firstItem="mCu-OM-EsL" firstAttribute="top" secondItem="hnB-J0-qpW" secondAttribute="bottom" constant="8" id="bPK-mP-IlN"/>
+                                            <constraint firstItem="mCu-OM-EsL" firstAttribute="top" secondItem="hnB-J0-qpW" secondAttribute="bottom" constant="16" id="bPK-mP-IlN"/>
                                             <constraint firstItem="l1P-zW-uzf" firstAttribute="top" secondItem="UQs-dw-Qdl" secondAttribute="bottom" constant="8" id="c9W-Ig-dwS"/>
                                             <constraint firstAttribute="trailing" secondItem="UQs-dw-Qdl" secondAttribute="trailing" constant="8" id="cPb-w6-xjn"/>
                                             <constraint firstItem="LVQ-C4-9Wm" firstAttribute="centerX" secondItem="hnB-J0-qpW" secondAttribute="centerX" id="e0P-Mb-hrP"/>
@@ -262,7 +243,7 @@
                                 </variation>
                             </scrollView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="iYz-ho-dCf" firstAttribute="top" secondItem="0Z8-bz-0zu" secondAttribute="bottom" id="8Jq-8k-RqP"/>
                             <constraint firstItem="Cva-T1-Cte" firstAttribute="top" secondItem="iYz-ho-dCf" secondAttribute="bottom" id="L7e-w6-XCL"/>
@@ -272,10 +253,10 @@
                     </view>
                     <navigationItem key="navigationItem" title="Event" id="uVq-Bq-U0U">
                         <barButtonItem key="backBarButtonItem" id="p0T-Qj-CDs">
-                            <color key="tintColor" red="0.9960579276" green="0.9837190509" blue="0.85540348290000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="tintColor" red="0.99495029449462891" green="0.98418152332305908" blue="0.82213884592056274" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" image="navbar_fave" id="25w-e6-2aO">
-                            <color key="tintColor" red="0.99605792760848999" green="0.98371905088424683" blue="0.85540348291397095" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="tintColor" red="0.99495029449462891" green="0.98418152332305908" blue="0.82213884592056274" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <action selector="favoriteEvent:" destination="7sQ-cA-ql5" id="kt2-UF-99I"/>
                             </connections>
@@ -299,9 +280,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="calendar_add_btn" width="244" height="35"/>
-        <image name="calendar_add_btn_selected" width="244" height="35"/>
-        <image name="navbar_fave" width="28" height="27"/>
+        <image name="calendar_add_btn" width="244" height="34"/>
+        <image name="calendar_add_btn_selected" width="244" height="34"/>
+        <image name="navbar_fave" width="28" height="26"/>
         <image name="welcome_glyph" width="183" height="183"/>
     </resources>
 </document>

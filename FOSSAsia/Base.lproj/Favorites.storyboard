@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="2Vw-HH-TAz">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="2Vw-HH-TAz">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Split View Controller-->
@@ -34,9 +35,9 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="ti3-ts-MvN">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" red="0.86923396590000002" green="0.022301075980000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="barTintColor" red="0.8264998197555542" green="0.0" blue="0.019660282880067825" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <textAttributes key="titleTextAttributes">
-                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -65,14 +66,12 @@
                         <viewControllerLayoutGuide type="bottom" id="TDh-Ns-V7N"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Drh-ng-osQ">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MFQ-c0-RJV" customClass="SchedulePagingView" customModule="FOSSAsia" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="64" width="600" height="36"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Ap-0r-uq0" userLabel="Previous Button">
-                                        <rect key="frame" x="0.0" y="0.0" width="31" height="36"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="31" id="YpT-jO-COB"/>
                                         </constraints>
@@ -82,7 +81,6 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6m6-RM-iN0" userLabel="Next Button">
-                                        <rect key="frame" x="569" y="0.0" width="31" height="36"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="31" id="drC-Xt-QCG"/>
                                         </constraints>
@@ -93,13 +91,12 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8a0-Ah-GFh" userLabel="Date Label">
-                                        <rect key="frame" x="39" y="10" width="522" height="16"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="13"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" red="0.97252601390000004" green="0.97326189279999997" blue="0.97263997790000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.96545839309692383" green="0.96637165546417236" blue="0.96556466817855835" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="6m6-RM-iN0" firstAttribute="leading" secondItem="8a0-Ah-GFh" secondAttribute="trailing" constant="8" id="0OZ-0Y-gJQ"/>
                                     <constraint firstItem="6m6-RM-iN0" firstAttribute="top" secondItem="MFQ-c0-RJV" secondAttribute="top" id="I38-x5-60c"/>
@@ -127,13 +124,12 @@
                                 </connections>
                             </view>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0OH-aE-BXC" userLabel="Event List Container">
-                                <rect key="frame" x="0.0" y="100" width="600" height="500"/>
                                 <connections>
                                     <segue destination="tuq-1A-NnT" kind="embed" identifier="EventsPageViewController" id="beE-JT-C2I"/>
                                 </connections>
                             </containerView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="MFQ-c0-RJV" firstAttribute="top" secondItem="1Np-AC-70Y" secondAttribute="bottom" id="64C-09-Kz7"/>
                             <constraint firstAttribute="trailingMargin" secondItem="MFQ-c0-RJV" secondAttribute="trailing" constant="-20" id="FHV-Un-mPc"/>
@@ -163,9 +159,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="arrow_next_disabled" width="8" height="11"/>
-        <image name="arrow_next_enabled" width="8" height="11"/>
-        <image name="arrow_prev_enabled" width="8" height="11"/>
+        <image name="arrow_next_disabled" width="7" height="10"/>
+        <image name="arrow_next_enabled" width="7" height="10"/>
+        <image name="arrow_prev_enabled" width="7" height="10"/>
         <image name="favorites_unselected" width="28" height="26"/>
     </resources>
 </document>

@@ -9,7 +9,7 @@
 import Foundation
 import Pages
 
-typealias EventListBrowsingByDate = protocol<EventsPresentable, SchedulePagingViewDelegate, PagesControllerDelegate>
+typealias EventListBrowsingByDate = EventsPresentable & SchedulePagingViewDelegate & PagesControllerDelegate
 
 protocol EventsPresentable {
     func getEventsListViewModel() -> EventsListViewModel
@@ -30,6 +30,6 @@ extension EventsPresentable where Self: FavoriteEventsListViewController {
 }
 
 protocol SchedulePagingViewDelegate: class {
-    func nextButtonDidPress(sender: SchedulePagingView)
-    func prevButtonDidPress(sender: SchedulePagingView)
+    func nextButtonDidPress(_ sender: SchedulePagingView)
+    func prevButtonDidPress(_ sender: SchedulePagingView)
 }
