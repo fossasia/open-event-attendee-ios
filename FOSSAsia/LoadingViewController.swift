@@ -18,8 +18,15 @@ class LoadingViewController: UIViewController {
     @IBOutlet weak var loadingImageView: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.spinLoadingIndicatorWithOptions(UIViewAnimationOptions())
+//        self.spinLoadingIndicatorWithOptions(UIViewAnimationOptions())
 
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        // moved spinLoadingIndicatorWithOptions from viewDidLoad to viewDidAppear
+        self.spinLoadingIndicatorWithOptions(UIViewAnimationOptions())
     }
     
     fileprivate func spinLoadingIndicatorWithOptions(_ options: UIViewAnimationOptions) {
