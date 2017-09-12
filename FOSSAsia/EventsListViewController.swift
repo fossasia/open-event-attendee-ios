@@ -39,7 +39,7 @@ class EventsListViewController: EventsBaseListViewController {
         pagingView.delegate = self
         
         let storyboard = UIStoryboard(name: EventsResultsViewController.StoryboardConstants.storyboardName, bundle: nil)
-        resultsTableController = storyboard.instantiateViewControllerWithIdentifier(EventsResultsViewController.StoryboardConstants.viewControllerId) as! EventsResultsViewController
+        resultsTableController = storyboard.instantiateViewController(withIdentifier: EventsResultsViewController.StoryboardConstants.viewControllerId) as! EventsResultsViewController
 
         searchController = UISearchController(searchResultsController: resultsTableController)
         searchController.searchResultsUpdater = self
@@ -50,10 +50,10 @@ class EventsListViewController: EventsBaseListViewController {
         let _ = searchController.view
         resultsTableController.tableView.delegate = self
         
-        searchController.searchBar.searchBarStyle = .Minimal
+        searchController.searchBar.searchBarStyle = .minimal
         searchController.searchBar.tintColor = Colors.creamTintColor
         searchController.searchBar.placeholder = "Search"
-        if let textFieldInSearchBar = searchController.searchBar.valueForKey("searchField") as? UITextField {
+        if let textFieldInSearchBar = searchController.searchBar.value(forKey: "searchField") as? UITextField {
             textFieldInSearchBar.textColor = Colors.creamTintColor
         }
         
@@ -62,11 +62,11 @@ class EventsListViewController: EventsBaseListViewController {
         definesPresentationContext = true
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "EventsPageViewController") {
-            if let embeddedPageVC = segue.destinationViewController as? PagesController {
+            if let embeddedPageVC = segue.destination as? PagesController {
                 self.pagesVC = embeddedPageVC
-                let loadingVC = self.storyboard!.instantiateViewControllerWithIdentifier(LoadingViewController.StoryboardConstants.viewControllerId)
+                let loadingVC = self.storyboard!.instantiateViewController(withIdentifier: LoadingViewController.StoryboardConstants.viewControllerId)
                 self.pagesVC.add([loadingVC])
                 self.pagesVC.enableSwipe = false
                 self.pagesVC.pagesDelegate = self
@@ -74,19 +74,15 @@ class EventsListViewController: EventsBaseListViewController {
         }
     }
     
-    private func delay(delay:Double, closure:()->()) {
-        dispatch_after(
-            dispatch_time(
-                DISPATCH_TIME_NOW,
-                Int64(delay * Double(NSEC_PER_SEC))
-            ),
-            dispatch_get_main_queue(), closure)
+    fileprivate func delay(_ delay:Double, closure:@escaping ()->()) {
+        DispatchQueue.main.asyncAfter(
+            deadline: DispatchTime.now() + Double(Int64(delay * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC), execute: closure)
     }
 }
 
 extension EventsListViewController: UISearchResultsUpdating {
-    func updateSearchResultsForSearchController(searchController: UISearchController) {
-        guard searchController.active else {
+    func updateSearchResults(for searchController: UISearchController) {
+        guard searchController.isActive else {
             return
         }
         filterString = searchController.searchBar.text
@@ -95,13 +91,13 @@ extension EventsListViewController: UISearchResultsUpdating {
 
 extension EventsListViewController: UITableViewDelegate {
     // This delegate is for the UISearchController.
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let selectedEventViewModel: EventViewModel
         
-        selectedEventViewModel = resultsTableController.visibleEvents[indexPath.row]
+        selectedEventViewModel = resultsTableController.visibleEvents[(indexPath as NSIndexPath).row]
         
         let storyboard = UIStoryboard(name: EventViewController.StoryboardConstants.storyboardName, bundle: nil)
-        if let nvc = storyboard.instantiateViewControllerWithIdentifier("IndividualEventNavController") as? UINavigationController {
+        if let nvc = storyboard.instantiateViewController(withIdentifier: "IndividualEventNavController") as? UINavigationController {
             if let eventVC = nvc.topViewController as? EventViewController {
                 eventVC.eventViewModel = selectedEventViewModel
                 splitViewController?.showDetailViewController(nvc, sender: self)

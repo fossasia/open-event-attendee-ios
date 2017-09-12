@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/fossasia/open-event-ios.svg?branch=development)](https://travis-ci.org/fossasia/open-event-ios)
+
 # open-event-ios
 iOS app for Open Event
 

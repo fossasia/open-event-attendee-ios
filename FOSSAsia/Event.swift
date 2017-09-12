@@ -10,60 +10,60 @@ import Foundation
 
 struct Event {
     enum Track: Int, CustomStringConvertible {
-        case TechKids1 = 1
-        case TechKids2, OpenTechIOT, OpenTech, WebTech, Exhibition, HardwareIOT, Python, Databases, BigOpenData, DevOps, PrivSec, ISC, ScienceHackDay, Linux, Design
+        case techKids1 = 1
+        case techKids2, openTechIOT, openTech, webTech, exhibition, hardwareIOT, python, databases, bigOpenData, devOps, privSec, isc, scienceHackDay, linux, design
         var description: String {
             switch self {
-            case .TechKids1: return "Tech Kids I";
-            case .TechKids2: return "Tech Kids II";
-            case .OpenTechIOT: return "OpenTech and IOT";
-            case .OpenTech: return "OpenTech Workshops";
-            case .WebTech: return "WebTech";
-            case .Exhibition: return "Exhibition";
-            case .HardwareIOT: return "Hardware and IOT";
-            case .Python: return "Python";
-            case .Databases: return "Databases";
-            case .BigOpenData: return "Big Data/Open Data";
-            case .DevOps: return "DevOps";
-            case .PrivSec: return "Privacy and Security";
-            case .ISC: return "Internet, Society, Community";
-            case .ScienceHackDay: return "Science Hack Day";
-            case .Linux: return "Linux and MiniDebConf";
-            case .Design: return "Design, VR, 3D"
+            case .techKids1: return "Tech Kids I";
+            case .techKids2: return "Tech Kids II";
+            case .openTechIOT: return "OpenTech and IOT";
+            case .openTech: return "OpenTech Workshops";
+            case .webTech: return "WebTech";
+            case .exhibition: return "Exhibition";
+            case .hardwareIOT: return "Hardware and IOT";
+            case .python: return "Python";
+            case .databases: return "Databases";
+            case .bigOpenData: return "Big Data/Open Data";
+            case .devOps: return "DevOps";
+            case .privSec: return "Privacy and Security";
+            case .isc: return "Internet, Society, Community";
+            case .scienceHackDay: return "Science Hack Day";
+            case .linux: return "Linux and MiniDebConf";
+            case .design: return "Design, VR, 3D"
             }
         }
         
         func getTrackColor() -> UIColor {
             switch self {
-            case .TechKids1, .TechKids2:
+            case .techKids1, .techKids2:
                 return UIColor(hexString: "8E8E93")!
-            case .OpenTechIOT:
+            case .openTechIOT:
                 return UIColor(hexString: "FF4D4D")!
-            case .OpenTech:
+            case .openTech:
                 return UIColor(hexString: "FF8E4C")!
-            case .WebTech:
+            case .webTech:
                 return UIColor(hexString: "FFCF4C")!
-            case .Exhibition:
+            case .exhibition:
                 return UIColor(hexString: "EAFF4C")!
-            case .HardwareIOT:
+            case .hardwareIOT:
                 return UIColor(hexString: "B8FF4C")!
-            case .Python:
+            case .python:
                 return UIColor(hexString: "85FF4C")!
-            case .Databases:
+            case .databases:
                 return UIColor(hexString: "50E3C2")!
-            case .BigOpenData:
+            case .bigOpenData:
                 return UIColor(hexString: "4CFFE7")!
-            case .DevOps:
+            case .devOps:
                 return UIColor(hexString: "4CDBFF")!
-            case .PrivSec:
+            case .privSec:
                 return UIColor(hexString: "4CA9FF")!
-            case .ISC:
+            case .isc:
                 return UIColor(hexString: "7C4CFF")!
-            case .ScienceHackDay:
+            case .scienceHackDay:
                 return UIColor(hexString: "9D4CFF")!
-            case .Linux:
+            case .linux:
                 return UIColor(hexString: "ED4CFF")!
-            case .Design:
+            case .design:
                 return UIColor(hexString: "FF4CCC")!
             }
         }
@@ -75,7 +75,7 @@ struct Event {
     let shortDescription: String
     let speakers: [Speaker]?
     let location: String
-    let startDateTime: NSDate
-    let endDateTime: NSDate
+    let startDateTime: Date
+    let endDateTime: Date
     var favorite: Bool
 }

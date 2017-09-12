@@ -24,7 +24,7 @@ class EventsBaseViewController: UIViewController {
         }
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         viewModel?.refresh()
         self.tableView.reloadData()
@@ -40,39 +40,39 @@ class EventsBaseViewController: UIViewController {
         tableView.tableFooterView = UIView(frame: CGRect.zero)
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "ShowEventDetail") {
             if let selectedIndexPath = self.tableView.indexPathForSelectedRow {
-                if let eventNavigationController = segue.destinationViewController as? UINavigationController {
+                if let eventNavigationController = segue.destination as? UINavigationController {
                     let eventViewController = eventNavigationController.topViewController as! EventViewController
-                    eventViewController.eventViewModel = allEvents[selectedIndexPath.row]
+                    eventViewController.eventViewModel = allEvents[(selectedIndexPath as NSIndexPath).row]
                 }
             }
         }
     }
     
-    func eventViewModelForIndexPath(path: NSIndexPath) -> EventViewModel {
-        return allEvents[path.row]
+    func eventViewModelForIndexPath(_ path: IndexPath) -> EventViewModel {
+        return allEvents[(path as NSIndexPath).row]
     }
     
 }
 
 extension EventsBaseViewController: UITableViewDelegate {
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         delegate?.eventDidGetSelected(tableView, atIndexPath: indexPath)
     }
 }
 
 extension EventsBaseViewController: UITableViewDataSource {
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier(EventsBaseViewController.kEventCellReuseIdentifier, forIndexPath: indexPath) as! EventCell
-        let eventViewModel = allEvents[indexPath.row]
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: EventsBaseViewController.kEventCellReuseIdentifier, for: indexPath) as! EventCell
+        let eventViewModel = allEvents[(indexPath as NSIndexPath).row]
         cell.configure(withPresenter: eventViewModel)
         
         return cell
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return allEvents.count
     }
     

@@ -10,13 +10,13 @@ import Foundation
 import MGSwipeTableCell
 import DZNEmptyDataSet
 
-typealias SwipeToFavoriteCellPresentable = protocol<MGSwipeTableCellDelegate, CellsFavoritable>
-typealias TableViewRefreshable = protocol<ScheduleRefreshable, ScheduleViewModelDelegate>
+typealias SwipeToFavoriteCellPresentable = MGSwipeTableCellDelegate & CellsFavoritable
+typealias TableViewRefreshable = ScheduleRefreshable & ScheduleViewModelDelegate
 
 protocol CellsFavoritable {
-    func favoriteEvent(indexPath: NSIndexPath)
+    func favoriteEvent(_ indexPath: IndexPath)
 }
 
 protocol ScheduleRefreshable {
-    func refreshData(sender: AnyObject)
+    func refreshData(_ sender: AnyObject)
 }

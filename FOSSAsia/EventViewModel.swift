@@ -32,8 +32,8 @@ protocol EventAddToCalendarPresentable {
     var eventDay: String {get}
     var eventDate: String {get}
     var eventMonth: String {get}
-    var eventStartDate: NSDate {get}
-    var eventEndDate: NSDate {get}
+    var eventStartDate: Date {get}
+    var eventEndDate: Date {get}
 }
 
 struct EventViewModel: EventTypePresentable, EventDetailsPresentable, EventDescriptionPresentable, EventAddToCalendarPresentable {
@@ -43,12 +43,12 @@ struct EventViewModel: EventTypePresentable, EventDetailsPresentable, EventDescr
     let shortDescription: Observable<String>
     let speakers: Observable<[Speaker]?>
     let location: Observable<String>
-    let startDateTime: Observable<NSDate>
-    let endDateTime: Observable<NSDate>
+    let startDateTime: Observable<Date>
+    let endDateTime: Observable<Date>
     let favorite: Observable<Bool>
     
     // MARK: - Services
-    private var eventsService: EventProvider
+    fileprivate var eventsService: EventProvider
     
     init (_ event: Event) {
         sessionId = Observable(event.id)
@@ -65,7 +65,7 @@ struct EventViewModel: EventTypePresentable, EventDetailsPresentable, EventDescr
         eventsService = EventProvider()
     }
     
-    func favoriteEvent(completionHandler: EventViewModelCompletionHandler) {
+    func favoriteEvent(_ completionHandler: @escaping EventViewModelCompletionHandler) {
         eventsService.toggleFavorite(self.sessionId.value) { (error) -> Void in
             guard error == nil else {
                 completionHandler(nil, error)
@@ -78,7 +78,7 @@ struct EventViewModel: EventTypePresentable, EventDetailsPresentable, EventDescr
     }
     
     
-    private func updateFavorite() {
+    fileprivate func updateFavorite() {
         favorite.value = !favorite.value
         if !favorite.value {
             createLocalNotification()
@@ -87,21 +87,21 @@ struct EventViewModel: EventTypePresentable, EventDetailsPresentable, EventDescr
         }
     }
     
-    private func createLocalNotification() {
+    fileprivate func createLocalNotification() {
         let localNotification = UILocalNotification()
-        localNotification.fireDate = self.startDateTime.value.dateByAddingMinutes(-15)
+        localNotification.fireDate = (self.startDateTime.value as NSDate).addingMinutes(-15)
         localNotification.alertBody = "\(self.title) starts in 15 minutes at \(location)!"
         localNotification.soundName = UILocalNotificationDefaultSoundName
         localNotification.userInfo = ["sessionID": sessionId.value]
-        UIApplication.sharedApplication().scheduleLocalNotification(localNotification)
+        UIApplication.shared.scheduleLocalNotification(localNotification)
     }
     
-    private func cancelLocalNotification() {
-        if let notifications = UIApplication.sharedApplication().scheduledLocalNotifications {
+    fileprivate func cancelLocalNotification() {
+        if let notifications = UIApplication.shared.scheduledLocalNotifications {
             for notification in notifications {
                 if let info = notification.userInfo as? [String: String] {
                     if info["sessionID"] == sessionId.value {
-                        UIApplication.sharedApplication().cancelLocalNotification(notification)
+                        UIApplication.shared.cancelLocalNotification(notification)
                     }
                 }
             }
@@ -128,11 +128,11 @@ extension EventViewModel {
         for speaker in speakers! {
             speakersNames.append(speaker.name)
         }
-        return speakersNames.joinWithSeparator(", ")
+        return speakersNames.joined(separator: ", ")
     }
     var timing: String {
-        let startTime = self.startDateTime.value.formattedDateWithFormat("HH:mm")
-        let endTime = self.endDateTime.value.formattedDateWithFormat("HH:mm")
+        let startTime = (self.startDateTime.value as NSDate).formattedDate(withFormat: "HH:mm")
+        let endTime = (self.endDateTime.value as NSDate).formattedDate(withFormat: "HH:mm")
         return  "\(startTime) - \(endTime) - \(self.location.value)"
     }
     var isFavorite: Bool { return self.favorite.value }
@@ -140,11 +140,11 @@ extension EventViewModel {
 
 // MARK: - EventAddToCalendar Conformance
 extension EventViewModel {
-    var eventStartTime: String { return self.startDateTime.value.formattedDateWithFormat("HH:mm") }
-    var eventEndTime: String { return self.endDateTime.value.formattedDateWithFormat("HH:mm") }
-    var eventDate: String { return self.startDateTime.value.formattedDateWithFormat("dd") }
-    var eventDay: String { return self.startDateTime.value.formattedDateWithFormat("EEEE") }
-    var eventMonth: String { return self.startDateTime.value.formattedDateWithFormat("MMM") }
-    var eventStartDate: NSDate { return self.startDateTime.value }
-    var eventEndDate: NSDate { return self.endDateTime.value }
+    var eventStartTime: String { return (self.startDateTime.value as NSDate).formattedDate(withFormat: "HH:mm") }
+    var eventEndTime: String { return (self.endDateTime.value as NSDate).formattedDate(withFormat: "HH:mm") }
+    var eventDate: String { return (self.startDateTime.value as NSDate).formattedDate(withFormat: "dd") }
+    var eventDay: String { return (self.startDateTime.value as NSDate).formattedDate(withFormat: "EEEE") }
+    var eventMonth: String { return (self.startDateTime.value as NSDate).formattedDate(withFormat: "MMM") }
+    var eventStartDate: Date { return self.startDateTime.value }
+    var eventEndDate: Date { return self.endDateTime.value }
 }

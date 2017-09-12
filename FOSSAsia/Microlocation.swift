@@ -15,7 +15,7 @@ struct Microlocation {
     let longitude: Double
     let floor: Int
 
-    static func getNameOfMicrolocationId(id: Int, microlocations: [Microlocation]) -> String? {
+    static func getNameOfMicrolocationId(_ id: Int, microlocations: [Microlocation]) -> String? {
 	for microlocation in microlocations {
 	    if microlocation.id == id {
 		return microlocation.name

@@ -30,20 +30,20 @@ class FOSSAsiaUITests: XCTestCase {
         
         let app = XCUIApplication()
         let tablesQuery = app.tables
-        tablesQuery.cells.containingType(.StaticText, identifier:"Topogram: Social network analysis for humans").childrenMatchingType(.StaticText).matchingIdentifier("Topogram: Social network analysis for humans").elementBoundByIndex(0).swipeUp()
+        tablesQuery.cells.containing(.staticText, identifier:"Topogram: Social network analysis for humans").children(matching: .staticText).matching(identifier: "Topogram: Social network analysis for humans").element(boundBy: 0).swipeUp()
         snapshot("0Launch")
         
         tablesQuery.staticTexts["13:30 - 14:00 - (Einstein Room) Level 2"].tap()
         snapshot("1Event")
         
-        app.scrollViews.otherElements.buttons["calendar add btn"].pressForDuration(0.5);
+        app.scrollViews.otherElements.buttons["calendar add btn"].press(forDuration: 0.5);
         app.navigationBars["New Event"].buttons["Cancel"].tap()
         snapshot("2AddToCalendar")
         
         let tabBarsQuery = app.tabBars
-        tabBarsQuery.childrenMatchingType(.Button).elementBoundByIndex(1).tap()
+        tabBarsQuery.children(matching: .button).element(boundBy: 1).tap()
         snapshot("3Favorites")
-        tabBarsQuery.childrenMatchingType(.Button).elementBoundByIndex(2).tap()
+        tabBarsQuery.children(matching: .button).element(boundBy: 2).tap()
         snapshot("4More")
         
     }

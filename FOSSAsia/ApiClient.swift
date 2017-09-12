@@ -8,7 +8,7 @@
 
 import Foundation
 
-typealias ApiRequestCompletionHandler = (NSData?, Error?) -> Void
+typealias ApiRequestCompletionHandler = (Data?, Error?) -> Void
 
 struct ApiClient {
 //    static let url = "https://raw.githubusercontent.com/fossasia/open-event/master/testapi/event/1/"
@@ -16,19 +16,19 @@ struct ApiClient {
     
     let eventInfo: EventInfo
 
-    func sendGetRequest(completionHandler: ApiRequestCompletionHandler) {
-        let sessionConfig = NSURLSessionConfiguration.defaultSessionConfiguration()
-        let session = NSURLSession(configuration: sessionConfig)
-        let request = NSURLRequest(URL: NSURL(string: getUrl(eventInfo))!)
-        let task = session.dataTaskWithRequest(request) { (data, response, networkError) -> Void in
+    func sendGetRequest(_ completionHandler: @escaping ApiRequestCompletionHandler) {
+        let sessionConfig = URLSessionConfiguration.default
+        let session = URLSession(configuration: sessionConfig)
+        let request = URLRequest(url: URL(string: getUrl(eventInfo))!)
+        let task = session.dataTask(with: request, completionHandler: { (data, response, networkError) -> Void in
             if let _ = networkError {
-                let error = Error(errorCode: .NetworkRequestFailed)
+                let error = Error(errorCode: .networkRequestFailed)
                 completionHandler(nil, error)
                 return
             }
 
             guard let unwrappedData = data else {
-                let error = Error(errorCode: .JSONSerializationFailed)
+                let error = Error(errorCode: .jsonSerializationFailed)
                 completionHandler(nil, error)
                 return
             }
@@ -41,21 +41,21 @@ struct ApiClient {
                 completionHandler(unwrappedData, nil)
             })
             
-        }
+        }) 
         task.resume()
     }
 
-    private func getUrl(eventInfo: EventInfo) -> String {
+    fileprivate func getUrl(_ eventInfo: EventInfo) -> String {
        return ApiClient.url + eventInfo.rawValue + ".json"
     }
     
-    private func processResponse(data: NSData, completionHandler: CommitmentCompletionHandler) {
-        if let dir : NSString = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomainMask.AllDomainsMask, true).first {
-            let path = dir.stringByAppendingPathComponent(SettingsManager.getLocalFileName(eventInfo));
-            data.writeToFile(path, atomically: false)
+    fileprivate func processResponse(_ data: Data, completionHandler: CommitmentCompletionHandler) {
+        if let dir : NSString = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.allDomainsMask, true).first as NSString? {
+            let path = dir.appendingPathComponent(SettingsManager.getLocalFileName(eventInfo));
+            try? data.write(to: URL(fileURLWithPath: path), options: [])
             completionHandler(nil)
         }
-        completionHandler(Error(errorCode: .JSONSystemReadingFailed))
+        completionHandler(Error(errorCode: .jsonSystemReadingFailed))
     }
 
 }

@@ -15,7 +15,7 @@ protocol TrackDetailsPresentable {
 
 protocol TrackStatusPresentable {
     var isTrackOn: Bool {get}
-    func changeFilterPreference(status: Bool)
+    func changeFilterPreference(_ status: Bool)
 }
 
 protocol TrackColorPresentable {
@@ -33,7 +33,7 @@ struct TrackViewModel: TrackDetailsPresentable, TrackStatusPresentable, TrackCol
     init(_ track: Event.Track) {
         self.id = Observable(track.rawValue)
         self.name = Observable(track.description)
-        if let filteredTrackIds = NSUserDefaults.standardUserDefaults().objectForKey(Constants.UserDefaultsKey.FilteredTrackIds) as? [Int] {
+        if let filteredTrackIds = UserDefaults.standard.object(forKey: Constants.UserDefaultsKey.FilteredTrackIds) as? [Int] {
             self.isOn = Observable(filteredTrackIds.contains(track.rawValue))
         } else {
             self.isOn = Observable(true)
@@ -41,8 +41,8 @@ struct TrackViewModel: TrackDetailsPresentable, TrackStatusPresentable, TrackCol
     }
 
     
-    private func update(status: Bool) {
-        if var filteredTracksDefaults = NSUserDefaults.standardUserDefaults().objectForKey(Constants.UserDefaultsKey.FilteredTrackIds) as? [Int] {
+    fileprivate func update(_ status: Bool) {
+        if var filteredTracksDefaults = UserDefaults.standard.object(forKey: Constants.UserDefaultsKey.FilteredTrackIds) as? [Int] {
             if status {
                 filteredTracksDefaults.append(self.id.value)
             } else {
@@ -51,7 +51,7 @@ struct TrackViewModel: TrackDetailsPresentable, TrackStatusPresentable, TrackCol
                 }
                 filteredTracksDefaults = filteredTracksDefaults.filter({ $0 != self.id.value})
             }
-            NSUserDefaults.standardUserDefaults().setObject(filteredTracksDefaults, forKey: Constants.UserDefaultsKey.FilteredTrackIds)
+            UserDefaults.standard.set(filteredTracksDefaults, forKey: Constants.UserDefaultsKey.FilteredTrackIds)
 
         }
     }
@@ -67,7 +67,7 @@ extension TrackViewModel {
 // MARK: - TrackStatusPresentable
 extension TrackViewModel {
     var isTrackOn: Bool { return self.isOn.value }
-    func changeFilterPreference(status: Bool) {
+    func changeFilterPreference(_ status: Bool) {
         self.update(status)
     }
 }
@@ -78,7 +78,7 @@ extension TrackViewModel {
         if let dummyEvent = Event.Track(rawValue: self.id.value) {
             return dummyEvent.getTrackColor()
         } else {
-            return UIColor.whiteColor()
+            return UIColor.white
         }
     }
 }

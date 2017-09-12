@@ -10,7 +10,7 @@ import UIKit
 import EventKit
 import EventKitUI
 
-typealias IndividualEventPresentable = protocol<EventDetailsPresentable, EventDescriptionPresentable, EventAddToCalendarPresentable>
+typealias IndividualEventPresentable = EventDetailsPresentable & EventDescriptionPresentable & EventAddToCalendarPresentable
 
 class EventViewController: UIViewController {
     
@@ -40,10 +40,10 @@ class EventViewController: UIViewController {
     @IBOutlet weak var navBarButtonItem: UIBarButtonItem!
     
     // MARK:- Initialization
-    class func eventViewControllerForEvent(event: EventViewModel) -> EventViewController {
+    class func eventViewControllerForEvent(_ event: EventViewModel) -> EventViewController {
         let storyboard = UIStoryboard(name: EventViewController.StoryboardConstants.storyboardName, bundle: nil)
         
-        let viewController = storyboard.instantiateViewControllerWithIdentifier(EventViewController.StoryboardConstants.viewControllerId) as! EventViewController
+        let viewController = storyboard.instantiateViewController(withIdentifier: EventViewController.StoryboardConstants.viewControllerId) as! EventViewController
         viewController.eventViewModel = event
         
         return viewController
@@ -54,47 +54,47 @@ class EventViewController: UIViewController {
             self.configure(viewModel)
         }
         
-        navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem()
+        navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
         navigationItem.leftItemsSupplementBackButton = true
     }
     
     override func viewDidLayoutSubviews() {
-        self.scrollView.contentSize = CGSizeMake(self.scrollView.frame.size.width, CGRectGetMaxY(self.eventAddToCalendarButton.frame) + eventAddToCalendarButtonBottomConstraint.constant)
+        self.scrollView.contentSize = CGSize(width: self.scrollView.frame.size.width, height: self.eventAddToCalendarButton.frame.maxY + eventAddToCalendarButtonBottomConstraint.constant)
     }
     
-    func configure(presenter: IndividualEventPresentable) {
+    func configure(_ presenter: IndividualEventPresentable) {
         eventDescriptionTextView.text = presenter.eventDescription
         eventInfoView.configure(presenter)
         eventDateTimeLabel.text = "\(presenter.eventDay), \(presenter.eventDate) \(presenter.eventMonth), \(presenter.eventStartTime) - \(presenter.eventEndTime)"
         self.presenter = presenter
     }
     
-    @IBAction func eventAddToCalendar(sender: UIButton) {
+    @IBAction func eventAddToCalendar(_ sender: UIButton) {
         let store = EKEventStore()
         
-        store.requestAccessToEntityType(.Event) {(granted, error) in
+        store.requestAccess(to: .event) {(granted, error) in
             if !granted { return }
             let event = EKEvent(eventStore: store)
             event.title = (self.presenter?.eventName)!
-            event.startDate = (self.presenter?.eventStartDate)!
-            event.endDate = (self.presenter?.eventEndDate)!
+            event.startDate = (self.presenter?.eventStartDate)! as Date
+            event.endDate = (self.presenter?.eventEndDate)! as Date
             event.calendar = store.defaultCalendarForNewEvents
             
-            NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
+            OperationQueue.main.addOperation({ () -> Void in
                 let eventVC = EKEventEditViewController()
                 eventVC.navigationBar.tintColor = Colors.mainRedColor
                 eventVC.event = event
                 eventVC.eventStore = store
                 eventVC.editViewDelegate = self
-                self.presentViewController(eventVC, animated: true, completion: nil)
+                self.present(eventVC, animated: true, completion: nil)
             })
         }
     }
-    @IBAction func favoriteEvent(sender: AnyObject) {
+    @IBAction func favoriteEvent(_ sender: AnyObject) {
         self.eventViewModel?.favoriteEvent{  [weak self] (eventViewModel, error) -> () in
             if let masterNavVC = self?.splitViewController?.viewControllers[0] as? UINavigationController {
                 if let masterVC = masterNavVC.topViewController as? EventsBaseListViewController {
-                    NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
+                    OperationQueue.main.addOperation({ () -> Void in
                         masterVC.currentViewController.tableView.reloadData()
                     })
                 }
@@ -104,7 +104,7 @@ class EventViewController: UIViewController {
 }
 
 extension EventViewController: EKEventEditViewDelegate {
-    func eventEditViewController(controller: EKEventEditViewController, didCompleteWithAction action: EKEventEditViewAction) {
-        self.dismissViewControllerAnimated(true, completion: nil)
+    func eventEditViewController(_ controller: EKEventEditViewController, didCompleteWith action: EKEventEditViewAction) {
+        self.dismiss(animated: true, completion: nil)
     }
 }

@@ -9,6 +9,6 @@
 import Foundation
 
 struct Schedule {
-    let date: NSDate
+    let date: Date
     let events: [Event]
 }

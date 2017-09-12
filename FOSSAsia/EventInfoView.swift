@@ -13,9 +13,9 @@ class EventInfoView: UIView {
     @IBOutlet weak var speakerLabel: UILabel!
     @IBOutlet weak var locationLabel: UILabel!
     
-    private var delegate: EventDetailsPresentable?
+    fileprivate var delegate: EventDetailsPresentable?
     
-    func configure(presenter: EventDetailsPresentable) {
+    func configure(_ presenter: EventDetailsPresentable) {
         delegate = presenter
         
         if let delegate = self.delegate {

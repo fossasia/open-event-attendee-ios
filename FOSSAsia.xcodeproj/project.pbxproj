@@ -58,7 +58,7 @@
 		3094D5811C833F83007C2873 /* Microlocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3094D5801C833F83007C2873 /* Microlocation.swift */; };
 		30F0AFB61C81B9C400CE5D18 /* EventProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F0AFB51C81B9C400CE5D18 /* EventProvider.swift */; };
 		30F0AFB81C81C4C600CE5D18 /* SettingsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F0AFB71C81C4C600CE5D18 /* SettingsManager.swift */; };
-		DA4CC3D451E57B3D3B6780CD /* Pods_FOSSAsia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 193D6EE00801D10F0049F1C3 /* Pods_FOSSAsia.framework */; };
+		3F35E89C2052DB8B58DDA340 /* Pods_FOSSAsia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C6C3C6E6BB94887BCEE095E /* Pods_FOSSAsia.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,7 +85,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		193D6EE00801D10F0049F1C3 /* Pods_FOSSAsia.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FOSSAsia.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0C6C3C6E6BB94887BCEE095E /* Pods_FOSSAsia.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FOSSAsia.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		28091E8C1C6332A600E789CD /* FilterListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterListViewController.swift; sourceTree = "<group>"; };
 		28091E8E1C636F9000E789CD /* FilterCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterCell.swift; sourceTree = "<group>"; };
 		28091E901C64B0B900E789CD /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -158,8 +158,8 @@
 		3094D5801C833F83007C2873 /* Microlocation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Microlocation.swift; sourceTree = "<group>"; };
 		30F0AFB51C81B9C400CE5D18 /* EventProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventProvider.swift; sourceTree = "<group>"; };
 		30F0AFB71C81C4C600CE5D18 /* SettingsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsManager.swift; sourceTree = "<group>"; };
-		79D22ECB7ECA2ECF5403D3D1 /* Pods-FOSSAsia.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FOSSAsia.release.xcconfig"; path = "Pods/Target Support Files/Pods-FOSSAsia/Pods-FOSSAsia.release.xcconfig"; sourceTree = "<group>"; };
-		E0CFBD2E35D709E001678331 /* Pods-FOSSAsia.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FOSSAsia.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FOSSAsia/Pods-FOSSAsia.debug.xcconfig"; sourceTree = "<group>"; };
+		673535C2361286B5378F4A57 /* Pods-FOSSAsia.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FOSSAsia.release.xcconfig"; path = "Pods/Target Support Files/Pods-FOSSAsia/Pods-FOSSAsia.release.xcconfig"; sourceTree = "<group>"; };
+		E7067DBA4800AB8AC393BD7A /* Pods-FOSSAsia.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FOSSAsia.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FOSSAsia/Pods-FOSSAsia.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -167,7 +167,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DA4CC3D451E57B3D3B6780CD /* Pods_FOSSAsia.framework in Frameworks */,
+				3F35E89C2052DB8B58DDA340 /* Pods_FOSSAsia.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -289,8 +289,8 @@
 				285F1B631C5AF7B100A7E0DD /* FOSSAsia */,
 				28A50BD31C8C5D2B009E91DE /* FOSSAsiaUITests */,
 				285F1B621C5AF7B100A7E0DD /* Products */,
-				68CECE78A9679E26EB9537C1 /* Pods */,
-				DAE269688DB363D2864C25C6 /* Frameworks */,
+				8C4556AD4F10E8C1FF0495B8 /* Pods */,
+				9DA21FF099DE2C5D1B738BFB /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -390,19 +390,19 @@
 			name = Provider;
 			sourceTree = "<group>";
 		};
-		68CECE78A9679E26EB9537C1 /* Pods */ = {
+		8C4556AD4F10E8C1FF0495B8 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				E0CFBD2E35D709E001678331 /* Pods-FOSSAsia.debug.xcconfig */,
-				79D22ECB7ECA2ECF5403D3D1 /* Pods-FOSSAsia.release.xcconfig */,
+				E7067DBA4800AB8AC393BD7A /* Pods-FOSSAsia.debug.xcconfig */,
+				673535C2361286B5378F4A57 /* Pods-FOSSAsia.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		DAE269688DB363D2864C25C6 /* Frameworks */ = {
+		9DA21FF099DE2C5D1B738BFB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				193D6EE00801D10F0049F1C3 /* Pods_FOSSAsia.framework */,
+				0C6C3C6E6BB94887BCEE095E /* Pods_FOSSAsia.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -414,13 +414,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 285F1B751C5AF7B100A7E0DD /* Build configuration list for PBXNativeTarget "FOSSAsia" */;
 			buildPhases = (
-				D9055AB47736DDBB3643C9C7 /* Check Pods Manifest.lock */,
+				D39D5E71CB5BD8E82B9C9E03 /* [CP] Check Pods Manifest.lock */,
 				285F1B5D1C5AF7B100A7E0DD /* Sources */,
 				285F1B5E1C5AF7B100A7E0DD /* Frameworks */,
 				285F1B5F1C5AF7B100A7E0DD /* Resources */,
 				285F1B861C5B014600A7E0DD /* Embed Frameworks */,
-				F341A837660F909CADBE6D88 /* Embed Pods Frameworks */,
-				12C23861AD2EA3CA68A3840B /* Copy Pods Resources */,
+				4AB91F7697E9AB18AC6A625D /* [CP] Embed Pods Frameworks */,
+				3CB547C3F88DBF70424920E4 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -456,15 +456,17 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0720;
-				LastUpgradeCheck = 0720;
+				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = FossAsia;
 				TargetAttributes = {
 					285F1B601C5AF7B100A7E0DD = {
 						CreatedOnToolsVersion = 7.2;
 						DevelopmentTeam = EZ49532236;
+						LastSwiftMigration = 0800;
 					};
 					28A50BD11C8C5D2A009E91DE = {
 						CreatedOnToolsVersion = 7.2.1;
+						LastSwiftMigration = 0800;
 						TestTargetID = 285F1B601C5AF7B100A7E0DD;
 					};
 				};
@@ -515,14 +517,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		12C23861AD2EA3CA68A3840B /* Copy Pods Resources */ = {
+		3CB547C3F88DBF70424920E4 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -530,34 +532,34 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FOSSAsia/Pods-FOSSAsia-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		D9055AB47736DDBB3643C9C7 /* Check Pods Manifest.lock */ = {
+		4AB91F7697E9AB18AC6A625D /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		F341A837660F909CADBE6D88 /* Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Embed Pods Frameworks";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FOSSAsia/Pods-FOSSAsia-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D39D5E71CB5BD8E82B9C9E03 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -670,8 +672,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -715,8 +719,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -735,6 +741,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -742,16 +749,22 @@
 		};
 		285F1B761C5AF7B100A7E0DD /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E0CFBD2E35D709E001678331 /* Pods-FOSSAsia.debug.xcconfig */;
+			baseConfigurationReference = E7067DBA4800AB8AC393BD7A /* Pods-FOSSAsia.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Undertide LLP (EZ49532236)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Undertide LLP (EZ49532236)";
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = "$(inherited)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 					"$(inherited)",
+					"$(PROJECT_DIR)/build/Release-iphoneos/DateTools",
+					"$(PROJECT_DIR)/build/Release-iphoneos/DZNEmptyDataSet",
+					"$(PROJECT_DIR)/build/Release-iphoneos/MGSwipeTableCell",
+					"$(PROJECT_DIR)/build/Release-iphoneos/Pages",
+					"$(PROJECT_DIR)/build/Release-iphoneos",
+					"$(PROJECT_DIR)/build/Release-iphoneos/SwiftyJSON",
 				);
 				INFOPLIST_FILE = FOSSAsia/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -761,22 +774,29 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "fce03692-2579-43b1-8e85-3915222102d2";
 				SWIFT_OBJC_BRIDGING_HEADER = "FOSSAsia/Fossasia-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
 				USER_HEADER_SEARCH_PATHS = "";
 			};
 			name = Debug;
 		};
 		285F1B771C5AF7B100A7E0DD /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 79D22ECB7ECA2ECF5403D3D1 /* Pods-FOSSAsia.release.xcconfig */;
+			baseConfigurationReference = 673535C2361286B5378F4A57 /* Pods-FOSSAsia.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Undertide LLP (EZ49532236)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Undertide LLP (EZ49532236)";
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = "$(inherited)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 					"$(inherited)",
+					"$(PROJECT_DIR)/build/Release-iphoneos/DateTools",
+					"$(PROJECT_DIR)/build/Release-iphoneos/DZNEmptyDataSet",
+					"$(PROJECT_DIR)/build/Release-iphoneos/MGSwipeTableCell",
+					"$(PROJECT_DIR)/build/Release-iphoneos/Pages",
+					"$(PROJECT_DIR)/build/Release-iphoneos",
+					"$(PROJECT_DIR)/build/Release-iphoneos/SwiftyJSON",
 				);
 				INFOPLIST_FILE = FOSSAsia/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -786,6 +806,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "fce03692-2579-43b1-8e85-3915222102d2";
 				SWIFT_OBJC_BRIDGING_HEADER = "FOSSAsia/Fossasia-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
 				USER_HEADER_SEARCH_PATHS = "";
 			};
 			name = Release;
@@ -798,6 +819,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = co.undertide.fossasia;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "fce03692-2579-43b1-8e85-3915222102d2";
+				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = FOSSAsia;
 				USES_XCTRUNNER = YES;
 			};
@@ -811,6 +833,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = co.undertide.fossasia;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "fce03692-2579-43b1-8e85-3915222102d2";
+				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = FOSSAsia;
 				USES_XCTRUNNER = YES;
 			};
@@ -844,6 +867,7 @@
 				28A50BDB1C8C5D2B009E91DE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
