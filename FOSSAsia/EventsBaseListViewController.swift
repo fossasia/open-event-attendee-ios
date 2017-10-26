@@ -99,11 +99,11 @@ extension EventsBaseListViewController {
 
 extension EventsBaseListViewController {
     func nextButtonDidPress(_ sender: SchedulePagingView) {
-        self.pagesVC.next()
+        self.pagesVC.moveForward()
         
     }
     func prevButtonDidPress(_ sender: SchedulePagingView) {
-        self.pagesVC.previous()
+        self.pagesVC.moveBack()
     }
     
     func pageViewController(_ pageViewController: UIPageViewController, setViewController viewController: UIViewController, atPage page: Int) {
