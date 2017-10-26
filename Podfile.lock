@@ -2,14 +2,14 @@ PODS:
   - DateTools (1.7.0)
   - DZNEmptyDataSet (1.8.1)
   - MGSwipeTableCell (1.5.6)
-  - Pages (0.6.3)
+  - Pages (1.0.0)
   - SwiftyJSON (3.1.1)
 
 DEPENDENCIES:
   - DateTools (from `https://github.com/MatthewYork/DateTools.git`)
   - DZNEmptyDataSet (from `https://github.com/dzenbot/DZNEmptyDataSet.git`)
   - MGSwipeTableCell (from `https://github.com/MortimerGoro/MGSwipeTableCell.git`)
-  - Pages (from `https://github.com/jurvis/Pages.git`)
+  - Pages
   - SwiftyJSON (from `https://github.com/SwiftyJSON/SwiftyJSON.git`)
 
 EXTERNAL SOURCES:
@@ -19,8 +19,6 @@ EXTERNAL SOURCES:
     :git: https://github.com/dzenbot/DZNEmptyDataSet.git
   MGSwipeTableCell:
     :git: https://github.com/MortimerGoro/MGSwipeTableCell.git
-  Pages:
-    :git: https://github.com/jurvis/Pages.git
   SwiftyJSON:
     :git: https://github.com/SwiftyJSON/SwiftyJSON.git
 
@@ -34,9 +32,6 @@ CHECKOUT OPTIONS:
   MGSwipeTableCell:
     :commit: c2a0d67ebee62fa82142e5b684651078ce18da6d
     :git: https://github.com/MortimerGoro/MGSwipeTableCell.git
-  Pages:
-    :commit: 101601c7e6f1ffe58734aa8119c6e7bf869a8f4d
-    :git: https://github.com/jurvis/Pages.git
   SwiftyJSON:
     :commit: 707516458b618c48ad9365d23a0dad3c3b860fa0
     :git: https://github.com/SwiftyJSON/SwiftyJSON.git
@@ -45,9 +40,9 @@ SPEC CHECKSUMS:
   DateTools: 27566e58f5a6d5d0719bd409bde674b5b6c8c83a
   DZNEmptyDataSet: b94434220f87d9dda46660eb4f07a424778e93b4
   MGSwipeTableCell: 616700eb0ffd1c611ba909066cb7fd739790a0a7
-  Pages: 71e80bc64040f1176297c327d080d80b7e74b38c
+  Pages: f3718e6f03a5e2787f6b0bff4becb3c7c19bcebc
   SwiftyJSON: f0be2e604f83e8405a624e9f891898bf6ed4e019
 
-PODFILE CHECKSUM: f6d17bbf46b4359365a97134444c4d297fa5aaff
+PODFILE CHECKSUM: 5c5bece4ccbd7a2ce5b1d4f815c3bbcc8878446f
 
-COCOAPODS: 1.1.1
+COCOAPODS: 1.2.0
