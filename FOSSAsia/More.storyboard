@@ -72,26 +72,24 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="2018.fossasia.org" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YKY-UR-BVQ">
+                                                    <rect key="frame" x="45" y="11" width="142" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="safari_icon" translatesAutoresizingMaskIntoConstraints="NO" id="ugr-qf-kv7">
-                                                    <rect key="frame" x="16" y="7.5" width="29" height="29"/>
+                                                    <rect key="frame" x="8" y="7" width="29" height="29"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="29" id="jDZ-VN-RAm"/>
                                                         <constraint firstAttribute="height" constant="29" id="oiw-Jm-bJg"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="2018.fossasia.org" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YKY-UR-BVQ">
-                                                    <rect key="frame" x="45" y="11" width="547" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="ugr-qf-kv7" firstAttribute="leading" secondItem="vl7-dQ-9rE" secondAttribute="leadingMargin" id="Kcs-H3-K2Q"/>
-                                                <constraint firstItem="YKY-UR-BVQ" firstAttribute="trailing" secondItem="vl7-dQ-9rE" secondAttribute="trailingMargin" id="RaE-WM-JYZ"/>
+                                                <constraint firstItem="ugr-qf-kv7" firstAttribute="leading" secondItem="vl7-dQ-9rE" secondAttribute="leadingMargin" constant="-8" id="Kcs-H3-K2Q"/>
                                                 <constraint firstItem="ugr-qf-kv7" firstAttribute="centerY" secondItem="vl7-dQ-9rE" secondAttribute="centerY" id="Uoq-JT-Buw"/>
-                                                <constraint firstItem="YKY-UR-BVQ" firstAttribute="leading" secondItem="ugr-qf-kv7" secondAttribute="trailing" constant="8" id="W9r-4Q-QtL"/>
-                                                <constraint firstItem="YKY-UR-BVQ" firstAttribute="centerY" secondItem="vl7-dQ-9rE" secondAttribute="centerY" id="rLx-yf-Hgs"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -170,7 +168,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5XG-f1-VDL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1477" y="1101"/>
+            <point key="canvasLocation" x="1476" y="1100.5997001499252"/>
         </scene>
     </scenes>
     <resources>
