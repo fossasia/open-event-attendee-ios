@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UserNotifications
 
 typealias EventViewModelCompletionHandler = (EventViewModel?, Error?) -> ()
 

@@ -59,6 +59,8 @@
 		30F0AFB61C81B9C400CE5D18 /* EventProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F0AFB51C81B9C400CE5D18 /* EventProvider.swift */; };
 		30F0AFB81C81C4C600CE5D18 /* SettingsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F0AFB71C81C4C600CE5D18 /* SettingsManager.swift */; };
 		3F35E89C2052DB8B58DDA340 /* Pods_FOSSAsia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C6C3C6E6BB94887BCEE095E /* Pods_FOSSAsia.framework */; };
+		40BD58D11FAFC78400C3891E /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40BD58CF1FAFC73600C3891E /* UserNotifications.framework */; };
+		40BD58D21FAFC78F00C3891E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40BD58D01FAFC74600C3891E /* UIKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -158,6 +160,8 @@
 		3094D5801C833F83007C2873 /* Microlocation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Microlocation.swift; sourceTree = "<group>"; };
 		30F0AFB51C81B9C400CE5D18 /* EventProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventProvider.swift; sourceTree = "<group>"; };
 		30F0AFB71C81C4C600CE5D18 /* SettingsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsManager.swift; sourceTree = "<group>"; };
+		40BD58CF1FAFC73600C3891E /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
+		40BD58D01FAFC74600C3891E /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		673535C2361286B5378F4A57 /* Pods-FOSSAsia.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FOSSAsia.release.xcconfig"; path = "Pods/Target Support Files/Pods-FOSSAsia/Pods-FOSSAsia.release.xcconfig"; sourceTree = "<group>"; };
 		E7067DBA4800AB8AC393BD7A /* Pods-FOSSAsia.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FOSSAsia.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FOSSAsia/Pods-FOSSAsia.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -167,6 +171,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				40BD58D21FAFC78F00C3891E /* UIKit.framework in Frameworks */,
+				40BD58D11FAFC78400C3891E /* UserNotifications.framework in Frameworks */,
 				3F35E89C2052DB8B58DDA340 /* Pods_FOSSAsia.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -402,6 +408,8 @@
 		9DA21FF099DE2C5D1B738BFB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				40BD58D01FAFC74600C3891E /* UIKit.framework */,
+				40BD58CF1FAFC73600C3891E /* UserNotifications.framework */,
 				0C6C3C6E6BB94887BCEE095E /* Pods_FOSSAsia.framework */,
 			);
 			name = Frameworks;
@@ -717,7 +725,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -764,7 +772,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
