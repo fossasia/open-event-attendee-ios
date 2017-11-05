@@ -42,7 +42,7 @@ struct EventsListViewModel {
                 var dates = Set<Date>()
                 for event in eventsArray {
                     let newDate = NSDate(year: (event.startDateTime as NSDate).year(), month: (event.startDateTime as NSDate).month(), day: (event.startDateTime as NSDate).day())
-                    dates.insert(newDate as! Date)
+                    dates.insert(newDate! as Date)
                 }
                 let sortedDates = dates.sorted(by: {$0.compare($1) == .orderedAscending})
                 self.update(self.retrieveSchedule(sortedDates))

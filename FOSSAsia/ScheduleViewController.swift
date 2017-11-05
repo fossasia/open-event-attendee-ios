@@ -49,7 +49,7 @@ class ScheduleViewController: EventsBaseViewController, SwipeToFavoriteCellPrese
         return viewController
     }
     
-    func refreshData(_ sender: AnyObject) {
+    @objc func refreshData(_ sender: AnyObject) {
         viewModel?.refresh()
     }
 }

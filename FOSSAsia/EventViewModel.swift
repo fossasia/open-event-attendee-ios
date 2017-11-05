@@ -133,7 +133,7 @@ extension EventViewModel {
     var timing: String {
         let startTime = (self.startDateTime.value as NSDate).formattedDate(withFormat: "HH:mm")
         let endTime = (self.endDateTime.value as NSDate).formattedDate(withFormat: "HH:mm")
-        return  "\(startTime) - \(endTime) - \(self.location.value)"
+        return  "\(String(describing: startTime)) - \(String(describing: endTime)) - \(self.location.value)"
     }
     var isFavorite: Bool { return self.favorite.value }
 }
