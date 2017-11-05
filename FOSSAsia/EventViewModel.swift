@@ -8,7 +8,6 @@
 
 import Foundation
 
-
 typealias EventViewModelCompletionHandler = (EventViewModel?, Error?) -> ()
 
 protocol EventTypePresentable {
