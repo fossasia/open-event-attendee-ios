@@ -793,7 +793,7 @@
 					"$(PROJECT_DIR)/build/Release-iphoneos/SwiftyJSON",
 				);
 				INFOPLIST_FILE = FOSSAsia/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = co.undertide.fossasia;
@@ -826,7 +826,7 @@
 					"$(PROJECT_DIR)/build/Release-iphoneos/SwiftyJSON",
 				);
 				INFOPLIST_FILE = FOSSAsia/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = co.undertide.fossasia;

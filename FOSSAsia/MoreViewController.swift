@@ -18,7 +18,7 @@ class MoreViewController: UITableViewController {
         
         switch (indexPath as NSIndexPath).row {
         case 0:
-            self.present(self.createSVC("https://2016.fossasia.org/"), animated: true, completion: nil)
+            self.present(self.createSVC("https://2018.fossasia.org/"), animated: true, completion: nil)
             break
         case 1:
             self.present(self.createSVC("https://twitter.com/fossasia"), animated: true, completion: nil)
