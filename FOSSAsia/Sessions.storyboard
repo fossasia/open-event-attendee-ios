@@ -33,7 +33,7 @@
                 <viewControllerPlaceholder storyboardName="Sessions" referencedIdentifier="HYPPagesController" id="tuq-1A-NnT" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fC9-UN-Fhf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2776" y="7"/>
+            <point key="canvasLocation" x="1496" y="227"/>
         </scene>
         <!--FOSSAsia-->
         <scene sceneID="XJE-5y-G6K">
@@ -95,8 +95,8 @@
                                 </constraints>
                                 <variation key="default">
                                     <mask key="constraints">
-                                        <exclude reference="brP-N4-W7u"/>
                                         <exclude reference="zMK-d2-t9W"/>
+                                        <exclude reference="brP-N4-W7u"/>
                                     </mask>
                                 </variation>
                                 <connections>
@@ -157,10 +157,10 @@
                                 <color key="sectionIndexBackgroundColor" red="0.96533602476119995" green="0.96552133560180664" blue="0.96530497074127197" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="FilterCell" rowHeight="44" id="jkm-tX-2kw" customClass="FilterCell" customModule="FOSSAsia" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="55.5" width="1000" height="44"/>
+                                        <rect key="frame" x="0.0" y="55.5" width="383" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="jkm-tX-2kw" id="lts-yn-iy8">
-                                            <rect key="frame" x="0.0" y="0.0" width="1000" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="383" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BOA-TG-JLS">
@@ -178,7 +178,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mFu-Wo-9QQ">
-                                                    <rect key="frame" x="928" y="6.5" width="51" height="31"/>
+                                                    <rect key="frame" x="311" y="6.5" width="51" height="31"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="49" id="ikK-bh-9rI"/>
                                                         <constraint firstAttribute="height" constant="31" id="z69-9q-QWq"/>
