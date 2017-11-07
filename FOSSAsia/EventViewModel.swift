@@ -87,16 +87,7 @@ struct EventViewModel: EventTypePresentable, EventDetailsPresentable, EventDescr
         }
     }
     
-//    fileprivate func createLocalNotification() {
-//        let localNotification = UILocalNotification()
-//        localNotification.fireDate = (self.startDateTime.value as NSDate).addingMinutes(-15)
-//        localNotification.alertBody = "\(self.title) starts in 15 minutes at \(location)!"
-//        localNotification.soundName = UILocalNotificationDefaultSoundName
-//        localNotification.userInfo = ["sessionID": sessionId.value]
-//        UIApplication.shared.scheduleLocalNotification(localNotification)
-//    }
-    
-    //    MARK: - Create Local Notification
+    //MARK: - Create Local Notification
     fileprivate func createLocalNotification(){
         //    request authorization for local notification
         let center = UNUserNotificationCenter.current()
@@ -107,7 +98,7 @@ struct EventViewModel: EventTypePresentable, EventDetailsPresentable, EventDescr
         localNotificationContent.body = "\(self.title) starts in 15 minutes at \(location)!"
         localNotificationContent.sound = UNNotificationSound.default()
         localNotificationContent.userInfo = ["sessionID": sessionId.value]
-//        Trigger notification
+        // Trigger notification
         let triggerDate = (self.startDateTime.value as Date).addingTimeInterval(-15*60)
         let trigger = UNCalendarNotificationTrigger(dateMatching: Calendar.current.dateComponents([.minute,.hour,.day], from: triggerDate), repeats: false)
         let identifier = "LocalNotification"
