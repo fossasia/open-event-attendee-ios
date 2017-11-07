@@ -120,16 +120,10 @@ struct EventViewModel: EventTypePresentable, EventDetailsPresentable, EventDescr
 
     }
     
+    //MARK: - Remove Notification
     fileprivate func cancelLocalNotification() {
-        if let notifications = UIApplication.shared.scheduledLocalNotifications {
-            for notification in notifications {
-                if let info = notification.userInfo as? [String: String] {
-                    if info["sessionID"] == sessionId.value {
-                        UIApplication.shared.cancelLocalNotification(notification)
-                    }
-                }
-            }
-        }
+        let center = UNUserNotificationCenter.current()
+        center.removeAllPendingNotificationRequests()
      }
 }
 
