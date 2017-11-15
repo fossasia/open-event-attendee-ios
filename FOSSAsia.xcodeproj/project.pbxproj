@@ -58,7 +58,12 @@
 		3094D5811C833F83007C2873 /* Microlocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3094D5801C833F83007C2873 /* Microlocation.swift */; };
 		30F0AFB61C81B9C400CE5D18 /* EventProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F0AFB51C81B9C400CE5D18 /* EventProvider.swift */; };
 		30F0AFB81C81C4C600CE5D18 /* SettingsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F0AFB71C81C4C600CE5D18 /* SettingsManager.swift */; };
-		3F35E89C2052DB8B58DDA340 /* Pods_FOSSAsia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C6C3C6E6BB94887BCEE095E /* Pods_FOSSAsia.framework */; };
+		405CCFED1FBC8D6A009F8A1C /* DateTools.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 405CCFF31FBC8D6A009F8A1C /* DateTools.framework */; };
+		405CCFEE1FBC8D6A009F8A1C /* DZNEmptyDataSet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 405CCFF41FBC8D6A009F8A1C /* DZNEmptyDataSet.framework */; };
+		405CCFEF1FBC8D6A009F8A1C /* MGSwipeTableCell.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 405CCFF51FBC8D6A009F8A1C /* MGSwipeTableCell.framework */; };
+		405CCFF01FBC8D6A009F8A1C /* Pages.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 405CCFF61FBC8D6A009F8A1C /* Pages.framework */; };
+		405CCFF11FBC8D6A009F8A1C /* Pods_FOSSAsia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 405CCFF71FBC8D6A009F8A1C /* Pods_FOSSAsia.framework */; };
+		405CCFF21FBC8D6A009F8A1C /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 405CCFF81FBC8D6A009F8A1C /* SwiftyJSON.framework */; };
 		40BD58D11FAFC78400C3891E /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40BD58CF1FAFC73600C3891E /* UserNotifications.framework */; };
 		40BD58D21FAFC78F00C3891E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40BD58D01FAFC74600C3891E /* UIKit.framework */; };
 /* End PBXBuildFile section */
@@ -160,6 +165,17 @@
 		3094D5801C833F83007C2873 /* Microlocation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Microlocation.swift; sourceTree = "<group>"; };
 		30F0AFB51C81B9C400CE5D18 /* EventProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventProvider.swift; sourceTree = "<group>"; };
 		30F0AFB71C81C4C600CE5D18 /* SettingsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsManager.swift; sourceTree = "<group>"; };
+		405CCFE81FBC8C58009F8A1C /* DateTools.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = DateTools.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		405CCFE91FBC8C58009F8A1C /* DZNEmptyDataSet.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = DZNEmptyDataSet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		405CCFEA1FBC8C58009F8A1C /* MGSwipeTableCell.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MGSwipeTableCell.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		405CCFEB1FBC8C58009F8A1C /* Pages.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pages.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		405CCFEC1FBC8C58009F8A1C /* SwiftyJSON.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SwiftyJSON.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		405CCFF31FBC8D6A009F8A1C /* DateTools.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = DateTools.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		405CCFF41FBC8D6A009F8A1C /* DZNEmptyDataSet.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = DZNEmptyDataSet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		405CCFF51FBC8D6A009F8A1C /* MGSwipeTableCell.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MGSwipeTableCell.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		405CCFF61FBC8D6A009F8A1C /* Pages.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pages.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		405CCFF71FBC8D6A009F8A1C /* Pods_FOSSAsia.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_FOSSAsia.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		405CCFF81FBC8D6A009F8A1C /* SwiftyJSON.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SwiftyJSON.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		40BD58CF1FAFC73600C3891E /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
 		40BD58D01FAFC74600C3891E /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		673535C2361286B5378F4A57 /* Pods-FOSSAsia.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FOSSAsia.release.xcconfig"; path = "Pods/Target Support Files/Pods-FOSSAsia/Pods-FOSSAsia.release.xcconfig"; sourceTree = "<group>"; };
@@ -171,9 +187,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				405CCFED1FBC8D6A009F8A1C /* DateTools.framework in Frameworks */,
+				405CCFEE1FBC8D6A009F8A1C /* DZNEmptyDataSet.framework in Frameworks */,
+				405CCFEF1FBC8D6A009F8A1C /* MGSwipeTableCell.framework in Frameworks */,
+				405CCFF01FBC8D6A009F8A1C /* Pages.framework in Frameworks */,
+				405CCFF11FBC8D6A009F8A1C /* Pods_FOSSAsia.framework in Frameworks */,
+				405CCFF21FBC8D6A009F8A1C /* SwiftyJSON.framework in Frameworks */,
 				40BD58D21FAFC78F00C3891E /* UIKit.framework in Frameworks */,
 				40BD58D11FAFC78400C3891E /* UserNotifications.framework in Frameworks */,
-				3F35E89C2052DB8B58DDA340 /* Pods_FOSSAsia.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -408,6 +429,17 @@
 		9DA21FF099DE2C5D1B738BFB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				405CCFF31FBC8D6A009F8A1C /* DateTools.framework */,
+				405CCFF41FBC8D6A009F8A1C /* DZNEmptyDataSet.framework */,
+				405CCFF51FBC8D6A009F8A1C /* MGSwipeTableCell.framework */,
+				405CCFF61FBC8D6A009F8A1C /* Pages.framework */,
+				405CCFF71FBC8D6A009F8A1C /* Pods_FOSSAsia.framework */,
+				405CCFF81FBC8D6A009F8A1C /* SwiftyJSON.framework */,
+				405CCFE81FBC8C58009F8A1C /* DateTools.framework */,
+				405CCFE91FBC8C58009F8A1C /* DZNEmptyDataSet.framework */,
+				405CCFEA1FBC8C58009F8A1C /* MGSwipeTableCell.framework */,
+				405CCFEB1FBC8C58009F8A1C /* Pages.framework */,
+				405CCFEC1FBC8C58009F8A1C /* SwiftyJSON.framework */,
 				40BD58D01FAFC74600C3891E /* UIKit.framework */,
 				40BD58CF1FAFC73600C3891E /* UserNotifications.framework */,
 				0C6C3C6E6BB94887BCEE095E /* Pods_FOSSAsia.framework */,
@@ -793,16 +825,10 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 					"$(inherited)",
-					"$(PROJECT_DIR)/build/Release-iphoneos/DateTools",
-					"$(PROJECT_DIR)/build/Release-iphoneos/DZNEmptyDataSet",
-					"$(PROJECT_DIR)/build/Release-iphoneos/MGSwipeTableCell",
-					"$(PROJECT_DIR)/build/Release-iphoneos/Pages",
-					"$(PROJECT_DIR)/build/Release-iphoneos",
-					"$(PROJECT_DIR)/build/Release-iphoneos/SwiftyJSON",
 				);
 				INFOPLIST_FILE = FOSSAsia/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				LD_RUNPATH_SEARCH_PATHS = "";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = co.undertide.fossasia;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -826,16 +852,10 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 					"$(inherited)",
-					"$(PROJECT_DIR)/build/Release-iphoneos/DateTools",
-					"$(PROJECT_DIR)/build/Release-iphoneos/DZNEmptyDataSet",
-					"$(PROJECT_DIR)/build/Release-iphoneos/MGSwipeTableCell",
-					"$(PROJECT_DIR)/build/Release-iphoneos/Pages",
-					"$(PROJECT_DIR)/build/Release-iphoneos",
-					"$(PROJECT_DIR)/build/Release-iphoneos/SwiftyJSON",
 				);
 				INFOPLIST_FILE = FOSSAsia/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				LD_RUNPATH_SEARCH_PATHS = "";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = co.undertide.fossasia;
 				PRODUCT_NAME = "$(TARGET_NAME)";
