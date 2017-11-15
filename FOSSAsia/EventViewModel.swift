@@ -87,9 +87,9 @@ struct EventViewModel: EventTypePresentable, EventDetailsPresentable, EventDescr
         }
     }
     
-    //MARK: - Create Local Notification
-    fileprivate func createLocalNotification(){
-        //    request authorization for local notification
+    // MARK: - Create Local Notification
+    fileprivate func createLocalNotification() {
+        // request authorization for local notification
         let center = UNUserNotificationCenter.current()
         center.requestAuthorization(options: [.alert, .sound]) { (granted, error) in
             // Enable or disable features based on authorization.
@@ -104,14 +104,14 @@ struct EventViewModel: EventTypePresentable, EventDetailsPresentable, EventDescr
         let identifier = "LocalNotification"
         let request = UNNotificationRequest(identifier: identifier, content: localNotificationContent, trigger: trigger)
         center.add(request, withCompletionHandler: { (error) in
-            if error != nil{
+            if error != nil {
                 print("Something went wrong")
             }
         })
 
     }
     
-    //MARK: - Remove Notification
+    // MARK: - Remove Notification
     fileprivate func cancelLocalNotification() {
         let center = UNUserNotificationCenter.current()
         center.removeAllPendingNotificationRequests()
