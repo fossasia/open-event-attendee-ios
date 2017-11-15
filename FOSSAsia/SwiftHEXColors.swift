@@ -58,11 +58,8 @@ public extension SWColor {
             
             // Deal with 3 character Hex strings - Swift 4 method
             if hex.count == 3 {
-                //let redHex   = hex.substring(to: hex.characters.index(hex.startIndex, offsetBy: 1))
                 let redHex = String(hex[...hex.index(hex.startIndex, offsetBy: 1)])
-                //let greenHex = hex.substring(with: (hex.characters.index(hex.startIndex, offsetBy: 1) ..< hex.characters.index(hex.startIndex, offsetBy: 2)))
                 let greenHex = String(hex[hex.index(hex.startIndex, offsetBy: 1) ..< hex.index(hex.startIndex, offsetBy: 2)])
-                //let blueHex  = hex.substring(from: hex.characters.index(hex.startIndex, offsetBy: 2))
                 let blueHex = String(hex[hex.index(hex.startIndex, offsetBy: 2)...])
                 
                 hex = redHex + redHex + greenHex + greenHex + blueHex + blueHex
