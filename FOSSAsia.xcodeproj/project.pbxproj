@@ -802,7 +802,7 @@
 				);
 				INFOPLIST_FILE = FOSSAsia/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "";
 				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = co.undertide.fossasia;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -835,7 +835,7 @@
 				);
 				INFOPLIST_FILE = FOSSAsia/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "";
 				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = co.undertide.fossasia;
 				PRODUCT_NAME = "$(TARGET_NAME)";
