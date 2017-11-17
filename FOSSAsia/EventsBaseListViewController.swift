@@ -58,7 +58,6 @@ class EventsBaseListViewController: UIViewController, EventListBrowsingByDate, U
             return ScheduleViewController.scheduleViewControllerFor(viewModel)
         }
         self.pagesVC.add(viewControllers)
-        self.pagesVC.startPage = 1
     }
 }
 

@@ -27,14 +27,6 @@
             </objects>
             <point key="canvasLocation" x="832" y="-421"/>
         </scene>
-        <!--HYPPagesController-->
-        <scene sceneID="PfL-vb-ltC">
-            <objects>
-                <viewControllerPlaceholder storyboardName="Sessions" referencedIdentifier="HYPPagesController" id="tuq-1A-NnT" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="fC9-UN-Fhf" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1496" y="227"/>
-        </scene>
         <!--FOSSAsia-->
         <scene sceneID="XJE-5y-G6K">
             <objects>
@@ -288,8 +280,8 @@
         <!--Pages Controller-->
         <scene sceneID="HGf-4r-QC7">
             <objects>
-                <pageViewController storyboardIdentifier="HYPPagesController" autoresizesArchivedViewToFullSize="NO" automaticallyAdjustsScrollViewInsets="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="g5K-IK-1iQ" customClass="HYPPagesController" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hFZ-3U-d3o" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <pageViewController storyboardIdentifier="HYPPagesController" autoresizesArchivedViewToFullSize="NO" automaticallyAdjustsScrollViewInsets="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="g5K-IK-1iQ" customClass="HYPPagesController" sceneMemberID="viewController"/>
             </objects>
             <point key="canvasLocation" x="3018" y="-421"/>
         </scene>
