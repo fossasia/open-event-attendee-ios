@@ -7,7 +7,7 @@
 //
 
 import Foundation
-
+import UserNotifications
 
 typealias EventViewModelCompletionHandler = (EventViewModel?, Error?) -> ()
 
@@ -87,25 +87,34 @@ struct EventViewModel: EventTypePresentable, EventDetailsPresentable, EventDescr
         }
     }
     
+    // MARK: - Create Local Notification
     fileprivate func createLocalNotification() {
-        let localNotification = UILocalNotification()
-        localNotification.fireDate = (self.startDateTime.value as NSDate).addingMinutes(-15)
-        localNotification.alertBody = "\(self.title) starts in 15 minutes at \(location)!"
-        localNotification.soundName = UILocalNotificationDefaultSoundName
-        localNotification.userInfo = ["sessionID": sessionId.value]
-        UIApplication.shared.scheduleLocalNotification(localNotification)
+        // request authorization for local notification
+        let center = UNUserNotificationCenter.current()
+        center.requestAuthorization(options: [.alert, .sound]) { (granted, error) in
+            // Enable or disable features based on authorization.
+        }
+        let localNotificationContent = UNMutableNotificationContent()
+        localNotificationContent.body = "\(self.title) starts in 15 minutes at \(location)!"
+        localNotificationContent.sound = UNNotificationSound.default()
+        localNotificationContent.userInfo = ["sessionID": sessionId.value]
+        // Trigger notification
+        let triggerDate = (self.startDateTime.value as Date).addingTimeInterval(-15*60)
+        let trigger = UNCalendarNotificationTrigger(dateMatching: Calendar.current.dateComponents([.minute,.hour,.day], from: triggerDate), repeats: false)
+        let identifier = "LocalNotification"
+        let request = UNNotificationRequest(identifier: identifier, content: localNotificationContent, trigger: trigger)
+        center.add(request, withCompletionHandler: { (error) in
+            if error != nil {
+                print("Something went wrong")
+            }
+        })
+
     }
     
+    // MARK: - Remove Notification
     fileprivate func cancelLocalNotification() {
-        if let notifications = UIApplication.shared.scheduledLocalNotifications {
-            for notification in notifications {
-                if let info = notification.userInfo as? [String: String] {
-                    if info["sessionID"] == sessionId.value {
-                        UIApplication.shared.cancelLocalNotification(notification)
-                    }
-                }
-            }
-        }
+        let center = UNUserNotificationCenter.current()
+        center.removeAllPendingNotificationRequests()
      }
 }
 
@@ -133,7 +142,7 @@ extension EventViewModel {
     var timing: String {
         let startTime = (self.startDateTime.value as NSDate).formattedDate(withFormat: "HH:mm")
         let endTime = (self.endDateTime.value as NSDate).formattedDate(withFormat: "HH:mm")
-        return  "\(startTime) - \(endTime) - \(self.location.value)"
+        return  "\(String(describing: startTime)) - \(String(describing: endTime)) - \(self.location.value)"
     }
     var isFavorite: Bool { return self.favorite.value }
 }

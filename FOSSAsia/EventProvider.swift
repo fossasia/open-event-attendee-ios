@@ -53,7 +53,7 @@ struct EventProvider {
             do {
                 let filePath = dir.appendingPathComponent(SettingsManager.getLocalFileName(EventInfo.Events))
                 let eventsData = try Data(contentsOf: URL(fileURLWithPath: filePath), options: .mappedIfSafe)
-                let jsonObj = JSON(data: eventsData)
+                let jsonObj = try JSON(data: eventsData)
                 guard let sessionsArray = jsonObj[EventInfo.Events.rawValue].array else {
                     let error = Error(errorCode: .jsonParsingFailed)
                     eventsLoadingCompletionHandler(nil, error)
@@ -147,7 +147,7 @@ struct EventProvider {
             
             do {
                 let favoritesData = try Data(contentsOf: URL(fileURLWithPath: filePath), options: .mappedIfSafe)
-                let jsonObj = JSON(data: favoritesData)
+                let jsonObj = try JSON(data: favoritesData)
                 guard let favoritesArray = jsonObj.array else {
                     let error = Error(errorCode: .jsonParsingFailed)
                     completionHandler(nil, error)

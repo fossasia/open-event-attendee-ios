@@ -45,8 +45,8 @@ class FavoritesScheduleViewController: EventsBaseViewController, SwipeToFavorite
 extension FavoritesScheduleViewController {
     internal func title(forEmptyDataSet scrollView: UIScrollView) -> NSAttributedString? {
         let text = "No Favorites Yet!"
-        let attributes = [NSFontAttributeName: UIFont.boldSystemFont(ofSize: 18.0),
-            NSForegroundColorAttributeName: UIColor.darkGray]
+        let attributes = [NSAttributedStringKey.font: UIFont.boldSystemFont(ofSize: 18.0),
+            NSAttributedStringKey.foregroundColor: UIColor.darkGray]
         
         return NSAttributedString.init(string: text, attributes: attributes)
     }

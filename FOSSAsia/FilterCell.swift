@@ -27,7 +27,7 @@ class FilterCell: UITableViewCell {
         trackSwitch.addTarget(self, action: #selector(FilterCell.switchFlipped(_:)), for: .valueChanged)
     }
     
-    func switchFlipped(_ sender: AnyObject) {
+    @objc func switchFlipped(_ sender: AnyObject) {
         if let filterSwitch = sender as? UISwitch {
             delegate?.changeFilterPreference(filterSwitch.isOn)
         }

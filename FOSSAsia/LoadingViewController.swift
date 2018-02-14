@@ -32,7 +32,7 @@ class LoadingViewController: UIViewController {
     fileprivate func spinLoadingIndicatorWithOptions(_ options: UIViewAnimationOptions) {
         
         UIView.animate(withDuration: 0.15, delay: 0, options: options, animations: { () -> Void in
-            self.loadingImageView.transform = self.loadingImageView.transform.rotated(by: CGFloat(M_PI / 2))
+            self.loadingImageView.transform = self.loadingImageView.transform.rotated(by: CGFloat(Double.pi / 2))
             }) { (finished) -> Void in
                 if finished {
                     if self.loadAnimating {

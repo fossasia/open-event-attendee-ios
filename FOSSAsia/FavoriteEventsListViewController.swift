@@ -23,7 +23,6 @@ class FavoriteEventsListViewController: EventsBaseListViewController {
             return FavoritesScheduleViewController.scheduleViewControllerFor(viewModel)
         }
         self.pagesVC.add(viewControllers)
-        self.pagesVC.startPage = 1
     }
     
 }
