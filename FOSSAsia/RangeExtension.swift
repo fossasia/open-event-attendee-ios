@@ -10,7 +10,7 @@ import Foundation
 
 extension Sequence {
     func toArray() -> [Iterator.Element] {
-        
+
         return Array(self)
     }
 }

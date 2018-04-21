@@ -23,13 +23,12 @@ protocol TrackColorPresentable {
 }
 
 struct TrackViewModel: TrackDetailsPresentable, TrackStatusPresentable, TrackColorPresentable {
-    
+
     // MARK: - Properties
     let isOn: Observable<Bool>
     let id: Observable<Int>
     let name: Observable<String>
 
-    
     init(_ track: Event.Track) {
         self.id = Observable(track.rawValue)
         self.name = Observable(track.description)
@@ -40,7 +39,6 @@ struct TrackViewModel: TrackDetailsPresentable, TrackStatusPresentable, TrackCol
         }
     }
 
-    
     fileprivate func update(_ status: Bool) {
         if var filteredTracksDefaults = UserDefaults.standard.object(forKey: Constants.UserDefaultsKey.FilteredTrackIds) as? [Int] {
             if status {

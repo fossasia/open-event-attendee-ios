@@ -10,32 +10,34 @@ import Foundation
 
 struct Event {
     enum Track: Int, CustomStringConvertible {
-        case techKids1 = 1
-        case techKids2, openTechIOT, openTech, webTech, exhibition, hardwareIOT, python, databases, bigOpenData, devOps, privSec, isc, scienceHackDay, linux, design
+        case openTechIOT = 1
+        case openTech, techKids1, techKids2, techKids3, hardwareIOT, devOps, webTech, python, bigOpenData, databases, isc, privSec, scienceHackDay, linux, design, exhibition, social
         var description: String {
             switch self {
-            case .techKids1: return "Tech Kids I";
-            case .techKids2: return "Tech Kids II";
-            case .openTechIOT: return "OpenTech and IOT";
-            case .openTech: return "OpenTech Workshops";
-            case .webTech: return "WebTech";
-            case .exhibition: return "Exhibition";
-            case .hardwareIOT: return "Hardware and IOT";
-            case .python: return "Python";
-            case .databases: return "Databases";
-            case .bigOpenData: return "Big Data/Open Data";
-            case .devOps: return "DevOps";
-            case .privSec: return "Privacy and Security";
-            case .isc: return "Internet, Society, Community";
-            case .scienceHackDay: return "Science Hack Day";
-            case .linux: return "Linux and MiniDebConf";
+            case .techKids1: return "Tech Kids I"
+            case .techKids2: return "Tech Kids II"
+            case .techKids3: return "Tech Kids III"
+            case .openTechIOT: return "OpenTech and IOT"
+            case .openTech: return "OpenTech Workshops"
+            case .webTech: return "WebTech"
+            case .exhibition: return "Exhibition"
+            case .hardwareIOT: return "Hardware and IOT"
+            case .python: return "Python"
+            case .databases: return "Databases"
+            case .bigOpenData: return "Big Data/Open Data"
+            case .devOps: return "DevOps"
+            case .privSec: return "Privacy and Security"
+            case .isc: return "Internet, Society, Community"
+            case .scienceHackDay: return "Science Hack Day"
+            case .linux: return "Linux and MiniDebConf"
             case .design: return "Design, VR, 3D"
+            case .social: return "Social Event"
             }
         }
-        
+
         func getTrackColor() -> UIColor {
             switch self {
-            case .techKids1, .techKids2:
+            case .techKids1, .techKids2, .techKids3:
                 return UIColor(hexString: "8E8E93")!
             case .openTechIOT:
                 return UIColor(hexString: "FF4D4D")!
@@ -43,7 +45,7 @@ struct Event {
                 return UIColor(hexString: "FF8E4C")!
             case .webTech:
                 return UIColor(hexString: "FFCF4C")!
-            case .exhibition:
+            case .exhibition, .social:
                 return UIColor(hexString: "EAFF4C")!
             case .hardwareIOT:
                 return UIColor(hexString: "B8FF4C")!

@@ -14,9 +14,9 @@ class FilterCell: UITableViewCell {
     @IBOutlet weak var trackLabel: UILabel!
     @IBOutlet weak var trackIndicator: UIView!
     @IBOutlet weak var trackSwitch: UISwitch!
-    
+
     fileprivate var delegate: TrackDetailsWithSwitchPresentable?
-    
+
     func configure(_ presenter: TrackDetailsWithSwitchPresentable) {
         delegate = presenter
         trackLabel.text = presenter.trackName
@@ -26,13 +26,13 @@ class FilterCell: UITableViewCell {
         }
         trackSwitch.addTarget(self, action: #selector(FilterCell.switchFlipped(_:)), for: .valueChanged)
     }
-    
+
     @objc func switchFlipped(_ sender: AnyObject) {
         if let filterSwitch = sender as? UISwitch {
             delegate?.changeFilterPreference(filterSwitch.isOn)
         }
     }
-    
+
     override func layoutSubviews() {
         super.layoutSubviews()
         trackIndicator.layer.cornerRadius = trackIndicator.frame.size.width / 2
