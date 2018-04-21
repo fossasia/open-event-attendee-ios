@@ -1,5 +1,6 @@
 [![Build Status](https://travis-ci.org/fossasia/open-event-ios.svg?branch=development)](https://travis-ci.org/fossasia/open-event-ios)
 
+<<<<<<< HEAD
 # Open Event iOS
 **iOS** app for **Open Event**
 ![Open Event](https://storage.googleapis.com/eventyay.com/assets/branding/base_branding.png)
@@ -43,14 +44,31 @@ Before you begin, you should already have the Xcode downloaded and set up correc
 4. Build the project (⌘+B) and check for any errors.
 
 5. Run the app (⌘+R).and test it.
+=======
+# open-event-ios
+iOS app for Open Event
 
-# Contribute!
+## Introduction
+This is an iOS app developed for `FOSSASIA` in mind.
 
-> You're now ready to contribute!
+## Things To Have
+1. Xcode
+2. [CocoaPods](http://cocoapods.org/)
+
+## Setting Up
+1. Clone this repository
+2. `cd` to this repository
+3. Run `pod install`
+4. Open .xcworkspace file (this is important)
+>>>>>>> development
 
 You're now ready to contribute! 
 Before writing any code, I will highly recommend to have a look at the [contribution guidelines](https://github.com/fossasia/open-event-ios/blob/master/CONTRIBUTING.md) to avoid any unnecessary conflicts.
 
 ## License
+<<<<<<< HEAD
 This repository is licensed under the **[MIT License](LICENSE)**.
 > To obtain the software under a different license, Please contact **FOSSASIA**.
+=======
+MIT
+>>>>>>> development
