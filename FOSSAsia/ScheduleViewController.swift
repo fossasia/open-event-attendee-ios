@@ -11,13 +11,13 @@ import MGSwipeTableCell
 
 class ScheduleViewController: EventsBaseViewController, SwipeToFavoriteCellPresentable, TableViewRefreshable {
     var refreshControl = UIRefreshControl()
-    
+
     // Constants for Storyboard/VC
     struct StoryboardConstants {
         static let storyboardName = "ScheduleVC"
-        static let viewControllerId = String(describing: ScheduleViewController())
+        static let viewControllerId = String(describing: ScheduleViewController.self)
     }
-    
+
     lazy var filteredEvents: [EventViewModel] = self.allEvents
     var filterString: String? = nil {
         didSet {
@@ -25,30 +25,29 @@ class ScheduleViewController: EventsBaseViewController, SwipeToFavoriteCellPrese
                 filteredEvents = self.allEvents
             } else {
                 let filterPredicate = NSPredicate(format: "self contains[c] %@", argumentArray: [filterString!])
-                filteredEvents = allEvents.filter( {filterPredicate.evaluate(with: $0.eventName) } )
+                filteredEvents = allEvents.filter({filterPredicate.evaluate(with: $0.eventName) })
             }
         }
     }
-    
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         viewModel?.delegate = self
         refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
         refreshControl.addTarget(self, action: #selector(ScheduleViewController.refreshData(_:)), for: .valueChanged)
         tableView.addSubview(refreshControl)
     }
-    
+
     class func scheduleViewControllerFor(_ schedule: ScheduleViewModel) -> ScheduleViewController {
         let storyboard = UIStoryboard(name: ScheduleViewController.StoryboardConstants.storyboardName, bundle: nil)
-        
+
         let viewController = storyboard.instantiateViewController(withIdentifier: ScheduleViewController.StoryboardConstants.viewControllerId) as! ScheduleViewController
         viewController.viewModel = schedule
-        
+
         return viewController
     }
-    
+
     @objc func refreshData(_ sender: AnyObject) {
         viewModel?.refresh()
     }
@@ -69,15 +68,14 @@ extension ScheduleViewController {
         let eventViewModel = allEvents[(indexPath as NSIndexPath).row]
         cell.configure(withPresenter: eventViewModel)
         cell.delegate = self
-        
+
         return cell
     }
 }
 
-
-// MARK:- SwipeToFavoriteCellPresentable Conformance
+// MARK: - SwipeToFavoriteCellPresentable Conformance
 extension ScheduleViewController {
-    func favoriteEvent(_ indexPath: IndexPath)  {
+    func favoriteEvent(_ indexPath: IndexPath) {
         weak var me = self
         let eventViewModel = me!.eventViewModelForIndexPath(indexPath)
         eventViewModel.favoriteEvent { (eventViewModel, error) -> Void in
@@ -86,19 +84,18 @@ extension ScheduleViewController {
             }
         }
     }
-    
+
     func swipeTableCell(_ cell: MGSwipeTableCell!, swipeButtonsFor direction: MGSwipeDirection, swipeSettings: MGSwipeSettings!, expansionSettings: MGSwipeExpansionSettings!) -> [AnyObject]! {
         swipeSettings.transition = .border
         expansionSettings.buttonIndex = 0
-        
+
         weak var me = self
         let eventViewModel = me!.eventViewModelForIndexPath(me!.tableView.indexPath(for: cell)!)
-        
+
         if direction == .leftToRight {
             expansionSettings.fillOnTrigger = false
             expansionSettings.threshold = 2
-            
-            
+
             let faveButton = MGSwipeButton(title: "", icon: (eventViewModel.isFavorite ? UIImage(named: "cell_favorite_selected") : UIImage(named: "cell_favorite")), backgroundColor: Colors.favoriteOrangeColor!) { (sender: MGSwipeTableCell!) -> Bool in
                 if let sessionCell = sender as? EventCell {
                     UIView.animate(withDuration: 0.3, animations: { () -> Void in
@@ -117,10 +114,10 @@ extension ScheduleViewController {
                 }
                 return true
             }
-            
+
             faveButton.setPadding(CGFloat(20))
             cell.leftButtons = [faveButton]
-            
+
             return [faveButton]
         }
         return nil

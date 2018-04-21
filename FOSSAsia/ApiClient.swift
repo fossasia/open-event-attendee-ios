@@ -11,9 +11,9 @@ import Foundation
 typealias ApiRequestCompletionHandler = (Data?, Error?) -> Void
 
 struct ApiClient {
-//    static let url = "https://raw.githubusercontent.com/fossasia/open-event/master/testapi/event/1/"
-    static let url = "https://raw.githubusercontent.com/fossasia/2016.fossasia.org/gh-pages/schedule/"
-    
+
+    static let url = "https://raw.githubusercontent.com/fossasia/open-event-scraper/master/out/"
+
     let eventInfo: EventInfo
 
     func sendGetRequest(_ completionHandler: @escaping ApiRequestCompletionHandler) {
@@ -32,7 +32,7 @@ struct ApiClient {
                 completionHandler(nil, error)
                 return
             }
-            
+
             self.processResponse(unwrappedData, completionHandler: { (error) -> Void in
                 guard error == nil else {
                     completionHandler(nil, error)
@@ -40,18 +40,18 @@ struct ApiClient {
                 }
                 completionHandler(unwrappedData, nil)
             })
-            
-        }) 
+
+        })
         task.resume()
     }
 
     fileprivate func getUrl(_ eventInfo: EventInfo) -> String {
-       return ApiClient.url + eventInfo.rawValue + ".json"
+       return ApiClient.url + eventInfo.rawValue + Constants.jsonFileExtension
     }
-    
+
     fileprivate func processResponse(_ data: Data, completionHandler: CommitmentCompletionHandler) {
-        if let dir : NSString = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.allDomainsMask, true).first as NSString? {
-            let path = dir.appendingPathComponent(SettingsManager.getLocalFileName(eventInfo));
+        if let dir: NSString = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.allDomainsMask, true).first as NSString? {
+            let path = dir.appendingPathComponent(SettingsManager.getLocalFileName(eventInfo))
             try? data.write(to: URL(fileURLWithPath: path), options: [])
             completionHandler(nil)
         }
