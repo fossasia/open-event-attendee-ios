@@ -335,8 +335,6 @@
 			children = (
 				30F0AFB41C81B9B000CE5D18 /* Provider */,
 				30321F5B1C81759F008E5258 /* Api */,
-				285F1B641C5AF7B100A7E0DD /* AppDelegate.swift */,
-				28091E901C64B0B900E789CD /* Constants.swift */,
 				2818A9381C62301A00ECB57F /* Models */,
 				2818A9391C62305100ECB57F /* ViewModels */,
 				285F1B901C5B06A600A7E0DD /* Helpers */,
@@ -344,9 +342,8 @@
 				2818A9311C62300300ECB57F /* View Controllers */,
 				2818A93B1C62347A00ECB57F /* Protocols */,
 				2818A93C1C62348300ECB57F /* Storyboards */,
-				285F1B6D1C5AF7B100A7E0DD /* Assets.xcassets */,
-				285F1B721C5AF7B100A7E0DD /* Info.plist */,
-				285F1B801C5AFE3200A7E0DD /* Fossasia-Bridging-Header.h */,
+				4039027B208766CC00FF8F22 /* Assets */,
+				4039027C2087673900FF8F22 /* Supporting Files */,
 			);
 			path = FOSSAsia;
 			sourceTree = "<group>";
@@ -358,6 +355,7 @@
 				285F1B961C5B08FC00A7E0DD /* DateTools */,
 				2859B0FF1C5DFD09009656FC /* Colors.swift */,
 				28A0BC6E1C5F42D6001625FB /* Error.swift */,
+				28091E901C64B0B900E789CD /* Constants.swift */,
 				285F1B8E1C5B069D00A7E0DD /* Observable.swift */,
 				285F1B781C5AFBBB00A7E0DD /* SwiftHEXColors.swift */,
 			);
@@ -417,6 +415,24 @@
 			name = Provider;
 			sourceTree = "<group>";
 		};
+		4039027B208766CC00FF8F22 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				285F1B6D1C5AF7B100A7E0DD /* Assets.xcassets */,
+			);
+			name = Assets;
+			sourceTree = "<group>";
+		};
+		4039027C2087673900FF8F22 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				285F1B641C5AF7B100A7E0DD /* AppDelegate.swift */,
+				285F1B721C5AF7B100A7E0DD /* Info.plist */,
+				285F1B801C5AFE3200A7E0DD /* Fossasia-Bridging-Header.h */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		8C4556AD4F10E8C1FF0495B8 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -460,7 +476,6 @@
 				285F1B5F1C5AF7B100A7E0DD /* Resources */,
 				285F1B861C5B014600A7E0DD /* Embed Frameworks */,
 				4AB91F7697E9AB18AC6A625D /* [CP] Embed Pods Frameworks */,
-				3CB547C3F88DBF70424920E4 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -496,7 +511,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0720;
-				LastUpgradeCheck = 0910;
+				LastUpgradeCheck = 0930;
 				ORGANIZATIONNAME = FossAsia;
 				TargetAttributes = {
 					285F1B601C5AF7B100A7E0DD = {
@@ -557,21 +572,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		3CB547C3F88DBF70424920E4 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FOSSAsia/Pods-FOSSAsia-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		4AB91F7697E9AB18AC6A625D /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -725,12 +725,14 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -779,12 +781,14 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;

@@ -9,7 +9,7 @@
 import Foundation
 import UserNotifications
 
-typealias EventViewModelCompletionHandler = (EventViewModel?, Error?) -> ()
+typealias EventViewModelCompletionHandler = (EventViewModel?, Error?) -> Void
 
 protocol EventTypePresentable {
     var typeColor: UIColor {get}
@@ -46,10 +46,10 @@ struct EventViewModel: EventTypePresentable, EventDetailsPresentable, EventDescr
     let startDateTime: Observable<Date>
     let endDateTime: Observable<Date>
     let favorite: Observable<Bool>
-    
+
     // MARK: - Services
     fileprivate var eventsService: EventProvider
-    
+
     init (_ event: Event) {
         sessionId = Observable(event.id)
         track = Observable(event.trackCode.getTrackColor())
@@ -60,24 +60,23 @@ struct EventViewModel: EventTypePresentable, EventDetailsPresentable, EventDescr
         startDateTime = Observable(event.startDateTime)
         endDateTime = Observable(event.endDateTime)
         favorite = Observable(event.favorite)
-    
+
         // Dependency Injections
         eventsService = EventProvider()
     }
-    
+
     func favoriteEvent(_ completionHandler: @escaping EventViewModelCompletionHandler) {
         eventsService.toggleFavorite(self.sessionId.value) { (error) -> Void in
             guard error == nil else {
                 completionHandler(nil, error)
                 return
             }
-            
+
             self.updateFavorite()
             completionHandler(self, nil)
         }
     }
-    
-    
+
     fileprivate func updateFavorite() {
         favorite.value = !favorite.value
         if !favorite.value {
@@ -86,7 +85,7 @@ struct EventViewModel: EventTypePresentable, EventDetailsPresentable, EventDescr
             cancelLocalNotification()
         }
     }
-    
+
     // MARK: - Create Local Notification
     fileprivate func createLocalNotification() {
         // request authorization for local notification
@@ -100,8 +99,8 @@ struct EventViewModel: EventTypePresentable, EventDetailsPresentable, EventDescr
         localNotificationContent.userInfo = ["sessionID": sessionId.value]
         // Trigger notification
         let triggerDate = (self.startDateTime.value as Date).addingTimeInterval(-15*60)
-        let trigger = UNCalendarNotificationTrigger(dateMatching: Calendar.current.dateComponents([.minute,.hour,.day], from: triggerDate), repeats: false)
-        let identifier = "LocalNotification"
+        let trigger = UNCalendarNotificationTrigger(dateMatching: Calendar.current.dateComponents([.minute, .hour, .day], from: triggerDate), repeats: false)
+        let identifier = Constants.localNotificationIdentifier
         let request = UNNotificationRequest(identifier: identifier, content: localNotificationContent, trigger: trigger)
         center.add(request, withCompletionHandler: { (error) in
             if error != nil {
@@ -110,7 +109,7 @@ struct EventViewModel: EventTypePresentable, EventDetailsPresentable, EventDescr
         })
 
     }
-    
+
     // MARK: - Remove Notification
     fileprivate func cancelLocalNotification() {
         let center = UNUserNotificationCenter.current()
