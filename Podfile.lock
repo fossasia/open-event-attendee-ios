@@ -12,10 +12,6 @@ DEPENDENCIES:
   - Pages
   - SwiftyJSON (from `https://github.com/SwiftyJSON/SwiftyJSON.git`)
 
-SPEC REPOS:
-  https://github.com/CocoaPods/Specs.git:
-    - Pages
-
 EXTERNAL SOURCES:
   DateTools:
     :git: https://github.com/MatthewYork/DateTools.git
@@ -49,4 +45,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: 9f760f08d69dda4beb950e342f2a9b16dcf6e39c
 
-COCOAPODS: 1.5.0
+COCOAPODS: 1.4.0

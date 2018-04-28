@@ -8,6 +8,7 @@
 
 import UIKit
 import SafariServices
+import MessageUI
 
 private struct DefaultURLs {
     static let fossasia2018 = "https://2018.fossasia.org/"
@@ -16,7 +17,61 @@ private struct DefaultURLs {
     static let fossasiaGoogleGroups = "http://groups.google.com/group/fossasia"
 }
 
-class MoreViewController: UITableViewController {
+class MoreViewController: UITableViewController, MFMailComposeViewControllerDelegate {
+    
+    func configureMailComposeViewController(recipient: String,
+                                            subject: String,
+                                            message: String) ->MFMailComposeViewController {
+        
+        let mail = MFMailComposeViewController()
+        mail.mailComposeDelegate = self
+        mail.setToRecipients([recipient])
+        mail.setSubject(subject)
+        mail.setMessageBody(message, isHTML: true)
+        
+        return mail
+    }
+    
+    func showSendMailErrorAlert() {
+        let sendMailAlert = UIAlertController(title: "Couldn't Send Mail",
+                                              message: "Your Device Couldn't Send Mail"
+,
+                                              preferredStyle: UIAlertControllerStyle.alert)
+        
+        sendMailAlert.addAction(UIAlertAction(title: "OK", style: .default) { (action:UIAlertAction!) in
+        })
+        self.present(sendMailAlert, animated: true)
+    }
+    
+    private func mailComposeController(_ controller:MFMailComposeViewController,
+                               didFinishWith result:MFMailComposeResult, error:Error?) {
+        switch result {
+        case .cancelled:
+            let myalert = UIAlertController(title: "Cancelled", message: "Mail Cancelled", preferredStyle: UIAlertControllerStyle.alert)
+            
+            myalert.addAction(UIAlertAction(title: "OK", style: .default) { (action:UIAlertAction!) in
+            })
+            self.present(myalert, animated: true)
+        case .saved:
+            let myalert = UIAlertController(title: "Saved", message: "Mail Saved", preferredStyle: UIAlertControllerStyle.alert)
+            
+            myalert.addAction(UIAlertAction(title: "OK", style: .default) { (action:UIAlertAction!) in
+            })
+            self.present(myalert, animated: true)
+        case .sent:
+            let myalert = UIAlertController(title: "Sent", message: "Mail Sent", preferredStyle: UIAlertControllerStyle.alert)
+            
+            myalert.addAction(UIAlertAction(title: "OK", style: .default) { (action:UIAlertAction!) in
+            })
+            self.present(myalert, animated: true)
+            
+        case .failed:
+            print("Mail sent failure")
+             default:
+            break
+        }
+        self.dismiss(animated: true, completion: nil)
+    }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard (indexPath as NSIndexPath).section == 0 else {
@@ -51,6 +106,16 @@ class MoreViewController: UITableViewController {
         case 3:
             self.present(self.createSVC(DefaultURLs.fossasiaGoogleGroups), animated: true, completion: nil)
             break
+        case 4:
+            let mailVc = configureMailComposeViewController(recipient: "",
+                                                            subject: "Check out the Open Event iOS!",
+                                                            message: "I use the Open Event iOS for browsing information about the event visit https://fossasia.org/ for more info")
+            if MFMailComposeViewController.canSendMail() {
+                self.present(mailVc, animated: true, completion: nil)
+            } else {
+                self.showSendMailErrorAlert()
+            }
+        break
         default:
             break
         }

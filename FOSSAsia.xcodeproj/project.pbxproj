@@ -476,6 +476,7 @@
 				285F1B5F1C5AF7B100A7E0DD /* Resources */,
 				285F1B861C5B014600A7E0DD /* Embed Frameworks */,
 				4AB91F7697E9AB18AC6A625D /* [CP] Embed Pods Frameworks */,
+				5F272A20F95D9ED640767E1B /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -596,6 +597,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FOSSAsia/Pods-FOSSAsia-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5F272A20F95D9ED640767E1B /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FOSSAsia/Pods-FOSSAsia-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		D39D5E71CB5BD8E82B9C9E03 /* [CP] Check Pods Manifest.lock */ = {
