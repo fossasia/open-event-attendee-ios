@@ -17,6 +17,6 @@ struct Error {
         case jsonSystemReadingFailed  = -6004
         case writingOnDiskFailed      = -6005
     }
-    
+
     let errorCode: Code
 }

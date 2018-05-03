@@ -10,7 +10,7 @@ import Foundation
 
 struct SpeakerViewModel {
     let name: Observable<String>
-    
+
     init(_ speaker: Speaker) {
         name = Observable(speaker.name)
     }

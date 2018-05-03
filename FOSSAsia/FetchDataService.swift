@@ -9,7 +9,7 @@
 import Foundation
 
 struct FetchDataService {
-    
+
     func fetchData(_ eventInfo: EventInfo, completionHandler: @escaping ApiRequestCompletionHandler) {
         let apiClient = ApiClient(eventInfo: eventInfo)
         apiClient.sendGetRequest { (data, error) -> Void in

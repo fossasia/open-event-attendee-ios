@@ -9,11 +9,11 @@
 import UIKit
 import Pages
 
-class EventsBaseListViewController: UIViewController, EventListBrowsingByDate, UIViewControllerPreviewingDelegate  {
+class EventsBaseListViewController: UIViewController, EventListBrowsingByDate, UIViewControllerPreviewingDelegate {
     fileprivate var collapseDetailViewController = true
     weak var pagesVC: PagesController!
     @IBOutlet weak var pagingView: SchedulePagingView!
- 
+
     var currentViewController: EventsBaseViewController! {
         didSet {
             self.registerForPreviewing(with: self, sourceView: currentViewController.tableView)
@@ -39,7 +39,7 @@ class EventsBaseListViewController: UIViewController, EventListBrowsingByDate, U
         navigationController?.splitViewController?.delegate = self
         splitViewController?.preferredDisplayMode = .allVisible
     }
-    
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "EventsPageViewController") {
             if let embeddedPageVC = segue.destination as? PagesController {
@@ -52,7 +52,7 @@ class EventsBaseListViewController: UIViewController, EventListBrowsingByDate, U
             }
         }
     }
-    
+
     func onViewModelScheduleChange(_ newSchedule: [ScheduleViewModel]) {
         let viewControllers = newSchedule.map { viewModel in
             return ScheduleViewController.scheduleViewControllerFor(viewModel)
@@ -61,36 +61,36 @@ class EventsBaseListViewController: UIViewController, EventListBrowsingByDate, U
     }
 }
 
-// MARK:- ScheduleViewControllerDelegate Conformance {
+// MARK: - ScheduleViewControllerDelegate Conformance {
 extension EventsBaseListViewController: ScheduleViewControllerDelegate {
     func eventDidGetSelected(_ tableView: UITableView, atIndexPath: IndexPath) {
         collapseDetailViewController = false
     }
 }
 
-// MARK:- UISplitViewControllerDelegate Conformance
+// MARK: - UISplitViewControllerDelegate Conformance
 extension EventsBaseListViewController: UISplitViewControllerDelegate {
     func splitViewController(_ splitViewController: UISplitViewController, collapseSecondary secondaryViewController: UIViewController, onto primaryViewController: UIViewController) -> Bool {
         return collapseDetailViewController
     }
 }
 
-// MARK:- UIViewControllerPreviewingDelegate Conformance
+// MARK: - UIViewControllerPreviewingDelegate Conformance
 extension EventsBaseListViewController {
     func previewingContext(_ previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
         guard let indexPath = self.currentViewController.tableView.indexPathForRow(at: location) else {
             return nil
         }
-        
+
         let eventVM = self.currentViewController.eventViewModelForIndexPath(indexPath)
         if let eventCell = self.currentViewController.tableView.cellForRow(at: indexPath) {
             previewingContext.sourceRect = eventCell.frame
         }
-        
+
         let eventVC = EventViewController.eventViewControllerForEvent(eventVM)
         return eventVC
     }
-    
+
     @objc(previewingContext:commitViewController:) func previewingContext(_ previewingContext: UIViewControllerPreviewing, commit viewControllerToCommit: UIViewController) {
         navigationController?.pushViewController(viewControllerToCommit, animated: true)
     }
@@ -99,25 +99,25 @@ extension EventsBaseListViewController {
 extension EventsBaseListViewController {
     func nextButtonDidPress(_ sender: SchedulePagingView) {
         self.pagesVC.moveForward()
-        
+
     }
     func prevButtonDidPress(_ sender: SchedulePagingView) {
         self.pagesVC.moveBack()
     }
-    
+
     func pageViewController(_ pageViewController: UIPageViewController, setViewController viewController: UIViewController, atPage page: Int) {
         guard let currentVC = viewController as? EventsBaseViewController else {
             return
         }
         pagingView.dateLabel.text = ((currentVC.viewModel?.date.value)! as NSDate).formattedDate(withFormat: "EEEE, MMM dd")
-        
+
         // Govern Previous Button
         if page == 1 {
             pagingView.prevButton.isEnabled = false
         } else {
             pagingView.prevButton.isEnabled = true
         }
-        
+
         // Govern Next Button
         if let scheduleViewModels = viewModel {
             if page == scheduleViewModels.count.value {
@@ -126,8 +126,8 @@ extension EventsBaseListViewController {
                 pagingView.nextButton.isEnabled = true
             }
         }
-        
+
         self.currentViewController = currentVC
-        
+
     }
 }
