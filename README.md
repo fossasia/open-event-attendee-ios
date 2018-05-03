@@ -17,6 +17,19 @@
 
 > *https://gitter.im/fossasia/open-event*
 
+
+## Screenshots
+
+<table>
+<tr>
+<td><img src="docs/_static/images/event-list-details.png"  height = "480" ></td>
+<td><img src="docs/_static/images/event-details.png"  height = "480" ></td>
+<td><img src="docs/_static/images/favourite-event-list.png" height = "480"  ></td>
+<td><img src="docs/_static/images/about-fossasia.png"  height = "480" ></td>
+</tr>
+</table>
+
+
 ## Things To Have
 1. **[Xcode](https://developer.apple.com/xcode/)**
 2. **[CocoaPods](http://cocoapods.org/)**
@@ -27,7 +40,9 @@ Before you begin, you should already have the Xcode downloaded and set up correc
 
 ##### &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Steps to install Cocoapods (one time installation)
 
+
 - Run `sudo gem install cocoapods` to install the latest version of cocoapods
+
 
 -  Next, run `pod setup` for setting up cocoapods master repo. You may include `--verbose` for more descriptive logs.
 **NOTE:** This might take a while to setup depending on your network speed.
