@@ -10,10 +10,10 @@ import Foundation
 
 struct SettingsManager {
 
-    static let keyForEvent = "HasEvents"
-    static let keyForMicrolocations = "HasMicrolocations"
+    static let keyForEvent = Constants.SettingsManager.keyForEvent
+    static let keyForMicrolocations = Constants.SettingsManager.keyForMicrolocations
 
-    static let favouritesLocalFileName = "faves.json"
+    static let favouritesLocalFileName = Constants.SettingsManager.favesJSON
 
     static func isKeyPresentInUserDefaults(_ key: String) -> Bool {
         let defaults = UserDefaults.standard
@@ -26,7 +26,7 @@ struct SettingsManager {
     }
 
     static func getLocalFileName(_ eventInfo: EventInfo) -> String {
-        return eventInfo.rawValue + ".json"
+        return eventInfo.rawValue + Constants.jsonFileExtension
     }
 
 }

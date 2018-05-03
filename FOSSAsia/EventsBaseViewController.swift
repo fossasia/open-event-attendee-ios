@@ -14,7 +14,7 @@ class EventsBaseViewController: UIViewController {
     var allEvents: [EventViewModel] = []
 
     @IBOutlet weak var tableView: UITableView!
-    
+
     var viewModel: ScheduleViewModel? {
         didSet {
             viewModel?.events.observe {
@@ -23,23 +23,23 @@ class EventsBaseViewController: UIViewController {
             }
         }
     }
-    
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         viewModel?.refresh()
         self.tableView.reloadData()
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         tableView.dataSource = self
         tableView.delegate = self
         tableView.rowHeight = 70
-        
+
         tableView.tableFooterView = UIView(frame: CGRect.zero)
     }
-    
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "ShowEventDetail") {
             if let selectedIndexPath = self.tableView.indexPathForSelectedRow {
@@ -50,11 +50,11 @@ class EventsBaseViewController: UIViewController {
             }
         }
     }
-    
+
     func eventViewModelForIndexPath(_ path: IndexPath) -> EventViewModel {
         return allEvents[(path as NSIndexPath).row]
     }
-    
+
 }
 
 extension EventsBaseViewController: UITableViewDelegate {
@@ -68,13 +68,12 @@ extension EventsBaseViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: EventsBaseViewController.kEventCellReuseIdentifier, for: indexPath) as! EventCell
         let eventViewModel = allEvents[(indexPath as NSIndexPath).row]
         cell.configure(withPresenter: eventViewModel)
-        
+
         return cell
     }
-    
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return allEvents.count
     }
-    
 
 }

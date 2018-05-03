@@ -38,7 +38,7 @@ public extension SWColor {
     public convenience init?(hexString: String) {
         self.init(hexString: hexString, alpha: 1.0)
     }
-    
+
     /**
      Create non-autoreleased color with in the given hex string and alpha.
      - parameter hexString: The hex string, with or without the hash character.
@@ -47,39 +47,38 @@ public extension SWColor {
      */
     public convenience init?(hexString: String, alpha: Float) {
         var hex = hexString
-        
+
         // Check for hash and remove the hash
         if hex.hasPrefix("#") {
             let hexRange = hex.index(hex.startIndex, offsetBy: 1)
             hex = String(hex[hexRange])
         }
-        
+
         if (hex.range(of: "(^[0-9A-Fa-f]{6}$)|(^[0-9A-Fa-f]{3}$)", options: .regularExpression) != nil) {
-            
+
             // Deal with 3 character Hex strings - Swift 4 method
             if hex.count == 3 {
                 let redHex = String(hex[...hex.index(hex.startIndex, offsetBy: 1)])
                 let greenHex = String(hex[hex.index(hex.startIndex, offsetBy: 1) ..< hex.index(hex.startIndex, offsetBy: 2)])
                 let blueHex = String(hex[hex.index(hex.startIndex, offsetBy: 2)...])
-                
+
                 hex = redHex + redHex + greenHex + greenHex + blueHex + blueHex
             }
-            
+
             let redHex = String(hex[...hex.index(hex.startIndex, offsetBy: 2)])
             let greenHex = String(hex[hex.index(hex.startIndex, offsetBy: 2) ..< hex.index(hex.startIndex, offsetBy: 4)])
             let blueHex = String(hex[hex.index(hex.startIndex, offsetBy: 4) ..< hex.index(hex.startIndex, offsetBy: 6)])
-            
-            var redInt:   CUnsignedInt = 0
+
+            var redInt: CUnsignedInt = 0
             var greenInt: CUnsignedInt = 0
-            var blueInt:  CUnsignedInt = 0
-            
+            var blueInt: CUnsignedInt = 0
+
             Scanner(string: redHex).scanHexInt32(&redInt)
             Scanner(string: greenHex).scanHexInt32(&greenInt)
             Scanner(string: blueHex).scanHexInt32(&blueInt)
-            
+
             self.init(red: CGFloat(redInt) / 255.0, green: CGFloat(greenInt) / 255.0, blue: CGFloat(blueInt) / 255.0, alpha: CGFloat(alpha))
-        }
-        else {
+        } else {
             // Note:
             // The swift 1.1 compiler is currently unable to destroy partially initialized classes in all cases,
             // so it disallows formation of a situation where it would have to.  We consider this a bug to be fixed
@@ -88,7 +87,7 @@ public extension SWColor {
             return nil
         }
     }
-    
+
     /**
      Create non-autoreleased color with in the given hex value. Alpha will be set as 1 by default.
      - parameter hex: The hex value. For example: 0xff8942 (no quotation).
@@ -97,7 +96,7 @@ public extension SWColor {
     public convenience init?(hex: Int) {
         self.init(hex: hex, alpha: 1.0)
     }
-    
+
     /**
      Create non-autoreleased color with in the given hex value and alpha
      - parameter hex: The hex value. For example: 0xff8942 (no quotation).
@@ -108,6 +107,6 @@ public extension SWColor {
         var hexString = String(format: "%2X", hex)
         let leadingZerosString = String(repeating: "0", count: 6 - hexString.count)
         hexString = leadingZerosString + hexString
-        self.init(hexString: hexString as String , alpha: alpha)
+        self.init(hexString: hexString as String, alpha: alpha)
     }
 }
