@@ -155,7 +155,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="tell_a_friend" translatesAutoresizingMaskIntoConstraints="NO" id="3Ir-kG-c3I">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Tell_a_friend" translatesAutoresizingMaskIntoConstraints="NO" id="3Ir-kG-c3I">
                                                     <rect key="frame" x="8" y="7" width="29" height="29"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
@@ -188,12 +188,12 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Tell_a_friend" width="26" height="26"/>
         <image name="favorites_icon" width="29" height="29"/>
         <image name="fossasia_logo" width="158" height="64"/>
         <image name="mailing_list_icon" width="29" height="29"/>
         <image name="more" width="29" height="7"/>
         <image name="safari_icon" width="29" height="29"/>
-        <image name="tell_a_friend" width="60" height="60"/>
         <image name="twitter_icon" width="29" height="29"/>
     </resources>
 </document>

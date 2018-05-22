@@ -18,7 +18,33 @@ private struct DefaultURLs {
     static let fossasiaFacebook = "https://www.facebook.com/fossasia/share"
 }
 
-class MoreViewController: UITableViewController, MFMailComposeViewControllerDelegate {
+class MoreViewController: UITableViewController, MFMailComposeViewControllerDelegate , MFMessageComposeViewControllerDelegate {
+    
+    func messageComposeViewController(_ controller: MFMessageComposeViewController, didFinishWith result: MessageComposeResult) {
+        switch (result.rawValue) {
+        case MessageComposeResult.cancelled.rawValue:
+            let myalert = UIAlertController(title: "Cancelled", message: "Message Cancelled", preferredStyle: UIAlertControllerStyle.alert)
+            
+            myalert.addAction(UIAlertAction(title: "OK", style: .default) { (action:UIAlertAction!) in
+            })
+            self.dismiss(animated: true, completion: nil)
+        case MessageComposeResult.failed.rawValue:
+            let myalert = UIAlertController(title: "Failed", message: "Message Failed", preferredStyle: UIAlertControllerStyle.alert)
+            
+            myalert.addAction(UIAlertAction(title: "OK", style: .default) { (action:UIAlertAction!) in
+            })
+            self.dismiss(animated: true, completion: nil)
+        case MessageComposeResult.sent.rawValue:
+            let myalert = UIAlertController(title: "Sent", message: "Message Sent", preferredStyle: UIAlertControllerStyle.alert)
+            
+            myalert.addAction(UIAlertAction(title: "OK", style: .default) { (action:UIAlertAction!) in
+            })
+            self.dismiss(animated: true, completion: nil)
+        default:
+            break
+        }
+    }
+    
     
     func configureMailComposeViewController(recipient: String,
                                             subject: String,
@@ -113,7 +139,7 @@ class MoreViewController: UITableViewController, MFMailComposeViewControllerDele
             // email action button
             let emailAction = UIAlertAction(title: "Email", style: UIAlertActionStyle.default) { (action) in
                 let mailVc = self.configureMailComposeViewController(recipient: "", subject: "Check out the Open Event iOS!",
-                                                                           message: "I use the Open Event iOS for browsing information about the event visit https://fossasia.org/ for more info")
+                                                                           message: "I am using the Open Event iOS , for browsing information about the event visit https://fossasia.org/ ")
                             if MFMailComposeViewController.canSendMail() {
                                 self.present(mailVc, animated: true, completion: nil)
                             } else {
@@ -128,7 +154,12 @@ class MoreViewController: UITableViewController, MFMailComposeViewControllerDele
             
             // Message action button
             let messageAction = UIAlertAction(title: "Message", style: UIAlertActionStyle.default) { (action) in
-                self.sendMessageToNumber(number: "", message: "")
+                let messageVc = self.configureMessageComposeViewController(recipient: "", subject: "Check out the Open Event iOS!",
+                                                                     body: "I am using the Open Event iOS , for browsing information about the event visit https://fossasia.org/ ")
+                if MFMessageComposeViewController.canSendText() {
+                    self.present(messageVc, animated: true, completion: nil)
+                    
+                }
             }
             
             // cancel action button
@@ -152,16 +183,15 @@ class MoreViewController: UITableViewController, MFMailComposeViewControllerDele
     func createSVC(_ urlString: String) -> SFSafariViewController {
         return SFSafariViewController(url: URL(string: urlString)!)
     }
-    func sendMessageToNumber(number:String,message:String){
-        
-        let sms = "sms:\(number)&body=\(message)"
-        let url = URL(string:sms)!
-        let shared = UIApplication.shared
-        
-        if(shared.canOpenURL(url)){
-            shared.open(url, options: [:], completionHandler: nil)
-        }else{
-            print("unable to send message")
-        }
+    func configureMessageComposeViewController(recipient: String,
+                                               subject: String,
+                                               body: String) ->MFMessageComposeViewController {
+        let message = MFMessageComposeViewController()
+        message.messageComposeDelegate = self
+        message.recipients = [recipient]
+        message.subject = subject
+        message.body = body
+        return message
+    
     }
 }
