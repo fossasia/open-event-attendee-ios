@@ -30,6 +30,7 @@
 	<array>
 		<string>armv7</string>
 	</array>
+	
 	<key>UIStatusBarTintParameters</key>
 	<dict>
 		<key>UINavigationBar</key>
