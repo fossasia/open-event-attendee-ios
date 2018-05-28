@@ -34,9 +34,11 @@ class ScheduleViewController: EventsBaseViewController, SwipeToFavoriteCellPrese
         super.viewDidLoad()
 
         viewModel?.delegate = self
-        refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
-        refreshControl.addTarget(self, action: #selector(ScheduleViewController.refreshData(_:)), for: .valueChanged)
-        tableView.addSubview(refreshControl)
+        DispatchQueue.main.async {
+            self.refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
+            self.refreshControl.addTarget(self, action: #selector(ScheduleViewController.refreshData(_:)), for: .valueChanged)
+            self.tableView.addSubview(self.refreshControl)
+        }
     }
 
     class func scheduleViewControllerFor(_ schedule: ScheduleViewModel) -> ScheduleViewController {
