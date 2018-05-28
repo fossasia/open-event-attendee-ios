@@ -10,7 +10,7 @@ import UIKit
 import MGSwipeTableCell
 
 class ScheduleViewController: EventsBaseViewController, SwipeToFavoriteCellPresentable, TableViewRefreshable {
-    var refreshControl = UIRefreshControl()
+    var refreshControl : UIRefreshControl!
 
     // Constants for Storyboard/VC
     struct StoryboardConstants {
@@ -35,6 +35,7 @@ class ScheduleViewController: EventsBaseViewController, SwipeToFavoriteCellPrese
 
         viewModel?.delegate = self
         DispatchQueue.main.async {
+            self.refreshControl = UIRefreshControl()
             self.refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
             self.refreshControl.addTarget(self, action: #selector(ScheduleViewController.refreshData(_:)), for: .valueChanged)
             self.tableView.addSubview(self.refreshControl)

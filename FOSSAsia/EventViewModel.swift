@@ -12,28 +12,28 @@ import UserNotifications
 typealias EventViewModelCompletionHandler = (EventViewModel?, Error?) -> Void
 
 protocol EventTypePresentable {
-    var typeColor: UIColor {get}
+    var typeColor: UIColor { get }
 }
 
 protocol EventDetailsPresentable {
-    var eventName: String {get}
-    var speakerNames: String {get}
-    var timing: String {get}
-    var isFavorite: Bool {get}
+    var eventName: String { get }
+    var speakerNames: String { get }
+    var timing: String { get }
+    var isFavorite: Bool { get }
 }
 
 protocol EventDescriptionPresentable {
-    var eventDescription: String {get }
+    var eventDescription: String { get }
 }
 
 protocol EventAddToCalendarPresentable {
-    var eventStartTime: String {get}
-    var eventEndTime: String {get}
-    var eventDay: String {get}
-    var eventDate: String {get}
-    var eventMonth: String {get}
-    var eventStartDate: Date {get}
-    var eventEndDate: Date {get}
+    var eventStartTime: String { get }
+    var eventEndTime: String { get }
+    var eventDay: String { get }
+    var eventDate: String { get }
+    var eventMonth: String { get }
+    var eventStartDate: Date { get }
+    var eventEndDate: Date { get }
 }
 
 struct EventViewModel: EventTypePresentable, EventDetailsPresentable, EventDescriptionPresentable, EventAddToCalendarPresentable {
@@ -50,7 +50,7 @@ struct EventViewModel: EventTypePresentable, EventDetailsPresentable, EventDescr
     // MARK: - Services
     fileprivate var eventsService: EventProvider
 
-    init (_ event: Event) {
+    init(_ event: Event) {
         sessionId = Observable(event.id)
         track = Observable(event.trackCode.getTrackColor())
         title = Observable(event.title)
@@ -98,7 +98,7 @@ struct EventViewModel: EventTypePresentable, EventDetailsPresentable, EventDescr
         localNotificationContent.sound = UNNotificationSound.default()
         localNotificationContent.userInfo = ["sessionID": sessionId.value]
         // Trigger notification
-        let triggerDate = (self.startDateTime.value as Date).addingTimeInterval(-15*60)
+        let triggerDate = (self.startDateTime.value as Date).addingTimeInterval(-15 * 60)
         let trigger = UNCalendarNotificationTrigger(dateMatching: Calendar.current.dateComponents([.minute, .hour, .day], from: triggerDate), repeats: false)
         let identifier = Constants.localNotificationIdentifier
         let request = UNNotificationRequest(identifier: identifier, content: localNotificationContent, trigger: trigger)
@@ -114,7 +114,8 @@ struct EventViewModel: EventTypePresentable, EventDetailsPresentable, EventDescr
     fileprivate func cancelLocalNotification() {
         let center = UNUserNotificationCenter.current()
         center.removeAllPendingNotificationRequests()
-     }
+    }
+
 }
 
 // MARK: - EventDescriptionPresentable Conformance
@@ -139,9 +140,10 @@ extension EventViewModel {
         return speakersNames.joined(separator: ", ")
     }
     var timing: String {
-        let startTime = (self.startDateTime.value as NSDate).formattedDate(withFormat: "HH:mm")
-        let endTime = (self.endDateTime.value as NSDate).formattedDate(withFormat: "HH:mm")
-        return  "\(String(describing: startTime)) - \(String(describing: endTime)) - \(self.location.value)"
+        if let startTime = (self.startDateTime.value as NSDate).formattedDate(withFormat: "HH:mm"), let endTime = (self.endDateTime.value as NSDate).formattedDate(withFormat: "HH:mm") {
+            return "\(String(describing: startTime)) - \(String(describing: endTime)) - \(self.location.value)"
+        }
+        return "N/A"
     }
     var isFavorite: Bool { return self.favorite.value }
 }

@@ -13,7 +13,7 @@ import DZNEmptyDataSet
 typealias FavoritesEmptyState = DZNEmptyDataSetDelegate & DZNEmptyDataSetSource
 
 class FavoritesScheduleViewController: EventsBaseViewController, SwipeToFavoriteCellPresentable, FavoritesEmptyState {
-    var refreshControl = UIRefreshControl()
+    var refreshControl : UIRefreshControl!
 
     struct StoryboardConstants {
         static let storyboardName = "ScheduleVC"
@@ -25,10 +25,13 @@ class FavoritesScheduleViewController: EventsBaseViewController, SwipeToFavorite
 
         self.tableView.emptyDataSetSource = self
         self.tableView.emptyDataSetDelegate = self
+        DispatchQueue.main.async {
+            self.refreshControl = UIRefreshControl()
+            self.refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
+            self.refreshControl.addTarget(self, action: Selector(("refresh:")), for: .valueChanged)
+            self.tableView.addSubview(self.refreshControl)
 
-        refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
-        refreshControl.addTarget(self, action: Selector(("refresh:")), for: .valueChanged)
-        tableView.addSubview(refreshControl)
+        }
     }
 
     class func scheduleViewControllerFor(_ schedule: ScheduleViewModel) -> FavoritesScheduleViewController {
