@@ -48,4 +48,9 @@ struct Constants {
         static let navbarFaveHighlighted = "navbar_fave_highlighted"
         static let navbarFave = "navbar_fave"
     }
+    struct MoreViewController {
+        static let message = "I am using the Open Event iOS , for browsing information about the event visit https://fossasia.org/ "
+        static let subject = "Check out the Open Event iOS!"
+        static let Title = "Subject"
+    }
 }
