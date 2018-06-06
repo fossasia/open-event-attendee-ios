@@ -66,6 +66,7 @@
 		405CCFF21FBC8D6A009F8A1C /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 405CCFF81FBC8D6A009F8A1C /* SwiftyJSON.framework */; };
 		40BD58D11FAFC78400C3891E /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40BD58CF1FAFC73600C3891E /* UserNotifications.framework */; };
 		40BD58D21FAFC78F00C3891E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40BD58D01FAFC74600C3891E /* UIKit.framework */; };
+		5BAE561720C7733B00525CB9 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BAE561620C7733B00525CB9 /* MapViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -178,6 +179,7 @@
 		405CCFF81FBC8D6A009F8A1C /* SwiftyJSON.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SwiftyJSON.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		40BD58CF1FAFC73600C3891E /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
 		40BD58D01FAFC74600C3891E /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		5BAE561620C7733B00525CB9 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		673535C2361286B5378F4A57 /* Pods-FOSSAsia.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FOSSAsia.release.xcconfig"; path = "Pods/Target Support Files/Pods-FOSSAsia/Pods-FOSSAsia.release.xcconfig"; sourceTree = "<group>"; };
 		E7067DBA4800AB8AC393BD7A /* Pods-FOSSAsia.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FOSSAsia.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FOSSAsia/Pods-FOSSAsia.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -225,6 +227,7 @@
 				2859B0FD1C5DF8D7009656FC /* EventViewController.swift */,
 				28091E8C1C6332A600E789CD /* FilterListViewController.swift */,
 				2824FD611C6C732300F783E1 /* MoreViewController.swift */,
+				5BAE561620C7733B00525CB9 /* MapViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -655,6 +658,7 @@
 				28A0BC921C5F4FEC001625FB /* ScheduleViewModel.swift in Sources */,
 				2824FD6D1C6DC05300F783E1 /* FavoriteEventsListViewController.swift in Sources */,
 				30321F611C81851E008E5258 /* ApiClient.swift in Sources */,
+				5BAE561720C7733B00525CB9 /* MapViewController.swift in Sources */,
 				285F1BB01C5B094F00A7E0DD /* Speaker.swift in Sources */,
 				2824FE101C6EBB6700F783E1 /* FavoritesScheduleViewController.swift in Sources */,
 				285F1B791C5AFBBB00A7E0DD /* SwiftHEXColors.swift in Sources */,

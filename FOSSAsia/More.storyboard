@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="g2v-UT-l1c">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="g2v-UT-l1c">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -148,6 +148,30 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="TW2-vH-V8X">
+                                        <rect key="frame" x="0.0" y="336" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="TW2-vH-V8X" id="vh0-nl-ktr">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="map_icon" translatesAutoresizingMaskIntoConstraints="NO" id="1Oh-Cp-z0b">
+                                                    <rect key="frame" x="8" y="7" width="29" height="29"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Map" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eC7-Wi-DVe">
+                                                    <rect key="frame" x="45" y="11" width="188" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="c8V-2E-DpH" kind="show" identifier="showMapView" id="GWS-0G-mwI"/>
+                                        </connections>
+                                    </tableViewCell>
                                 </cells>
                             </tableViewSection>
                         </sections>
@@ -162,11 +186,44 @@
             </objects>
             <point key="canvasLocation" x="1476" y="1100.5997001499252"/>
         </scene>
+        <!--Map View Controller-->
+        <scene sceneID="iSQ-xR-pMM">
+            <objects>
+                <viewController id="c8V-2E-DpH" customClass="MapViewController" customModule="FOSSAsia" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="CaG-Jr-fQX"/>
+                        <viewControllerLayoutGuide type="bottom" id="lNJ-Jh-g73"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="5ua-MA-jlr">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="vf5-KY-g4T">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="vf5-KY-g4T" firstAttribute="centerX" secondItem="5ua-MA-jlr" secondAttribute="centerX" id="WOz-16-T0O"/>
+                            <constraint firstItem="vf5-KY-g4T" firstAttribute="width" secondItem="5ua-MA-jlr" secondAttribute="width" id="iAc-a3-84m"/>
+                            <constraint firstItem="vf5-KY-g4T" firstAttribute="centerY" secondItem="5ua-MA-jlr" secondAttribute="centerY" id="rxi-Ec-QAF"/>
+                            <constraint firstItem="vf5-KY-g4T" firstAttribute="height" secondItem="5ua-MA-jlr" secondAttribute="height" id="uX7-Ct-wk4"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="mapView" destination="vf5-KY-g4T" id="Pwc-kf-PXg"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Tfs-6g-hfL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2172" y="1100.5997001499252"/>
+        </scene>
     </scenes>
     <resources>
         <image name="favorites_icon" width="29" height="29"/>
         <image name="fossasia_logo" width="158" height="64"/>
         <image name="mailing_list_icon" width="29" height="29"/>
+        <image name="map_icon" width="48" height="48"/>
         <image name="more" width="29" height="7"/>
         <image name="safari_icon" width="29" height="29"/>
         <image name="twitter_icon" width="29" height="29"/>

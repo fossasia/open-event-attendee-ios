@@ -38,6 +38,13 @@ struct Constants {
         static let speakerName = "name"
     }
 
+    struct Location {
+        static let lattitude = 1.288424
+        static let longitude = 103.846694
+        static let spanCoordinate = 0.0002
+        static let annotationTitle =  "FOSSASIA"
+    }
+
     struct SettingsManager {
         static let keyForEvent = "HasEvents"
         static let keyForMicrolocations = "HasMicrolocations"
