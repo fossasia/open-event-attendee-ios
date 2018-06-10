@@ -1,0 +1,22 @@
+version: 2
+
+jobs:
+  build-and-test:
+    macos:
+      xcode: "9.3.0"
+    steps:
+      - checkout
+      - run:
+          name: Update Dependencies
+          command: sh ./Scripts/update_dependencies.sh
+      - run:
+          name: Build for testing
+          command: sh ./Scripts/build_for_testing.sh
+
+ 
+          
+workflows:
+  version: 2
+  build_and_test:
+    jobs:
+    - build-and-test

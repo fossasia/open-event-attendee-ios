@@ -1,7 +1,0 @@
-language: swift
-script: ./build.sh
-osx_image: xcode9
-
-before_install:
-- gem install cocoapods
-- pod update
