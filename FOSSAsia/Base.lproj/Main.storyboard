@@ -12,7 +12,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
             <objects>
-                <tabBarController id="49e-Tb-3d3" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="tabBarController" id="49e-Tb-3d3" sceneMemberID="viewController">
                     <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="W28-zg-YXA">
                         <rect key="frame" x="0.0" y="975" width="768" height="49"/>
@@ -22,8 +22,8 @@
                     <connections>
                         <segue destination="Gew-OO-4HF" kind="relationship" relationship="viewControllers" id="hqO-c6-gQM"/>
                         <segue destination="Erb-u6-Fam" kind="relationship" relationship="viewControllers" id="Myv-mw-e7r"/>
-                        <segue destination="3sh-pZ-TEG" kind="relationship" relationship="viewControllers" id="Ew2-ev-ivT"/>
-                        <segue destination="mj9-v7-8Io" kind="relationship" relationship="viewControllers" id="REv-tE-7nC"/>
+                        <segue destination="mj9-v7-8Io" kind="relationship" relationship="viewControllers" id="hyj-Q8-XV1"/>
+                        <segue destination="3sh-pZ-TEG" kind="relationship" relationship="viewControllers" id="XKB-If-G5z"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
@@ -64,7 +64,7 @@
         <scene sceneID="AjE-Qm-qPy">
             <objects>
                 <viewControllerPlaceholder storyboardName="Profile" id="mj9-v7-8Io" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="yNU-Je-cjZ"/>
+                    <tabBarItem key="tabBarItem" title="Profile" id="yNU-Je-cjZ"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="q0D-8B-4df" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
