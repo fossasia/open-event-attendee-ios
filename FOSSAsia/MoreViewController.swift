@@ -58,10 +58,10 @@ class MoreViewController: UITableViewController {
             // For overcoming the crash in iPad
             activityViewController.popoverPresentationController?.sourceView = self.view
             activityViewController.excludedActivityTypes = [
-                UIActivityType.mail,
-                UIActivityType.message,
-                UIActivityType.postToFacebook,
-                UIActivityType.postToTwitter
+                UIActivityType.airDrop,
+                UIActivityType.saveToCameraRoll,
+                UIActivityType.openInIBooks,
+                UIActivityType.copyToPasteboard
             ]
             self.present(activityViewController, animated: true, completion: nil)
             break
