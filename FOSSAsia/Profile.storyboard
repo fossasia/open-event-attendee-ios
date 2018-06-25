@@ -7,6 +7,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -123,13 +124,17 @@
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" hidesBottomBarWhenPushed="YES" id="aip-QC-xz0" customClass="AuthTabBarViewController" customModule="FOSSAsia" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="p35-hN-F9b">
-                        <barButtonItem key="backBarButtonItem" title="Back" id="aMS-A4-Ams"/>
-                        <barButtonItem key="leftBarButtonItem" title="Back" id="FKd-W2-rHR">
-                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <connections>
-                                <action selector="backButtonPressed:" destination="aip-QC-xz0" id="bpl-oS-WyC"/>
-                            </connections>
-                        </barButtonItem>
+                        <leftBarButtonItems>
+                            <barButtonItem image="back" id="FKd-W2-rHR">
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <action selector="backButtonPressed:" destination="aip-QC-xz0" id="bpl-oS-WyC"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="Back" id="1ho-mg-nZy">
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </barButtonItem>
+                        </leftBarButtonItems>
                     </navigationItem>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="chQ-hf-Rf4">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
@@ -295,6 +300,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="back" width="25" height="25"/>
         <image name="login_unselected" width="25" height="25"/>
         <image name="loginicon" width="25" height="25"/>
         <image name="profile" width="25" height="25"/>
