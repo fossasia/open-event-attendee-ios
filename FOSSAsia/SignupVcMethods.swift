@@ -4,7 +4,7 @@ import SwiftValidators
 extension SignUpViewController {
 
     func addTapGesture() {
-        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(LoginViewController.dismissKeyboard))
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
         view.addGestureRecognizer(tap)
     }
 
@@ -14,6 +14,8 @@ extension SignUpViewController {
 
         confirmPasswordTextField.addTarget(self, action: #selector(textFieldDidChange(textField:)), for: .editingChanged)
         userNameTextField.addTarget(self, action: #selector(textFieldDidChange(textField:)), for: .editingChanged)
+        firstNameTextField.addTarget(self, action: #selector(textFieldDidChange(textField:)), for: .editingChanged)
+        lastNameTextField.addTarget(self, action: #selector(textFieldDidChange(textField:)), for: .editingChanged)
     }
 
     func prepareSignUpButton() {
@@ -23,8 +25,23 @@ extension SignUpViewController {
 
     // function called on return button click of keyboard
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        dismissKeyboard()
+        if textField == userNameTextField {
+            _ = passwordTextField.becomeFirstResponder()
+        } else if textField == passwordTextField {
+            _ = confirmPasswordTextField.becomeFirstResponder()
+        }
+        else if textField == confirmPasswordTextField {
+            _ = firstNameTextField.becomeFirstResponder()
+        }
+        else if textField == firstNameTextField {
+            _ = lastNameTextField.becomeFirstResponder()
+        }
+        else if textField == lastNameTextField {
+            dismissKeyboard()
+            //performSignup()
+        }
         return false
+
     }
 
     @objc func textFieldDidChange(textField: UITextField) {
@@ -49,12 +66,11 @@ extension SignUpViewController {
         }
     }
 
-    // dismiss keyboard if open.
-    func dismissKeyboard() {
-        // Causes the view (or one of its embedded text fields) to resign the first responder status.
+    // force dismiss keyboard if open.
+    @objc func dismissKeyboard() {
         view.endEditing(true)
     }
-
+    
     // Toggle Editing
     func toggleEditing() {
         userNameTextField.isEnabled = !userNameTextField.isEnabled
