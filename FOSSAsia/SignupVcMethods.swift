@@ -25,22 +25,8 @@ extension SignUpViewController {
 
     // function called on return button click of keyboard
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        if textField == userNameTextField {
-            _ = passwordTextField.becomeFirstResponder()
-        } else if textField == passwordTextField {
-            _ = confirmPasswordTextField.becomeFirstResponder()
-        }
-        else if textField == confirmPasswordTextField {
-            _ = firstNameTextField.becomeFirstResponder()
-        }
-        else if textField == firstNameTextField {
-            _ = lastNameTextField.becomeFirstResponder()
-        }
-        else if textField == lastNameTextField {
-            dismissKeyboard()
-            //performSignup()
-        }
-        return false
+        textField.resignFirstResponder()
+        return true
 
     }
 
@@ -70,7 +56,7 @@ extension SignUpViewController {
     @objc func dismissKeyboard() {
         view.endEditing(true)
     }
-    
+
     // Toggle Editing
     func toggleEditing() {
         userNameTextField.isEnabled = !userNameTextField.isEnabled

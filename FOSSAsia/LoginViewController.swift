@@ -1,7 +1,7 @@
 import UIKit
 import Material
 
-class LoginViewController: UIViewController {
+class LoginViewController: UIViewController,UITextFieldDelegate {
 
 
     @IBOutlet weak var userNameTextField: TextField!
@@ -14,6 +14,8 @@ class LoginViewController: UIViewController {
         prepareUserNameField()
         preparePasswordField()
         prepareLoginButton()
+        userNameTextField.delegate = self
+        passwordTextField.delegate = self
     }
 
     override func viewDidAppear(_ animated: Bool) {

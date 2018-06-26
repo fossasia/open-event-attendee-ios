@@ -29,13 +29,8 @@ extension LoginViewController {
 
     // Keyboard Return Key Hit
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        if textField == userNameTextField {
-            _ = passwordTextField.becomeFirstResponder()
-        } else if textField == passwordTextField {
-            dismissKeyboard()
-            // performLogin()
-        }
-        return false
+       textField.resignFirstResponder()
+        return true
     }
 
     @objc func textFieldDidChange(textField: UITextField) {

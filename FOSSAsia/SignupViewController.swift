@@ -1,6 +1,6 @@
 import UIKit
 import Material
-class SignUpViewController: UIViewController {
+class SignUpViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var passwordTextField: TextField!
     @IBOutlet weak var confirmPasswordTextField: TextField!
@@ -16,6 +16,11 @@ class SignUpViewController: UIViewController {
         addTapGesture()
         prepareFields()
         prepareSignUpButton()
+        passwordTextField.delegate = self
+        confirmPasswordTextField.delegate = self
+        firstNameTextField.delegate = self
+        lastNameTextField.delegate = self
+        userNameTextField.delegate = self
     }
 
     override func viewDidAppear(_ animated: Bool) {
