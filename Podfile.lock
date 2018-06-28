@@ -1,4 +1,5 @@
 PODS:
+  - Alamofire (4.7.2)
   - DateTools (2.0.0)
   - DZNEmptyDataSet (1.8.1)
   - Material (2.15.0):
@@ -14,6 +15,7 @@ PODS:
   - SwiftyJSON (4.1.0)
 
 DEPENDENCIES:
+  - Alamofire (~> 4.7)
   - DateTools (from `https://github.com/MatthewYork/DateTools.git`)
   - DZNEmptyDataSet (from `https://github.com/dzenbot/DZNEmptyDataSet.git`)
   - Material
@@ -24,6 +26,7 @@ DEPENDENCIES:
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - Alamofire
     - Material
     - Motion
     - Pages
@@ -54,6 +57,7 @@ CHECKOUT OPTIONS:
     :git: https://github.com/SwiftyJSON/SwiftyJSON.git
 
 SPEC CHECKSUMS:
+  Alamofire: e4fa87002c137ba2d8d634d2c51fabcda0d5c223
   DateTools: 933ac9c490f21f92127cf690ccd8c397e0126caf
   DZNEmptyDataSet: b94434220f87d9dda46660eb4f07a424778e93b4
   Material: 00e32bb5e61b3f749044897b2d93acd8bf33faa4
@@ -63,6 +67,6 @@ SPEC CHECKSUMS:
   SwiftValidators: 81db772ba2798fd4140ed57bfd7b80ab1ab42e93
   SwiftyJSON: c29297daf073d2aa016295d5809cdd68045c39b3
 
-PODFILE CHECKSUM: 03ae1012e94e01371207e7ce2b9fd3beff52f259
+PODFILE CHECKSUM: 8dabd5b0397fe3bc484246339b0f5ba55a9d2135
 
 COCOAPODS: 1.5.3

@@ -1,5 +1,6 @@
 import UIKit
 import SwiftValidators
+import Alamofire
 
 extension SignUpViewController {
 
@@ -19,9 +20,37 @@ extension SignUpViewController {
     }
 
     func prepareSignUpButton() {
-        // signUpButton.addTarget(self, action: #selector(performSignUp), for: .touchUpInside)
+        signUpButton.addTarget(self, action: #selector(performSignup), for: .touchUpInside)
     }
+    
+    
+    
+    @objc func performSignup(){
+        var email = userNameTextField.text
+        var password = passwordTextField.text
+        let param : [String: Any] = [
+            "data" :  [
+                "attributes" : [
+                    "email" : "abcdefdssmjkhkbd@gmail.com",
+                    "password" : "password",
+                ],
+                "type": "user"
+            ]
+            
+        ]
+        let headers = [
+            "Content-Type": "application/vnd.api+json"
+        ]
 
+        Alamofire.request("https://open-event-api-dev.herokuapp.com/v1/users", method: .post, parameters: param ,encoding: JSONEncoding.default, headers: headers).responseJSON{
+            response in
+            print(response)
+            
+        }
+        
+        
+        
+    }
 
     // function called on return button click of keyboard
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

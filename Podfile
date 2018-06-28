@@ -6,6 +6,7 @@ target 'FOSSAsia' do
 pod 'Material'  
 pod 'Pages'
 pod 'SwiftyJSON', :git => 'https://github.com/SwiftyJSON/SwiftyJSON.git'
+pod 'Alamofire', '~> 4.7'
 pod 'DateTools', :git => 'https://github.com/MatthewYork/DateTools.git'
 pod 'MGSwipeTableCell', :git => 'https://github.com/MortimerGoro/MGSwipeTableCell.git'
 pod 'DZNEmptyDataSet', :git => 'https://github.com/dzenbot/DZNEmptyDataSet.git'
