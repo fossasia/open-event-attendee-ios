@@ -1,20 +1,39 @@
 PODS:
+  - Alamofire (4.7.2)
   - DateTools (2.0.0)
   - DZNEmptyDataSet (1.8.1)
+  - Material (2.15.0):
+    - Material/Core (= 2.15.0)
+  - Material/Core (2.15.0):
+    - Motion (~> 1.3.0)
   - MGSwipeTableCell (1.6.7)
+  - Motion (1.3.5):
+    - Motion/Core (= 1.3.5)
+  - Motion/Core (1.3.5)
   - Pages (2.0.2)
+  - SwiftValidators (5.0.0)
   - SwiftyJSON (4.1.0)
+  - Toast-Swift (3.0.1)
 
 DEPENDENCIES:
+  - Alamofire (~> 4.7)
   - DateTools (from `https://github.com/MatthewYork/DateTools.git`)
   - DZNEmptyDataSet (from `https://github.com/dzenbot/DZNEmptyDataSet.git`)
+  - Material
   - MGSwipeTableCell (from `https://github.com/MortimerGoro/MGSwipeTableCell.git`)
   - Pages
+  - SwiftValidators
   - SwiftyJSON (from `https://github.com/SwiftyJSON/SwiftyJSON.git`)
+  - Toast-Swift (~> 3.0.0)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - Alamofire
+    - Material
+    - Motion
     - Pages
+    - SwiftValidators
+    - Toast-Swift
 
 EXTERNAL SOURCES:
   DateTools:
@@ -41,12 +60,17 @@ CHECKOUT OPTIONS:
     :git: https://github.com/SwiftyJSON/SwiftyJSON.git
 
 SPEC CHECKSUMS:
+  Alamofire: e4fa87002c137ba2d8d634d2c51fabcda0d5c223
   DateTools: 933ac9c490f21f92127cf690ccd8c397e0126caf
   DZNEmptyDataSet: b94434220f87d9dda46660eb4f07a424778e93b4
+  Material: 00e32bb5e61b3f749044897b2d93acd8bf33faa4
   MGSwipeTableCell: fb20e983988bde2b8d0df29c2d9e1d8ffd10b74a
+  Motion: 9f74d115d7f72bb5380a8e3cde2f8a1fc898ac36
   Pages: 5564ac6035c48fef7a837049314f57507d263b11
+  SwiftValidators: 81db772ba2798fd4140ed57bfd7b80ab1ab42e93
   SwiftyJSON: c29297daf073d2aa016295d5809cdd68045c39b3
+  Toast-Swift: ba0b01b095aada709d915f9beb1d38184a2721c3
 
-PODFILE CHECKSUM: 9f760f08d69dda4beb950e342f2a9b16dcf6e39c
+PODFILE CHECKSUM: 74609bd778ec200769269543b5782049e07b8fc9
 
 COCOAPODS: 1.5.3

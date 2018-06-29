@@ -13,4 +13,5 @@ struct Colors {
     static let creamTintColor = UIColor(hexString: "FEFAD5")
     static let favoriteOrangeColor = UIColor(hexString: "F5A623")
     static let highlightedBackgroundColor = UIColor(hexString: "FFF5F5")
+    static let statusBarOrangeColor = UIColor(hexString: "D30005")
 }
