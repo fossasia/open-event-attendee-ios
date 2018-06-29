@@ -30,22 +30,32 @@ struct Constants {
         static let typeJsonKey = "type"
         static let userJsonValue = "user"
 
+        static let acessToken = "acessToken"
+
     }
 
     struct Url {
         static let registerUrl = "https://open-event-api-dev.herokuapp.com/v1/users"
 
+        static let loginUrl = "https://open-event-api-dev.herokuapp.com/auth/session"
+
+
     }
 
     struct Header {
         static let contentType = "Content-Type"
-        static let contentTypeValue = "application/vnd.api+json"
+
+        static let contentTypeValueSignup = "application/vnd.api+json"
+        static let contentTypeValueLogin = "application/json"
+
     }
 
     struct ResponseMessages {
         static let InvalidParams = "Email ID / Password incorrect"
         static let ServerError = "Problem connecting to server!"
-        static let successMessage = "Successfully Signed Up"
+
+        static let successMessageSignup = "Successfully Signed Up"
+        static let successMessageLogin = "Successfully Logged In"
         static let checkParameter = "Please Check Parameters Entered"
     }
 
@@ -84,5 +94,5 @@ struct Constants {
         static let message = "I am using the Open Event iOS , for browsing information about the event visit https://fossasia.org/ "
         static let subject = "Check out the Open Event iOS!"
         static let Title = "Subject"
-            }
+    }
 }
