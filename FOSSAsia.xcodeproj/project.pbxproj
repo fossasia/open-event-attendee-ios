@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		186729E720F762EC00C3AA45 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 186729E620F762EC00C3AA45 /* Profile.storyboard */; };
+		186729E320F7610700C3AA45 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 186729E220F7610700C3AA45 /* Profile.storyboard */; };
+		1874B87120FD3BD100E4E127 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1874B87020FD3BD100E4E127 /* CardView.swift */; };
 		1884C8DC20D639F8004B221F /* SignupVcMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1884C8DB20D639F8004B221F /* SignupVcMethods.swift */; };
 		1884C8DF20D642E6004B221F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1884C8DE20D642E6004B221F /* LoginViewController.swift */; };
 		1884C8E120D6430B004B221F /* LoginVCMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1884C8E020D6430B004B221F /* LoginVCMethods.swift */; };
@@ -104,7 +105,8 @@
 
 /* Begin PBXFileReference section */
 		0C6C3C6E6BB94887BCEE095E /* Pods_FOSSAsia.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FOSSAsia.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		186729E620F762EC00C3AA45 /* Profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
+		186729E220F7610700C3AA45 /* Profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
+		1874B87020FD3BD100E4E127 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		1884C8DB20D639F8004B221F /* SignupVcMethods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupVcMethods.swift; sourceTree = "<group>"; };
 		1884C8DE20D642E6004B221F /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		1884C8E020D6430B004B221F /* LoginVCMethods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVCMethods.swift; sourceTree = "<group>"; };
@@ -315,7 +317,7 @@
 		2818A93C1C62348300ECB57F /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
-				186729E620F762EC00C3AA45 /* Profile.storyboard */,
+				186729E220F7610700C3AA45 /* Profile.storyboard */,
 				285F1B6A1C5AF7B100A7E0DD /* Main.storyboard */,
 				285F89B31C814B0A0033D090 /* Sessions.storyboard */,
 				285F89B01C8149420033D090 /* Favorites.storyboard */,
@@ -407,6 +409,7 @@
 				28A0BC6E1C5F42D6001625FB /* Error.swift */,
 				285F1B8E1C5B069D00A7E0DD /* Observable.swift */,
 				285F1B781C5AFBBB00A7E0DD /* SwiftHEXColors.swift */,
+				1874B87020FD3BD100E4E127 /* CardView.swift */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -600,10 +603,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				280DE5291C62FCB200E64020 /* Podfile in Resources */,
+				186729E320F7610700C3AA45 /* Profile.storyboard in Resources */,
 				2824FD6B1C6DBF9A00F783E1 /* More.storyboard in Resources */,
 				285F89B21C8149420033D090 /* Favorites.storyboard in Resources */,
 				285F1B711C5AF7B100A7E0DD /* LaunchScreen.storyboard in Resources */,
-				186729E720F762EC00C3AA45 /* Profile.storyboard in Resources */,
 				28A17BCA1C70AF0200318336 /* IndividualEvent.storyboard in Resources */,
 				285F89B41C814B0A0033D090 /* Sessions.storyboard in Resources */,
 				285F1B6E1C5AF7B100A7E0DD /* Assets.xcassets in Resources */,
@@ -734,6 +737,7 @@
 				30F0AFB61C81B9C400CE5D18 /* EventProvider.swift in Sources */,
 				28091E931C64B61C00E789CD /* RangeExtension.swift in Sources */,
 				3094D5811C833F83007C2873 /* Microlocation.swift in Sources */,
+				1874B87120FD3BD100E4E127 /* CardView.swift in Sources */,
 				30321F5D1C8176EE008E5258 /* EventInfo.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
