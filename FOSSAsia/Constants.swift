@@ -23,7 +23,32 @@ struct Constants {
 
     struct UserDefaultsKey {
         static let FilteredTrackIds = "FilteredTrackIds"
+        static let dataJsonKey = "data"
+        static let attributesJsonKey = "attributes"
+        static let emailJsonKey = "email"
+        static let passwordJsonKey = "password"
+        static let typeJsonKey = "type"
+        static let userJsonValue = "user"
+
     }
+
+    struct Url {
+        static let registerUrl = "https://open-event-api-dev.herokuapp.com/v1/users"
+
+    }
+
+    struct Header {
+        static let contentType = "Content-Type"
+        static let contentTypeValue = "application/vnd.api+json"
+    }
+
+    struct ResponseMessages {
+        static let InvalidParams = "Email ID / Password incorrect"
+        static let ServerError = "Problem connecting to server!"
+        static let successMessage = "Successfully Signed Up"
+        static let checkParameter = "Please Check Parameters Entered"
+    }
+
 
     struct Sessions {
         static let track = "track"
@@ -42,7 +67,7 @@ struct Constants {
         static let lattitude = 1.288424
         static let longitude = 103.846694
         static let spanCoordinate = 0.0002
-        static let annotationTitle =  "FOSSASIA"
+        static let annotationTitle = "FOSSASIA"
     }
 
     struct SettingsManager {

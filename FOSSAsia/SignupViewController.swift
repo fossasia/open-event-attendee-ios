@@ -6,10 +6,12 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var confirmPasswordTextField: TextField!
     @IBOutlet weak var firstNameTextField: TextField!
 
-    @IBOutlet weak var userNameTextField: TextField!
+    @IBOutlet weak var emailTextField: TextField!
     @IBOutlet weak var lastNameTextField: TextField!
 
     @IBOutlet weak var signUpButton: RaisedButton!
+
+    @IBOutlet weak var signupActivityIndicator: UIActivityIndicatorView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,7 +22,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         confirmPasswordTextField.delegate = self
         firstNameTextField.delegate = self
         lastNameTextField.delegate = self
-        userNameTextField.delegate = self
+        emailTextField.delegate = self
     }
 
     override func viewDidAppear(_ animated: Bool) {

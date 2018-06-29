@@ -8,6 +8,7 @@
 
 import UIKit
 import UserNotifications
+import IQKeyboardManagerSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
@@ -23,6 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         // Set the Local Notification Delegate
         let center = UNUserNotificationCenter.current()
         center.delegate = self
+        IQKeyboardManager.sharedManager().enable = true
         return true
     }
 
