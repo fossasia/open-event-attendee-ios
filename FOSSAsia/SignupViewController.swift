@@ -7,9 +7,11 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var firstNameTextField: TextField!
 
     @IBOutlet weak var emailTextField: TextField!
+
     @IBOutlet weak var lastNameTextField: TextField!
 
     @IBOutlet weak var signUpButton: RaisedButton!
+
 
     @IBOutlet weak var signupActivityIndicator: UIActivityIndicatorView!
 

@@ -32,6 +32,8 @@ extension SignUpViewController {
             self.signupActivityIndicator.startAnimating()
             let email = emailTextField.text?.lowercased()
             let password = passwordTextField.text
+            let firstName = firstNameTextField.text
+            let lastName = lastNameTextField.text
             let params: [String: Any] = [
                 Constants.UserDefaultsKey.dataJsonKey: [
                     Constants.UserDefaultsKey.attributesJsonKey: [
@@ -42,19 +44,45 @@ extension SignUpViewController {
                 ]
 
             ]
+            let paramsLogin: [String: AnyObject] = [
+
+                Constants.UserDefaultsKey.emailJsonKey: email as AnyObject,
+                Constants.UserDefaultsKey.passwordJsonKey: password as AnyObject
+
+            ]
 
             Client.sharedInstance.registerUser(params as [String: AnyObject]) { (success, message) in
                 DispatchQueue.main.async {
-                    self.signupActivityIndicator.stopAnimating()
                     self.toggleEditing()
                     if success {
-                        self.view.makeToast(message)
-                        let mainStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)
-                        guard let vc: UITabBarController = mainStoryboard.instantiateViewController(withIdentifier: "tabBarController") as? UITabBarController else {
-                            fatalError("Cannot Cast to UITabBarController")
+                        Client.sharedInstance.loginUser(paramsLogin as [String: AnyObject]) { (success, result, message) in
+                            DispatchQueue.main.async {
+                                if success {
+                                    self.signupActivityIndicator.stopAnimating()
+                                    guard let accessToken = result?["access_token"] as? String else {
+                                        fatalError("Unable to Fetch AccessToken")
+                                    }
+                                    self.view.makeToast(Constants.ResponseMessages.successMessageSignup)
+                                    UserDefaults.standard.set(firstName, forKey: Constants.UserDefaultsKey.firstName)
+                                    UserDefaults.standard.set(lastName, forKey: Constants.UserDefaultsKey.lastName)
+                                    UserDefaults.standard.set(accessToken, forKey: Constants.UserDefaultsKey.acessToken)
+                                    let mainStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+                                    guard let vc: UITabBarController = mainStoryboard.instantiateViewController(withIdentifier: "tabBarController") as? UITabBarController else {
+                                        fatalError("Cannot Cast to UITabBarController")
+                                    }
+                                    vc.selectedIndex = 0
+                                    self.present(vc, animated: true, completion: nil)
+
+                                }
+                                else {
+                                    self.signupActivityIndicator.stopAnimating()
+                                    self.view.makeToast(message)
+                                    self.toggleEditing()
+                                }
+
+                            }
                         }
-                        vc.selectedIndex = 0
-                        self.present(vc, animated: true, completion: nil)
+
 
                     }
 

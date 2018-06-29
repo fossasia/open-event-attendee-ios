@@ -29,7 +29,8 @@ struct Constants {
         static let passwordJsonKey = "password"
         static let typeJsonKey = "type"
         static let userJsonValue = "user"
-
+        static let firstName = "firstName"
+        static let lastName = "lastName"
         static let acessToken = "acessToken"
 
     }
@@ -53,10 +54,10 @@ struct Constants {
     struct ResponseMessages {
         static let InvalidParams = "Email ID / Password incorrect"
         static let ServerError = "Problem connecting to server!"
-
         static let successMessageSignup = "Successfully Signed Up"
         static let successMessageLogin = "Successfully Logged In"
         static let checkParameter = "Please Check Parameters Entered"
+
     }
 
 
