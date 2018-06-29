@@ -1,6 +1,7 @@
 import UIKit
 import SwiftValidators
 import Alamofire
+import Toast_Swift
 
 extension SignUpViewController {
 
@@ -26,26 +27,41 @@ extension SignUpViewController {
     
     
     @objc func performSignup(){
-        var email = userNameTextField.text
-        var password = passwordTextField.text
-        let param : [String: Any] = [
+        if isValid() {
+             self.signupActivityIndicator.startAnimating()
+        let email = userNameTextField.text?.lowercased()
+        let password = passwordTextField.text
+        let params : [String: Any] = [
             "data" :  [
                 "attributes" : [
-                    "email" : "abcdefdssmjkhkbd@gmail.com",
-                    "password" : "password",
+                    "email" : email,
+                    "password" : password,
                 ],
                 "type": "user"
             ]
             
         ]
-        let headers = [
-            "Content-Type": "application/vnd.api+json"
-        ]
-
-        Alamofire.request("https://open-event-api-dev.herokuapp.com/v1/users", method: .post, parameters: param ,encoding: JSONEncoding.default, headers: headers).responseJSON{
-            response in
-            print(response)
-            
+        
+        Client.sharedInstance.registerUser(params as [String: AnyObject]) { (success, message) in
+            DispatchQueue.main.async {
+                self.signupActivityIndicator.stopAnimating()
+                self.toggleEditing()
+                if success {
+                    self.view.makeToast("Successfully Signedup")
+                    let mainStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+                    guard let vc: UITabBarController = mainStoryboard.instantiateViewController(withIdentifier: "tabBarController") as? UITabBarController else {
+                        fatalError("Cannot Cast to UITabBarController")
+                    }
+                    vc.selectedIndex = 0
+                    self.present(vc, animated: true, completion: nil)
+                    
+                }
+                self.view.makeToast(message)
+            }
+        }
+        }
+        else {
+            self.view.makeToast("Please Check Parameters Entered")
         }
         
         

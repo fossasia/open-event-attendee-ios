@@ -13,6 +13,7 @@ PODS:
   - Pages (2.0.2)
   - SwiftValidators (5.0.0)
   - SwiftyJSON (4.1.0)
+  - Toast-Swift (3.0.1)
 
 DEPENDENCIES:
   - Alamofire (~> 4.7)
@@ -23,6 +24,7 @@ DEPENDENCIES:
   - Pages
   - SwiftValidators
   - SwiftyJSON (from `https://github.com/SwiftyJSON/SwiftyJSON.git`)
+  - Toast-Swift (~> 3.0.0)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -31,6 +33,7 @@ SPEC REPOS:
     - Motion
     - Pages
     - SwiftValidators
+    - Toast-Swift
 
 EXTERNAL SOURCES:
   DateTools:
@@ -66,7 +69,8 @@ SPEC CHECKSUMS:
   Pages: 5564ac6035c48fef7a837049314f57507d263b11
   SwiftValidators: 81db772ba2798fd4140ed57bfd7b80ab1ab42e93
   SwiftyJSON: c29297daf073d2aa016295d5809cdd68045c39b3
+  Toast-Swift: ba0b01b095aada709d915f9beb1d38184a2721c3
 
-PODFILE CHECKSUM: 8dabd5b0397fe3bc484246339b0f5ba55a9d2135
+PODFILE CHECKSUM: 74609bd778ec200769269543b5782049e07b8fc9
 
 COCOAPODS: 1.5.3

@@ -6,7 +6,7 @@
 //  Copyright © 2018 FossAsia. All rights reserved.
 //
 
-/*import UIKit
+import UIKit
 import Alamofire
 
 class Client: NSObject {
@@ -22,11 +22,11 @@ class Client: NSObject {
         
         func sendError(_ error: String) {
             debugPrint(error)
-            let userInfo = [NSLocalizedDescriptionKey: error]
-            completion(nil, NSError(domain: "makeRequestMethod", code: 1, userInfo: userInfo))
+            completion(nil, NSError(domain: "makeRequestMethod", code: 1))
         }
         
-        Alamofire.request(url, method: httpMethod, parameters: parameters, encoding: URLEncoding(destination: .methodDependent), headers: headers).validate().responseJSON { (response: DataResponse<Any>) in
+        Alamofire.request(url, method: httpMethod, parameters: parameters, encoding: JSONEncoding.default, headers: headers).validate().responseJSON { (response: DataResponse<Any>) in
+            print(response)
             print(response.request?.url ?? "Error: invalid URL")
             
             switch(response.result) {
@@ -36,22 +36,17 @@ class Client: NSObject {
                     
                     completion(data as AnyObject?, nil)
                 } else {
-                    completion(nil, NSError(domain: ResponseMessages.ServerError, code: 1))
+                    completion(nil, NSError(domain: Constants.ResponseMessages.ServerError, code: 1))
                 }
                 break
                 
             case .failure(let error):
-                debugPrint(error.localizedDescription)
-                sendError(ResponseMessages.ServerError)
+                sendError(Constants.ResponseMessages.ServerError)
                 break
             }
             
         }
     }
     
-    // create a URL
-    func getApiUrl(_ apiUrl: String, _ method: String = "") -> String {
-        return "\(apiUrl)\(method)"
-    }
     
-}*/
+}

@@ -13,6 +13,7 @@
 		18F8812220D54521005B6F94 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F8812120D54521005B6F94 /* SignupViewController.swift */; };
 		18F8812420D55FC4005B6F94 /* AuthTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F8812320D55FC4005B6F94 /* AuthTabBarViewController.swift */; };
 		18FE339A20E54730007EFD5C /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FE339920E54730007EFD5C /* Client.swift */; };
+		18FE339C20E5D936007EFD5C /* Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FE339B20E5D936007EFD5C /* Convenience.swift */; };
 		18FF251C20CFFAB400C6BDA2 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18FF251B20CFFAB400C6BDA2 /* Profile.storyboard */; };
 		28091E8D1C6332A600E789CD /* FilterListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28091E8C1C6332A600E789CD /* FilterListViewController.swift */; };
 		28091E8F1C636F9000E789CD /* FilterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28091E8E1C636F9000E789CD /* FilterCell.swift */; };
@@ -107,6 +108,7 @@
 		18F8812120D54521005B6F94 /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		18F8812320D55FC4005B6F94 /* AuthTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthTabBarViewController.swift; sourceTree = "<group>"; };
 		18FE339920E54730007EFD5C /* Client.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Client.swift; sourceTree = "<group>"; };
+		18FE339B20E5D936007EFD5C /* Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Convenience.swift; sourceTree = "<group>"; };
 		18FF251B20CFFAB400C6BDA2 /* Profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		28091E8C1C6332A600E789CD /* FilterListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterListViewController.swift; sourceTree = "<group>"; };
 		28091E8E1C636F9000E789CD /* FilterCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterCell.swift; sourceTree = "<group>"; };
@@ -271,10 +273,12 @@
 			isa = PBXGroup;
 			children = (
 				285F1B911C5B06CC00A7E0DD /* Event.swift */,
+				28091E901C64B0B900E789CD /* Constants.swift */,
 				28A0BC931C5F50A2001625FB /* Schedule.swift */,
 				285F1BAF1C5B094F00A7E0DD /* Speaker.swift */,
 				3094D5801C833F83007C2873 /* Microlocation.swift */,
 				18FE339920E54730007EFD5C /* Client.swift */,
+				18FE339B20E5D936007EFD5C /* Convenience.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -395,7 +399,6 @@
 				285F1B961C5B08FC00A7E0DD /* DateTools */,
 				2859B0FF1C5DFD09009656FC /* Colors.swift */,
 				28A0BC6E1C5F42D6001625FB /* Error.swift */,
-				28091E901C64B0B900E789CD /* Constants.swift */,
 				285F1B8E1C5B069D00A7E0DD /* Observable.swift */,
 				285F1B781C5AFBBB00A7E0DD /* SwiftHEXColors.swift */,
 			);
@@ -629,6 +632,7 @@
 				"${BUILT_PRODUCTS_DIR}/Pages/Pages.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftValidators/SwiftValidators.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+				"${BUILT_PRODUCTS_DIR}/Toast-Swift/Toast_Swift.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -641,6 +645,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Pages.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftValidators.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Toast_Swift.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -697,6 +702,7 @@
 				2824FE121C6EBB9E00F783E1 /* ScheduleBrowsingProtocol.swift in Sources */,
 				28091E911C64B0B900E789CD /* Constants.swift in Sources */,
 				2824FD641C6DA80600F783E1 /* LoadingViewController.swift in Sources */,
+				18FE339C20E5D936007EFD5C /* Convenience.swift in Sources */,
 				281324ED1C672EE80072E730 /* EventsResultsViewController.swift in Sources */,
 				285F1B921C5B06CC00A7E0DD /* Event.swift in Sources */,
 				28A0BC941C5F50A2001625FB /* Schedule.swift in Sources */,

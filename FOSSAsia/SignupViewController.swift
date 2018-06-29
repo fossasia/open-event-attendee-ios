@@ -11,6 +11,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var signUpButton: RaisedButton!
 
+    @IBOutlet weak var signupActivityIndicator: UIActivityIndicatorView!
     override func viewDidLoad() {
         super.viewDidLoad()
         addTapGesture()

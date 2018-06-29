@@ -5,6 +5,7 @@ target 'FOSSAsia' do
  
 pod 'Material'  
 pod 'Pages'
+pod 'Toast-Swift', '~> 3.0.0'
 pod 'SwiftyJSON', :git => 'https://github.com/SwiftyJSON/SwiftyJSON.git'
 pod 'Alamofire', '~> 4.7'
 pod 'DateTools', :git => 'https://github.com/MatthewYork/DateTools.git'

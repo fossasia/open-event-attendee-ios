@@ -24,6 +24,17 @@ struct Constants {
     struct UserDefaultsKey {
         static let FilteredTrackIds = "FilteredTrackIds"
     }
+    
+    struct Url {
+        static let registerUrl = "https://open-event-api-dev.herokuapp.com/v1/users"
+        
+    }
+    
+    struct ResponseMessages {
+        static let InvalidParams = "Email ID / Password incorrect"
+        static let ServerError = "Problem connecting to server!"
+    }
+
 
     struct Sessions {
         static let track = "track"

@@ -156,7 +156,7 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="N33-bf-MPL">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="522"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="554"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="eventyay" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NLm-WY-pUb">
                                                 <rect key="frame" x="108" y="20" width="158" height="45"/>
@@ -164,7 +164,7 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6Da-3d-bPO" customClass="TextField" customModule="Material">
+                                            <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6Da-3d-bPO" customClass="TextField" customModule="Material">
                                                 <rect key="frame" x="20" y="175" width="335" height="30"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -174,7 +174,7 @@
                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="isVisibilityIconButtonEnabled" value="YES"/>
                                                 </userDefinedRuntimeAttributes>
                                             </textField>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Confirm Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wmc-Fq-TNG" customClass="TextField" customModule="Material">
+                                            <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Confirm Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wmc-Fq-TNG" customClass="TextField" customModule="Material">
                                                 <rect key="frame" x="20" y="245" width="335" height="30"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -184,7 +184,7 @@
                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="isVisibilityIconButtonEnabled" value="YES"/>
                                                 </userDefinedRuntimeAttributes>
                                             </textField>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Firstname" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nce-CS-3VB" customClass="TextField" customModule="Material">
+                                            <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Firstname" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nce-CS-3VB" customClass="TextField" customModule="Material">
                                                 <rect key="frame" x="20" y="315" width="335" height="30"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -193,7 +193,7 @@
                                                     <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Firstname"/>
                                                 </userDefinedRuntimeAttributes>
                                             </textField>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="LastName" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="X1v-9u-Oh5" customClass="TextField" customModule="Material">
+                                            <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="LastName" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="X1v-9u-Oh5" customClass="TextField" customModule="Material">
                                                 <rect key="frame" x="20" y="385" width="335" height="30"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -203,7 +203,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jp3-36-Q0x" customClass="Button" customModule="Material">
-                                                <rect key="frame" x="20" y="455" width="334" height="44"/>
+                                                <rect key="frame" x="20" y="487" width="334" height="44"/>
                                                 <color key="backgroundColor" red="0.85098039215686272" green="0.011764705882352941" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="44" id="vEf-ha-Vze"/>
@@ -221,7 +221,7 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </button>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SBi-If-gHF" customClass="TextField" customModule="Material">
+                                            <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SBi-If-gHF" customClass="TextField" customModule="Material">
                                                 <rect key="frame" x="20" y="105" width="335" height="30"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -256,14 +256,20 @@
                                             <constraint firstItem="SBi-If-gHF" firstAttribute="top" secondItem="NLm-WY-pUb" secondAttribute="bottom" constant="40" id="wvp-va-X7Z"/>
                                         </constraints>
                                     </view>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="tVp-Qo-oUu">
+                                        <rect key="frame" x="177" y="511" width="20" height="20"/>
+                                    </activityIndicatorView>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstItem="tVp-Qo-oUu" firstAttribute="top" secondItem="xWc-8L-JMF" secondAttribute="top" constant="511" id="1c7-lS-Bjv"/>
                                     <constraint firstAttribute="trailing" secondItem="N33-bf-MPL" secondAttribute="trailing" id="QTz-E9-EhY"/>
                                     <constraint firstItem="N33-bf-MPL" firstAttribute="leading" secondItem="xWc-8L-JMF" secondAttribute="leading" id="Sc4-NT-1Ys"/>
+                                    <constraint firstAttribute="bottom" secondItem="tVp-Qo-oUu" secondAttribute="bottom" constant="23" id="VRf-sO-Sge"/>
                                     <constraint firstItem="N33-bf-MPL" firstAttribute="centerX" secondItem="xWc-8L-JMF" secondAttribute="centerX" id="YIj-8L-qZs"/>
                                     <constraint firstItem="N33-bf-MPL" firstAttribute="centerY" secondItem="xWc-8L-JMF" secondAttribute="centerY" priority="250" id="bjY-Ym-UBi"/>
                                     <constraint firstAttribute="bottom" secondItem="N33-bf-MPL" secondAttribute="bottom" priority="250" id="jPs-5T-9G5"/>
                                     <constraint firstItem="N33-bf-MPL" firstAttribute="top" secondItem="xWc-8L-JMF" secondAttribute="top" id="qCF-wG-CXT"/>
+                                    <constraint firstItem="tVp-Qo-oUu" firstAttribute="centerX" secondItem="N33-bf-MPL" secondAttribute="centerX" id="wQc-93-YaD"/>
                                 </constraints>
                             </scrollView>
                         </subviews>
@@ -283,6 +289,7 @@
                         <outlet property="lastNameTextField" destination="X1v-9u-Oh5" id="t4V-Gs-I5V"/>
                         <outlet property="passwordTextField" destination="6Da-3d-bPO" id="GgE-gF-2r6"/>
                         <outlet property="signUpButton" destination="jp3-36-Q0x" id="ezJ-dU-v2g"/>
+                        <outlet property="signupActivityIndicator" destination="tVp-Qo-oUu" id="Cca-KA-SyP"/>
                         <outlet property="userNameTextField" destination="SBi-If-gHF" id="C3M-Oc-KoE"/>
                     </connections>
                 </viewController>
