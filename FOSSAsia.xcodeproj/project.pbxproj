@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1884C8DC20D639F8004B221F /* SignupVcMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1884C8DB20D639F8004B221F /* SignupVcMethods.swift */; };
+		1884C8DF20D642E6004B221F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1884C8DE20D642E6004B221F /* LoginViewController.swift */; };
+		1884C8E120D6430B004B221F /* LoginVCMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1884C8E020D6430B004B221F /* LoginVCMethods.swift */; };
+		18F8812220D54521005B6F94 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F8812120D54521005B6F94 /* SignupViewController.swift */; };
+		18F8812420D55FC4005B6F94 /* AuthTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F8812320D55FC4005B6F94 /* AuthTabBarViewController.swift */; };
+		18FF251C20CFFAB400C6BDA2 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18FF251B20CFFAB400C6BDA2 /* Profile.storyboard */; };
 		28091E8D1C6332A600E789CD /* FilterListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28091E8C1C6332A600E789CD /* FilterListViewController.swift */; };
 		28091E8F1C636F9000E789CD /* FilterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28091E8E1C636F9000E789CD /* FilterCell.swift */; };
 		28091E911C64B0B900E789CD /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28091E901C64B0B900E789CD /* Constants.swift */; };
@@ -94,6 +100,12 @@
 
 /* Begin PBXFileReference section */
 		0C6C3C6E6BB94887BCEE095E /* Pods_FOSSAsia.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FOSSAsia.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1884C8DB20D639F8004B221F /* SignupVcMethods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupVcMethods.swift; sourceTree = "<group>"; };
+		1884C8DE20D642E6004B221F /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		1884C8E020D6430B004B221F /* LoginVCMethods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVCMethods.swift; sourceTree = "<group>"; };
+		18F8812120D54521005B6F94 /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
+		18F8812320D55FC4005B6F94 /* AuthTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthTabBarViewController.swift; sourceTree = "<group>"; };
+		18FF251B20CFFAB400C6BDA2 /* Profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		28091E8C1C6332A600E789CD /* FilterListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterListViewController.swift; sourceTree = "<group>"; };
 		28091E8E1C636F9000E789CD /* FilterCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterCell.swift; sourceTree = "<group>"; };
 		28091E901C64B0B900E789CD /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -210,6 +222,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1884C8DD20D642B0004B221F /* Login View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				1884C8DE20D642E6004B221F /* LoginViewController.swift */,
+				1884C8E020D6430B004B221F /* LoginVCMethods.swift */,
+			);
+			name = "Login View Controller";
+			sourceTree = "<group>";
+		};
+		18FF251D20D10B0800C6BDA2 /* Signup View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				18F8812120D54521005B6F94 /* SignupViewController.swift */,
+				1884C8DB20D639F8004B221F /* SignupVcMethods.swift */,
+			);
+			name = "Signup View Controller";
+			sourceTree = "<group>";
+		};
 		28091E941C64B66100E789CD /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -221,6 +251,9 @@
 		2818A9311C62300300ECB57F /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				18F8812320D55FC4005B6F94 /* AuthTabBarViewController.swift */,
+				1884C8DD20D642B0004B221F /* Login View Controller */,
+				18FF251D20D10B0800C6BDA2 /* Signup View Controller */,
 				2824FD701C6DC8EB00F783E1 /* Schedule View Controllers */,
 				2824FD711C6DC8F600F783E1 /* Schedule List View Controllers */,
 				2824FD631C6DA80600F783E1 /* LoadingViewController.swift */,
@@ -269,6 +302,7 @@
 		2818A93C1C62348300ECB57F /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
+				18FF251B20CFFAB400C6BDA2 /* Profile.storyboard */,
 				285F1B6A1C5AF7B100A7E0DD /* Main.storyboard */,
 				285F89B31C814B0A0033D090 /* Sessions.storyboard */,
 				285F89B01C8149420033D090 /* Favorites.storyboard */,
@@ -561,6 +595,7 @@
 				285F89B41C814B0A0033D090 /* Sessions.storyboard in Resources */,
 				285F1B6E1C5AF7B100A7E0DD /* Assets.xcassets in Resources */,
 				285F1B6C1C5AF7B100A7E0DD /* Main.storyboard in Resources */,
+				18FF251C20CFFAB400C6BDA2 /* Profile.storyboard in Resources */,
 				28E2DA891C7EDFCB002F2FAA /* ScheduleVC.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -585,7 +620,10 @@
 				"${BUILT_PRODUCTS_DIR}/DZNEmptyDataSet/DZNEmptyDataSet.framework",
 				"${BUILT_PRODUCTS_DIR}/DateTools/DateTools.framework",
 				"${BUILT_PRODUCTS_DIR}/MGSwipeTableCell/MGSwipeTableCell.framework",
+				"${BUILT_PRODUCTS_DIR}/Material/Material.framework",
+				"${BUILT_PRODUCTS_DIR}/Motion/Motion.framework",
 				"${BUILT_PRODUCTS_DIR}/Pages/Pages.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftValidators/SwiftValidators.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -593,7 +631,10 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DZNEmptyDataSet.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DateTools.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MGSwipeTableCell.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Material.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Motion.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Pages.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftValidators.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -630,8 +671,10 @@
 				2824FD661C6DBBF500F783E1 /* EventListBrowsingProtocol.swift in Sources */,
 				28091E8D1C6332A600E789CD /* FilterListViewController.swift in Sources */,
 				30321F691C81A06F008E5258 /* FetchDataService.swift in Sources */,
+				1884C8E120D6430B004B221F /* LoginVCMethods.swift in Sources */,
 				28352C731C6B411C0055E2F5 /* EventsListViewModel.swift in Sources */,
 				2859B1001C5DFD09009656FC /* Colors.swift in Sources */,
+				18F8812420D55FC4005B6F94 /* AuthTabBarViewController.swift in Sources */,
 				285F1B8F1C5B069D00A7E0DD /* Observable.swift in Sources */,
 				28352C711C6B2B9F0055E2F5 /* EventsListViewController.swift in Sources */,
 				285F1BBC1C5B2B2B00A7E0DD /* EventViewModel.swift in Sources */,
@@ -657,10 +700,16 @@
 				2824FD5A1C6C0AFE00F783E1 /* SchedulePagingView.swift in Sources */,
 				28A0BC921C5F4FEC001625FB /* ScheduleViewModel.swift in Sources */,
 				2824FD6D1C6DC05300F783E1 /* FavoriteEventsListViewController.swift in Sources */,
+				1884C8DF20D642E6004B221F /* LoginViewController.swift in Sources */,
 				30321F611C81851E008E5258 /* ApiClient.swift in Sources */,
+
 				5BAE561720C7733B00525CB9 /* MapViewController.swift in Sources */,
+
+				18F8812220D54521005B6F94 /* SignupViewController.swift in Sources */,
+
 				285F1BB01C5B094F00A7E0DD /* Speaker.swift in Sources */,
 				2824FE101C6EBB6700F783E1 /* FavoritesScheduleViewController.swift in Sources */,
+				1884C8DC20D639F8004B221F /* SignupVcMethods.swift in Sources */,
 				285F1B791C5AFBBB00A7E0DD /* SwiftHEXColors.swift in Sources */,
 				30F0AFB81C81C4C600CE5D18 /* SettingsManager.swift in Sources */,
 				30F0AFB61C81B9C400CE5D18 /* EventProvider.swift in Sources */,
