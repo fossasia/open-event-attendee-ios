@@ -51,6 +51,22 @@ class MoreViewController: UITableViewController {
         case 3:
             self.present(self.createSVC(DefaultURLs.fossasiaGoogleGroups), animated: true, completion: nil)
             break
+            
+        case 5:
+            let activityViewController : UIActivityViewController = UIActivityViewController(activityItems: [Constants.MoreViewController.message], applicationActivities: nil)
+                
+            activityViewController.setValue(Constants.MoreViewController.subject, forKey: Constants.MoreViewController.Title)
+            // For overcoming the crash in iPad
+            activityViewController.popoverPresentationController?.sourceView = self.view
+            
+            activityViewController.excludedActivityTypes = [
+                UIActivityType.airDrop,
+                UIActivityType.saveToCameraRoll,
+                UIActivityType.openInIBooks,
+                UIActivityType.copyToPasteboard ]
+            self.present(activityViewController, animated: true, completion: nil)
+            
+            break
         default:
             break
         }
