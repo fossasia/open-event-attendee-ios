@@ -18,6 +18,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         // Override point for customization after application launch.
         UITabBar.appearance().tintColor = Colors.mainRedColor
         UINavigationBar.appearance().tintColor = Colors.creamTintColor
+        UIApplication.shared.isStatusBarHidden = false
+        UIApplication.shared.statusBarStyle = .lightContent
 
         UserDefaults.standard.register(defaults: [Constants.UserDefaultsKey.FilteredTrackIds: (1...Constants.numberOfTracks).toArray()])
         // Set the Local Notification Delegate
