@@ -6,8 +6,10 @@ class AuthTabBarViewController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.parent?.navigationItem.backBarButtonItem = nil
+        setBackButton()
+    }
 
+    func setBackButton() {
         let button = UIButton(type: .custom)
         button.setImage(UIImage(named: "back"), for: .normal)
         button.addTarget(self, action: #selector(AuthTabBarViewController.backAction), for: .touchUpInside)
@@ -21,8 +23,6 @@ class AuthTabBarViewController: UITabBarController {
         button.addSubview(label)
         let barButton = UIBarButtonItem(customView: button)
         self.navigationItem.leftBarButtonItem = barButton
-
-
     }
 
 

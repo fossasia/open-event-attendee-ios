@@ -152,118 +152,113 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xWc-8L-JMF">
+                            <scrollView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xWc-8L-JMF">
                                 <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="N33-bf-MPL">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="522"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="eventyay" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NLm-WY-pUb">
-                                                <rect key="frame" x="108" y="20" width="158" height="45"/>
-                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="37"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6Da-3d-bPO" customClass="TextField" customModule="Material">
-                                                <rect key="frame" x="20" y="175" width="335" height="30"/>
-                                                <nil key="textColor"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Password"/>
-                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isVisibilityIconButtonEnabled" value="YES"/>
-                                                </userDefinedRuntimeAttributes>
-                                            </textField>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Confirm Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wmc-Fq-TNG" customClass="TextField" customModule="Material">
-                                                <rect key="frame" x="20" y="245" width="335" height="30"/>
-                                                <nil key="textColor"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Confirm Password"/>
-                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isVisibilityIconButtonEnabled" value="YES"/>
-                                                </userDefinedRuntimeAttributes>
-                                            </textField>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Firstname" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nce-CS-3VB" customClass="TextField" customModule="Material">
-                                                <rect key="frame" x="20" y="315" width="335" height="30"/>
-                                                <nil key="textColor"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Firstname"/>
-                                                </userDefinedRuntimeAttributes>
-                                            </textField>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="LastName" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="X1v-9u-Oh5" customClass="TextField" customModule="Material">
-                                                <rect key="frame" x="20" y="385" width="335" height="30"/>
-                                                <nil key="textColor"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="LastName"/>
-                                                </userDefinedRuntimeAttributes>
-                                            </textField>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jp3-36-Q0x" customClass="Button" customModule="Material">
-                                                <rect key="frame" x="20" y="455" width="334" height="44"/>
-                                                <color key="backgroundColor" red="0.85098039215686272" green="0.011764705882352941" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="44" id="vEf-ha-Vze"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                <state key="normal" title="Signup">
-                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                </state>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="color" keyPath="backgroundColor">
-                                                        <color key="value" red="0.85098039215686272" green="0.011764705882352941" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                        <integer key="value" value="5"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
-                                            </button>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SBi-If-gHF" customClass="TextField" customModule="Material">
-                                                <rect key="frame" x="20" y="105" width="335" height="30"/>
-                                                <nil key="textColor"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Username"/>
-                                                </userDefinedRuntimeAttributes>
-                                            </textField>
-                                        </subviews>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="eventyay" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.75" translatesAutoresizingMaskIntoConstraints="NO" id="NLm-WY-pUb">
+                                        <rect key="frame" x="108.5" y="42" width="158" height="45"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="37"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" multipleTouchEnabled="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SBi-If-gHF" customClass="TextField" customModule="Material">
+                                        <rect key="frame" x="20" y="117" width="335" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Email"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6Da-3d-bPO" customClass="TextField" customModule="Material">
+                                        <rect key="frame" x="20" y="177" width="335" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Password"/>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isVisibilityIconButtonEnabled" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Confirm Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wmc-Fq-TNG" customClass="TextField" customModule="Material">
+                                        <rect key="frame" x="20" y="237" width="335" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Confirm Password"/>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isVisibilityIconButtonEnabled" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Firstname" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nce-CS-3VB" customClass="TextField" customModule="Material">
+                                        <rect key="frame" x="20" y="297" width="335" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Firstname"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="LastName" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="X1v-9u-Oh5" customClass="TextField" customModule="Material">
+                                        <rect key="frame" x="20" y="357" width="335" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="LastName"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jp3-36-Q0x" customClass="Button" customModule="Material">
+                                        <rect key="frame" x="20" y="417" width="335" height="44"/>
+                                        <color key="backgroundColor" red="0.85098039215686272" green="0.011764705882352941" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
-                                            <constraint firstItem="6Da-3d-bPO" firstAttribute="top" secondItem="SBi-If-gHF" secondAttribute="bottom" constant="40" id="2vR-DS-zBe"/>
-                                            <constraint firstItem="nce-CS-3VB" firstAttribute="leading" secondItem="X1v-9u-Oh5" secondAttribute="leading" id="5Xb-jF-Qpv"/>
-                                            <constraint firstItem="wmc-Fq-TNG" firstAttribute="leading" secondItem="nce-CS-3VB" secondAttribute="leading" id="6fb-XB-rXV"/>
-                                            <constraint firstItem="X1v-9u-Oh5" firstAttribute="centerX" secondItem="jp3-36-Q0x" secondAttribute="centerX" id="9kA-po-9iY"/>
-                                            <constraint firstItem="SBi-If-gHF" firstAttribute="leading" secondItem="N33-bf-MPL" secondAttribute="leading" constant="20" id="DHA-an-jQ9"/>
-                                            <constraint firstItem="X1v-9u-Oh5" firstAttribute="top" secondItem="nce-CS-3VB" secondAttribute="bottom" constant="40" id="EjB-0e-Gb4"/>
-                                            <constraint firstItem="6Da-3d-bPO" firstAttribute="trailing" secondItem="wmc-Fq-TNG" secondAttribute="trailing" id="XFV-Em-nwR"/>
-                                            <constraint firstItem="NLm-WY-pUb" firstAttribute="centerX" secondItem="SBi-If-gHF" secondAttribute="centerX" id="ZNJ-Kl-HVJ"/>
-                                            <constraint firstItem="NLm-WY-pUb" firstAttribute="top" secondItem="N33-bf-MPL" secondAttribute="top" constant="20" id="bMv-tG-rXH"/>
-                                            <constraint firstItem="jp3-36-Q0x" firstAttribute="top" secondItem="X1v-9u-Oh5" secondAttribute="bottom" constant="40" id="dBI-St-K5Z"/>
-                                            <constraint firstItem="wmc-Fq-TNG" firstAttribute="top" secondItem="6Da-3d-bPO" secondAttribute="bottom" constant="40" id="gyK-zc-NFo"/>
-                                            <constraint firstItem="wmc-Fq-TNG" firstAttribute="trailing" secondItem="nce-CS-3VB" secondAttribute="trailing" id="kAo-x7-kPB"/>
-                                            <constraint firstItem="SBi-If-gHF" firstAttribute="trailing" secondItem="6Da-3d-bPO" secondAttribute="trailing" id="lGB-rM-qdd"/>
-                                            <constraint firstItem="SBi-If-gHF" firstAttribute="leading" secondItem="6Da-3d-bPO" secondAttribute="leading" id="mdo-vm-t2j"/>
-                                            <constraint firstItem="nce-CS-3VB" firstAttribute="trailing" secondItem="X1v-9u-Oh5" secondAttribute="trailing" id="pCn-BF-gRR"/>
-                                            <constraint firstItem="6Da-3d-bPO" firstAttribute="leading" secondItem="wmc-Fq-TNG" secondAttribute="leading" id="qg4-5c-Jr2"/>
-                                            <constraint firstItem="nce-CS-3VB" firstAttribute="top" secondItem="wmc-Fq-TNG" secondAttribute="bottom" constant="40" id="tKO-kc-MeW"/>
-                                            <constraint firstItem="X1v-9u-Oh5" firstAttribute="leading" secondItem="jp3-36-Q0x" secondAttribute="leading" id="uLV-Jj-Ybs"/>
-                                            <constraint firstItem="NLm-WY-pUb" firstAttribute="centerX" secondItem="N33-bf-MPL" secondAttribute="centerX" id="uTM-T3-Hgx"/>
-                                            <constraint firstAttribute="bottom" secondItem="jp3-36-Q0x" secondAttribute="bottom" constant="23" id="wSp-Zo-eH8"/>
-                                            <constraint firstItem="SBi-If-gHF" firstAttribute="top" secondItem="NLm-WY-pUb" secondAttribute="bottom" constant="40" id="wvp-va-X7Z"/>
+                                            <constraint firstAttribute="height" constant="44" id="vEf-ha-Vze"/>
                                         </constraints>
-                                    </view>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <state key="normal" title="Signup">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="backgroundColor">
+                                                <color key="value" red="0.85098039215686272" green="0.011764705882352941" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <integer key="value" value="5"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </button>
+                                    <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="tVp-Qo-oUu">
+                                        <rect key="frame" x="177" y="511" width="20" height="20"/>
+                                    </activityIndicatorView>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="N33-bf-MPL" secondAttribute="trailing" id="QTz-E9-EhY"/>
-                                    <constraint firstItem="N33-bf-MPL" firstAttribute="leading" secondItem="xWc-8L-JMF" secondAttribute="leading" id="Sc4-NT-1Ys"/>
-                                    <constraint firstItem="N33-bf-MPL" firstAttribute="centerX" secondItem="xWc-8L-JMF" secondAttribute="centerX" id="YIj-8L-qZs"/>
-                                    <constraint firstItem="N33-bf-MPL" firstAttribute="centerY" secondItem="xWc-8L-JMF" secondAttribute="centerY" priority="250" id="bjY-Ym-UBi"/>
-                                    <constraint firstAttribute="bottom" secondItem="N33-bf-MPL" secondAttribute="bottom" priority="250" id="jPs-5T-9G5"/>
-                                    <constraint firstItem="N33-bf-MPL" firstAttribute="top" secondItem="xWc-8L-JMF" secondAttribute="top" id="qCF-wG-CXT"/>
+                                    <constraint firstItem="tVp-Qo-oUu" firstAttribute="top" secondItem="xWc-8L-JMF" secondAttribute="top" constant="511" id="1c7-lS-Bjv"/>
+                                    <constraint firstItem="X1v-9u-Oh5" firstAttribute="top" secondItem="nce-CS-3VB" secondAttribute="bottom" constant="30" id="1ll-Cp-Jfn"/>
+                                    <constraint firstItem="wmc-Fq-TNG" firstAttribute="leading" secondItem="6Da-3d-bPO" secondAttribute="leading" id="2H4-Yp-iMb"/>
+                                    <constraint firstItem="jp3-36-Q0x" firstAttribute="leading" secondItem="xWc-8L-JMF" secondAttribute="leading" constant="20" id="4ip-ur-siG"/>
+                                    <constraint firstAttribute="trailing" secondItem="wmc-Fq-TNG" secondAttribute="trailing" constant="20" id="6kR-lg-8wM"/>
+                                    <constraint firstItem="jp3-36-Q0x" firstAttribute="top" secondItem="X1v-9u-Oh5" secondAttribute="bottom" constant="30" id="AzL-BD-FgS"/>
+                                    <constraint firstItem="wmc-Fq-TNG" firstAttribute="top" secondItem="6Da-3d-bPO" secondAttribute="bottom" constant="30" id="FhM-mN-UA2"/>
+                                    <constraint firstItem="nce-CS-3VB" firstAttribute="leading" secondItem="xWc-8L-JMF" secondAttribute="leading" constant="20" id="FqQ-uV-mMz"/>
+                                    <constraint firstItem="X1v-9u-Oh5" firstAttribute="leading" secondItem="xWc-8L-JMF" secondAttribute="leading" constant="20" id="JQo-Yf-6bT"/>
+                                    <constraint firstAttribute="trailing" secondItem="SBi-If-gHF" secondAttribute="trailing" constant="20" id="Miv-ue-brl"/>
+                                    <constraint firstItem="wmc-Fq-TNG" firstAttribute="leading" secondItem="xWc-8L-JMF" secondAttribute="leading" constant="20" id="PWh-Ia-uPB"/>
+                                    <constraint firstAttribute="bottom" secondItem="tVp-Qo-oUu" secondAttribute="bottom" constant="23" id="VRf-sO-Sge"/>
+                                    <constraint firstItem="6Da-3d-bPO" firstAttribute="top" secondItem="SBi-If-gHF" secondAttribute="bottom" constant="30" id="VaX-Th-Lsj"/>
+                                    <constraint firstItem="wmc-Fq-TNG" firstAttribute="trailing" secondItem="6Da-3d-bPO" secondAttribute="trailing" id="W5Q-fg-uEe"/>
+                                    <constraint firstItem="NLm-WY-pUb" firstAttribute="top" secondItem="xWc-8L-JMF" secondAttribute="top" constant="42" id="Xz1-gJ-EJ0"/>
+                                    <constraint firstItem="6Da-3d-bPO" firstAttribute="leading" secondItem="xWc-8L-JMF" secondAttribute="leading" constant="20" id="g6S-6J-WHD"/>
+                                    <constraint firstItem="NLm-WY-pUb" firstAttribute="centerX" secondItem="xWc-8L-JMF" secondAttribute="centerX" id="hK6-lh-ffR"/>
+                                    <constraint firstItem="SBi-If-gHF" firstAttribute="top" secondItem="NLm-WY-pUb" secondAttribute="bottom" constant="30" id="iEI-op-kpg"/>
+                                    <constraint firstItem="SBi-If-gHF" firstAttribute="leading" secondItem="xWc-8L-JMF" secondAttribute="leading" constant="20" id="kxA-nk-kNC"/>
+                                    <constraint firstAttribute="trailing" secondItem="jp3-36-Q0x" secondAttribute="trailing" constant="20" id="l1b-i0-MvU"/>
+                                    <constraint firstItem="SBi-If-gHF" firstAttribute="centerX" secondItem="tVp-Qo-oUu" secondAttribute="centerX" id="lTx-0v-dew"/>
+                                    <constraint firstItem="nce-CS-3VB" firstAttribute="top" secondItem="wmc-Fq-TNG" secondAttribute="bottom" constant="30" id="mB3-tB-iSn"/>
+                                    <constraint firstAttribute="trailing" secondItem="X1v-9u-Oh5" secondAttribute="trailing" constant="20" id="nE0-dl-zAX"/>
+                                    <constraint firstAttribute="trailing" secondItem="6Da-3d-bPO" secondAttribute="trailing" constant="20" id="p0O-RF-Qz9"/>
+                                    <constraint firstItem="SBi-If-gHF" firstAttribute="centerX" secondItem="xWc-8L-JMF" secondAttribute="centerX" id="sqm-Gx-Z7P"/>
+                                    <constraint firstAttribute="trailing" secondItem="nce-CS-3VB" secondAttribute="trailing" constant="20" id="tU7-Vo-KV2"/>
+                                    <constraint firstItem="tVp-Qo-oUu" firstAttribute="centerX" secondItem="xWc-8L-JMF" secondAttribute="centerX" id="zei-SV-pBk"/>
                                 </constraints>
                             </scrollView>
                         </subviews>
@@ -279,11 +274,12 @@
                     <navigationItem key="navigationItem" title="Signup" id="6jj-0Z-K7J"/>
                     <connections>
                         <outlet property="confirmPasswordTextField" destination="wmc-Fq-TNG" id="4Lh-fm-uvD"/>
+                        <outlet property="emailTextField" destination="SBi-If-gHF" id="C3M-Oc-KoE"/>
                         <outlet property="firstNameTextField" destination="nce-CS-3VB" id="4JA-go-rRW"/>
                         <outlet property="lastNameTextField" destination="X1v-9u-Oh5" id="t4V-Gs-I5V"/>
                         <outlet property="passwordTextField" destination="6Da-3d-bPO" id="GgE-gF-2r6"/>
                         <outlet property="signUpButton" destination="jp3-36-Q0x" id="ezJ-dU-v2g"/>
-                        <outlet property="userNameTextField" destination="SBi-If-gHF" id="C3M-Oc-KoE"/>
+                        <outlet property="signupActivityIndicator" destination="tVp-Qo-oUu" id="Cca-KA-SyP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="onE-Cd-8MI" userLabel="First Responder" sceneMemberID="firstResponder"/>
