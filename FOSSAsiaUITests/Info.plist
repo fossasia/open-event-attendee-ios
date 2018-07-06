@@ -20,5 +20,7 @@
 	<string>????</string>
 	<key>CFBundleVersion</key>
 	<string>91</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>Add Avatar</string>
 </dict>
 </plist>

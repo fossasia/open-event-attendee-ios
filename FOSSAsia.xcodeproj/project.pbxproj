@@ -10,11 +10,14 @@
 		1884C8DC20D639F8004B221F /* SignupVcMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1884C8DB20D639F8004B221F /* SignupVcMethods.swift */; };
 		1884C8DF20D642E6004B221F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1884C8DE20D642E6004B221F /* LoginViewController.swift */; };
 		1884C8E120D6430B004B221F /* LoginVCMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1884C8E020D6430B004B221F /* LoginVCMethods.swift */; };
+		18AF7C7A20EFB37C00571EB0 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18AF7C7920EFB37C00571EB0 /* Profile.storyboard */; };
+		18AF7C7C20EFB6AC00571EB0 /* MainTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AF7C7B20EFB6AC00571EB0 /* MainTabBarViewController.swift */; };
 		18F8812220D54521005B6F94 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F8812120D54521005B6F94 /* SignupViewController.swift */; };
 		18F8812420D55FC4005B6F94 /* AuthTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F8812320D55FC4005B6F94 /* AuthTabBarViewController.swift */; };
+		18FD9CD220EF6D5C00AC78F2 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FD9CD120EF6D5C00AC78F2 /* ProfileViewController.swift */; };
+		18FD9CD520EFB1CF00AC78F2 /* ProfileLoggedIn.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18FD9CD420EFB1CF00AC78F2 /* ProfileLoggedIn.storyboard */; };
 		18FE339A20E54730007EFD5C /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FE339920E54730007EFD5C /* Client.swift */; };
 		18FE339C20E5D936007EFD5C /* Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FE339B20E5D936007EFD5C /* Convenience.swift */; };
-		18FF251C20CFFAB400C6BDA2 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18FF251B20CFFAB400C6BDA2 /* Profile.storyboard */; };
 		28091E8D1C6332A600E789CD /* FilterListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28091E8C1C6332A600E789CD /* FilterListViewController.swift */; };
 		28091E8F1C636F9000E789CD /* FilterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28091E8E1C636F9000E789CD /* FilterCell.swift */; };
 		28091E911C64B0B900E789CD /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28091E901C64B0B900E789CD /* Constants.swift */; };
@@ -105,11 +108,14 @@
 		1884C8DB20D639F8004B221F /* SignupVcMethods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupVcMethods.swift; sourceTree = "<group>"; };
 		1884C8DE20D642E6004B221F /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		1884C8E020D6430B004B221F /* LoginVCMethods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVCMethods.swift; sourceTree = "<group>"; };
+		18AF7C7920EFB37C00571EB0 /* Profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Profile.storyboard; path = ../../../.Trash/Profile.storyboard; sourceTree = "<group>"; };
+		18AF7C7B20EFB6AC00571EB0 /* MainTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarViewController.swift; sourceTree = "<group>"; };
 		18F8812120D54521005B6F94 /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		18F8812320D55FC4005B6F94 /* AuthTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthTabBarViewController.swift; sourceTree = "<group>"; };
+		18FD9CD120EF6D5C00AC78F2 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		18FD9CD420EFB1CF00AC78F2 /* ProfileLoggedIn.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ProfileLoggedIn.storyboard; sourceTree = "<group>"; };
 		18FE339920E54730007EFD5C /* Client.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Client.swift; sourceTree = "<group>"; };
 		18FE339B20E5D936007EFD5C /* Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Convenience.swift; sourceTree = "<group>"; };
-		18FF251B20CFFAB400C6BDA2 /* Profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		28091E8C1C6332A600E789CD /* FilterListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterListViewController.swift; sourceTree = "<group>"; };
 		28091E8E1C636F9000E789CD /* FilterCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterCell.swift; sourceTree = "<group>"; };
 		28091E901C64B0B900E789CD /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -255,6 +261,7 @@
 		2818A9311C62300300ECB57F /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				18FD9CD120EF6D5C00AC78F2 /* ProfileViewController.swift */,
 				18F8812320D55FC4005B6F94 /* AuthTabBarViewController.swift */,
 				1884C8DD20D642B0004B221F /* Login View Controller */,
 				18FF251D20D10B0800C6BDA2 /* Signup View Controller */,
@@ -265,6 +272,7 @@
 				28091E8C1C6332A600E789CD /* FilterListViewController.swift */,
 				2824FD611C6C732300F783E1 /* MoreViewController.swift */,
 				5BAE561620C7733B00525CB9 /* MapViewController.swift */,
+				18AF7C7B20EFB6AC00571EB0 /* MainTabBarViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -309,7 +317,8 @@
 		2818A93C1C62348300ECB57F /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
-				18FF251B20CFFAB400C6BDA2 /* Profile.storyboard */,
+				18FD9CD420EFB1CF00AC78F2 /* ProfileLoggedIn.storyboard */,
+				18AF7C7920EFB37C00571EB0 /* Profile.storyboard */,
 				285F1B6A1C5AF7B100A7E0DD /* Main.storyboard */,
 				285F89B31C814B0A0033D090 /* Sessions.storyboard */,
 				285F89B01C8149420033D090 /* Favorites.storyboard */,
@@ -594,14 +603,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				280DE5291C62FCB200E64020 /* Podfile in Resources */,
+				18AF7C7A20EFB37C00571EB0 /* Profile.storyboard in Resources */,
 				2824FD6B1C6DBF9A00F783E1 /* More.storyboard in Resources */,
 				285F89B21C8149420033D090 /* Favorites.storyboard in Resources */,
 				285F1B711C5AF7B100A7E0DD /* LaunchScreen.storyboard in Resources */,
 				28A17BCA1C70AF0200318336 /* IndividualEvent.storyboard in Resources */,
 				285F89B41C814B0A0033D090 /* Sessions.storyboard in Resources */,
 				285F1B6E1C5AF7B100A7E0DD /* Assets.xcassets in Resources */,
+				18FD9CD520EFB1CF00AC78F2 /* ProfileLoggedIn.storyboard in Resources */,
 				285F1B6C1C5AF7B100A7E0DD /* Main.storyboard in Resources */,
-				18FF251C20CFFAB400C6BDA2 /* Profile.storyboard in Resources */,
 				28E2DA891C7EDFCB002F2FAA /* ScheduleVC.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -631,6 +641,7 @@
 				"${BUILT_PRODUCTS_DIR}/Material/Material.framework",
 				"${BUILT_PRODUCTS_DIR}/Motion/Motion.framework",
 				"${BUILT_PRODUCTS_DIR}/Pages/Pages.framework",
+				"${BUILT_PRODUCTS_DIR}/RSKImageCropper/RSKImageCropper.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftValidators/SwiftValidators.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 				"${BUILT_PRODUCTS_DIR}/Toast-Swift/Toast_Swift.framework",
@@ -645,6 +656,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Material.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Motion.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Pages.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RSKImageCropper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftValidators.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Toast_Swift.framework",
@@ -684,6 +696,7 @@
 				28091E8D1C6332A600E789CD /* FilterListViewController.swift in Sources */,
 				30321F691C81A06F008E5258 /* FetchDataService.swift in Sources */,
 				1884C8E120D6430B004B221F /* LoginVCMethods.swift in Sources */,
+				18AF7C7C20EFB6AC00571EB0 /* MainTabBarViewController.swift in Sources */,
 				28352C731C6B411C0055E2F5 /* EventsListViewModel.swift in Sources */,
 				2859B1001C5DFD09009656FC /* Colors.swift in Sources */,
 				18F8812420D55FC4005B6F94 /* AuthTabBarViewController.swift in Sources */,
@@ -696,6 +709,7 @@
 				2859B0FE1C5DF8D7009656FC /* EventViewController.swift in Sources */,
 				2859B1021C5E29DC009656FC /* EventInfoView.swift in Sources */,
 				2824FD621C6C732300F783E1 /* MoreViewController.swift in Sources */,
+				18FD9CD220EF6D5C00AC78F2 /* ProfileViewController.swift in Sources */,
 				28091E9B1C64CC1A00E789CD /* TrackViewModel.swift in Sources */,
 				285F1BB81C5B16C700A7E0DD /* EventCell.swift in Sources */,
 				285F89AF1C81448A0033D090 /* ScheduleViewControllerDelegate.swift in Sources */,
