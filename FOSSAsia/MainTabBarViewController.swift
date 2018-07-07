@@ -8,24 +8,20 @@
 
 import UIKit
 
-class MainTabBarViewController: UINavigationController {
+class MainTabBarViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        //performSegue(withIdentifier: "ProfileVC", sender: nil)
         // Do any additional setup after loading the view.
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-         performSegue(withIdentifier: "Profile", sender: nil)
+    override func viewDidAppear(_ animated: Bool) {
+       
+        performSegue(withIdentifier: "AuthVC", sender: nil)
     }
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "Profile"{
-            var vc = segue.destination as! ProfileViewController
-            //Data has to be a variable name in your RandomViewController
-        }
-    }
-
+   
+    
     
     
 
