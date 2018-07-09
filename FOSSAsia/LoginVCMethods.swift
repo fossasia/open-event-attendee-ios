@@ -11,7 +11,7 @@ extension LoginViewController {
 
     func prepareUserNameField() {
 
-        userNameTextField.addTarget(self, action: #selector(textFieldDidChange(textField:)), for: .editingChanged)
+        emailTextField.addTarget(self, action: #selector(textFieldDidChange(textField:)), for: .editingChanged)
     }
 
     // Configures Password Text Field
@@ -24,21 +24,66 @@ extension LoginViewController {
 
     // Configure Login Button
     func prepareLoginButton() {
-        //    loginButton.addTarget(self, action: #selector(performLogin), for: .touchUpInside)
+        loginButton.addTarget(self, action: #selector(performLogin), for: .touchUpInside)
+    }
+
+    @objc func performLogin() {
+        if isValid() {
+            self.loginActivityIndicator.isHidden = false
+            self.loginActivityIndicator.startAnimating()
+            let email = emailTextField.text?.lowercased()
+            let password = passwordTextField.text
+            let params: [String: AnyObject] = [
+
+                Constants.UserDefaultsKey.emailJsonKey: email as AnyObject,
+                Constants.UserDefaultsKey.passwordJsonKey: password as AnyObject
+
+            ]
+
+            Client.sharedInstance.loginUser(params as [String: AnyObject]) { (success, result, message) in
+                DispatchQueue.main.async {
+                    self.loginActivityIndicator.stopAnimating()
+                    self.toggleEditing()
+                    if success {
+                        self.view.makeToast(message)
+                        guard let accessToken = result?["access_token"] as? String else {
+                            fatalError("Unable to Fetch AccessToken")
+                        }
+                        UserDefaults.standard.set(accessToken, forKey: Constants.UserDefaultsKey.acessToken)
+                        let mainStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+                        guard let vc: UITabBarController = mainStoryboard.instantiateViewController(withIdentifier: "tabBarController") as? UITabBarController else {
+                            fatalError("Cannot Cast to UITabBarController")
+                        }
+                        vc.selectedIndex = 0
+                        self.present(vc, animated: true, completion: nil)
+
+                    }
+                    else {
+                        self.view.makeToast(message)
+                         self.toggleEditing()
+                    }
+
+                }
+            }
+        }
+        else {
+            self.view.makeToast(Constants.ResponseMessages.checkParameter)
+        }
+
     }
 
     // Keyboard Return Key Hit
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-       textField.resignFirstResponder()
+        textField.resignFirstResponder()
         return true
     }
 
     @objc func textFieldDidChange(textField: UITextField) {
-        if textField == userNameTextField, let userName = userNameTextField.text {
-            if userName.isEmpty {
-                userNameTextField.dividerActiveColor = .red
+        if textField == emailTextField, let emailID = emailTextField.text {
+            if !emailID.isValidEmail() {
+                emailTextField.dividerActiveColor = .red
             } else {
-                userNameTextField.dividerActiveColor = .green
+                emailTextField.dividerActiveColor = .green
             }
         } else if textField == passwordTextField, let password = passwordTextField.text {
             if password.isEmpty || password.count < 5 {
@@ -56,7 +101,7 @@ extension LoginViewController {
 
     // Toggle Editing
     func toggleEditing() {
-        userNameTextField.isEnabled = !userNameTextField.isEnabled
+        emailTextField.isEnabled = !emailTextField.isEnabled
         passwordTextField.isEnabled = !passwordTextField.isEnabled
         loginButton.isEnabled = !loginButton.isEnabled
     }
@@ -68,9 +113,10 @@ extension LoginViewController {
 
     // Validate fields
     func isValid() -> Bool {
-        if let userName = userNameTextField.text, userName.isEmpty {
+        if let emailID = emailTextField.text, !emailID.isValidEmail() {
             return false
         }
+
         if let password = passwordTextField.text, password.isEmpty {
             return false
         }

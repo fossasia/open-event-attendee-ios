@@ -51,21 +51,24 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </button>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ejm-B6-PIY" customClass="TextField" customModule="Material">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ejm-B6-PIY" customClass="TextField" customModule="Material">
                                 <rect key="frame" x="36" y="244" width="303" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Username"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Email"/>
                                 </userDefinedRuntimeAttributes>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="eventyay" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x2k-aR-Fw4">
-                                <rect key="frame" x="109" y="133.5" width="157.5" height="44.5"/>
+                                <rect key="frame" x="109" y="133" width="158" height="45"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="37"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="ONN-ra-gvL">
+                                <rect key="frame" x="177" y="478" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -73,21 +76,24 @@
                             <constraint firstItem="ejm-B6-PIY" firstAttribute="top" secondItem="x2k-aR-Fw4" secondAttribute="bottom" constant="66" id="Gna-ob-ask"/>
                             <constraint firstAttribute="trailingMargin" secondItem="apN-SZ-hrH" secondAttribute="trailing" constant="20" id="I83-vm-yN4"/>
                             <constraint firstItem="ejm-B6-PIY" firstAttribute="top" secondItem="YzN-J0-mzg" secondAttribute="top" constant="244" id="MhF-rk-fds"/>
+                            <constraint firstItem="ONN-ra-gvL" firstAttribute="centerX" secondItem="mwp-kS-vml" secondAttribute="centerX" id="NZk-Me-GaH"/>
                             <constraint firstItem="ejm-B6-PIY" firstAttribute="leading" secondItem="apN-SZ-hrH" secondAttribute="leading" id="VyT-dI-Zm9"/>
                             <constraint firstItem="apN-SZ-hrH" firstAttribute="top" secondItem="ejm-B6-PIY" secondAttribute="bottom" constant="40" id="Xsb-ca-qhx"/>
                             <constraint firstItem="mwp-kS-vml" firstAttribute="top" secondItem="apN-SZ-hrH" secondAttribute="bottom" constant="40" id="dn0-QO-1Vw"/>
                             <constraint firstItem="apN-SZ-hrH" firstAttribute="leading" secondItem="YzN-J0-mzg" secondAttribute="leadingMargin" constant="20" id="hP8-lO-ivG"/>
                             <constraint firstItem="ejm-B6-PIY" firstAttribute="centerX" secondItem="x2k-aR-Fw4" secondAttribute="centerX" id="kP3-Xn-WEl"/>
                             <constraint firstItem="mwp-kS-vml" firstAttribute="trailing" secondItem="apN-SZ-hrH" secondAttribute="trailing" id="lex-xw-mTA"/>
+                            <constraint firstItem="ONN-ra-gvL" firstAttribute="top" secondItem="mwp-kS-vml" secondAttribute="bottom" constant="50" id="pGy-Ta-E66"/>
                             <constraint firstItem="mwp-kS-vml" firstAttribute="leading" secondItem="apN-SZ-hrH" secondAttribute="leading" id="qNP-JJ-0JS"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Login" image="login_unselected" selectedImage="loginicon" id="myi-zI-vmJ"/>
                     <navigationItem key="navigationItem" title="Login" id="lyN-i9-Tsf"/>
                     <connections>
+                        <outlet property="emailTextField" destination="ejm-B6-PIY" id="qdo-n2-cW0"/>
+                        <outlet property="loginActivityIndicator" destination="ONN-ra-gvL" id="v3t-Io-uxf"/>
                         <outlet property="loginButton" destination="mwp-kS-vml" id="5Fc-hl-2Hf"/>
                         <outlet property="passwordTextField" destination="apN-SZ-hrH" id="BOu-9O-IH9"/>
-                        <outlet property="userNameTextField" destination="ejm-B6-PIY" id="qdo-n2-cW0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6iU-OI-IW9" userLabel="First Responder" sceneMemberID="firstResponder"/>
