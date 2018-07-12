@@ -3,7 +3,6 @@ import Material
 
 class LoginViewController: UIViewController, UITextFieldDelegate {
 
-
     @IBOutlet weak var emailTextField: TextField!
     @IBOutlet weak var passwordTextField: TextField!
     @IBOutlet weak var loginButton: RaisedButton!
