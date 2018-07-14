@@ -42,6 +42,7 @@ extension Client {
     }
 
 
+
     func loginUser(_ params: [String: AnyObject], _ completion: @escaping(_ success: Bool, _ results: [String: AnyObject]?, _ error: String) -> Void) {
 
         let url = Constants.Url.loginUrl
@@ -65,4 +66,6 @@ extension Client {
         })
 
     }
+
+
 }
