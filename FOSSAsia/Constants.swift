@@ -43,6 +43,13 @@ struct Constants {
 
     }
 
+    struct alertMessage {
+        static let logoutMessageTitle = "Do you want to Logout?"
+        static let logoutMessage = "Click Yes to Logout!"
+        static let noTitle = "No"
+        static let yesTitle = "Yes"
+    }
+
     struct Header {
         static let contentType = "Content-Type"
 

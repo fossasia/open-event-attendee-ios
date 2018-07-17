@@ -26,6 +26,33 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     }
 
 
+
+    @IBAction func logOutPressed(_ sender: Any) {
+        let alert = UIAlertController(title: Constants.alertMessage.logoutMessageTitle, message: Constants.alertMessage.logoutMessage, preferredStyle: .alert)
+
+        alert.addAction(UIAlertAction(title: Constants.alertMessage.yesTitle, style: .default, handler: { action in
+            UserDefaults.standard.set(nil, forKey: Constants.UserDefaultsKey.acessToken)
+            UserDefaults.standard.set(nil, forKey: Constants.UserDefaultsKey.firstName)
+            UserDefaults.standard.set(nil, forKey: Constants.UserDefaultsKey.lastName)
+            self.userName.text = ""
+            let mainStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+            guard let vc: UITabBarController = mainStoryboard.instantiateViewController(withIdentifier: "tabBarController") as? UITabBarController else {
+                fatalError("Cannot Cast to UITabBarController")
+            }
+            vc.selectedIndex = 0
+            self.present(vc, animated: true, completion: nil)
+        }))
+
+        alert.addAction(UIAlertAction(title: Constants.alertMessage.noTitle, style: .cancel, handler: { action in
+            self.dismiss(animated: true, completion: nil)
+        }))
+
+        self.present(alert, animated: true)
+
+    }
+
+
+
     @objc func tapAvatar() {
         let imagePickerController = UIImagePickerController()
 
@@ -70,7 +97,6 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         profileImageView.clipsToBounds = true
     }
 
-
     func setBackButton() {
         let button = UIButton(type: .custom)
         button.setImage(UIImage(named: "back"), for: .normal)
@@ -98,8 +124,4 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         self.present(vc, animated: true, completion: nil)
 
     }
-
-
-
-
 }
