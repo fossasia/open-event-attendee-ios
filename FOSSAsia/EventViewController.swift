@@ -9,6 +9,7 @@
 import UIKit
 import EventKit
 import EventKitUI
+import CTShowcase
 
 typealias IndividualEventPresentable = EventDetailsPresentable & EventDescriptionPresentable & EventAddToCalendarPresentable
 
@@ -56,6 +57,16 @@ class EventViewController: UIViewController {
 
         navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
         navigationItem.leftItemsSupplementBackButton = true
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        let showcase = CTShowcaseView(title: Constants.ShowCase.SCtitle, message: Constants.ShowCase.SCmessage, key: nil) {
+        }
+        let highlighter = showcase.highlighter as! CTStaticGlowHighlighter
+        
+        highlighter.highlightColor = UIColor.green
+        
+        showcase.setup(for: self.eventAddToCalendarButton, offset: CGPoint.zero, margin: 5)
+        showcase.show()
     }
 
     override func viewDidLayoutSubviews() {

@@ -103,4 +103,8 @@ struct Constants {
         static let subject = "Check out the Open Event iOS!"
         static let Title = "Subject"
     }
+    struct ShowCase {
+        static let SCtitle = "Add To Calender"
+        static let SCmessage = "Click here to add your favourite event to calender"
+    }
 }

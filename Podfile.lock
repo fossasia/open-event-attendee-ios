@@ -1,5 +1,6 @@
 PODS:
   - Alamofire (4.7.2)
+  - CTShowcase (2.2.0)
   - DateTools (2.0.0)
   - DZNEmptyDataSet (1.8.1)
   - IQKeyboardManagerSwift (5.0.0)
@@ -18,6 +19,7 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire (~> 4.7)
+  - CTShowcase (~> 2.2)
   - DateTools (from `https://github.com/MatthewYork/DateTools.git`)
   - DZNEmptyDataSet (from `https://github.com/dzenbot/DZNEmptyDataSet.git`)
   - IQKeyboardManagerSwift (= 5.0.0)
@@ -31,6 +33,7 @@ DEPENDENCIES:
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Alamofire
+    - CTShowcase
     - IQKeyboardManagerSwift
     - Material
     - Motion
@@ -64,6 +67,7 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   Alamofire: e4fa87002c137ba2d8d634d2c51fabcda0d5c223
+  CTShowcase: e7246c7294dc76a133582e8e20fb07f39e9e19c0
   DateTools: 933ac9c490f21f92127cf690ccd8c397e0126caf
   DZNEmptyDataSet: b94434220f87d9dda46660eb4f07a424778e93b4
   IQKeyboardManagerSwift: 3f340202ebe1a7076279b9b9b3c817243ddb3aab
@@ -75,6 +79,6 @@ SPEC CHECKSUMS:
   SwiftyJSON: c29297daf073d2aa016295d5809cdd68045c39b3
   Toast-Swift: ba0b01b095aada709d915f9beb1d38184a2721c3
 
-PODFILE CHECKSUM: 661d447f3ad9e389af5d92f0b5150e7060e8ca05
+PODFILE CHECKSUM: f5fb64968f8f4e346c211dc6797c75597d410cf1
 
 COCOAPODS: 1.5.3

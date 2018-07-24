@@ -13,6 +13,7 @@ pod 'MGSwipeTableCell', :git => 'https://github.com/MortimerGoro/MGSwipeTableCel
 pod 'DZNEmptyDataSet', :git => 'https://github.com/dzenbot/DZNEmptyDataSet.git'
 pod 'SwiftValidators'
 pod 'IQKeyboardManagerSwift', '5.0.0'
+pod "CTShowcase", "~> 2.2"
 
 end
 
