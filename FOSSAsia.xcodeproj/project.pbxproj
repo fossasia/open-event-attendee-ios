@@ -8,7 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		186729E320F7610700C3AA45 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 186729E220F7610700C3AA45 /* Profile.storyboard */; };
+
 		1874B87120FD3BD100E4E127 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1874B87020FD3BD100E4E127 /* CardView.swift */; };
+
 		1884C8DC20D639F8004B221F /* SignupVcMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1884C8DB20D639F8004B221F /* SignupVcMethods.swift */; };
 		1884C8DF20D642E6004B221F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1884C8DE20D642E6004B221F /* LoginViewController.swift */; };
 		1884C8E120D6430B004B221F /* LoginVCMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1884C8E020D6430B004B221F /* LoginVCMethods.swift */; };
@@ -106,7 +108,9 @@
 /* Begin PBXFileReference section */
 		0C6C3C6E6BB94887BCEE095E /* Pods_FOSSAsia.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FOSSAsia.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		186729E220F7610700C3AA45 /* Profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
+
 		1874B87020FD3BD100E4E127 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+
 		1884C8DB20D639F8004B221F /* SignupVcMethods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupVcMethods.swift; sourceTree = "<group>"; };
 		1884C8DE20D642E6004B221F /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		1884C8E020D6430B004B221F /* LoginVCMethods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVCMethods.swift; sourceTree = "<group>"; };
