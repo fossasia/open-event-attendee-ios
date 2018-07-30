@@ -58,9 +58,8 @@ class EventViewController: UIViewController {
         navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
         navigationItem.leftItemsSupplementBackButton = true
     }
-    
     override func viewDidAppear(_ animated: Bool) {
-        let showcase = CTShowcaseView(title: Constants.ShowCase.SCtitle, message: Constants.ShowCase.SCmessage, key: nil) {
+        let showcase = CTShowcaseView(title: Constants.ShowCase.SCtitle, message: Constants.ShowCase.SCmessage, key: Constants.ShowCase.keyValue) {
         }
         let highlighter = CTStaticGlowHighlighter()
         highlighter.highlightColor = UIColor.green

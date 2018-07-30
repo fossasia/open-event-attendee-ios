@@ -106,5 +106,6 @@ struct Constants {
     struct ShowCase {
         static let SCtitle = "Add To Calender"
         static let SCmessage = "Click here to add your favourite event to calender"
+        static let keyValue = "displayed"
     }
 }
