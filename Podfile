@@ -12,6 +12,8 @@ pod 'DateTools', :git => 'https://github.com/MatthewYork/DateTools.git'
 pod 'MGSwipeTableCell', :git => 'https://github.com/MortimerGoro/MGSwipeTableCell.git'
 pod 'DZNEmptyDataSet', :git => 'https://github.com/dzenbot/DZNEmptyDataSet.git'
 pod 'SwiftValidators'
+pod 'AlamofireImage'
+pod 'RealmSwift'
 pod 'IQKeyboardManagerSwift', '5.0.0'
 
 end
