@@ -12,6 +12,7 @@
 		1884C8DF20D642E6004B221F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1884C8DE20D642E6004B221F /* LoginViewController.swift */; };
 		1884C8E120D6430B004B221F /* LoginVCMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1884C8E020D6430B004B221F /* LoginVCMethods.swift */; };
 		18AF7C7C20EFB6AC00571EB0 /* DecisionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AF7C7B20EFB6AC00571EB0 /* DecisionViewController.swift */; };
+		18F465192118AF84008946BA /* EventDao.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F465182118AF84008946BA /* EventDao.swift */; };
 		18F8812220D54521005B6F94 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F8812120D54521005B6F94 /* SignupViewController.swift */; };
 		18F8812420D55FC4005B6F94 /* AuthTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F8812320D55FC4005B6F94 /* AuthTabBarViewController.swift */; };
 		18FBB9F421049B8D005B18F4 /* Events.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FBB9F321049B8D005B18F4 /* Events.swift */; };
@@ -113,6 +114,7 @@
 		1884C8DE20D642E6004B221F /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		1884C8E020D6430B004B221F /* LoginVCMethods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVCMethods.swift; sourceTree = "<group>"; };
 		18AF7C7B20EFB6AC00571EB0 /* DecisionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecisionViewController.swift; sourceTree = "<group>"; };
+		18F465182118AF84008946BA /* EventDao.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDao.swift; sourceTree = "<group>"; };
 		18F8812120D54521005B6F94 /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		18F8812320D55FC4005B6F94 /* AuthTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthTabBarViewController.swift; sourceTree = "<group>"; };
 		18FBB9F321049B8D005B18F4 /* Events.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Events.swift; sourceTree = "<group>"; };
@@ -295,6 +297,7 @@
 				18FE339920E54730007EFD5C /* Client.swift */,
 				18FE339B20E5D936007EFD5C /* Convenience.swift */,
 				18FBB9F321049B8D005B18F4 /* Events.swift */,
+				18F465182118AF84008946BA /* EventDao.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -650,6 +653,8 @@
 				"${BUILT_PRODUCTS_DIR}/Material/Material.framework",
 				"${BUILT_PRODUCTS_DIR}/Motion/Motion.framework",
 				"${BUILT_PRODUCTS_DIR}/Pages/Pages.framework",
+				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
+				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftValidators/SwiftValidators.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 				"${BUILT_PRODUCTS_DIR}/Toast-Swift/Toast_Swift.framework",
@@ -665,6 +670,8 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Material.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Motion.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Pages.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftValidators.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Toast_Swift.framework",
@@ -702,6 +709,7 @@
 				18FBB9F421049B8D005B18F4 /* Events.swift in Sources */,
 				281324EF1C6735430072E730 /* EventsBaseViewController.swift in Sources */,
 				2824FD661C6DBBF500F783E1 /* EventListBrowsingProtocol.swift in Sources */,
+				18F465192118AF84008946BA /* EventDao.swift in Sources */,
 				28091E8D1C6332A600E789CD /* FilterListViewController.swift in Sources */,
 				30321F691C81A06F008E5258 /* FetchDataService.swift in Sources */,
 				1884C8E120D6430B004B221F /* LoginVCMethods.swift in Sources */,
