@@ -427,26 +427,20 @@
                                 </subviews>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FIND THE FUN" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jkz-bq-R8E">
-
                                 <rect key="frame" x="131" y="471" width="113" height="20.5"/>
-
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.85098039219999999" green="0.01176470588" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="heart_icon" translatesAutoresizingMaskIntoConstraints="NO" id="50e-Zo-WOs">
-
                                 <rect key="frame" x="138" y="284" width="100" height="100"/>
-
                                 <constraints>
                                     <constraint firstAttribute="width" constant="100" id="OjM-xJ-bTT"/>
                                     <constraint firstAttribute="height" constant="100" id="tVO-cB-WPg"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XBU-7E-ax9">
-
                                 <rect key="frame" x="84" y="404" width="207" height="41"/>
-
                                 <string key="text">Let's get this party started.
 What sounds good to you?</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -458,7 +452,6 @@ What sounds good to you?</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <nil key="highlightedColor"/>
                             </label>
-
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A0Z-6h-HrC">
                                 <rect key="frame" x="334" y="87" width="25" height="25"/>
                                 <constraints>
@@ -470,23 +463,18 @@ What sounds good to you?</string>
                                     <action selector="logOutPressed:" destination="5AX-4u-QG0" eventType="touchUpInside" id="NP9-yK-3Og"/>
                                 </connections>
                             </button>
-
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="RpX-AY-t8O" firstAttribute="top" secondItem="rVL-87-GNP" secondAttribute="bottom" constant="23" id="06w-vx-TJV"/>
-
                             <constraint firstItem="A0Z-6h-HrC" firstAttribute="top" secondItem="RpX-AY-t8O" secondAttribute="top" id="4pG-y1-S7d"/>
-
                             <constraint firstItem="50e-Zo-WOs" firstAttribute="centerX" secondItem="BQX-Zz-mhv" secondAttribute="centerX" id="9gB-Ai-pY7"/>
                             <constraint firstItem="Jkz-bq-R8E" firstAttribute="top" secondItem="XBU-7E-ax9" secondAttribute="bottom" constant="26" id="GA6-cR-YxM"/>
                             <constraint firstItem="UMu-1n-WpN" firstAttribute="leading" secondItem="RpX-AY-t8O" secondAttribute="trailing" constant="70" id="H8N-Bc-aRq"/>
                             <constraint firstItem="57Y-XM-gmf" firstAttribute="top" secondItem="RpX-AY-t8O" secondAttribute="bottom" constant="14" id="Mct-6b-0FM"/>
                             <constraint firstItem="Jkz-bq-R8E" firstAttribute="centerX" secondItem="BQX-Zz-mhv" secondAttribute="centerX" id="ZzF-BH-q52"/>
                             <constraint firstItem="57Y-XM-gmf" firstAttribute="leading" secondItem="BQX-Zz-mhv" secondAttribute="leadingMargin" constant="-4" id="bIz-rg-t2c"/>
-
                             <constraint firstItem="A0Z-6h-HrC" firstAttribute="trailing" secondItem="BQX-Zz-mhv" secondAttribute="trailingMargin" id="bKo-C7-3KL"/>
-
                             <constraint firstItem="57Y-XM-gmf" firstAttribute="leading" secondItem="RpX-AY-t8O" secondAttribute="leading" id="gOP-fV-6t5"/>
                             <constraint firstItem="XBU-7E-ax9" firstAttribute="top" secondItem="50e-Zo-WOs" secondAttribute="bottom" constant="19.5" id="imS-Hh-1Lx"/>
                             <constraint firstItem="UMu-1n-WpN" firstAttribute="leading" secondItem="BQX-Zz-mhv" secondAttribute="leading" constant="166" id="jKK-xG-eIL"/>
