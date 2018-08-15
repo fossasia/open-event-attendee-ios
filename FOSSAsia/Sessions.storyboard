@@ -505,10 +505,10 @@
             </objects>
             <point key="canvasLocation" x="1202" y="-394"/>
         </scene>
-        <!--Event Navigation Controller-->
+        <!--Navigation Controller-->
         <scene sceneID="XFi-xW-Ow9">
             <objects>
-                <navigationController id="7gd-WQ-kp5" customClass="EventNavigationController" customModule="FOSSAsia" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController id="7gd-WQ-kp5" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="2QW-FU-yHf">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>

@@ -12,7 +12,7 @@ import EventKitUI
 
 typealias IndividualEventPresentable = EventDetailsPresentable & EventDescriptionPresentable & EventAddToCalendarPresentable
 
-class EventViewController: UIViewController,UINavigationControllerDelegate {
+class EventViewController: UIViewController, UINavigationControllerDelegate {
 
     // Constants for Storyboard/VC
     struct StoryboardConstants {
@@ -53,9 +53,9 @@ class EventViewController: UIViewController,UINavigationControllerDelegate {
         if let viewModel = eventViewModel {
             self.configure(viewModel)
         }
-        
-           // navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
-            //navigationItem.leftItemsSupplementBackButton = true
+
+        // navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
+        // navigationItem.leftItemsSupplementBackButton = true
         setBackButton()
     }
 
@@ -73,7 +73,7 @@ class EventViewController: UIViewController,UINavigationControllerDelegate {
     @IBAction func eventAddToCalendar(_ sender: UIButton) {
         let store = EKEventStore()
 
-        store.requestAccess(to: .event) {(granted, error) in
+        store.requestAccess(to: .event) { (granted, error) in
             if !granted { return }
             let event = EKEvent(eventStore: store)
             event.title = (self.presenter?.eventName)!
@@ -92,7 +92,7 @@ class EventViewController: UIViewController,UINavigationControllerDelegate {
         }
     }
     @IBAction func favoriteEvent(_ sender: AnyObject) {
-        self.eventViewModel?.favoriteEvent {  [weak self] (eventViewModel, error) -> Void in
+        self.eventViewModel?.favoriteEvent { [weak self] (eventViewModel, error) -> Void in
             if let masterNavVC = self?.splitViewController?.viewControllers[0] as? UINavigationController {
                 if let masterVC = masterNavVC.topViewController as? EventsBaseListViewController {
                     OperationQueue.main.addOperation({ () -> Void in
@@ -110,7 +110,7 @@ extension EventViewController: EKEventEditViewDelegate {
     func eventEditViewController(_ controller: EKEventEditViewController, didCompleteWith action: EKEventEditViewAction) {
         self.dismiss(animated: true, completion: nil)
     }
-    
+
     func setBackButton() {
         let button = UIButton(type: .custom)
         button.setImage(UIImage(named: "back"), for: .normal)
@@ -126,16 +126,16 @@ extension EventViewController: EKEventEditViewDelegate {
         let barButton = UIBarButtonItem(customView: button)
         self.navigationItem.leftBarButtonItem = barButton
     }
-    
-    
+
+
     @objc func backAction() {
-        
+
         let mainStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)
         guard let vc: UITabBarController = mainStoryboard.instantiateViewController(withIdentifier: "tabBarController") as? UITabBarController else {
             fatalError("Cannot Cast to UITabBarController")
         }
         vc.selectedIndex = 0
         self.present(vc, animated: true, completion: nil)
-        
+
     }
 }

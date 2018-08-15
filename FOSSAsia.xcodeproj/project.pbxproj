@@ -11,7 +11,6 @@
 		1884C8DC20D639F8004B221F /* SignupVcMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1884C8DB20D639F8004B221F /* SignupVcMethods.swift */; };
 		1884C8DF20D642E6004B221F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1884C8DE20D642E6004B221F /* LoginViewController.swift */; };
 		1884C8E120D6430B004B221F /* LoginVCMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1884C8E020D6430B004B221F /* LoginVCMethods.swift */; };
-		188DA2FE212452F2005E45C0 /* EventNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188DA2FD212452F2005E45C0 /* EventNavigationController.swift */; };
 		18AF7C7C20EFB6AC00571EB0 /* DecisionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AF7C7B20EFB6AC00571EB0 /* DecisionViewController.swift */; };
 		18F8812220D54521005B6F94 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F8812120D54521005B6F94 /* SignupViewController.swift */; };
 		18F8812420D55FC4005B6F94 /* AuthTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F8812320D55FC4005B6F94 /* AuthTabBarViewController.swift */; };
@@ -113,7 +112,6 @@
 		1884C8DB20D639F8004B221F /* SignupVcMethods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupVcMethods.swift; sourceTree = "<group>"; };
 		1884C8DE20D642E6004B221F /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		1884C8E020D6430B004B221F /* LoginVCMethods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVCMethods.swift; sourceTree = "<group>"; };
-		188DA2FD212452F2005E45C0 /* EventNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventNavigationController.swift; sourceTree = "<group>"; };
 		18AF7C7B20EFB6AC00571EB0 /* DecisionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecisionViewController.swift; sourceTree = "<group>"; };
 		18F8812120D54521005B6F94 /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		18F8812320D55FC4005B6F94 /* AuthTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthTabBarViewController.swift; sourceTree = "<group>"; };
@@ -282,7 +280,6 @@
 				5BAE561620C7733B00525CB9 /* MapViewController.swift */,
 				18AF7C7B20EFB6AC00571EB0 /* DecisionViewController.swift */,
 				18FEECE120FA353C00C289EE /* ShowEventListViewController.swift */,
-				188DA2FD212452F2005E45C0 /* EventNavigationController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -733,7 +730,6 @@
 				2824FD641C6DA80600F783E1 /* LoadingViewController.swift in Sources */,
 				18FE339C20E5D936007EFD5C /* Convenience.swift in Sources */,
 				281324ED1C672EE80072E730 /* EventsResultsViewController.swift in Sources */,
-				188DA2FE212452F2005E45C0 /* EventNavigationController.swift in Sources */,
 				285F1B921C5B06CC00A7E0DD /* Event.swift in Sources */,
 				28A0BC941C5F50A2001625FB /* Schedule.swift in Sources */,
 				285F1BB41C5B0FDC00A7E0DD /* SpeakerViewModel.swift in Sources */,
