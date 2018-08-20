@@ -8,6 +8,10 @@
 ## Introduction
 > This is an iOS app developed for `FOSSASIA` in mind. The Open Event Project offers event managers a platform to organize all kinds of events including concerts, conferences, summits and regular meetups.
 
+## Roadmap
+
+Make the app functionality and UI/UX similar to the android app for Open Event.
+
 ## Communication
 
 **Please join our mailing list to discuss questions regarding the project :-**
@@ -16,11 +20,26 @@
 
 **Our chat channel is here :-**
 
-> *https://gitter.im/fossasia/open-event*
+> *https://gitter.im/fossasia/open-event-ios*
 
 ## Things To Have
 1. **[Xcode](https://developer.apple.com/xcode/)**
 2. **[CocoaPods](http://cocoapods.org/)**
+
+### Libraries used and their documentation
+
+- Material [Docs](https://cocoapods.org/pods/Material)
+- Pages [Docs](https://github.com/hyperoslo/Pages)
+- Toast-Swift [Docs](https://github.com/scalessec/Toast-Swift)
+- SwiftyJSON [Docs](https://github.com/SwiftyJSON/SwiftyJSON)
+- Alamofire [Docs](https://github.com/Alamofire/Alamofire)
+- DateTools [Docs](https://github.com/MatthewYork/DateTools)
+- MGSwipeTableCell [Docs](https://github.com/MortimerGoro/MGSwipeTableCell)
+- DZNEmptyDataSet [Docs](https://github.com/dzenbot/DZNEmptyDataSet)
+- SwiftValidators [Docs](https://github.com/SwiftValidatorCommunity/SwiftValidator)
+- IQkeyboardManagerSwift [Docs](https://github.com/hackiftekhar/IQKeyboardManager)
+
+
 
 ## Development Setup
 
