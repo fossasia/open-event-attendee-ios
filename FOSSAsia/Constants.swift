@@ -39,6 +39,7 @@ struct Constants {
         static let registerUrl = "https://open-event-api-dev.herokuapp.com/v1/users"
 
         static let loginUrl = "https://open-event-api-dev.herokuapp.com/auth/session"
+        static let eventListUrl = "https://open-event-api-dev.herokuapp.com/v1/events"
 
 
     }
