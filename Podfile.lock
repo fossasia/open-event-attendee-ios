@@ -13,7 +13,7 @@ PODS:
   - Motion/Core (1.4.3)
   - Pages (2.0.2)
   - SwiftValidators (5.0.0)
-  - SwiftyJSON (4.1.0)
+  - SwiftyJSON (4.2.0)
   - Toast-Swift (3.0.1)
 
 DEPENDENCIES:
@@ -56,10 +56,10 @@ CHECKOUT OPTIONS:
     :commit: d210f5a40195e40806e2d39ff8698c7bc2e4938e
     :git: https://github.com/dzenbot/DZNEmptyDataSet.git
   MGSwipeTableCell:
-    :commit: 8fdb8146f95ff39c74e0155d49be4c8f7d17c2b4
+    :commit: a523e5953a1e63c41d7b3b2b5876685cba3cd972
     :git: https://github.com/MortimerGoro/MGSwipeTableCell.git
   SwiftyJSON:
-    :commit: b93c5d2bd883959262b4c7aabe333667dadb1ab0
+    :commit: 3f6f1d32df6e5f334593682b20bb829e48bffbee
     :git: https://github.com/SwiftyJSON/SwiftyJSON.git
 
 SPEC CHECKSUMS:
@@ -72,7 +72,7 @@ SPEC CHECKSUMS:
   Motion: 153ba49692997888556c7a95207278a8b1f8be95
   Pages: 5564ac6035c48fef7a837049314f57507d263b11
   SwiftValidators: 81db772ba2798fd4140ed57bfd7b80ab1ab42e93
-  SwiftyJSON: c29297daf073d2aa016295d5809cdd68045c39b3
+  SwiftyJSON: c4bcba26dd9ec7a027fc8eade48e2c911f229e96
   Toast-Swift: ba0b01b095aada709d915f9beb1d38184a2721c3
 
 PODFILE CHECKSUM: 661d447f3ad9e389af5d92f0b5150e7060e8ca05
