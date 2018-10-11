@@ -14,7 +14,7 @@ class AuthTabBarViewController: UITabBarController {
         button.setImage(UIImage(named: "back"), for: .normal)
         button.addTarget(self, action: #selector(AuthTabBarViewController.backAction), for: .touchUpInside)
         button.frame = CGRect(x: 0, y: 0, width: 53, height: 31)
-        button.imageEdgeInsets = UIEdgeInsetsMake(1, -32, 1, 32)
+        button.imageEdgeInsets = UIEdgeInsets.init(top: 1, left: -32, bottom: 1, right: 32)
         let label = UILabel(frame: CGRect(x: 3, y: 5, width: 50, height: 20))
         label.text = "Back"
         label.textAlignment = .center

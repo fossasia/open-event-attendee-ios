@@ -17,8 +17,8 @@ class MapViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         let locationCoordinates = CLLocationCoordinate2DMake(Constants.Location.lattitude, Constants.Location.longitude)
-        let span = MKCoordinateSpanMake(Constants.Location.spanCoordinate, Constants.Location.spanCoordinate)
-        let region = MKCoordinateRegionMake(locationCoordinates, span)
+        let span = MKCoordinateSpan.init(latitudeDelta: Constants.Location.spanCoordinate, longitudeDelta: Constants.Location.spanCoordinate)
+        let region = MKCoordinateRegion.init(center: locationCoordinates, span: span)
         mapView.setRegion(region, animated: true)
         let annotation = MKPointAnnotation()
         annotation.coordinate = locationCoordinates
