@@ -1,6 +1,6 @@
-[![CircleCI](https://circleci.com/gh/fossasia/open-event-ios.svg?style=svg)](https://circleci.com/gh/fossasia/open-event-ios)
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/4faa165463a44fffbd23f319d78a26ea)](https://www.codacy.com/app/mb/open-event-ios?utm_source=github.com&utm_medium=referral&utm_content=fossasia/open-event-ios&utm_campaign=badger)
-[![Join the chat at gitter](https://badges.gitter.im/fossasia/https://github.com/fossasia/open-event-ios.svg)](https://gitter.im/fossasia/https://github.com/fossasia/open-event-ios?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+| **CircleCI** | **Code Quality** | **Chat** |
+|--------------|------------------|----------|
+| [![CircleCI](https://circleci.com/gh/fossasia/open-event-ios.svg?style=svg)](https://circleci.com/gh/fossasia/open-event-ios) | [![Codacy Badge](https://api.codacy.com/project/badge/Grade/4faa165463a44fffbd23f319d78a26ea)](https://www.codacy.com/app/mb/open-event-ios?utm_source=github.com&utm_medium=referral&utm_content=fossasia/open-event-ios&utm_campaign=badger) | [![Join the chat at gitter](https://badges.gitter.im/fossasia/https://github.com/fossasia/open-event-ios.svg)](https://gitter.im/fossasia/https://github.com/fossasia/open-event-ios?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge) |
 # Open Event iOS
 **iOS** app for **Open Event**
 ![Open Event](https://storage.googleapis.com/eventyay.com/assets/branding/base_branding.png)
