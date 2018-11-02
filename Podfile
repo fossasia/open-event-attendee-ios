@@ -3,7 +3,8 @@ use_frameworks!
 
 target 'FOSSAsia' do
  
-pod 'Material'  
+pod 'Material', :git => 'https://github.com/CosmicMind/Material.git', :branch => 'development'
+pod 'Motion', :git => 'https://github.com/CosmicMind/Motion.git', :branch => 'development' 
 pod 'Pages'
 pod 'Toast-Swift', '~> 3.0.0'
 pod 'SwiftyJSON', :git => 'https://github.com/SwiftyJSON/SwiftyJSON.git'

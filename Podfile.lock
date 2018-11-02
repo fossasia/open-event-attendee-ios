@@ -3,14 +3,14 @@ PODS:
   - DateTools (2.0.0)
   - DZNEmptyDataSet (1.8.1)
   - IQKeyboardManagerSwift (5.0.0)
-  - Material (2.16.4):
-    - Material/Core (= 2.16.4)
-  - Material/Core (2.16.4):
-    - Motion (~> 1.4.3)
+  - Material (2.17.0):
+    - Material/Core (= 2.17.0)
+  - Material/Core (2.17.0):
+    - Motion (~> 1.5.0)
   - MGSwipeTableCell (1.6.7)
-  - Motion (1.4.3):
-    - Motion/Core (= 1.4.3)
-  - Motion/Core (1.4.3)
+  - Motion (1.5.0):
+    - Motion/Core (= 1.5.0)
+  - Motion/Core (1.5.0)
   - Pages (2.0.2)
   - SwiftValidators (5.0.0)
   - SwiftyJSON (4.1.0)
@@ -21,8 +21,9 @@ DEPENDENCIES:
   - DateTools (from `https://github.com/MatthewYork/DateTools.git`)
   - DZNEmptyDataSet (from `https://github.com/dzenbot/DZNEmptyDataSet.git`)
   - IQKeyboardManagerSwift (= 5.0.0)
-  - Material
+  - Material (from `https://github.com/CosmicMind/Material.git`, branch `development`)
   - MGSwipeTableCell (from `https://github.com/MortimerGoro/MGSwipeTableCell.git`)
+  - Motion (from `https://github.com/CosmicMind/Motion.git`, branch `development`)
   - Pages
   - SwiftValidators
   - SwiftyJSON (from `https://github.com/SwiftyJSON/SwiftyJSON.git`)
@@ -32,8 +33,6 @@ SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Alamofire
     - IQKeyboardManagerSwift
-    - Material
-    - Motion
     - Pages
     - SwiftValidators
     - Toast-Swift
@@ -43,8 +42,14 @@ EXTERNAL SOURCES:
     :git: https://github.com/MatthewYork/DateTools.git
   DZNEmptyDataSet:
     :git: https://github.com/dzenbot/DZNEmptyDataSet.git
+  Material:
+    :branch: development
+    :git: https://github.com/CosmicMind/Material.git
   MGSwipeTableCell:
     :git: https://github.com/MortimerGoro/MGSwipeTableCell.git
+  Motion:
+    :branch: development
+    :git: https://github.com/CosmicMind/Motion.git
   SwiftyJSON:
     :git: https://github.com/SwiftyJSON/SwiftyJSON.git
 
@@ -55,9 +60,15 @@ CHECKOUT OPTIONS:
   DZNEmptyDataSet:
     :commit: d210f5a40195e40806e2d39ff8698c7bc2e4938e
     :git: https://github.com/dzenbot/DZNEmptyDataSet.git
+  Material:
+    :commit: a89797aea331c2b4d606bac59db1e5a94442c998
+    :git: https://github.com/CosmicMind/Material.git
   MGSwipeTableCell:
     :commit: 8fdb8146f95ff39c74e0155d49be4c8f7d17c2b4
     :git: https://github.com/MortimerGoro/MGSwipeTableCell.git
+  Motion:
+    :commit: 3141bdb87e30b4aa899a22562194a221ea2da388
+    :git: https://github.com/CosmicMind/Motion.git
   SwiftyJSON:
     :commit: b93c5d2bd883959262b4c7aabe333667dadb1ab0
     :git: https://github.com/SwiftyJSON/SwiftyJSON.git
@@ -67,14 +78,14 @@ SPEC CHECKSUMS:
   DateTools: 933ac9c490f21f92127cf690ccd8c397e0126caf
   DZNEmptyDataSet: b94434220f87d9dda46660eb4f07a424778e93b4
   IQKeyboardManagerSwift: 3f340202ebe1a7076279b9b9b3c817243ddb3aab
-  Material: 4ed78690b09ffd148b5ffab6b4367fb1d8da1cd3
+  Material: 856e0168ab93fc477f875577c152c9e62f4ab869
   MGSwipeTableCell: fb20e983988bde2b8d0df29c2d9e1d8ffd10b74a
-  Motion: 153ba49692997888556c7a95207278a8b1f8be95
+  Motion: 3acabedc5a499f6b12deaa34deb68b425b005720
   Pages: 5564ac6035c48fef7a837049314f57507d263b11
   SwiftValidators: 81db772ba2798fd4140ed57bfd7b80ab1ab42e93
   SwiftyJSON: c29297daf073d2aa016295d5809cdd68045c39b3
   Toast-Swift: ba0b01b095aada709d915f9beb1d38184a2721c3
 
-PODFILE CHECKSUM: 661d447f3ad9e389af5d92f0b5150e7060e8ca05
+PODFILE CHECKSUM: ef24b953d70b6b03c5579089ac88522fa9f101be
 
 COCOAPODS: 1.5.3
