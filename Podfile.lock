@@ -1,5 +1,5 @@
 PODS:
-  - Alamofire (4.7.3)
+  - Alamofire (4.8.1)
   - DateTools (2.0.0)
   - DZNEmptyDataSet (1.8.1)
   - IQKeyboardManagerSwift (5.0.0)
@@ -7,7 +7,7 @@ PODS:
     - Material/Core (= 2.16.4)
   - Material/Core (2.16.4):
     - Motion (~> 1.4.3)
-  - MGSwipeTableCell (1.6.7)
+  - MGSwipeTableCell (1.6.8)
   - Motion (1.4.3):
     - Motion/Core (= 1.4.3)
   - Motion/Core (1.4.3)
@@ -56,19 +56,19 @@ CHECKOUT OPTIONS:
     :commit: d210f5a40195e40806e2d39ff8698c7bc2e4938e
     :git: https://github.com/dzenbot/DZNEmptyDataSet.git
   MGSwipeTableCell:
-    :commit: a523e5953a1e63c41d7b3b2b5876685cba3cd972
+    :commit: eeb3575aa698e533dcc5567238188ecf2f35b94c
     :git: https://github.com/MortimerGoro/MGSwipeTableCell.git
   SwiftyJSON:
     :commit: 3f6f1d32df6e5f334593682b20bb829e48bffbee
     :git: https://github.com/SwiftyJSON/SwiftyJSON.git
 
 SPEC CHECKSUMS:
-  Alamofire: c7287b6e5d7da964a70935e5db17046b7fde6568
+  Alamofire: 16ce2c353fb72865124ddae8a57c5942388f4f11
   DateTools: 933ac9c490f21f92127cf690ccd8c397e0126caf
   DZNEmptyDataSet: b94434220f87d9dda46660eb4f07a424778e93b4
   IQKeyboardManagerSwift: 3f340202ebe1a7076279b9b9b3c817243ddb3aab
   Material: 4ed78690b09ffd148b5ffab6b4367fb1d8da1cd3
-  MGSwipeTableCell: fb20e983988bde2b8d0df29c2d9e1d8ffd10b74a
+  MGSwipeTableCell: dc4eca3212ed38a563b27d6aa7b3c01ce656c1e2
   Motion: 153ba49692997888556c7a95207278a8b1f8be95
   Pages: 5564ac6035c48fef7a837049314f57507d263b11
   SwiftValidators: 81db772ba2798fd4140ed57bfd7b80ab1ab42e93
@@ -77,4 +77,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: 661d447f3ad9e389af5d92f0b5150e7060e8ca05
 
-COCOAPODS: 1.5.3
+COCOAPODS: 1.6.0.beta.2
