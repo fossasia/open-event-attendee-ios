@@ -566,11 +566,11 @@
 					285F1B601C5AF7B100A7E0DD = {
 						CreatedOnToolsVersion = 7.2;
 						DevelopmentTeam = EZ49532236;
-						LastSwiftMigration = 0910;
+						LastSwiftMigration = 1010;
 					};
 					28A50BD11C8C5D2A009E91DE = {
 						CreatedOnToolsVersion = 7.2.1;
-						LastSwiftMigration = 0910;
+						LastSwiftMigration = 1010;
 						TestTargetID = 285F1B601C5AF7B100A7E0DD;
 					};
 				};
@@ -912,8 +912,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "fce03692-2579-43b1-8e85-3915222102d2";
 				SWIFT_OBJC_BRIDGING_HEADER = "FOSSAsia/Fossasia-Bridging-Header.h";
-				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				USER_HEADER_SEARCH_PATHS = "";
 			};
 			name = Debug;
@@ -939,8 +938,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "fce03692-2579-43b1-8e85-3915222102d2";
 				SWIFT_OBJC_BRIDGING_HEADER = "FOSSAsia/Fossasia-Bridging-Header.h";
-				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				USER_HEADER_SEARCH_PATHS = "";
 			};
 			name = Release;
@@ -953,8 +951,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = co.undertide.fossasia;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "fce03692-2579-43b1-8e85-3915222102d2";
-				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TEST_TARGET_NAME = FOSSAsia;
 				USES_XCTRUNNER = YES;
 			};
@@ -968,8 +965,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = co.undertide.fossasia;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "fce03692-2579-43b1-8e85-3915222102d2";
-				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TEST_TARGET_NAME = FOSSAsia;
 				USES_XCTRUNNER = YES;
 			};
