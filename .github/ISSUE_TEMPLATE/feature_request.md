@@ -1,6 +1,6 @@
 ---
 name: Feature request
-about: Suggest an idea for Open Event ios
+about: Suggest an idea for Open Event iOS
 title: ''
 labels: enhancement
 assignees: ''

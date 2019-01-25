@@ -1,6 +1,6 @@
 ---
 name: Let's report a bug
-about: Report a bug which you have noticed, to help us improve Open Event IOS
+about: Report a bug which you have noticed, to help us improve Open Event iOS
 title: ''
 labels: bug
 assignees: ''
@@ -29,8 +29,9 @@ Please follow the issue template to **report a bug**
 
 <!--Where-ever possible add a screenshot of the issue.-->
 
- -   Device: [e.g. iPhone6]
+-   Device: [e.g. iPhone6]
 -   OS: [e.g. iOS8.1]
+-   Xcode version: [Version 10.1 (10B61)]
 
 **Would you like to work on the issue?**
 
