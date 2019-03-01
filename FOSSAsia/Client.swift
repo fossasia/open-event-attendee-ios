@@ -26,7 +26,7 @@ class Client: NSObject {
         }
 
 
-        Alamofire.request(url, method: httpMethod, parameters: parameters, encoding: JSONEncoding.default, headers: headers).validate(statusCode: 200..<409)
+        Alamofire.request(url, method: httpMethod, parameters: parameters, encoding: JSONEncoding.default, headers: headers)
             .responseJSON { (response: DataResponse<Any>) in
 
                 print(response)
