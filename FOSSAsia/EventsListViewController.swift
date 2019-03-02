@@ -67,7 +67,7 @@ class EventsListViewController: EventsBaseListViewController {
             if let embeddedPageVC = segue.destination as? PagesController {
                 self.pagesVC = embeddedPageVC
                 let loadingVC = self.storyboard!.instantiateViewController(withIdentifier: LoadingViewController.StoryboardConstants.viewControllerId)
-                self.pagesVC.add([loadingVC])
+             //   self.pagesVC.add([loadingVC])
                 self.pagesVC.enableSwipe = false
                 self.pagesVC.pagesDelegate = self
             }

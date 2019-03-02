@@ -26,7 +26,7 @@ class EventsBaseViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        viewModel?.refresh()
+     //   viewModel?.refresh()
         self.tableView.reloadData()
     }
 

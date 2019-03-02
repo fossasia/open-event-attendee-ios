@@ -23,15 +23,26 @@ class FavoritesScheduleViewController: EventsBaseViewController, SwipeToFavorite
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.viewModel?.refresh();
         self.tableView.emptyDataSetSource = self
         self.tableView.emptyDataSetDelegate = self
         DispatchQueue.main.async {
             self.refreshControl = UIRefreshControl()
             self.refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
-            self.refreshControl.addTarget(self, action: Selector(("refresh:")), for: .valueChanged)
+            self.refreshControl.addTarget(self, action: #selector(self.refreshData), for: .valueChanged)
             self.tableView.addSubview(self.refreshControl)
 
         }
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        viewModel?.refresh()
+        self.tableView.reloadData()
+    }
+    
+    
+    @objc func refreshData(_ sender: AnyObject) {
+        viewModel?.refresh()
+        refreshControl.endRefreshing()
     }
 
     class func scheduleViewControllerFor(_ schedule: ScheduleViewModel) -> FavoritesScheduleViewController {

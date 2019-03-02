@@ -11,7 +11,7 @@ import Pages
 
 class EventsBaseListViewController: UIViewController, EventListBrowsingByDate, UIViewControllerPreviewingDelegate {
     fileprivate var collapseDetailViewController = true
-    weak var pagesVC: PagesController!
+    weak var pagesVC: PagesController! 
     @IBOutlet weak var pagingView: SchedulePagingView!
 
     var currentViewController: EventsBaseViewController! {
@@ -34,10 +34,14 @@ class EventsBaseListViewController: UIViewController, EventListBrowsingByDate, U
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        
         viewModel = getEventsListViewModel()
         pagingView.delegate = self
         navigationController?.splitViewController?.delegate = self
         splitViewController?.preferredDisplayMode = .allVisible
+
+        
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -46,7 +50,7 @@ class EventsBaseListViewController: UIViewController, EventListBrowsingByDate, U
                 self.pagesVC = embeddedPageVC
                 let storyboard = UIStoryboard(name: LoadingViewController.StoryboardConstants.storyboardName, bundle: nil)
                 let loadingVC = storyboard.instantiateViewController(withIdentifier: LoadingViewController.StoryboardConstants.viewControllerId)
-                self.pagesVC.add([loadingVC])
+                //self.pagesVC.add([loadingVC])
                 self.pagesVC.enableSwipe = false
                 self.pagesVC.pagesDelegate = self
             }
@@ -54,10 +58,13 @@ class EventsBaseListViewController: UIViewController, EventListBrowsingByDate, U
     }
 
     func onViewModelScheduleChange(_ newSchedule: [ScheduleViewModel]) {
+        
         let viewControllers = newSchedule.map { viewModel in
             return ScheduleViewController.scheduleViewControllerFor(viewModel)
         }
+        
         self.pagesVC.add(viewControllers)
+
     }
 }
 
@@ -112,7 +119,7 @@ extension EventsBaseListViewController {
         pagingView.dateLabel.text = ((currentVC.viewModel?.date.value)! as NSDate).formattedDate(withFormat: "EEEE, MMM dd")
 
         // Govern Previous Button
-        if page == 1 {
+        if page == 0 {
             pagingView.prevButton.isEnabled = false
         } else {
             pagingView.prevButton.isEnabled = true
