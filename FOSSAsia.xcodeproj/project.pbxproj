@@ -604,7 +604,6 @@
 				2824FD6B1C6DBF9A00F783E1 /* More.storyboard in Resources */,
 				285F89B21C8149420033D090 /* Favorites.storyboard in Resources */,
 				285F1B711C5AF7B100A7E0DD /* LaunchScreen.storyboard in Resources */,
-				186729E720F762EC00C3AA45 /* Profile.storyboard in Resources */,
 				28A17BCA1C70AF0200318336 /* IndividualEvent.storyboard in Resources */,
 				285F89B41C814B0A0033D090 /* Sessions.storyboard in Resources */,
 				285F1B6E1C5AF7B100A7E0DD /* Assets.xcassets in Resources */,
@@ -629,7 +628,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-FOSSAsia/Pods-FOSSAsia-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-FOSSAsia/Pods-FOSSAsia-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/DZNEmptyDataSet/DZNEmptyDataSet.framework",
 				"${BUILT_PRODUCTS_DIR}/DateTools/DateTools.framework",
@@ -658,7 +657,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FOSSAsia/Pods-FOSSAsia-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-FOSSAsia/Pods-FOSSAsia-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		D39D5E71CB5BD8E82B9C9E03 /* [CP] Check Pods Manifest.lock */ = {
