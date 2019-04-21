@@ -48,15 +48,15 @@ class FavoritesScheduleViewController: EventsBaseViewController, SwipeToFavorite
 extension FavoritesScheduleViewController {
     internal func title(forEmptyDataSet scrollView: UIScrollView) -> NSAttributedString? {
         let text = "No Favorites Yet!"
-        let attributes = [NSAttributedStringKey.font: UIFont.boldSystemFont(ofSize: 18.0),
-            NSAttributedStringKey.foregroundColor: UIColor.darkGray]
+        let attributes = [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 18.0),
+            NSAttributedString.Key.foregroundColor: UIColor.darkGray]
 
         return NSAttributedString.init(string: text, attributes: attributes)
     }
 
-    @objc(buttonImageForEmptyDataSet:forState:) internal func buttonImage(forEmptyDataSet scrollView: UIScrollView, for state: UIControlState) -> UIImage? {
+    @objc(buttonImageForEmptyDataSet:forState:) internal func buttonImage(forEmptyDataSet scrollView: UIScrollView, for state: UIControl.State) -> UIImage? {
         switch state {
-        case UIControlState.highlighted:
+        case UIControl.State.highlighted:
             return UIImage(named: "browse_events_btn_selected")
         default:
             return UIImage(named: "browse_events_btn")

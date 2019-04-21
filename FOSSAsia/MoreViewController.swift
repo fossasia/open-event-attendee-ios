@@ -35,7 +35,7 @@ class MoreViewController: UITableViewController {
             let openAction = UIAlertAction(title: Constants.okTitle, style: .default, handler: { (action) -> Void in
                 let itunesLink = DefaultURLs.fossasiaItune
                 if let url = URL(string: itunesLink) {
-                UIApplication.shared.open(url, options: [:], completionHandler: nil)
+                UIApplication.shared.open(url, options: convertToUIApplicationOpenExternalURLOptionsKeyDictionary([:]), completionHandler: nil)
                 }
             })
             let cancelAction = UIAlertAction(title: Constants.cancelTitle, style: .cancel, handler: { (action) -> Void in
@@ -60,10 +60,10 @@ class MoreViewController: UITableViewController {
             activityViewController.popoverPresentationController?.sourceView = self.view
             
             activityViewController.excludedActivityTypes = [
-                UIActivityType.airDrop,
-                UIActivityType.saveToCameraRoll,
-                UIActivityType.openInIBooks,
-                UIActivityType.copyToPasteboard ]
+                UIActivity.ActivityType.airDrop,
+                UIActivity.ActivityType.saveToCameraRoll,
+                UIActivity.ActivityType.openInIBooks,
+                UIActivity.ActivityType.copyToPasteboard ]
             self.present(activityViewController, animated: true, completion: nil)
             
             break
@@ -75,4 +75,9 @@ class MoreViewController: UITableViewController {
     func createSVC(_ urlString: String) -> SFSafariViewController {
         return SFSafariViewController(url: URL(string: urlString)!)
     }
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertToUIApplicationOpenExternalURLOptionsKeyDictionary(_ input: [String: Any]) -> [UIApplication.OpenExternalURLOptionsKey: Any] {
+	return Dictionary(uniqueKeysWithValues: input.map { key, value in (UIApplication.OpenExternalURLOptionsKey(rawValue: key), value)})
 }

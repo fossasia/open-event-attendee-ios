@@ -69,10 +69,13 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         dismiss(animated: true, completion: nil)
     }
 
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String: Any]) {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
+// Local variable inserted by Swift 4.2 migrator.
+let info = convertFromUIImagePickerControllerInfoKeyDictionary(info)
+
 
         // The info dictionary may contain multiple representations of the image. You want to use the original.
-        guard let selectedImage = info[UIImagePickerControllerOriginalImage] as? UIImage else {
+        guard let selectedImage = info[convertFromUIImagePickerControllerInfoKey(UIImagePickerController.InfoKey.originalImage)] as? UIImage else {
             fatalError("Expected a dictionary containing an image, but was provided the following: \(info)")
         }
 
@@ -102,7 +105,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         button.setImage(UIImage(named: "back"), for: .normal)
         button.addTarget(self, action: #selector(AuthTabBarViewController.backAction), for: .touchUpInside)
         button.frame = CGRect(x: 0, y: 0, width: 53, height: 31)
-        button.imageEdgeInsets = UIEdgeInsetsMake(1, -32, 1, 32)
+        button.imageEdgeInsets = UIEdgeInsets.init(top: 1, left: -32, bottom: 1, right: 32)
         let label = UILabel(frame: CGRect(x: 3, y: 5, width: 50, height: 20))
         label.text = "Back"
         label.textAlignment = .center
@@ -124,4 +127,14 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         self.present(vc, animated: true, completion: nil)
 
     }
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertFromUIImagePickerControllerInfoKeyDictionary(_ input: [UIImagePickerController.InfoKey: Any]) -> [String: Any] {
+	return Dictionary(uniqueKeysWithValues: input.map {key, value in (key.rawValue, value)})
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertFromUIImagePickerControllerInfoKey(_ input: UIImagePickerController.InfoKey) -> String {
+	return input.rawValue
 }

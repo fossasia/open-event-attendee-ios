@@ -26,10 +26,10 @@ class LoadingViewController: UIViewController {
         super.viewDidAppear(animated)
 
         // moved spinLoadingIndicatorWithOptions from viewDidLoad to viewDidAppear
-        self.spinLoadingIndicatorWithOptions(UIViewAnimationOptions())
+        self.spinLoadingIndicatorWithOptions(UIView.AnimationOptions())
     }
 
-    fileprivate func spinLoadingIndicatorWithOptions(_ options: UIViewAnimationOptions) {
+    fileprivate func spinLoadingIndicatorWithOptions(_ options: UIView.AnimationOptions) {
 
         UIView.animate(withDuration: 0.15, delay: 0, options: options, animations: { () -> Void in
             self.loadingImageView.transform = self.loadingImageView.transform.rotated(by: CGFloat(Double.pi / 2))
@@ -37,8 +37,8 @@ class LoadingViewController: UIViewController {
                 if finished {
                     if self.loadAnimating {
                         self.spinLoadingIndicatorWithOptions([.curveLinear])
-                    } else if (options != UIViewAnimationOptions()) {
-                        self.spinLoadingIndicatorWithOptions(UIViewAnimationOptions())
+                    } else if (options != UIView.AnimationOptions()) {
+                        self.spinLoadingIndicatorWithOptions(UIView.AnimationOptions())
                     }
                 }
         }

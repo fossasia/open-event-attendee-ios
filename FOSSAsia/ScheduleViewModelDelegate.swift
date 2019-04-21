@@ -15,8 +15,8 @@ protocol ScheduleViewModelDelegate: class {
 extension ScheduleViewController {
     func scheduleDidLoad(_ schedule: Schedule?, error: Error?) {
         guard error == nil else {
-            let alert = UIAlertController(title: "Error", message: "Could not load stock quotes \(error.debugDescription)", preferredStyle: UIAlertControllerStyle.alert)
-            alert.addAction(UIAlertAction(title: "Click", style: UIAlertActionStyle.default, handler: nil))
+            let alert = UIAlertController(title: "Error", message: "Could not load stock quotes \(error.debugDescription)", preferredStyle: UIAlertController.Style.alert)
+            alert.addAction(UIAlertAction(title: "Click", style: UIAlertAction.Style.default, handler: nil))
             self.present(alert, animated: true, completion: nil)
             return
         }

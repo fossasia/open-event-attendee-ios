@@ -95,7 +95,7 @@ struct EventViewModel: EventTypePresentable, EventDetailsPresentable, EventDescr
         }
         let localNotificationContent = UNMutableNotificationContent()
         localNotificationContent.body = "\(self.title) starts in 15 minutes at \(location)!"
-        localNotificationContent.sound = UNNotificationSound.default()
+        localNotificationContent.sound = UNNotificationSound.default
         localNotificationContent.userInfo = ["sessionID": sessionId.value]
         // Trigger notification
         let triggerDate = (self.startDateTime.value as Date).addingTimeInterval(-15 * 60)
