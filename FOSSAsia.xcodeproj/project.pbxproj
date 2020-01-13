@@ -72,11 +72,11 @@
 		405CCFEE1FBC8D6A009F8A1C /* DZNEmptyDataSet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 405CCFF41FBC8D6A009F8A1C /* DZNEmptyDataSet.framework */; };
 		405CCFEF1FBC8D6A009F8A1C /* MGSwipeTableCell.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 405CCFF51FBC8D6A009F8A1C /* MGSwipeTableCell.framework */; };
 		405CCFF01FBC8D6A009F8A1C /* Pages.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 405CCFF61FBC8D6A009F8A1C /* Pages.framework */; };
+		405CCFF11FBC8D6A009F8A1C /* Pods_FOSSAsia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 405CCFF71FBC8D6A009F8A1C /* Pods_FOSSAsia.framework */; };
 		405CCFF21FBC8D6A009F8A1C /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 405CCFF81FBC8D6A009F8A1C /* SwiftyJSON.framework */; };
 		40BD58D11FAFC78400C3891E /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40BD58CF1FAFC73600C3891E /* UserNotifications.framework */; };
 		40BD58D21FAFC78F00C3891E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40BD58D01FAFC74600C3891E /* UIKit.framework */; };
 		5BAE561720C7733B00525CB9 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BAE561620C7733B00525CB9 /* MapViewController.swift */; };
-		A354E1B14A452F2032322B84 /* Pods_FOSSAsia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 553A5A4F3AFB55FAD4F5A58E /* Pods_FOSSAsia.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -103,6 +103,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0C6C3C6E6BB94887BCEE095E /* Pods_FOSSAsia.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FOSSAsia.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		186729E220F7610700C3AA45 /* Profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		1884C8DB20D639F8004B221F /* SignupVcMethods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupVcMethods.swift; sourceTree = "<group>"; };
 		1884C8DE20D642E6004B221F /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -194,13 +195,13 @@
 		405CCFF41FBC8D6A009F8A1C /* DZNEmptyDataSet.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = DZNEmptyDataSet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		405CCFF51FBC8D6A009F8A1C /* MGSwipeTableCell.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MGSwipeTableCell.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		405CCFF61FBC8D6A009F8A1C /* Pages.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pages.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		405CCFF71FBC8D6A009F8A1C /* Pods_FOSSAsia.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_FOSSAsia.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		405CCFF81FBC8D6A009F8A1C /* SwiftyJSON.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SwiftyJSON.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		40BD58CF1FAFC73600C3891E /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
 		40BD58D01FAFC74600C3891E /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		553A5A4F3AFB55FAD4F5A58E /* Pods_FOSSAsia.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FOSSAsia.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BAE561620C7733B00525CB9 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
-		6C7460F481212AD94BBAB578 /* Pods-FOSSAsia.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FOSSAsia.release.xcconfig"; path = "Target Support Files/Pods-FOSSAsia/Pods-FOSSAsia.release.xcconfig"; sourceTree = "<group>"; };
-		FE45E0BA5844F2FF4FE6B923 /* Pods-FOSSAsia.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FOSSAsia.debug.xcconfig"; path = "Target Support Files/Pods-FOSSAsia/Pods-FOSSAsia.debug.xcconfig"; sourceTree = "<group>"; };
+		673535C2361286B5378F4A57 /* Pods-FOSSAsia.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FOSSAsia.release.xcconfig"; path = "Pods/Target Support Files/Pods-FOSSAsia/Pods-FOSSAsia.release.xcconfig"; sourceTree = "<group>"; };
+		E7067DBA4800AB8AC393BD7A /* Pods-FOSSAsia.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FOSSAsia.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FOSSAsia/Pods-FOSSAsia.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -212,10 +213,10 @@
 				405CCFEE1FBC8D6A009F8A1C /* DZNEmptyDataSet.framework in Frameworks */,
 				405CCFEF1FBC8D6A009F8A1C /* MGSwipeTableCell.framework in Frameworks */,
 				405CCFF01FBC8D6A009F8A1C /* Pages.framework in Frameworks */,
+				405CCFF11FBC8D6A009F8A1C /* Pods_FOSSAsia.framework in Frameworks */,
 				405CCFF21FBC8D6A009F8A1C /* SwiftyJSON.framework in Frameworks */,
 				40BD58D21FAFC78F00C3891E /* UIKit.framework in Frameworks */,
 				40BD58D11FAFC78400C3891E /* UserNotifications.framework in Frameworks */,
-				A354E1B14A452F2032322B84 /* Pods_FOSSAsia.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -365,8 +366,8 @@
 				285F1B631C5AF7B100A7E0DD /* FOSSAsia */,
 				28A50BD31C8C5D2B009E91DE /* FOSSAsiaUITests */,
 				285F1B621C5AF7B100A7E0DD /* Products */,
+				8C4556AD4F10E8C1FF0495B8 /* Pods */,
 				9DA21FF099DE2C5D1B738BFB /* Frameworks */,
-				66CE3E105A353666D6320F39 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -481,13 +482,13 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		66CE3E105A353666D6320F39 /* Pods */ = {
+		8C4556AD4F10E8C1FF0495B8 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				FE45E0BA5844F2FF4FE6B923 /* Pods-FOSSAsia.debug.xcconfig */,
-				6C7460F481212AD94BBAB578 /* Pods-FOSSAsia.release.xcconfig */,
+				E7067DBA4800AB8AC393BD7A /* Pods-FOSSAsia.debug.xcconfig */,
+				673535C2361286B5378F4A57 /* Pods-FOSSAsia.release.xcconfig */,
 			);
-			path = Pods;
+			name = Pods;
 			sourceTree = "<group>";
 		};
 		9DA21FF099DE2C5D1B738BFB /* Frameworks */ = {
@@ -497,6 +498,7 @@
 				405CCFF41FBC8D6A009F8A1C /* DZNEmptyDataSet.framework */,
 				405CCFF51FBC8D6A009F8A1C /* MGSwipeTableCell.framework */,
 				405CCFF61FBC8D6A009F8A1C /* Pages.framework */,
+				405CCFF71FBC8D6A009F8A1C /* Pods_FOSSAsia.framework */,
 				405CCFF81FBC8D6A009F8A1C /* SwiftyJSON.framework */,
 				405CCFE81FBC8C58009F8A1C /* DateTools.framework */,
 				405CCFE91FBC8C58009F8A1C /* DZNEmptyDataSet.framework */,
@@ -505,7 +507,7 @@
 				405CCFEC1FBC8C58009F8A1C /* SwiftyJSON.framework */,
 				40BD58D01FAFC74600C3891E /* UIKit.framework */,
 				40BD58CF1FAFC73600C3891E /* UserNotifications.framework */,
-				553A5A4F3AFB55FAD4F5A58E /* Pods_FOSSAsia.framework */,
+				0C6C3C6E6BB94887BCEE095E /* Pods_FOSSAsia.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -517,12 +519,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 285F1B751C5AF7B100A7E0DD /* Build configuration list for PBXNativeTarget "FOSSAsia" */;
 			buildPhases = (
-				B03893CBA61BB3AC9552B3FB /* [CP] Check Pods Manifest.lock */,
+				D39D5E71CB5BD8E82B9C9E03 /* [CP] Check Pods Manifest.lock */,
 				285F1B5D1C5AF7B100A7E0DD /* Sources */,
 				285F1B5E1C5AF7B100A7E0DD /* Frameworks */,
 				285F1B5F1C5AF7B100A7E0DD /* Resources */,
 				285F1B861C5B014600A7E0DD /* Embed Frameworks */,
-				56AFAEB67BA839E04DEF19E7 /* [CP] Embed Pods Frameworks */,
+				4AB91F7697E9AB18AC6A625D /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -563,9 +565,8 @@
 				TargetAttributes = {
 					285F1B601C5AF7B100A7E0DD = {
 						CreatedOnToolsVersion = 7.2;
-						DevelopmentTeam = THNJZ5B3HT;
+						DevelopmentTeam = EZ49532236;
 						LastSwiftMigration = 0910;
-						ProvisioningStyle = Automatic;
 					};
 					28A50BD11C8C5D2A009E91DE = {
 						CreatedOnToolsVersion = 7.2.1;
@@ -579,7 +580,6 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
-				English,
 				en,
 				Base,
 			);
@@ -604,6 +604,7 @@
 				2824FD6B1C6DBF9A00F783E1 /* More.storyboard in Resources */,
 				285F89B21C8149420033D090 /* Favorites.storyboard in Resources */,
 				285F1B711C5AF7B100A7E0DD /* LaunchScreen.storyboard in Resources */,
+				186729E720F762EC00C3AA45 /* Profile.storyboard in Resources */,
 				28A17BCA1C70AF0200318336 /* IndividualEvent.storyboard in Resources */,
 				285F89B41C814B0A0033D090 /* Sessions.storyboard in Resources */,
 				285F1B6E1C5AF7B100A7E0DD /* Assets.xcassets in Resources */,
@@ -622,13 +623,13 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		56AFAEB67BA839E04DEF19E7 /* [CP] Embed Pods Frameworks */ = {
+		4AB91F7697E9AB18AC6A625D /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-FOSSAsia/Pods-FOSSAsia-frameworks.sh",
+				"${SRCROOT}/Pods/Target Support Files/Pods-FOSSAsia/Pods-FOSSAsia-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/DZNEmptyDataSet/DZNEmptyDataSet.framework",
 				"${BUILT_PRODUCTS_DIR}/DateTools/DateTools.framework",
@@ -657,23 +658,19 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-FOSSAsia/Pods-FOSSAsia-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FOSSAsia/Pods-FOSSAsia-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		B03893CBA61BB3AC9552B3FB /* [CP] Check Pods Manifest.lock */ = {
+		D39D5E71CB5BD8E82B9C9E03 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-			);
-			inputFileListPaths = (
 			);
 			inputPaths = (
 				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
 				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
 			outputPaths = (
 				"$(DERIVED_FILE_DIR)/Pods-FOSSAsia-checkManifestLockResult.txt",
 			);
@@ -897,14 +894,12 @@
 		};
 		285F1B761C5AF7B100A7E0DD /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FE45E0BA5844F2FF4FE6B923 /* Pods-FOSSAsia.debug.xcconfig */;
+			baseConfigurationReference = E7067DBA4800AB8AC393BD7A /* Pods-FOSSAsia.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Undertide LLP (EZ49532236)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Undertide LLP (EZ49532236)";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = THNJZ5B3HT;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -914,10 +909,9 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = "$(inherited)";
-				PRODUCT_BUNDLE_IDENTIFIER = com.pranavk.open;
+				PRODUCT_BUNDLE_IDENTIFIER = co.undertide.fossasia;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "fce03692-2579-43b1-8e85-3915222102d2";
-				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "FOSSAsia/Fossasia-Bridging-Header.h";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
@@ -927,14 +921,12 @@
 		};
 		285F1B771C5AF7B100A7E0DD /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6C7460F481212AD94BBAB578 /* Pods-FOSSAsia.release.xcconfig */;
+			baseConfigurationReference = 673535C2361286B5378F4A57 /* Pods-FOSSAsia.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Undertide LLP (EZ49532236)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Undertide LLP (EZ49532236)";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = THNJZ5B3HT;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -944,10 +936,9 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = "$(inherited)";
-				PRODUCT_BUNDLE_IDENTIFIER = com.pranavk.open;
+				PRODUCT_BUNDLE_IDENTIFIER = co.undertide.fossasia;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "fce03692-2579-43b1-8e85-3915222102d2";
-				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "FOSSAsia/Fossasia-Bridging-Header.h";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
