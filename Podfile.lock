@@ -1,19 +1,19 @@
 PODS:
-  - Alamofire (4.7.3)
+  - Alamofire (4.9.1)
   - DateTools (2.0.0)
   - DZNEmptyDataSet (1.8.1)
   - IQKeyboardManagerSwift (5.0.0)
-  - Material (2.16.4):
-    - Material/Core (= 2.16.4)
-  - Material/Core (2.16.4):
-    - Motion (~> 1.4.3)
-  - MGSwipeTableCell (1.6.7)
-  - Motion (1.4.3):
-    - Motion/Core (= 1.4.3)
-  - Motion/Core (1.4.3)
+  - Material (3.1.8):
+    - Material/Core (= 3.1.8)
+  - Material/Core (3.1.8):
+    - Motion (~> 3.1.1)
+  - MGSwipeTableCell (1.6.11)
+  - Motion (3.1.3):
+    - Motion/Core (= 3.1.3)
+  - Motion/Core (3.1.3)
   - Pages (2.0.2)
   - SwiftValidators (5.0.0)
-  - SwiftyJSON (4.2.0)
+  - SwiftyJSON (5.0.0)
   - Toast-Swift (3.0.1)
 
 DEPENDENCIES:
@@ -29,7 +29,7 @@ DEPENDENCIES:
   - Toast-Swift (~> 3.0.0)
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
+  trunk:
     - Alamofire
     - IQKeyboardManagerSwift
     - Material
@@ -53,28 +53,28 @@ CHECKOUT OPTIONS:
     :commit: 76ba8bafccb0b28d9af74a8f525a74b5276ed693
     :git: https://github.com/MatthewYork/DateTools.git
   DZNEmptyDataSet:
-    :commit: d210f5a40195e40806e2d39ff8698c7bc2e4938e
+    :commit: 8deb3fe69f75c5022a53a903468b29552dc70e66
     :git: https://github.com/dzenbot/DZNEmptyDataSet.git
   MGSwipeTableCell:
-    :commit: a523e5953a1e63c41d7b3b2b5876685cba3cd972
+    :commit: 887696bce561d19497f5419123bdb350fd1202ab
     :git: https://github.com/MortimerGoro/MGSwipeTableCell.git
   SwiftyJSON:
-    :commit: 3f6f1d32df6e5f334593682b20bb829e48bffbee
+    :commit: bad5f2f94a71216a32c030a3586bdcfc1f7e660b
     :git: https://github.com/SwiftyJSON/SwiftyJSON.git
 
 SPEC CHECKSUMS:
-  Alamofire: c7287b6e5d7da964a70935e5db17046b7fde6568
+  Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
   DateTools: 933ac9c490f21f92127cf690ccd8c397e0126caf
   DZNEmptyDataSet: b94434220f87d9dda46660eb4f07a424778e93b4
   IQKeyboardManagerSwift: 3f340202ebe1a7076279b9b9b3c817243ddb3aab
-  Material: 4ed78690b09ffd148b5ffab6b4367fb1d8da1cd3
-  MGSwipeTableCell: fb20e983988bde2b8d0df29c2d9e1d8ffd10b74a
-  Motion: 153ba49692997888556c7a95207278a8b1f8be95
+  Material: a2a3f400a3b549d53ef89e56c58c4535b29db387
+  MGSwipeTableCell: b804e4e450dee439c42250be90bd50458bf67fce
+  Motion: cf1e060e489f6661126374d5c60dbd2ed991605c
   Pages: 5564ac6035c48fef7a837049314f57507d263b11
   SwiftValidators: 81db772ba2798fd4140ed57bfd7b80ab1ab42e93
-  SwiftyJSON: c4bcba26dd9ec7a027fc8eade48e2c911f229e96
+  SwiftyJSON: f0574c07d8ca1644050db687067209e3033a89a0
   Toast-Swift: ba0b01b095aada709d915f9beb1d38184a2721c3
 
 PODFILE CHECKSUM: 661d447f3ad9e389af5d92f0b5150e7060e8ca05
 
-COCOAPODS: 1.5.3
+COCOAPODS: 1.8.4
