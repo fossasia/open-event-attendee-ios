@@ -32,6 +32,7 @@ class AuthTabBarViewController: UITabBarController {
         guard let vc: UITabBarController = mainStoryboard.instantiateViewController(withIdentifier: "tabBarController") as? UITabBarController else {
             fatalError("Cannot Cast to UITabBarController")
         }
+        vc.modalPresentationStyle = .fullScreen
         vc.selectedIndex = 0
         self.present(vc, animated: true, completion: nil)
 
